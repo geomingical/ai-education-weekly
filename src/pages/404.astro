@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { t } from '../domain/i18n';
+import { sitePath, withBase } from '../lib/paths';
 
 const locale = 'zh-tw' as const;
 ---
@@ -13,11 +14,11 @@ const locale = 'zh-tw' as const;
   description={t(locale, 'notFoundBody')}
   noindex
 >
-  <SiteHeader locale={locale} languageHref="/en/" />
+  <SiteHeader locale={locale} languageHref={sitePath("en", "/")} />
   <main id="main-content" class="page-shell subpage">
     <h1>{t(locale, 'notFoundTitle')}</h1>
     <p>{t(locale, 'notFoundBody')}</p>
-    <p><a href="/">{t(locale, 'backToHome')}</a></p>
+    <p><a href={withBase("/")}>{t(locale, 'backToHome')}</a></p>
   </main>
   <SiteFooter locale={locale} />
 </BaseLayout>

@@ -7,7 +7,7 @@ import { buildRows, issueLabels, rowsForIssue } from '../domain/rows';
 import { issueDateRange } from '../domain/issue';
 import { countText } from '../domain/format';
 import { t } from '../domain/i18n';
-import { localizedPath } from '../domain/locale';
+import { sitePath } from '../lib/paths';
 import type { Locale } from '../domain/story';
 
 interface Props {
@@ -38,7 +38,7 @@ const issues = issueLabels(rows).map((label) => ({
 >
   <SiteHeader
     locale={locale}
-    languageHref={localizedPath(locale === 'en' ? 'zh-tw' : 'en', '/archive/')}
+    languageHref={sitePath(locale === 'en' ? 'zh-tw' : 'en', '/archive/')}
   />
   <main id="main-content" class="page-shell archive">
     <h1>{t(locale, 'archiveTitle')}</h1>
@@ -50,7 +50,7 @@ const issues = issueLabels(rows).map((label) => ({
       <ul class="archive__list">
         {issues.map((entry) => (
           <li class="archive__item">
-            <a href={localizedPath(locale, `/weekly/${entry.label}/`)}>{entry.label}</a>
+            <a href={sitePath(locale, `/weekly/${entry.label}/`)}>{entry.label}</a>
             <span class="archive__range">{entry.range}</span>
             <span class="archive__count">
               {countText(locale, 'archiveStoryCount', entry.count)}

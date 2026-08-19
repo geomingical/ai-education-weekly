@@ -1,7 +1,7 @@
 ---
 import type { Locale } from '../domain/story';
 import { t } from '../domain/i18n';
-import { localizedPath } from '../domain/locale';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   locale: Locale;
@@ -10,7 +10,7 @@ interface Props {
 
 const { locale, languageHref } = Astro.props;
 const isEnglish = locale === 'en';
-const home = localizedPath(locale, '/');
+const home = sitePath(locale, '/');
 ---
 
 <header class="site-header page-shell">
@@ -20,9 +20,9 @@ const home = localizedPath(locale, '/');
   </a>
   <nav class="site-header__nav" aria-label={t(locale, 'navAriaLabel')}>
     <a href={home}>{t(locale, 'navThisWeek')}</a>
-    <a href={localizedPath(locale, '/archive/')}>{t(locale, 'navArchive')}</a>
-    <a href={localizedPath(locale, '/sources/')}>{t(locale, 'navSources')}</a>
-    <a href={localizedPath(locale, '/method/')}>{t(locale, 'navMethod')}</a>
+    <a href={sitePath(locale, '/archive/')}>{t(locale, 'navArchive')}</a>
+    <a href={sitePath(locale, '/sources/')}>{t(locale, 'navSources')}</a>
+    <a href={sitePath(locale, '/method/')}>{t(locale, 'navMethod')}</a>
     <a data-language-link href={languageHref}>
       {t(locale, isEnglish ? 'languageSwitchToChinese' : 'languageSwitchToEnglish')}
     </a>

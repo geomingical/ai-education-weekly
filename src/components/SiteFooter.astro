@@ -1,7 +1,7 @@
 ---
 import type { Locale } from '../domain/story';
 import { t } from '../domain/i18n';
-import { localizedPath } from '../domain/locale';
+import { sitePath, withBase } from '../lib/paths';
 
 interface Props {
   locale: Locale;
@@ -21,9 +21,9 @@ const statementLine = [
     {statementLine}
   </p>
   <p class="site-footer__line">
-    <a href={localizedPath(locale, '/method/')}>{t(locale, 'methodTitle')}</a>
+    <a href={sitePath(locale, '/method/')}>{t(locale, 'methodTitle')}</a>
     {' · '}
-    <a href="/rss.xml">{t(locale, 'rssLinkLabel')}</a>
+    <a href={withBase("/rss.xml")}>{t(locale, 'rssLinkLabel')}</a>
     {' · '}
     <a href="https://aimingdata.com">{t(locale, 'attributionText')}</a>
   </p>

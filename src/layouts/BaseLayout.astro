@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import type { Locale } from '../domain/story';
 import { t } from '../domain/i18n';
+import { stripBase, withBase } from '../lib/paths';
 import { counterpartPath } from '../domain/locale';
 
 interface Props {
@@ -15,11 +16,14 @@ interface Props {
 
 const { locale, title, description, noindex = false } = Astro.props;
 
+// Astro gives the deployed path, which already carries the base. The locale
+// helpers reason about site-root-relative paths, so strip it, compute, re-add.
 const pathname = Astro.url.pathname;
-const isEnglishPath = pathname === '/en' || pathname.startsWith('/en/');
-const other = counterpartPath(pathname);
-const zhPath = isEnglishPath ? other : pathname;
-const enPath = isEnglishPath ? pathname : other;
+const sitePathname = stripBase(pathname);
+const isEnglishPath = sitePathname === '/en' || sitePathname.startsWith('/en/');
+const other = counterpartPath(sitePathname);
+const zhPath = withBase(isEnglishPath ? other : sitePathname);
+const enPath = withBase(isEnglishPath ? sitePathname : other);
 
 const siteOrigin = Astro.site ? Astro.site.origin : '';
 const canonicalUrl = `${siteOrigin}${pathname}`;
@@ -40,7 +44,7 @@ const siteName = t(locale, 'siteTitle');
       rel="alternate"
       type="application/rss+xml"
       title={siteName}
-      href={`${siteOrigin}/rss.xml`}
+      href={`${siteOrigin}${withBase("/rss.xml")}`}
     />
     {noindex ? (
       <meta name="robots" content="noindex" />

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { t } from '../domain/i18n';
-import { localizedPath } from '../domain/locale';
+import { sitePath } from '../lib/paths';
 import type { Locale } from '../domain/story';
 
 interface Props {
@@ -27,7 +27,7 @@ const sections = [
 >
   <SiteHeader
     locale={locale}
-    languageHref={localizedPath(locale === 'en' ? 'zh-tw' : 'en', '/method/')}
+    languageHref={sitePath(locale === 'en' ? 'zh-tw' : 'en', '/method/')}
   />
   <main id="main-content" class="page-shell subpage">
     <h1>{t(locale, 'methodTitle')}</h1>
@@ -38,7 +38,7 @@ const sections = [
       </>
     ))}
     <p>
-      <a href={localizedPath(locale, '/sources/')}>{t(locale, 'sourcesTitle')}</a>
+      <a href={sitePath(locale, '/sources/')}>{t(locale, 'sourcesTitle')}</a>
     </p>
   </main>
   <SiteFooter locale={locale} />

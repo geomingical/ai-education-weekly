@@ -6,7 +6,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import { formatCategory, formatRegion, formatTier, countText } from '../domain/format';
 import { SOURCE_CATEGORIES } from '../domain/source';
 import { t } from '../domain/i18n';
-import { localizedPath } from '../domain/locale';
+import { sitePath } from '../lib/paths';
 import type { Locale } from '../domain/story';
 
 interface Props {
@@ -42,7 +42,7 @@ const groups = SOURCE_CATEGORIES.map((category) => ({
 >
   <SiteHeader
     locale={locale}
-    languageHref={localizedPath(locale === 'en' ? 'zh-tw' : 'en', '/sources/')}
+    languageHref={sitePath(locale === 'en' ? 'zh-tw' : 'en', '/sources/')}
   />
   <main id="main-content" class="page-shell sources">
     <h1>{t(locale, 'sourcesTitle')}</h1>

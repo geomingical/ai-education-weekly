@@ -34,7 +34,11 @@ export const GET: APIRoute = async () => {
     defaultFilterState,
   ).slice(0, MAX_ITEMS);
 
-  const base = (import.meta.env.SITE ?? '').replace(/\/$/, '');
+  // The site origin plus the deployment sub-path. Story links point at the
+  // original article, so only the channel's own links need this.
+  const base =
+    (import.meta.env.SITE ?? '').replace(/\/$/, '') +
+    import.meta.env.BASE_URL.replace(/\/$/, '');
   const title = messages.siteTitle['zh-tw'];
   const description = messages.siteTagline['zh-tw'];
   const machineBadge = messages.storyMachineSummaryBadge['zh-tw'];

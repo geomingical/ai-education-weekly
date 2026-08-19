@@ -9,7 +9,7 @@ import { defaultFilterState, applyFilters } from '../domain/filters';
 import { buildRows, issueLabels, rowsForIssue } from '../domain/rows';
 import { issueDateRange } from '../domain/issue';
 import { t } from '../domain/i18n';
-import { localizedPath } from '../domain/locale';
+import { sitePath } from '../lib/paths';
 import type { Locale } from '../domain/story';
 
 interface Props {
@@ -46,7 +46,7 @@ const heading = currentIssue
   ? `${t(locale, 'issueLabel')} ${currentIssue}`
   : t(locale, 'introHeadline');
 const title = `${heading} · ${t(locale, 'siteTitle')}`;
-const languageHref = localizedPath(
+const languageHref = sitePath(
   locale === 'en' ? 'zh-tw' : 'en',
   issue ? `/weekly/${issue}/` : '/',
 );
@@ -75,12 +75,12 @@ const languageHref = localizedPath(
 
     <nav class="issue__nav" aria-label={t(locale, 'archiveTitle')}>
       {olderIssue ? (
-        <a href={localizedPath(locale, `/weekly/${olderIssue}/`)}>
+        <a href={sitePath(locale, `/weekly/${olderIssue}/`)}>
           ← {t(locale, 'issuePrevious')} {olderIssue}
         </a>
       ) : <span />}
       {newerIssue ? (
-        <a href={localizedPath(locale, `/weekly/${newerIssue}/`)}>
+        <a href={sitePath(locale, `/weekly/${newerIssue}/`)}>
           {t(locale, 'issueNext')} {newerIssue} →
         </a>
       ) : <span />}

@@ -32,7 +32,9 @@ export const GET: APIRoute = async () => {
     `/en/weekly/${label}/`,
   ]);
 
-  const base = (import.meta.env.SITE ?? '').replace(/\/$/, '');
+  const base =
+    (import.meta.env.SITE ?? '').replace(/\/$/, '') +
+    import.meta.env.BASE_URL.replace(/\/$/, '');
   const urls = [...STATIC_ROUTES, ...issueRoutes]
     .map((route) => `  <url><loc>${base}${route}</loc></url>`)
     .join('\n');
