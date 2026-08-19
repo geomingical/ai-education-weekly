@@ -1,10 +1,13 @@
 # Weekly collection and publish.
 #
-# INACTIVE BY DESIGN. `on:` below is workflow_dispatch only; the weekly cron
-# trigger sits right beneath it, commented out. Turning this on is a deliberate,
-# reviewable one-line edit — never a flag or an environment check that could
-# flip silently. Enabling it starts publishing to a public site without a human
-# reading each item first, which is Ming's decision to make, not this file's.
+# ACTIVE since 2026-08-19. Runs every Monday at 09:00 Taipei time and publishes
+# to https://geomingical.github.io/ai-education-weekly/ without a human reading
+# each item first — which is the design Ming chose, with the source registry as
+# the editorial control. It was switched on only after one manual run proved the
+# whole loop on CI: tests, collection, summarization, build, commit, deploy.
+#
+# To pause it, comment the two `schedule:` lines out again. Nothing else needs
+# to change, and workflow_dispatch keeps working for manual runs.
 #
 # What a run does, in order:
 #   1. fetches every ACTIVE feed in src/data/sources.json (and nothing else),
@@ -19,8 +22,8 @@
 name: Weekly digest
 
 on:
-  # schedule:
-  #   - cron: '0 1 * * 1'   # 09:00 Taipei every Monday — enable when Ming is ready
+  schedule:
+    - cron: '0 1 * * 1'   # 09:00 Taipei every Monday
   workflow_dispatch:
     inputs:
       since_days:

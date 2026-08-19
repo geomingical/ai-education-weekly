@@ -20,13 +20,37 @@ describe('workflow triggers', () => {
 
   // This site publishes automatically. An automatic trigger that arrives by
   // accident would start publishing to the public internet without anyone
-  // deciding to. Turning one on must be a visible, deliberate edit.
-  it.each(files)('%s has no uncommented automatic trigger', (name) => {
+  // deciding to. Exactly ONE workflow is allowed a schedule, and only because
+  // Ming enabled it on 2026-08-19 after a manual CI run proved the whole loop.
+  const SCHEDULED_BY_DESIGN = 'weekly-digest.yml';
+
+  it.each(files)('%s has no unintended automatic trigger', (name) => {
     const lines = readFileSync(resolve(dir, name), 'utf8').split('\n');
-    const offenders = lines.filter((line) =>
+    const triggers = lines.filter((line) =>
       /^\s*(schedule|push|pull_request|pull_request_target|release):/.test(line),
     );
-    expect(offenders).toEqual([]);
+    const allowed =
+      name === SCHEDULED_BY_DESIGN ? triggers.filter((line) => /^\s*schedule:/.test(line)) : [];
+    expect(triggers.filter((line) => !allowed.includes(line))).toEqual([]);
+  });
+
+  // A push or pull_request trigger would publish on every commit, which is a
+  // different thing entirely from a weekly digest.
+  it.each(files)('%s never publishes on a push', (name) => {
+    const lines = readFileSync(resolve(dir, name), 'utf8').split('\n');
+    expect(
+      lines.filter((line) => /^\s*(push|pull_request_target|release):/.test(line)),
+    ).toEqual([]);
+  });
+
+  it('keeps the weekly digest on a weekly cron, not a more frequent one', () => {
+    const body = readFileSync(resolve(dir, SCHEDULED_BY_DESIGN), 'utf8');
+    const cron = /^\s*-\s*cron:\s*'([^']+)'/m.exec(body)?.[1];
+    expect(cron).toBeDefined();
+    // Five fields, and the day-of-week field must name a specific day.
+    const fields = (cron ?? '').trim().split(/\s+/);
+    expect(fields).toHaveLength(5);
+    expect(fields[4]).not.toBe('*');
   });
 });
 

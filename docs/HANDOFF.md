@@ -1,7 +1,8 @@
 # AI 教育週報 — handoff
 
-Status as of 2026-08-18. Everything below has been run and verified locally.
-Nothing has been pushed to GitHub and nothing is deployed.
+**Live at https://geomingical.github.io/ai-education-weekly/**, published from
+`geomingical/ai-education-weekly` (public), running every Monday at 09:00 Taipei
+time. Deployed 2026-08-19.
 
 ## What this is
 
@@ -353,18 +354,39 @@ and no `:global(` outside the layout.
   Harmless for a normal week (a handful of stories, minutes); worth interleaving
   the two stages if backfills become routine.
 
-## Before this goes live
+## Deployment
 
-Everything below is a human checkpoint (see `CLAUDE.md`) and none of it is done:
+Done on 2026-08-19, in this order — the order matters, because each step proves
+the next one is safe:
 
-1. Create the GitHub repository and push.
-2. Add the model key as the `AI_EDU_API_KEY` repository secret — it lives in
-   `.env` locally as `NVIDIA_API_KEY` and is gitignored. Then run the weekly
-   workflow once manually and read the run summary before trusting it.
-3. Decide the domain. `astro.config.mjs` currently says
-   `https://ai-edu.aimingdata.com`; `public/robots.txt` repeats it. Both need
-   changing together, and a `public/CNAME` needs adding, if the domain differs.
-4. Enable GitHub Pages and run the deploy workflow manually.
-5. Only then uncomment the `schedule:` line in
-   `.github/workflows/weekly-digest.yml`. That is the moment this starts
-   publishing to the public internet without anyone reading it first.
+1. Public repository `geomingical/ai-education-weekly`. Public because GitHub
+   Pages only serves private repositories on a paid plan, and because the site's
+   content is public by design. Nothing sensitive is committed; `.env` is
+   ignored and was verified absent from the tracked tree before the first push.
+2. `AI_EDU_API_KEY` set as a repository secret from the local `.env`.
+3. Pages enabled with `build_type: workflow`.
+4. Deploy workflow run manually — it failed the first time, on a real gap:
+   `astro check` type-checks the test and pipeline sources, which use Node
+   built-ins, and `@types/node` was only present transitively. It passed
+   locally and produced 43 errors on a clean CI install. Declaring it fixed
+   both.
+5. The weekly digest workflow run manually, end to end on CI: tests, collection,
+   summarization, build verification, a commit of four new stories, deploy.
+6. **Only then** the `schedule:` trigger was uncommented.
+
+### Changing the domain later
+
+`astro.config.mjs` sets `base: '/ai-education-weekly'` because a GitHub Pages
+project site lives under a sub-path. `src/lib/paths.ts` is the only place that
+knows this — `src/domain/locale.ts` stays pure and returns site-root-relative
+paths. Moving to `ai-edu.aimingdata.com` means: set `base` back to `'/'`, set
+`site` to the domain, update `public/robots.txt`, add `public/CNAME`, add the
+DNS record, and update the Playwright base URLs. No component changes.
+
+### Pausing the schedule
+
+Comment out the two `schedule:` lines in
+`.github/workflows/weekly-digest.yml`. `workflow_dispatch` keeps working for
+manual runs. `tests/unit/guards.test.ts` allows a schedule in that one file and
+nowhere else, and still forbids any `push` or `pull_request` trigger anywhere —
+publishing on every commit is a different thing from a weekly digest.

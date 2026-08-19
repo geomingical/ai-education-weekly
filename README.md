@@ -5,6 +5,8 @@ hand-picked list of feeds, files each story under its ISO week, and publishes a
 weekly issue with a machine-written Traditional Chinese summary beside every
 original headline and link.
 
+**Live: https://geomingical.github.io/ai-education-weekly/**
+
 Start with **[`docs/HANDOFF.md`](docs/HANDOFF.md)**.
 
 ## Commands
@@ -39,5 +41,5 @@ docs/           handoff, and the source research this registry came from
 
 ## Status
 
-Runs locally, 399 tests green. Nothing is pushed or deployed; all GitHub
-workflows are inactive by design. See the checklist at the end of the handoff.
+**Live at https://geomingical.github.io/ai-education-weekly/** and running every
+Monday at 09:00 Taipei time. 749 unit tests and 42 browser tests green.
