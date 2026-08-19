@@ -51,9 +51,18 @@ describe('buildBatchPrompt — injection framing', () => {
     expect(prompt.match(/<item index=/g)).toHaveLength(1);
   });
 
-  it('bounds the prompt regardless of how long the feed text is', () => {
-    const prompt = buildBatchPrompt([input({ summary: 'x'.repeat(100_000) })]);
-    expect(prompt.length).toBeLessThan(3000);
+  // Bounded input is a defence, not a nicety: a hostile page must not get to
+  // choose the prompt size. The cap is generous enough for a whole article and
+  // still provable.
+  it('bounds the prompt regardless of how long the article is', () => {
+    const prompt = buildBatchPrompt([input({ summary: 'x'.repeat(500_000) })]);
+    expect(prompt.length).toBeLessThan(13_000);
+  });
+
+  it('passes a normal-length article through without cutting it', () => {
+    const article = 'The district piloted an AI tutor. '.repeat(200); // ~6,800 chars
+    const prompt = buildBatchPrompt([input({ summary: article })]);
+    expect(prompt).toContain(article.slice(0, 6_000));
   });
 });
 
@@ -276,25 +285,16 @@ describe('summarizeAll', () => {
       expect(result.errors.join(' ')).toMatch(/finish_reason=length/);
     });
 
-    // The reply is already safely mapped and the neighbours are useful; a whole
-    // extra request to rescue one entry is not worth it.
-    it('does not retry a per-entry content rejection', async () => {
+    // A content rejection means the model wrote one bad line, not that the
+    // reply is untrustworthy. The story falls back to its source's own words;
+    // spending a second call to re-roll it is not worth the quota.
+    it('does not retry a content rejection', async () => {
       const transport = vi.fn<ChatTransport>(async () =>
-        ok(
-          reply([
-            { index: 0, title: '', summary: 'bad' },
-            { index: 1, title: '好標題', summary: '好摘要' },
-          ]),
-        ),
+        ok(reply([{ index: 0, title: '', summary: 'bad' }])),
       );
-      const result = await summarizeAll(
-        [input(), input({ id: 'b'.repeat(16) })],
-        transport,
-        config,
-        timing(),
-      );
+      const result = await summarizeAll([input()], transport, config, timing());
       expect(transport).toHaveBeenCalledTimes(1);
-      expect(result.outputs).toHaveLength(1);
+      expect(result.outputs).toEqual([]);
       expect(result.failures).toBe(1);
       expect(result.attempts[0]?.outcome).toBe('accepted-with-drops');
     });
@@ -532,22 +532,15 @@ describe('replySchema', () => {
 });
 
 describe('response schema wiring', () => {
-  it('sends a schema matching the actual batch length', async () => {
-    const transport = vi.fn<ChatTransport>(async (request) =>
+  it('sends a one-item schema per call and summarizes every story', async () => {
+    const transport = vi.fn<ChatTransport>(async () =>
       ({
-        content: JSON.stringify({
-          items: new Array(
-            ((request.responseFormat as any).json_schema.schema.properties.items.minItems as number),
-          )
-            .fill(0)
-            .map((_unused, index) => ({ index, title: `標題${index}`, summary: `摘要${index}` })),
-        }),
+        content: JSON.stringify({ items: [{ index: 0, title: '標題', summary: '摘要' }] }),
         meta: { status: 200, durationMs: 1 },
         error: null,
       }) as const,
     );
-    // 7 items -> a full batch of 6 and a final batch of 1.
-    const items = new Array(7).fill(0).map((_, index) => input({ id: String(index).padStart(16, '0') }));
+    const items = new Array(3).fill(0).map((_, index) => input({ id: String(index).padStart(16, '0') }));
     const result = await summarizeAll(items, transport, { model: 'm', maxOutputTokens: 100 }, {
       sleep: async () => {},
       random: () => 0.5,
@@ -557,8 +550,8 @@ describe('response schema wiring', () => {
     const lengths = transport.mock.calls.map(
       (call) => (call[0].responseFormat as any).json_schema.schema.properties.items.minItems,
     );
-    expect(lengths).toEqual([6, 1]);
-    expect(result.outputs).toHaveLength(7);
+    expect(lengths).toEqual([1, 1, 1]);
+    expect(result.outputs).toHaveLength(3);
   });
 
   // Not every provider accepts response_format; the escape hatch must work.

@@ -16,7 +16,16 @@ export interface FetchResult {
 export interface RawFeedItem {
   title: string;
   link: string;
+  /** Short excerpt. This is what gets STORED and SHOWN — "summary and link
+   *  only" is what the source registry's licence notes promise. */
   summary: string;
+  /**
+   * The full post body when the feed shipped one (`content:encoded`, Atom
+   * `content`). TRANSIENT: it is handed to the summarizer and discarded, never
+   * written to src/data/stories.json and never rendered. Empty when the feed
+   * carried only a teaser — the caller then fetches the article page instead.
+   */
+  fullText: string;
   publishedAt: string | null; // ISO 8601, null when the feed omitted a date
   guid: string | null;
 }

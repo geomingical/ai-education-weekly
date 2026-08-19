@@ -3,7 +3,7 @@ import { inferTopics, isEducationRelevant, resolveTopics } from '../src/classify
 import type { RawFeedItem } from '../src/contracts';
 
 function item(title: string, summary = ''): RawFeedItem {
-  return { title, summary, link: 'https://example.org/x', publishedAt: null, guid: null };
+  return { title, summary, fullText: '', link: 'https://example.org/x', publishedAt: null, guid: null };
 }
 
 // The gate requires BOTH an education term and an AI term. That is what keeps a

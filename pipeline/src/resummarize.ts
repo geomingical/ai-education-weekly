@@ -14,12 +14,32 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { lookup } from 'node:dns/promises';
+import { createHostPacer, fetchArticleText } from './article';
+import type { FetchIO } from './fetcher';
 import { summarizeAll, type SummaryInput } from './summarize/summarizer';
 import { createHttpTransport } from './summarize/transport';
 import { loadSources } from '../../src/domain/source';
 import type { Story } from '../../src/domain/story';
 
 const ROOT = resolve(import.meta.dirname, '../..');
+
+/** Between article-page requests. Several registry sources publish a
+ *  Crawl-delay of 10 seconds; this stays on the polite side of all of them. */
+const ARTICLE_FETCH_DELAY_MS = 10_000;
+
+function pause(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const io: FetchIO = {
+  fetch: globalThis.fetch,
+  resolve: async (hostname) => {
+    const records = await lookup(hostname, { all: true });
+    return records.map((record) => record.address);
+  },
+  now: () => new Date(),
+};
 const SOURCES_PATH = resolve(ROOT, 'src/data/sources.json');
 const STORIES_PATH = resolve(ROOT, 'src/data/stories.json');
 const AGENTS_PATH = resolve(ROOT, 'pipeline/config/agents.json');
@@ -95,10 +115,36 @@ async function main(): Promise<void> {
   const model =
     modelOverrideIndex === -1 ? config.model : (process.argv[modelOverrideIndex + 1] ?? config.model);
 
+  // A backfill reads stories.json, which deliberately does not keep the article
+  // body — so the article page is fetched here. Failing to read one is not an
+  // error: that story is summarized from its stored excerpt instead.
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const articleText = new Map<string, string>();
+  let fetched = 0;
+  let failed = 0;
+
+  log(`fetching ${targets.length} article pages …`);
+  const pace = createHostPacer(ARTICLE_FETCH_DELAY_MS, pause);
+  for (const story of targets) {
+    const source = sourceById.get(story.sourceId);
+    if (!source) continue;
+    await pace(story.url, () => Date.now());
+
+    const article = await fetchArticleText(story.url, source.officialDomains, io);
+    fetched += 1;
+    if (article.text === null) {
+      failed += 1;
+      log(`  ${story.sourceId}: ${article.error}`);
+      continue;
+    }
+    articleText.set(story.id, article.text);
+  }
+  log(`  read ${fetched - failed} of ${fetched} article pages`);
+
   const inputs: SummaryInput[] = targets.map((story) => ({
     id: story.id,
     title: story.title,
-    summary: story.summaryOriginal,
+    summary: articleText.get(story.id) ?? story.summaryOriginal,
     sourceName: sourceNames.get(story.sourceId) ?? story.sourceId,
   }));
 

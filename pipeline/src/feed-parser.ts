@@ -92,6 +92,21 @@ function normalizeDate(value: string): string | null {
   return parsed.toISOString();
 }
 
+/**
+ * Plain text of whichever field actually carries the article, or '' when
+ * neither does. A body only counts as "the article" when it is substantially
+ * longer than the teaser — a `content:encoded` that merely repeats the
+ * description is not worth treating as full text.
+ */
+export const FULL_TEXT_MIN_CHARS = 600;
+
+function pickRicher(candidate: string, teaser: string): string {
+  const body = toPlainText(candidate);
+  if (body.length < FULL_TEXT_MIN_CHARS) return '';
+  if (body.length <= toPlainText(teaser).length * 1.5) return '';
+  return body;
+}
+
 function firstNonEmpty(...values: unknown[]): string {
   for (const value of values) {
     const text = textOf(value);
@@ -103,16 +118,25 @@ function firstNonEmpty(...values: unknown[]): string {
 function parseRssItems(channel: Record<string, unknown>): RawFeedItem[] {
   return asArray(channel['item'] as Record<string, unknown> | Record<string, unknown>[])
     .map((item): RawFeedItem => {
-      const summaryHtml = firstNonEmpty(item['description'], item['content:encoded']);
-      const guidNode = item['guid'];
+      // `description` is the teaser; `content:encoded` is usually the whole
+      // post. Both are read: the short one is what gets published, the long
+      // one is what the model reads. Taking whichever came first — which this
+      // did until it was measured — threw away a 7,000-character body sitting
+      // beside a 101-character teaser on four of the registry's feeds.
+      const description = textOf(item['description']);
+      const encoded = textOf(item['content:encoded']);
+      const teaser = description || encoded;
+      const body = pickRicher(encoded, description);
+
       return {
         title: toPlainText(textOf(item['title'])),
         link: textOf(item['link']).trim(),
-        summary: truncateSummary(toPlainText(summaryHtml)),
+        summary: truncateSummary(toPlainText(teaser)),
+        fullText: body,
         publishedAt: normalizeDate(
           firstNonEmpty(item['pubDate'], item['dc:date'], item['date']),
         ),
-        guid: textOf(guidNode).trim() || null,
+        guid: textOf(item['guid']).trim() || null,
       };
     });
 }
@@ -132,15 +156,18 @@ function atomLink(entry: Record<string, unknown>): string {
 
 function parseAtomEntries(feed: Record<string, unknown>): RawFeedItem[] {
   return asArray(feed['entry'] as Record<string, unknown> | Record<string, unknown>[])
-    .map((entry): RawFeedItem => ({
-      title: toPlainText(textOf(entry['title'])),
-      link: atomLink(entry),
-      summary: truncateSummary(
-        toPlainText(firstNonEmpty(entry['summary'], entry['content'])),
-      ),
-      publishedAt: normalizeDate(firstNonEmpty(entry['published'], entry['updated'])),
-      guid: textOf(entry['id']).trim() || null,
-    }));
+    .map((entry): RawFeedItem => {
+      const summary = textOf(entry['summary']);
+      const content = textOf(entry['content']);
+      return {
+        title: toPlainText(textOf(entry['title'])),
+        link: atomLink(entry),
+        summary: truncateSummary(toPlainText(summary || content)),
+        fullText: pickRicher(content, summary),
+        publishedAt: normalizeDate(firstNonEmpty(entry['published'], entry['updated'])),
+        guid: textOf(entry['id']).trim() || null,
+      };
+    });
 }
 
 function parseJsonFeed(body: string): FeedParseResult {
@@ -164,6 +191,7 @@ function parseJsonFeed(body: string): FeedParseResult {
       title: toPlainText(typeof item['title'] === 'string' ? item['title'] : ''),
       link: typeof item['url'] === 'string' ? item['url'].trim() : '',
       summary: truncateSummary(toPlainText(summary || contentText || contentHtml)),
+      fullText: pickRicher(contentHtml || contentText, summary),
       publishedAt: normalizeDate(
         typeof item['date_published'] === 'string' ? item['date_published'] : '',
       ),

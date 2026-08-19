@@ -28,6 +28,7 @@ export function makeSource(overrides: Partial<Source> = {}): Source {
     homepage: 'https://example.org/',
     feedUrl: 'https://example.org/feed.xml',
     feedFormat: 'rss',
+    urlPattern: null,
     category: 'edtech-news',
     language: 'en',
     region: 'US',

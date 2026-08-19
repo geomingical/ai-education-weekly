@@ -66,6 +66,56 @@ describe('source registry', () => {
   });
 });
 
+// Ming's rule, made mechanical: the full article text never reaches the web.
+// The site keeps a short excerpt and the link; the body the model reads lives
+// only in memory for one call. Several sources in the registry state "summary
+// and link only", so this is a licence commitment, not a preference.
+describe('published data carries excerpts, not articles', () => {
+  const stories = JSON.parse(
+    readFileSync(resolve(ROOT, 'src/data/stories.json'), 'utf8'),
+  ) as {
+    id: string;
+    url: string;
+    summaryOriginal: string;
+    summaryZhTW: string | null;
+    titleZhTW: string | null;
+  }[];
+
+  it('has stories to check', () => {
+    expect(stories.length).toBeGreaterThan(0);
+  });
+
+  // The parser caps excerpts at 400 characters. A record holding thousands
+  // would mean an article body leaked into the published JSON.
+  it.each(stories.map((story) => [story.id, story] as const))(
+    'story %s stores an excerpt, not a body',
+    (_id, story) => {
+      expect(story.summaryOriginal.length).toBeLessThanOrEqual(450);
+    },
+  );
+
+  it.each(stories.map((story) => [story.id, story] as const))(
+    'story %s links to the original over https',
+    (_id, story) => {
+      expect(story.url).toMatch(/^https:\/\//);
+    },
+  );
+
+  // The machine summary is meant to be a couple of sentences, not a reprint.
+  it.each(
+    stories.filter((story) => story.summaryZhTW !== null).map((story) => [story.id, story] as const),
+  )('story %s keeps its machine summary short', (_id, story) => {
+    expect((story.summaryZhTW ?? '').length).toBeLessThanOrEqual(320);
+  });
+
+  it('never stores an article-body field', () => {
+    const fields = new Set(stories.flatMap((story) => Object.keys(story)));
+    for (const banned of ['fullText', 'articleText', 'body', 'content']) {
+      expect(fields.has(banned)).toBe(false);
+    }
+  });
+});
+
 describe('message catalog', () => {
   const entries = Object.entries(messages);
 

@@ -49,22 +49,57 @@ npx tsx pipeline/src/resummarize.ts --dry-run --limit 6    # try the model on si
 Load the key first: `set -a; . ./.env; set +a`.
 
 1. **Read the registry.** Only `active` sources with a `feedUrl` are fetched.
-2. **Fetch**, through `pipeline/src/fetcher.ts` — https-only, allowlisted hosts,
-   every redirect hop re-validated, private/internal IPs blocked, size and time
-   capped. Copied from `AI_free_source`, where it was written for the same job.
-3. **Parse** RSS, RSS 1.0/RDF, Atom, or JSON Feed. A broken feed is an outcome in
-   the report, never an exception that ends the run.
+2. **Fetch the feed**, through `pipeline/src/fetcher.ts` — https-only,
+   allowlisted hosts, every redirect hop re-validated, private/internal IPs
+   blocked, size and time capped. Copied from `AI_free_source`, where it was
+   written for the same job.
+3. **Parse** RSS, RSS 1.0/RDF, Atom, or JSON Feed. A broken feed is an outcome
+   in the report, never an exception that ends the run. Each item yields **two**
+   pieces of text: a short excerpt (`description`) and, when the publisher
+   shipped one, the whole post body (`content:encoded`). They have completely
+   different fates — see step 5.
 4. **Gate** (`pipeline/src/ingest.ts`). An item must have a title, an https link
    on the source's own domain, a real publication date inside the window and not
    in the future, and — for `keyword` sources — both an education term and an AI
    term. Then it must be new, and must fit under the source's per-run cap.
-5. **Summarize** (best effort). Batches of six; a reply is accepted only if it is
-   JSON with exactly one validated entry per item sent. Anything else discards
-   the whole batch and those stories fall back to the source's own summary.
-6. **Merge** into `src/data/stories.json`. Additive: an existing record is never
+5. **Get the article text** (`pipeline/src/article.ts`), and this is the step
+   with the sharpest rule attached:
+   - If the feed already carried the body, use it. Four of the registry's feeds
+     ship 7,000–8,400 characters in `content:encoded`; fetching their article
+     pages as well would ask their servers for what they already gave.
+   - Otherwise fetch the article page and extract the readable body with
+     Readability (Firefox's reader-mode extractor), which drops navigation,
+     ads, and footers. A paywall, a cookie wall, or a script-rendered shell
+     yields nothing usable — that is an outcome, and the story is summarized
+     from its excerpt instead.
+   - Article fetches are paced **per host**, because Crawl-delay is a rule about
+     one server rather than a global speed limit.
+   - **The article text is never stored and never published.** It is handed to
+     the model once and dropped. `src/data/stories.json` keeps the short
+     excerpt, the machine summary, and the link — nothing else.
+6. **Summarize** (best effort). One story per call, so a rejected reply can only
+   ever cost that one story. A reply is accepted only if it matches the
+   requested shape; see the retry policy below.
+7. **Merge** into `src/data/stories.json`. Additive: an existing record is never
    rewritten, so a re-run cannot change what a reader already saw.
-7. **Report** one JSON document on stdout — per-source status, accepted counts,
+8. **Report** one JSON document on stdout — per-source status, accepted counts,
    and a rejection-reason histogram.
+
+### Why the flow looks like this
+
+The original design summarized from the feed's `description` alone. Measuring it
+showed why that was not enough: arXiv ships a full abstract (≈400 characters,
+which the excerpt cap was silently truncating), but EdSurge's description
+averages 88 characters and OpenAI's education newsletter 130. For 23 of 66
+stories the model had a one-line teaser to work from, so it was rephrasing a
+headline rather than summarizing an article.
+
+The obvious fix — fetch every article page — turned out to be mostly
+unnecessary. Four of the eight thin sources already ship the whole body in
+`content:encoded`; the parser was simply preferring `description` because it
+came first in a `firstNonEmpty(...)` call. Fixing that field preference covered
+26 stories at zero extra cost. Article fetching remains as the fallback for the
+handful of feeds that really do ship only a teaser.
 
 Set `AI_EDU_API_KEY` (or `NVIDIA_API_KEY`) to enable step 5. Without it the
 pipeline still runs and stories publish with the source's verbatim summary; the
@@ -126,14 +161,17 @@ Owned by `summarizeAll`, not the transport: only the summarizer knows whether a
 become four wire calls per batch. The transport makes exactly one attempt and
 returns typed failure data (`kind`, `status`, `retryAfterMs`, `requestId`).
 
-- Two attempts per batch, six retries per run, 25-minute wall-clock budget.
+- One story per call, two attempts each, six retries per run, 25-minute
+  wall-clock budget. A backfill that runs out of budget is finished by running
+  `pipeline:resummarize` again — it is idempotent.
 - Retries timeouts, network errors, 408, 429, 500, 502, 503, 504, a malformed
   body, empty content, and **one** shape rejection. Does not retry 400/401/403/
   404/422/501/505, and never retries a per-entry content rejection.
 - Attempt timeouts 75s then 120s — the longer second deadline tests whether a
   request was stalled rather than dead.
-- 3s between batches; 10s + 0–5s jitter before a retry; a server `Retry-After`
-  wins when it asks for longer, capped at 120s.
+- 8s between model calls; 10s + 0–5s jitter before a retry; a server
+  `Retry-After` wins when it asks for longer, capped at 120s. Article pages are
+  paced separately, 10s per host.
 - Timing is injected, so all of it is tested without the suite ever sleeping.
 
 ### One thing the first live run changed
@@ -158,10 +196,48 @@ tag is still refused; it just no longer takes five innocent summaries with it.
 `src/data/sources.json` — 33 sources, 15 active. Built from the verification pass
 in `docs/research/SOURCE_CANDIDATES.md`, where every URL was actually fetched.
 
-**Active (15):** ChatGPT for Education Newsletter, OpenAI News, Microsoft
-Education Blog, Khan Academy Blog, EdSurge, Education Week, Inside Higher Ed,
-three arXiv feeds, MIT News Education, Digital Promise, AI4K12, Hugging Face
-Blog, PanSci.
+**Active (18):** ChatGPT for Education Newsletter, OpenAI News, **Google for
+Education**, Microsoft Education Blog, Khan Academy Blog, EdSurge, Education
+Week, Inside Higher Ed, three arXiv feeds, MIT News Education, Digital Promise,
+AI4K12, Hugging Face Blog, PanSci, plus two indexed through a sitemap:
+**Anthropic News** and **DeepLearning.AI The Batch**.
+
+Stanford HAI was tried through its sitemap and withdrawn the same day: the
+sitemap is excellent, but its article pages serve 164KB of HTML containing seven
+`<p>` tags, and Readability extracts 58-103 characters from them. A live run
+confirmed 7 of 7 pages unreadable. Reading it would need a headless browser —
+a dependency and a fragility this project does not want — so it costs seven
+requests a week for nothing and is better left off.
+
+### Sitemap sources
+
+Some publishers worth watching simply do not publish a feed. Rather than scrape
+a listing page with CSS selectors — which breaks on the next redesign — those
+sources are read through `sitemap.xml`, a published standard with a published
+`<lastmod>` date field. `pipeline/src/sitemap.ts` filters by URL section, then
+by the date window, then caps, and only then fetches each surviving page and
+reads it with the same Readability extractor the article stage uses.
+
+Two things follow from a sitemap carrying no titles and no bodies:
+
+- Every candidate costs one page fetch, so the caps on these sources are small.
+  Anthropic spends about eight fetches in a normal week; in the week this was
+  built, the relevance filter correctly rejected all eight, because Anthropic
+  published watermarking, a model launch, an executive hire, and a partnership,
+  and no education news at all. That is the filter working, and it is the price
+  of a first-party source with no feed.
+- A cheap URL-slug pre-filter was considered and rejected. It would save
+  perhaps a minute a week and could silently drop the one story that matters —
+  the wrong trade on a first-party source.
+
+**Google's education feed was found on a second look.** The first research pass
+tested `/feed` and an old Blogger-style path and concluded there was none; the
+working pattern is `<category-path>/rss/`. It is a genuine education-category
+feed, so it runs in `always` mode.
+
+**Anthropic genuinely has none.** Every conventional path 404s and no page
+declares one — rechecked on 2026-08-19 via feed autodiscovery, which is the
+definitive test. Its robots.txt says `Allow: /` and advertises the sitemap.
 
 **Inactive (18), and why it matters:**
 
@@ -239,8 +315,11 @@ and no `:global(` outside the layout.
 
 ## Not built, on purpose
 
-- **HTML polling.** Every feedless source above would need it. It is the single
-  highest-value thing to add next, and the only way Taiwan gets covered.
+- **HTML listing polling.** Sitemaps covered the feedless sources that publish
+  one. Taiwan's 教育部 and 數位發展部 publish neither a feed nor a usable
+  sitemap, so covering them still needs listing-page parsing — the fragile kind,
+  with CSS selectors that a redesign breaks. Still the only route to Taiwanese
+  policy news.
 - **Deduplication across sources by content.** Two outlets covering the same
   announcement produce two stories. Only identical URLs collapse today.
 - **Per-story pages.** Rows link straight to the original.
@@ -262,8 +341,17 @@ and no `:global(` outside the layout.
   stories publish with the source's own summary and stay that way until someone
   runs `pipeline:resummarize`. Worth wiring into the workflow once the schedule
   is live and its real failure rate is known.
-- **Batch size was deliberately not tuned.** Six is what the evidence covers.
-  Changing it now would confound the next measurement.
+- **A backfill is slow by design.** One model call per story plus per-host
+  article pacing means roughly 15–25 minutes for 66 stories. A normal week is a
+  handful of stories and finishes in a couple of minutes.
+- **Article extraction will fail on some pages** — paywalls, cookie walls, and
+  script-rendered shells. Those stories fall back to the feed excerpt, which is
+  the pre-existing behaviour, so a failure costs quality rather than coverage.
+- **Articles are all fetched before any summarizing starts.** If a run hits its
+  wall-clock budget partway through summarizing, the pages fetched for the
+  remaining stories were read for nothing and will be read again next time.
+  Harmless for a normal week (a handful of stories, minutes); worth interleaving
+  the two stages if backfills become routine.
 
 ## Before this goes live
 

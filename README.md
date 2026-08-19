@@ -32,7 +32,7 @@ src/domain/     pure logic — schemas, filters, ISO weeks, i18n. No framework.
 src/data/       sources.json (the editorial control) and stories.json (the output)
 src/components/ Astro components; each owns its own scoped styles
 src/pages/      routes, mirrored under /en/, plus rss.xml and sitemap.xml
-pipeline/       fetch → parse → gate → summarize → merge
+pipeline/       fetch feed → parse → gate → get article text → summarize → merge
 tests/          unit, guard, and browser suites
 docs/           handoff, and the source research this registry came from
 ```

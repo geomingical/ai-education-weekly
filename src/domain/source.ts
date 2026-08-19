@@ -16,7 +16,7 @@ export const SOURCE_CATEGORIES = [
   'taiwan-local',     // Taiwanese / Chinese-language sources
 ] as const;
 
-export const FEED_FORMATS = ['rss', 'atom', 'json', 'none'] as const;
+export const FEED_FORMATS = ['rss', 'atom', 'json', 'sitemap', 'none'] as const;
 
 // A label is 1-63 chars of [a-z0-9-], not starting or ending with '-'.
 const DOMAIN_LABEL_RE = /^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$/;
@@ -74,10 +74,20 @@ export const sourceSchema = z
     name: z.string().min(1),
     homepage: httpsUrl,
 
-    // null means "no machine-readable feed exists". Such a source stays in the
-    // registry as a human reading list but is never fetched by the pipeline.
+    // null means "no machine-readable index exists at all". Such a source stays
+    // in the registry as a human reading list but is never fetched.
+    //
+    // `sitemap` is for publishers with no feed but a standards-compliant
+    // sitemap.xml carrying <lastmod> dates. It is the honest fallback: a
+    // published standard with a published date field, rather than a CSS
+    // selector that breaks on the next redesign.
     feedUrl: httpsUrl.nullable(),
     feedFormat: z.enum(FEED_FORMATS),
+
+    // Sitemap sources only: the URL substring that marks an article rather than
+    // a marketing page — e.g. "/news/". A sitemap lists the whole site, so
+    // without this the pipeline would try to read the pricing page.
+    urlPattern: z.string().min(1).nullable().default(null),
 
     category: z.enum(SOURCE_CATEGORIES),
     language: z.enum(['en', 'zh-tw', 'zh-cn', 'other']),
@@ -123,6 +133,20 @@ export const sourceSchema = z
   })
   .strict()
   .superRefine((source, ctx) => {
+    if (source.feedFormat === 'sitemap' && source.urlPattern === null) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `sitemap source "${source.id}" must set urlPattern, or it would try to read every page on the site`,
+        path: ['urlPattern'],
+      });
+    }
+    if (source.feedFormat !== 'sitemap' && source.urlPattern !== null) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `urlPattern only applies to sitemap sources; source "${source.id}" is ${source.feedFormat}`,
+        path: ['urlPattern'],
+      });
+    }
     if (source.feedUrl === null && source.feedFormat !== 'none') {
       ctx.addIssue({
         code: 'custom',

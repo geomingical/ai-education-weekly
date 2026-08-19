@@ -22,6 +22,7 @@ function item(overrides: Partial<RawFeedItem> = {}): RawFeedItem {
     title: 'AI in schools',
     link: 'https://example.org/a',
     summary: 'A summary.',
+    fullText: '',
     publishedAt: '2026-08-15T00:00:00.000Z',
     guid: null,
     ...overrides,

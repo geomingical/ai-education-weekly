@@ -20,12 +20,14 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { lookup } from 'node:dns/promises';
+import { createHostPacer, fetchArticleText } from './article';
 import { parseFeed } from './feed-parser';
+import { itemsFromSitemap, parseSitemap, selectSitemapEntries } from './sitemap';
 import { safeFetch, type FetchIO } from './fetcher';
 import { ingestSourceItems, type IngestedItem, type IngestSource } from './ingest';
 import { summarizeAll, type SummaryInput } from './summarize/summarizer';
 import { createHttpTransport } from './summarize/transport';
-import type { RunReport, SourceOutcome } from './contracts';
+import type { RawFeedItem, RunReport, SourceOutcome } from './contracts';
 import { loadSources, type Source } from '../../src/domain/source';
 import { issueLabelFromIso } from '../../src/domain/issue';
 import type { Story } from '../../src/domain/story';
@@ -47,6 +49,14 @@ export function parseWindowDays(argv: readonly string[]): number {
   const value = Number(argv[index + 1]);
   if (!Number.isFinite(value) || value <= 0 || value > 400) return DEFAULT_WINDOW_DAYS;
   return Math.floor(value);
+}
+
+/** Between article-page requests. Several registry sources publish a
+ *  Crawl-delay of 10 seconds; this stays on the polite side of all of them. */
+const ARTICLE_FETCH_DELAY_MS = 10_000;
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 const io: FetchIO = {
@@ -106,6 +116,9 @@ async function collect(
   windowDays: number,
   seenIds: Set<string>,
 ): Promise<{ items: IngestedItem[]; outcomes: SourceOutcome[] }> {
+  // Sitemap sources read article pages during collection, so they need the same
+  // per-host politeness the article stage uses.
+  const sitemapPacer = createHostPacer(ARTICLE_FETCH_DELAY_MS, delay);
   const items: IngestedItem[] = [];
   const outcomes: SourceOutcome[] = [];
 
@@ -134,19 +147,51 @@ async function collect(
       continue;
     }
 
-    const parsed = parseFeed(fetched.body);
-    outcome.parseError = parsed.error;
-    outcome.itemsSeen = parsed.items.length;
+    // A sitemap source needs its pages read before it has items at all; a feed
+    // source already carries them. Both end up as the same RawFeedItem shape.
+    let parsedItems: RawFeedItem[];
+    if (source.feedFormat === 'sitemap') {
+      const sitemap = parseSitemap(fetched.body);
+      outcome.parseError = sitemap.error;
+      if (sitemap.error !== null) {
+        outcomes.push(outcome);
+        log(`  ${source.id}: parse failed — ${sitemap.error}`);
+        continue;
+      }
+      const selected = selectSitemapEntries(sitemap.entries, {
+        urlPattern: source.urlPattern ?? '/',
+        windowStart: window.start,
+        windowEnd: window.end,
+        maxPages: effectiveCap(source.maxPerRun, windowDays),
+      });
+      log(`  ${source.id}: sitemap lists ${sitemap.entries.length} urls, ${selected.length} in window`);
+      const read = await itemsFromSitemap(
+        selected,
+        source.officialDomains,
+        io,
+        (url) => sitemapPacer(url, () => Date.now()),
+      );
+      if (read.pagesFailed > 0) {
+        log(`  ${source.id}: ${read.pagesFailed} of ${read.pagesFetched} pages unreadable`);
+      }
+      parsedItems = read.items;
+      outcome.itemsSeen = read.pagesFetched;
+    } else {
+      const parsed = parseFeed(fetched.body);
+      outcome.parseError = parsed.error;
+      outcome.itemsSeen = parsed.items.length;
 
-    if (parsed.error !== null) {
-      outcomes.push(outcome);
-      log(`  ${source.id}: parse failed — ${parsed.error}`);
-      continue;
+      if (parsed.error !== null) {
+        outcomes.push(outcome);
+        log(`  ${source.id}: parse failed — ${parsed.error}`);
+        continue;
+      }
+      parsedItems = parsed.items;
     }
 
     const result = ingestSourceItems(
       { ...toIngestSource(source), maxPerRun: effectiveCap(source.maxPerRun, windowDays) },
-      parsed.items,
+      parsedItems,
       window,
       seenIds,
     );
@@ -166,7 +211,7 @@ async function collect(
 
     items.push(...result.accepted);
     outcomes.push(outcome);
-    log(`  ${source.id}: ${result.accepted.length} accepted of ${parsed.items.length} seen`);
+    log(`  ${source.id}: ${result.accepted.length} accepted of ${parsedItems.length} seen`);
   }
 
   return { items, outcomes };
@@ -194,6 +239,46 @@ async function main(): Promise<void> {
         `${outcome.sourceId}: ${outcome.fetchError ?? outcome.parseError} (status ${outcome.status})`,
     );
 
+  // --- article text: only for what the feed did not already carry ---
+  //
+  // Most publishers put the whole post in content:encoded. Fetching their
+  // article page anyway would be asking their servers for something they
+  // already handed over. This only runs for the ones that ship a teaser.
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const articleText = new Map<string, string>();
+  let articleFetches = 0;
+  let articleFailures = 0;
+
+  const needsArticle = items.filter((item) => item.fullText.length === 0);
+  if (needsArticle.length > 0) {
+    log(`fetching ${needsArticle.length} article pages the feeds did not carry …`);
+  }
+  const pace = createHostPacer(ARTICLE_FETCH_DELAY_MS, delay);
+  for (const item of needsArticle) {
+    const source = sourceById.get(item.sourceId);
+    if (!source) continue;
+    // Several registry sources publish a Crawl-delay. It is a per-host rule, so
+    // this waits only when the previous request went to the same site.
+    await pace(item.url, () => Date.now());
+
+    const article = await fetchArticleText(item.url, source.officialDomains, io);
+    articleFetches += 1;
+    if (article.text === null) {
+      articleFailures += 1;
+      log(`  ${item.sourceId}: ${article.error}`);
+      continue;
+    }
+    articleText.set(item.id, article.text);
+  }
+  if (articleFetches > 0) {
+    log(`  fetched ${articleFetches - articleFailures} of ${articleFetches} article pages`);
+    if (articleFailures > 0) {
+      warnings.push(
+        `${articleFailures} of ${articleFetches} article pages could not be read; those stories were summarized from the feed excerpt`,
+      );
+    }
+  }
+
   // --- summarization (best effort) ---
   const apiKey = process.env['AI_EDU_API_KEY'] ?? process.env['NVIDIA_API_KEY'] ?? '';
   const agents = (await readJson(AGENTS_PATH)) as {
@@ -219,10 +304,12 @@ async function main(): Promise<void> {
     warnings.push('summarization skipped: no API key; stories publish with source-verbatim summaries');
   } else {
     const sourceNames = new Map(sources.map((source) => [source.id, source.name]));
+    // The model reads the article when we have it and the excerpt otherwise.
+    // Neither the article nor this input is stored anywhere.
     const inputs: SummaryInput[] = items.map((item) => ({
       id: item.id,
       title: item.title,
-      summary: item.summaryOriginal,
+      summary: item.fullText || articleText.get(item.id) || item.summaryOriginal,
       sourceName: sourceNames.get(item.sourceId) ?? item.sourceId,
     }));
 

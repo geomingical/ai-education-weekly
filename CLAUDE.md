@@ -80,7 +80,16 @@ never imply one means another happened.
   when running the pipeline; never echo it, never paste it into a file, never
   put it in a run report or a commit.
 - Do not remove the machine-summary badge or the original-headline line.
-- Do not republish full article text. This site links out; it does not mirror.
+- **Do not let article text reach the web.** The pipeline reads whole articles
+  to summarize them, but that text is transient: it is never written to
+  `src/data/stories.json` and never rendered. The site publishes a short excerpt
+  (capped in `truncateSummary`), a machine summary, and the original link —
+  nothing more. `tests/unit/guards.test.ts` enforces this mechanically. Several
+  sources in the registry state "summary and link only"; this is a licence
+  commitment, not a style preference.
+- Do not fetch an article page when the feed already carried the body in
+  `content:encoded`. Asking a publisher's server for something it already handed
+  over in its own feed is rude and pointless.
 - Do not add a source without verifying its feed actually returns a feed, and
   without recording `licenseNote` and `lastVerified`.
 - Do not activate a source whose `robots.txt` forbids fetching its feed. The

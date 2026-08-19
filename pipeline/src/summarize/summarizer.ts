@@ -94,14 +94,23 @@ export const RETRY_POLICY = {
    *  the second attempt gets longer specifically to test whether the request
    *  was stalled rather than dead. */
   attemptTimeoutsMs: [75_000, 120_000],
-  /** Between finished batches, including successful ones. Cheap insurance
-   *  (~30s over 11 batches) against arriving in a burst. */
-  interBatchDelayMs: 3_000,
+  /**
+   * Between calls, including after a successful one. With one story per call
+   * there are many more requests than before, and this is a free-tier key: the
+   * gap is what keeps a backfill from arriving as a burst. Ming asked for it
+   * explicitly after the first run hit repeated 503s.
+   */
+  interBatchDelayMs: 8_000,
   retryBaseDelayMs: 10_000,
   /** GitHub schedules many jobs on clock boundaries; jitter spreads them. */
   retryJitterMs: 5_000,
   maxRetryAfterMs: 120_000,
-  /** Whole-run wall clock. Exhaustion returns fallbacks, never an exception. */
+  /**
+   * Whole-run wall clock. Exhaustion returns fallbacks, never an exception —
+   * and `pipeline:resummarize` is idempotent, so a backfill that runs out of
+   * budget is finished by running it again rather than by raising this.
+   * A normal week is a handful of stories and never comes near it.
+   */
   budgetMs: 25 * 60 * 1000,
 } as const;
 
@@ -203,14 +212,31 @@ export function replySchema(itemCount: number): unknown {
   };
 }
 
-export const BATCH_SIZE = 6;
+// One story per call.
+//
+// Batching six was a cost optimisation from when each story contributed a
+// ~100-character teaser. Now that a call carries a whole article, six of them
+// would be 40,000+ characters of untrusted third-party text in one prompt —
+// too much to send, and a far larger surface for anything hidden in a page.
+//
+// One-per-call also removes the failure mode that cost the first backfill 42
+// summaries: a batch is now a single story, so a rejected reply can only ever
+// lose that one story, and the index the validator checks is trivially 0.
+// The price is more requests, paced by RETRY_POLICY.interBatchDelayMs.
+export const BATCH_SIZE = 1;
+
 // Generous enough that a legitimate headline carrying a product name
 // ("Microsoft 365 Copilot 推出 Study and Learn 功能") is not thrown away, tight
 // enough that a runaway reply still is.
 const MAX_TITLE_CHARS = 60;
-const MAX_SUMMARY_CHARS = 200;
+// The prompt asks for 200. This is the rail that stops a runaway reply, not the
+// target — reading a whole article instead of a teaser made summaries genuinely
+// denser, and holding them to exactly the requested number threw away good ones.
+const MAX_SUMMARY_CHARS = 320;
 const MAX_INPUT_TITLE_CHARS = 300;
-const MAX_INPUT_SUMMARY_CHARS = 1200;
+// A whole article, bounded. Bounded input is one of the injection defences:
+// the cap is provable, so a hostile page cannot choose the prompt size.
+const MAX_INPUT_SUMMARY_CHARS = 12_000;
 
 const ITEM_FRAME_LITERAL = /<\/?item/gi;
 

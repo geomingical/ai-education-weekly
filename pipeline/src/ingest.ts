@@ -23,7 +23,14 @@ export interface IngestedItem {
   id: string;
   sourceId: string;
   title: string;
+  /** Short excerpt: this is the only body text that ever reaches the site. */
   summaryOriginal: string;
+  /**
+   * The article body, when the feed shipped one. TRANSIENT — run.ts must not
+   * copy this onto the story record. It exists to be read by the model once
+   * and then dropped. Empty means the caller should fetch the article page.
+   */
+  fullText: string;
   url: string;
   publishedAt: string;
   topics: Topic[];
@@ -197,6 +204,7 @@ export function ingestSourceItems(
       sourceId: source.id,
       title,
       summaryOriginal: item.summary.trim(),
+      fullText: item.fullText,
       url: canonicalUrl(url),
       publishedAt: published.toISOString(),
       topics: resolveTopics(item, source.defaultTopics),

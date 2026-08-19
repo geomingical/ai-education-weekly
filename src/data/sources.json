@@ -20,7 +20,8 @@
     "active": true,
     "licenseNote": "robots.txt allows /. Feed ships content:encoded HTML, which is not a reuse licence — this site keeps the summary short and links out.",
     "lastVerified": "2026-08-18",
-    "notes": "Broad company news feed, not an education-only feed: keyword mode filters it down. The openai.com/education landing page returned 403 to the research client; academy.openai.com is used as the homepage instead."
+    "notes": "Broad company news feed, not an education-only feed: keyword mode filters it down. The openai.com/education landing page returned 403 to the research client; academy.openai.com is used as the homepage instead.",
+    "urlPattern": null
   },
   {
     "id": "openai-education-newsletter",
@@ -44,7 +45,8 @@
     "active": true,
     "licenseNote": "Newsletter body is OpenAI's; this site keeps the feed's own summary and links out. No reuse licence inferred.",
     "lastVerified": "2026-08-18",
-    "notes": "Ming's find, and the best first-party education source in the registry — the whole newsletter is about AI in teaching, so relevanceMode is 'always'. Published from Substack under openaiforeducation@substack.com, but openaiforeducation.substack.com 301-redirects to this openai.com subdomain; officialDomains is openai.com so the fetcher follows that redirect. Allowlisting substack.com instead would have opened the fetcher to every publication on the platform."
+    "notes": "Ming's find, and the best first-party education source in the registry — the whole newsletter is about AI in teaching, so relevanceMode is 'always'. Published from Substack under openaiforeducation@substack.com, but openaiforeducation.substack.com 301-redirects to this openai.com subdomain; officialDomains is openai.com so the fetcher follows that redirect. Allowlisting substack.com instead would have opened the fetcher to every publication on the platform.",
+    "urlPattern": null
   },
   {
     "id": "microsoft-education",
@@ -68,7 +70,8 @@
     "active": true,
     "licenseNote": "robots.txt allows the blog path. WordPress content markup is not a reuse licence.",
     "lastVerified": "2026-08-18",
-    "notes": "Education-only blog, so every item is on topic. Cadence is roughly weekly to a few per month."
+    "notes": "Education-only blog, so every item is on topic. Cadence is roughly weekly to a few per month.",
+    "urlPattern": null
   },
   {
     "id": "khan-academy-blog",
@@ -92,7 +95,8 @@
     "active": true,
     "licenseNote": "robots.txt sets Crawl-delay: 10; content markup is not a reuse licence.",
     "lastVerified": "2026-08-18",
-    "notes": "Khanmigo and AI-learning product updates mixed with general Khan Academy news, so keyword mode applies."
+    "notes": "Khanmigo and AI-learning product updates mixed with general Khan Academy news, so keyword mode applies.",
+    "urlPattern": null
   },
   {
     "id": "edsurge",
@@ -115,7 +119,8 @@
     "active": true,
     "licenseNote": "robots.txt allows public paths, disallows /api/. Summary and link only; no article text is republished.",
     "lastVerified": "2026-08-18",
-    "notes": "Covers edtech generally; keyword mode narrows to the AI stories."
+    "notes": "Covers edtech generally; keyword mode narrows to the AI stories.",
+    "urlPattern": null
   },
   {
     "id": "edweek",
@@ -138,7 +143,8 @@
     "active": true,
     "licenseNote": "robots.txt sets Crawl-delay: 10 and disallows /search. Summary and link only.",
     "lastVerified": "2026-08-18",
-    "notes": "Feed returned items dated in the future relative to the 2026-08-18 verification run. The ingest stage rejects future-dated items, so this cannot push a story into an issue that has not happened yet."
+    "notes": "Feed returned items dated in the future relative to the 2026-08-18 verification run. The ingest stage rejects future-dated items, so this cannot push a story into an issue that has not happened yet.",
+    "urlPattern": null
   },
   {
     "id": "inside-higher-ed",
@@ -161,7 +167,8 @@
     "active": true,
     "licenseNote": "robots.txt carries content-signal conditions. Do not republish article text; summary and link only.",
     "lastVerified": "2026-08-18",
-    "notes": "High volume on publishing days; keyword mode is doing most of the work here."
+    "notes": "High volume on publishing days; keyword mode is doing most of the work here.",
+    "urlPattern": null
   },
   {
     "id": "arxiv-cs-cy",
@@ -184,7 +191,8 @@
     "active": true,
     "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
     "lastVerified": "2026-08-18",
-    "notes": "Daily on submission days and mostly off-topic for this product, so keyword mode is mandatory."
+    "notes": "Daily on submission days and mostly off-topic for this product, so keyword mode is mandatory.",
+    "urlPattern": null
   },
   {
     "id": "arxiv-cs-hc",
@@ -207,7 +215,8 @@
     "active": true,
     "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
     "lastVerified": "2026-08-18",
-    "notes": "Learner, teacher and accessibility research surfaces here before it reaches journals."
+    "notes": "Learner, teacher and accessibility research surfaces here before it reaches journals.",
+    "urlPattern": null
   },
   {
     "id": "arxiv-ai-education-query",
@@ -230,7 +239,8 @@
     "active": true,
     "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
     "lastVerified": "2026-08-18",
-    "notes": "A pre-filtered arXiv API query. The research pass found it returns false positives, so keyword mode still applies on top of the query."
+    "notes": "A pre-filtered arXiv API query. The research pass found it returns false positives, so keyword mode still applies on top of the query.",
+    "urlPattern": null
   },
   {
     "id": "mit-news-education",
@@ -254,7 +264,8 @@
     "active": true,
     "licenseNote": "Feed excerpts and content markup are not a reuse licence.",
     "lastVerified": "2026-08-18",
-    "notes": "Education topic feed, but not AI-only, so keyword mode applies. A few items per month."
+    "notes": "Education topic feed, but not AI-only, so keyword mode applies. A few items per month.",
+    "urlPattern": null
   },
   {
     "id": "digital-promise",
@@ -278,7 +289,8 @@
     "active": true,
     "licenseNote": "robots.txt is empty; no reuse licence inferred. Summary and link only.",
     "lastVerified": "2026-08-18",
-    "notes": "Implementation and equity-focused district resources; several items per week."
+    "notes": "Implementation and equity-focused district resources; several items per week.",
+    "urlPattern": null
   },
   {
     "id": "ai4k12",
@@ -302,7 +314,8 @@
     "active": true,
     "licenseNote": "robots.txt disallows wp-admin only. Individual resources carry their own licences.",
     "lastVerified": "2026-08-18",
-    "notes": "Entirely about AI in K-12, so every item qualifies. Publishes sparsely — roughly monthly to quarterly — and will be absent from most issues."
+    "notes": "Entirely about AI in K-12, so every item qualifies. Publishes sparsely — roughly monthly to quarterly — and will be absent from most issues.",
+    "urlPattern": null
   },
   {
     "id": "huggingface-blog",
@@ -325,7 +338,8 @@
     "active": true,
     "licenseNote": "robots.txt allows /. Item licences vary by post.",
     "lastVerified": "2026-08-18",
-    "notes": "Near-daily and mostly technical; keyword mode keeps only the teaching and AI-literacy posts."
+    "notes": "Near-daily and mostly technical; keyword mode keeps only the teaching and AI-literacy posts.",
+    "urlPattern": null
   },
   {
     "id": "pansci",
@@ -348,14 +362,15 @@
     "active": true,
     "licenseNote": "robots.txt allows /. Copyright stays with PanSci and its authors; summary and link only.",
     "lastVerified": "2026-08-18",
-    "notes": "The one Chinese-language feed the research pass could verify. Broad science coverage, so keyword mode narrows it."
+    "notes": "The one Chinese-language feed the research pass could verify. Broad science coverage, so keyword mode narrows it.",
+    "urlPattern": null
   },
   {
     "id": "google-education",
-    "name": "Google for Education / Google Blog — Learning & Education",
+    "name": "Google for Education — Learning & Education blog",
     "homepage": "https://blog.google/products-and-platforms/products/education/",
-    "feedUrl": null,
-    "feedFormat": "none",
+    "feedUrl": "https://blog.google/products-and-platforms/products/education/rss/",
+    "feedFormat": "rss",
     "category": "vendor-education",
     "language": "en",
     "region": "GLOBAL",
@@ -365,37 +380,40 @@
     "tier": "first-party",
     "relevanceMode": "always",
     "defaultTopics": [
-      "tools"
+      "tools",
+      "teaching"
     ],
-    "licenseNote": "robots.txt lists a sitemap and does not disallow the listing path.",
-    "lastVerified": "2026-08-18",
-    "notes": "No usable feed: /feed returned HTML and the old category feed returned 404. Reaching this would need HTML listing polling, which is not built. First-party Gemini for Education and Classroom AI announcements are therefore missing from the site.",
-    "maxPerRun": 8,
-    "active": false
+    "licenseNote": "robots.txt allows the listing path and advertises a sitemap. Feed carries excerpts; the article page supplies the body, which is summarized and discarded.",
+    "lastVerified": "2026-08-19",
+    "notes": "The feed the first research pass could not find. It tested /feed and an old Blogger-style path; the working pattern is <category-path>/rss/. Verified: 20 items, channel title 'Learning & Education', on-topic throughout (Gemini practice tests, educator-led AI design). This is the education category feed, so every item qualifies.",
+    "maxPerRun": 6,
+    "active": true,
+    "urlPattern": null
   },
   {
     "id": "anthropic-education",
-    "name": "Claude for Education / Anthropic News",
-    "homepage": "https://claude.com/solutions/education",
-    "feedUrl": null,
-    "feedFormat": "none",
+    "name": "Anthropic News (Claude for Education)",
+    "homepage": "https://www.anthropic.com/news",
+    "feedUrl": "https://www.anthropic.com/sitemap.xml",
+    "feedFormat": "sitemap",
     "category": "vendor-education",
     "language": "en",
     "region": "GLOBAL",
     "officialDomains": [
-      "claude.com"
+      "anthropic.com"
     ],
     "tier": "first-party",
-    "relevanceMode": "always",
+    "relevanceMode": "keyword",
     "defaultTopics": [
       "tools",
       "higher-ed"
     ],
-    "licenseNote": "robots.txt says Allow: /.",
-    "lastVerified": "2026-08-18",
-    "notes": "anthropic.com/education now redirects to claude.com/solutions/education. No feed exists — /rss.xml returned 404 — so Claude for Education news needs HTML polling that is not built.",
-    "maxPerRun": 8,
-    "active": false
+    "licenseNote": "robots.txt says Allow: / and advertises this sitemap. Pages are read to summarize and discarded; the site publishes an excerpt and the link.",
+    "lastVerified": "2026-08-19",
+    "notes": "Anthropic publishes no feed — every conventional RSS path 404s and no page declares one, checked again on 2026-08-19. The sitemap is the honest fallback: 515 URLs, every one carrying a <lastmod> date, 256 of them under /news/. Keyword mode is essential here because most Anthropic news is model releases and safety research, not education. Each candidate costs one page fetch, so maxPerRun is deliberately small.",
+    "maxPerRun": 6,
+    "active": true,
+    "urlPattern": "/news/"
   },
   {
     "id": "unesco-ai-education",
@@ -418,7 +436,8 @@
     "lastVerified": "2026-08-18",
     "notes": "The page returned 403 to the research client, so neither the content nor a feed could be verified. Primary global AI-in-education guidance is consequently absent from the site.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "oecd-ai-education",
@@ -442,7 +461,8 @@
     "lastVerified": "2026-08-18",
     "notes": "Cloudflare returned 403 for both the homepage and the feed candidate.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "ec-ai-act",
@@ -465,7 +485,8 @@
     "lastVerified": "2026-08-18",
     "notes": "A policy page rather than a news stream. AI Act obligations reach education providers and edtech vendors, so this belongs on the reading list even without a feed.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "ec-digital-education",
@@ -489,7 +510,8 @@
     "lastVerified": "2026-08-18",
     "notes": "Programme page, no feed.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "us-dept-education-ai",
@@ -512,7 +534,8 @@
     "lastVerified": "2026-08-18",
     "notes": "A standing guidance PDF, not a news feed. The department's /ai landing candidates returned 404.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "gov-uk-dfe-ai",
@@ -536,7 +559,8 @@
     "lastVerified": "2026-08-18",
     "notes": "Deliberately left inactive despite having a working feed. This is the only source in the registry excluded purely on robots.txt grounds; reinstating it needs GOV.UK's permission or a different, allowed endpoint.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "taiwan-moe",
@@ -559,7 +583,8 @@
     "lastVerified": "2026-08-18",
     "notes": "The most important gap in this registry. Taiwan's primary school and university AI policy source publishes no RSS, and the site does not do HTML polling, so Taiwanese policy news is currently absent.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "taiwan-moda",
@@ -583,7 +608,8 @@
     "lastVerified": "2026-08-18",
     "notes": "National AI policy context for Taiwan. No feed found.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "times-higher-education",
@@ -606,7 +632,8 @@
     "lastVerified": "2026-08-18",
     "notes": "CDN denied the feed to the research client.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "the-campus",
@@ -630,14 +657,15 @@
     "lastVerified": "2026-08-18",
     "notes": "RSS candidate returned 404.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "deeplearning-ai-batch",
     "name": "The Batch — DeepLearning.AI",
-    "homepage": "https://www.deeplearning.ai/the-batch",
-    "feedUrl": null,
-    "feedFormat": "none",
+    "homepage": "https://www.deeplearning.ai/the-batch/",
+    "feedUrl": "https://www.deeplearning.ai/sitemap.xml",
+    "feedFormat": "sitemap",
     "category": "practitioner",
     "language": "en",
     "region": "GLOBAL",
@@ -649,11 +677,12 @@
     "defaultTopics": [
       "research"
     ],
-    "licenseNote": "robots.txt allows /; feed candidates returned 404 and 500.",
-    "lastVerified": "2026-08-18",
-    "notes": "Weekly newsletter with no valid feed found.",
-    "maxPerRun": 8,
-    "active": false
+    "licenseNote": "robots.txt says Allow: / for everyone and names AI crawlers (including Claude-User) explicitly with Allow: /. Pages are read to summarize and discarded.",
+    "lastVerified": "2026-08-19",
+    "notes": "Feed candidates return 404/500, but the sitemap carries 3,045 dated URLs with 3,047 under /the-batch/, most recent 2026-08-14. Mostly general AI rather than education, so keyword mode does the narrowing; the cap is small because each candidate costs a page fetch.",
+    "maxPerRun": 4,
+    "active": true,
+    "urlPattern": "/the-batch/"
   },
   {
     "id": "stanford-hai",
@@ -673,11 +702,12 @@
       "research",
       "policy"
     ],
-    "licenseNote": "robots.txt disallows /cms/, /api/, /cp/. No reuse licence inferred.",
-    "lastVerified": "2026-08-18",
-    "notes": "The RSS-looking URL returned HTML, not a feed.",
-    "maxPerRun": 8,
-    "active": false
+    "licenseNote": "robots.txt allows / (disallowing only /cms/, /api/, /cp/) and advertises a sitemap. Not currently collected — see notes.",
+    "lastVerified": "2026-08-19",
+    "notes": "Tried and withdrawn on 2026-08-19. The sitemap is excellent — 2,032 URLs, all dated, 1,040 under /news — but the article pages are not: four different news pages returned 164KB of HTML containing seven <p> tags, and Readability extracted 58-103 characters from each. The body is not in the server-rendered HTML. A live run confirmed it: 7 of 7 pages unreadable, 0 stories, 7 wasted requests. Reading it would need a headless browser, which is a dependency and a fragility this project does not want. Left inactive rather than spending requests every week for nothing.",
+    "maxPerRun": 5,
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "mit-teaching-systems-lab",
@@ -701,7 +731,8 @@
     "lastVerified": "2026-08-18",
     "notes": "A valid RSS feed exists but is dormant — the latest ten items are from 2020-03 to 2021-01. Left inactive so a weekly run does not spend a request on a feed that has not moved in five years.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "computers-education-ai",
@@ -724,7 +755,8 @@
     "lastVerified": "2026-08-18",
     "notes": "The most directly relevant peer-reviewed journal for this product, and the one it is least allowed to poll. Human reading only.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "teachai",
@@ -745,10 +777,11 @@
       "teaching"
     ],
     "licenseNote": "robots.txt allows / except API, embedded and SAML paths.",
-    "lastVerified": "2026-08-18",
-    "notes": "School-ready AI guidance. No feed.",
+    "lastVerified": "2026-08-19",
+    "notes": "School-ready AI guidance, and still no feed. Its sitemap has 227 dated URLs, so it COULD be polled — but only 3 sit under /blog and the newest entry is 2026-03-30, five months stale. Not worth a weekly request; revisit if it starts publishing again.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   },
   {
     "id": "1edtech",
@@ -771,6 +804,7 @@
     "lastVerified": "2026-08-18",
     "notes": "Interoperability and credential standards. No feed.",
     "maxPerRun": 8,
-    "active": false
+    "active": false,
+    "urlPattern": null
   }
 ]
