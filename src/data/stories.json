@@ -76,6 +76,84 @@
     "language": "en"
   },
   {
+    "id": "949a456f29b66ded",
+    "sourceId": "arxiv-cs-cy",
+    "title": "What If AI Carried Her Imagination? Black Girls as Creators in an AI Storytelling Weekend Program",
+    "summaryOriginal": "arXiv:2608.16896v1 Announce Type: new Abstract: This paper presents the design and outcomes of a seven-weekend AI storytelling program developed for Black girls aged 10-12. Grounded in Afrofuturism and Black feminist thought, the program adopted AI-enabled counter-storytelling, supported the development of foundational AI literacies, and fostered future-oriented imagination. Activities included…",
+    "titleZhTW": "AI 故事工作坊結合非洲未來主義，激發黑人女孩想像力與 AI 素養",
+    "summaryZhTW": "研究設計為期七週末的 AI 故事工作坊，引導 10 至 12 歲黑人女孩以非洲未來主義視角創作故事，並學習提示工程、偏見批判與資料隱私等核心 AI 素養。參與者創作出根植於自身身分與經驗的敘事，展現生成式 AI 在非正規學習空間結合文化相關教學，能有效吸引少數族裔女孩投入電腦科學教育。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.16896",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "646b74d2dd707921",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Experiential Learning of Runtime Monitoring Using Pachinko",
+    "summaryOriginal": "arXiv:2608.16898v1 Announce Type: new Abstract: We present documentation of a classroom assignment that teaches runtime monitoring through a creative embedded systems build: an interactive Pachinko game. The assignment centers on a dual-core ESP32 workflow in which students write RTLola specifications for monitors, compile these monitors to C, and deploy them alongside sensor and actuator control…",
+    "titleZhTW": "以彈珠台遊戲體驗式教學執行期監控與形式化方法",
+    "summaryZhTW": "巴納德學院課程引導學生在雙核 ESP32 上撰寫 RTLola 規範、編譯為 C 程式並部署於互動彈珠台，即時記錄遊戲事件以觸發聲音、動畫與馬達，依時間邏輯驗證系統行為。教材、硬體架構、程式碼與評量方式皆完整文件化，供其他嵌入式系統、創意運算或創客課程直接複刻。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.16898",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3170de022f289ff0",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Analysis of Types of Inquiries in Student-AI Interaction: A case study of two CS2 tasks",
+    "summaryOriginal": "arXiv:2608.17919v1 Announce Type: new Abstract: Background and Context: Question and inquiry are integral parts of knowledge seeking and learning. Despite their importance, students tend not to ask enough questions in the classroom. However, studies have shown that students interact extensively with generative AI systems for learning and problem solving. Objective: In this paper, we seek to…",
+    "titleZhTW": "研究分析 CS2 學生與生成式 AI 互動的提問類型演變",
+    "summaryZhTW": "研究運用 Graesser 分類法與少樣本學習，自動分析 830 筆 CS2 學生在兩項程式任務中與 AI 的對話。結果顯示，學生提問高度集中於少數幾類，且隨著任務推進，提問類型會顯著轉變。這有助於教師了解學生在程式解題不同階段真正需要什麼樣的 AI 支援。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.17919",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "646b74d2dd707921",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Experiential Learning of Runtime Monitoring Using Pachinko",
+    "summaryOriginal": "arXiv:2608.16898v1 Announce Type: cross Abstract: We present documentation of a classroom assignment that teaches runtime monitoring through a creative embedded systems build: an interactive Pachinko game. The assignment centers on a dual-core ESP32 workflow in which students write RTLola specifications for monitors, compile these monitors to C, and deploy them alongside sensor and actuator…",
+    "titleZhTW": "以彈珠台遊戲體驗式教學執行期監控與形式化方法",
+    "summaryZhTW": "巴納德學院課程引導學生在雙核 ESP32 上撰寫 RTLola 規範、編譯為 C 程式並部署於互動彈珠台，即時記錄遊戲事件以觸發聲音、動畫與馬達，依時間邏輯驗證系統行為。教材、硬體架構、程式碼與評量方式皆完整文件化，供其他嵌入式系統、創意運算或創客課程直接複刻。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.16898",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "e3c21286ff3c9a0c",
     "sourceId": "edweek",
     "title": "How Teachers Are Experimenting With AI (Opinion)",
@@ -113,6 +191,62 @@
     "language": "en"
   },
   {
+    "id": "1e12b2b798dffc79",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "School preference data collections: guide to submitting data",
+    "summaryOriginal": "How local authorities should submit data for the annual school preference collections.",
+    "titleZhTW": "英國教育部發布學校志願資料蒐集指南與 2026/27 關鍵期限",
+    "summaryZhTW": "指南說明各地方政府必須於每年 3 月與 4 月完成法定蒐集，內容涵蓋中小學學位數、家長志願序、錄取結果及學童基本資料。2026/27 學年中學志願截止為 2027 年 3 月 5 日、小學志願截止為 4 月 22 日，逾期須在 5 個工作天內透過 COLLECT 系統送審。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/guidance/school-preference-data-collections",
+    "publishedAt": "2026-08-18T15:26:47.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
+    "id": "daa49eb87e052b2e",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "Guidance: School preference data collections: technical specification",
+    "summaryOriginal": "The requirements local authorities should meet when submitting data for the 2027 school preference data collections.",
+    "titleZhTW": "英國教育部更新學校志願填報資料蒐集技術規格",
+    "summaryZhTW": "英國教育部發布 2027 年度學校志願（兒童層級）資料蒐集的業務與技術規格，取代 2026 年版本。文件記錄了自 2022 年首次發布以來，每年更新的版本變更歷程，供相關單位依循最新規範蒐集與回報學生志願資料。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/government/publications/school-preference-data-collections-technical-specification",
+    "publishedAt": "2026-08-18T15:26:34.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
+    "id": "fcf3cd9471272d17",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "Guidance: DfE funding agreements and contracts: 2026 to 2027",
+    "summaryOriginal": "Grant funding agreements and contracts issued to providers, which are either extensions of the 2025 to 2026 agreements and contracts, or recently procured contracts.",
+    "titleZhTW": "英國教育部發布 2026-2027 年度資助協議與合約指引",
+    "summaryZhTW": "指引列出教育與訓練提供者接受公共經費的義務，以及教育部在教學、財務或其他失敗時的介入條件。文件同時說明部分合約尚未符合無障礙標準，團隊正修正並預計於 2027 年 8 月 18 日前提供替代版本。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/government/publications/dfe-funding-agreements-and-contracts-2026-to-2027",
+    "publishedAt": "2026-08-18T14:15:04.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
     "id": "6d4ec902c728a021",
     "sourceId": "openai-news",
     "title": "Partnering with CodeAI to prepare the first AI generation",
@@ -143,6 +277,26 @@
     "fetchedAt": "2026-08-19T02:51:20.862Z",
     "issue": "2026-W34",
     "topics": [
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e6302435c2539f1c",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "From Student Risk Prediction to SC2R: Semantics-Constrained Counterfactual Recourse for Educational Decision Support",
+    "summaryOriginal": "Learning analytics models can identify students at risk of poor performance, but they do not directly indicate which interventions are feasible, actionable, and compatible with educational constraints. This paper introduces SC2R, a semantics-constrained counterfactual recourse framework for educational decision support. SC2R combines a calibrated predictive model, integer-programming-based…",
+    "titleZhTW": "語意約束反事實建議框架 SC2R 助力教育決策",
+    "summaryZhTW": "研究提出 SC2R 框架，結合預測模型、整數規劃與語意驗證，為學習分析中的風險學生生成可執行、符合預算與時程等現場限制的干預方案。實驗顯示該方法能大規模產出精簡方案，並能攔截僅靠優化模型會誤判為可行的計畫，使建議更具操作意義。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.17618v1",
+    "publishedAt": "2026-08-18T10:33:21.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "research",
       "tools"
     ],
     "region": "GLOBAL",
@@ -579,6 +733,64 @@
     "language": "en"
   },
   {
+    "id": "26ffbcd5201b9ba6",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "Special educational needs survey: guide to submitting data",
+    "summaryOriginal": "How local authorities should report data for the annual special educational needs survey, commonly known as SEN2.",
+    "titleZhTW": "英國教育部發布 2027 年特殊教育需求調查提交指南",
+    "summaryZhTW": "英國教育部更新法定 SEN2 調查指引，確認 2027 年調查日為 1 月 21 日、資料繳交截止日為 3 月 18 日，並說明須透過 DfE Sign-in 登入 COLLECT 系統提交 EHC 計畫相關資料。學校與地方政府承辦人員需依期完成註冊、修正錯誤並獲授權，否則資料將無法列入正式統計。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/guidance/special-educational-needs-survey",
+    "publishedAt": "2026-08-17T14:18:36.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
+    "id": "ce0eb0ed8b6fbbef",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "Guidance: Special educational needs person level survey: technical specification",
+    "summaryOriginal": "Technical specification and validation rules for local authorities completing returns for the 2027 special educational needs person level surveys (SEN2).",
+    "titleZhTW": "英國教育部發布特殊教育需求人層級調查技術規格更新",
+    "summaryZhTW": "英國教育部更新了特殊教育需求（SEN2）人層級調查的技術規格與驗證規則，適用於2027年資料回報。此舉規範地方政府與軟體供應商的資料結構、XML格式及驗證流程，確保特教資料蒐集的一致性與準確性，間接影響學校與地方政府的行政作業與資源配置。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/government/publications/special-educational-needs-person-level-survey-technical-specification",
+    "publishedAt": "2026-08-17T14:18:28.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
+    "id": "409d7968adba2cee",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Revisiting the Performance of Generative Artificial Intelligence on Introductory Object-Oriented Programming Assessments: Insights from 2026",
+    "summaryOriginal": "Recent advances in Generative Artificial Intelligence (GenAI) have substantially improved the ability of large language models (LLMs) to generate and explain source code. However, their performance on authentic object-oriented programming (OOP) assessments remains insufficiently understood. This study evaluates five widely used GenAI systems, ChatGPT-5.2, DeepSeek-V3, Gemini 2.5 Flash, Claude…",
+    "titleZhTW": "生成式 AI 在大一物件導向程式考試超越學生平均，但仍卡關介面與繼承",
+    "summaryZhTW": "研究以五款主流生成式 AI 系統應答大一物件導向程式設計考卷，結果顯示所有模型得分均高於歷屆學生平均，長程式題更常拿滿分。然而模型仍會產出無法編譯的程式碼，且在介面、抽象類別、繼承進階觀念與圖形題的影像解讀上持續表現吃力。相較去年同期測試，各模型整體進步明顯，但錯誤模式重複出現，提醒教師設計考核時需針對 AI 弱項調整題型，並建立負責任的 AI 輔助教學策略。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.16318v1",
+    "publishedAt": "2026-08-17T09:24:28.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "16c8c19f5d2b6a62",
     "sourceId": "inside-higher-ed",
     "title": "CUNY’s Computer Science Growing Pains",
@@ -594,6 +806,65 @@
       "higher-ed"
     ],
     "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "cfd8d61b6dd77684",
+    "sourceId": "edsurge",
+    "title": "College Admissions Testing is Returning to Mixed Reactions",
+    "summaryOriginal": "Supporters argue that reinstating SAT and ACT test requirements better vet student readiness.",
+    "titleZhTW": "美國多所名校恢復標準化考試要求，引發公平性與學生壓力雙重辯論",
+    "summaryZhTW": "達特茅斯、耶魯、MIT 等校陸續恢復 SAT/ACT 必繳政策，理由是分數有助發掘資源不足高中的優秀生，並補足 GPA 膨脹導致的評估盲點。哥倫比亞大學將於 2027-28 學年跟進，加州大學系統亦有超過 1,300 位教職員聯署要求恢復考試。支持者指出標準化分數仍是獎學金審核關鍵指標，且能減少「選繳制」下學生猶豫是否繳交分數的焦慮。反方則批評考試無法測量獨立思辨等核心能力，且選繳制實際上讓擁有補習資源的學生更有利，並未真正促進公平。各校強調分數僅為整體審查之一環，不應凌駕四年課堂表現。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/college-admissions-testing-is-returning-to-mixed-reactions",
+    "publishedAt": "2026-08-17T00:00:00.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W34",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "e0471db62ea9ea1f",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Do Assessment Instruments Measure the Same Thing for Humans and LLMs? A Latent Structure Analysis",
+    "summaryOriginal": "The rapid development and growing deployment of large language models (LLMs) have made it increasingly important to understand their capabilities. A common approach is to evaluate LLMs using assessment instruments originally designed to measure skills and competencies in humans, such as standardized exams, and to use performance on these instruments as evidence for generalizable claims about…",
+    "titleZhTW": "研究發現人類與 LLM 答題潛在結構不同，質疑用人類測驗評估 AI 能力的效度",
+    "summaryZhTW": "研究比較高中化學與大學入學考量化推理兩科測驗，發現六款多模態 LLM 的答題因素結構與人類學生有系統性差異。這表示同一份測驗在人類與 LLM 身上測量的建構可能不同，直接挑戰以人類標準化考試推論 AI 能力的做法。教育現場若引用這類分數作為 AI 教學輔助或評鑑依據，需謹慎解讀其效度。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.15630v1",
+    "publishedAt": "2026-08-16T08:52:58.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W33",
+    "topics": [
+      "higher-ed",
+      "research",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e68246067eeddf6e",
+    "sourceId": "anthropic-education",
+    "title": "How Claude's text watermarking works",
+    "summaryOriginal": "Future Claude models will generate text that contains a watermark. This is a way of determining the likelihood that Claude was involved in writing the text, and we, along with several other major AI providers, are implementing this change to comply with the EU AI Act.In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether…",
+    "titleZhTW": "Anthropic 導入 Claude 文字浮水印 符合 EU AI Act 規範",
+    "summaryZhTW": "Anthropic 宣佈未來 Claude 模型將內建 SynthID-Text 風格的文字浮水印，透過調整低風險選詞的隨機來源，在不影響輸出品質、速度與成本的前提下，讓檢測者能判斷文本是否由 Claude 產生。浮水印不含個人或組織識別資訊，且對程式碼、事實密集段落與人類原稿潤飾影響極小。此舉為配合 8 月 2 日生效的 EU AI Act 及業界簽署的透明化實務守則，Anthropic 將全球同步啟用，並規劃提供檢測 API。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/claude-text-watermark",
+    "publishedAt": "2026-08-15T05:53:01.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W33",
+    "topics": [
+      "policy",
+      "integrity"
+    ],
+    "region": "GLOBAL",
     "language": "en"
   },
   {
@@ -649,6 +920,25 @@
       "policy",
       "higher-ed",
       "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3808a28314ed56d8",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Jointly Predicting Courses and Grades Using a Transformer-Based Model",
+    "summaryOriginal": "Existing predictive models in learning analytics often treat student academic history as a simple sequence, overlooking the concurrent nature of courses taken within a semester. This simplification can lead to inaccurate performance predictions, particularly for students with heavy or challenging course loads. This paper introduces a TRansformer for Academic Course-grade Estimation (TRACE) that…",
+    "titleZhTW": "Transformer 模型同時預測選課與成績，誤差降近五成",
+    "summaryZhTW": "研究提出 TRACE 模型，以 Transformer 逐學期編碼課程，同步預測學生下學期將修習的課程組合與各科成績。實驗顯示，聯合預測較單獨預測成績能將平均絕對誤差降低近 50%，並優於 LSTM 及圖神經網路基準。模型可整合學生屬性資料，並具可解釋性，適合移植至不同校園的預警系統。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.13409v1",
+    "publishedAt": "2026-08-13T16:05:22.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W33",
+    "topics": [
+      "higher-ed",
+      "research"
     ],
     "region": "GLOBAL",
     "language": "en"
@@ -745,6 +1035,25 @@
       "workforce"
     ],
     "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "41d67b9fdf21b295",
+    "sourceId": "ec-digital-education",
+    "title": "Degrees for the planet: Study your way into the circular economy",
+    "summaryOriginal": "Degrees for the planet: Study your way into the circular economy holbobe Wed, 08/12/2026 - 13:41 Are you looking for a degree that combines sustainability with real-world career opportunities? The circular economy is creating demand for professionals who can design smarter products, reduce waste, and rethink how natural resources are used. Explore circular economy studies in EuropeAcross Europe,…",
+    "titleZhTW": "歐洲大學推出循環經濟學位課程 結合永續發展與就業機會",
+    "summaryZhTW": "歐盟委員會整理歐洲多所大學的循環經濟相關學位，涵蓋公共經濟、永續發展、城市永續、創意永續及環境治理等跨領域碩士與學士課程。這些課程強調實務經驗與跨學科整合，回應綠色轉型對永續顧問、政策發展、城市規劃等職缺的需求，並建議學生選課時考量實習機會與職涯路徑。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/study-in-europe/whats-new/news/degrees-for-the-planet-study-your-way-into-the-circular-economy",
+    "publishedAt": "2026-08-12T11:41:08.000Z",
+    "fetchedAt": "2026-08-19T05:47:09.632Z",
+    "issue": "2026-W33",
+    "topics": [
+      "higher-ed",
+      "workforce"
+    ],
+    "region": "EU",
     "language": "en"
   },
   {
