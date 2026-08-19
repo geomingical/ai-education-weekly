@@ -441,27 +441,27 @@
   },
   {
     "id": "oecd-ai-education",
-    "name": "OECD — AI and education",
-    "homepage": "https://www.oecd.org/en/topics/sub-issues/ai-and-education.html",
-    "feedUrl": null,
-    "feedFormat": "none",
+    "name": "OECD Education and Skills Today",
+    "homepage": "https://oecdedutoday.com/",
+    "feedUrl": "https://oecdedutoday.com/feed/",
+    "feedFormat": "rss",
     "category": "policy",
     "language": "en",
     "region": "GLOBAL",
     "officialDomains": [
-      "oecd.org"
+      "oecdedutoday.com"
     ],
     "tier": "institution",
-    "relevanceMode": "always",
+    "relevanceMode": "keyword",
     "defaultTopics": [
       "policy",
-      "workforce"
+      "teaching"
     ],
-    "licenseNote": "robots.txt disallows /content/dam/oecd/. No reuse licence inferred.",
-    "lastVerified": "2026-08-18",
-    "notes": "Cloudflare returned 403 for both the homepage and the feed candidate.",
-    "maxPerRun": 8,
-    "active": false,
+    "licenseNote": "robots.txt disallows only /wp-admin/. The feed carries full post bodies, which is not a reuse licence — the site keeps an excerpt and links out.",
+    "lastVerified": "2026-08-19",
+    "notes": "OECD's official education blog, and the way in after oecd.org itself returned 403 to every request. Verified 2026-08-19: 10 items, feed carries full text, genuine education-policy writing rather than press releases. Keyword mode because it covers education broadly, not AI specifically. The oecd.org topic page remains unreachable and is not polled.",
+    "maxPerRun": 5,
+    "active": true,
     "urlPattern": null
   },
   {
@@ -490,10 +490,10 @@
   },
   {
     "id": "ec-digital-education",
-    "name": "European Commission — Digital Education Action Plan",
-    "homepage": "https://education.ec.europa.eu/focus-topics/digital-education/actions/plan",
-    "feedUrl": null,
-    "feedFormat": "none",
+    "name": "European Commission — Education and Training",
+    "homepage": "https://education.ec.europa.eu/",
+    "feedUrl": "https://education.ec.europa.eu/rss.xml",
+    "feedFormat": "rss",
     "category": "policy",
     "language": "en",
     "region": "EU",
@@ -501,16 +501,16 @@
       "ec.europa.eu"
     ],
     "tier": "institution",
-    "relevanceMode": "always",
+    "relevanceMode": "keyword",
     "defaultTopics": [
       "policy",
       "workforce"
     ],
-    "licenseNote": "robots.txt returned 200; no feed or reuse licence observed.",
-    "lastVerified": "2026-08-18",
-    "notes": "Programme page, no feed.",
-    "maxPerRun": 8,
-    "active": false,
+    "licenseNote": "robots.txt allows the content paths. Commission content is generally reusable with attribution; the site still publishes only an excerpt and the link.",
+    "lastVerified": "2026-08-19",
+    "notes": "The education directorate's own feed, found on 2026-08-19 — the first pass looked at policy landing pages and concluded there was none. Ten items, low and irregular volume (one entry was dated 2022), so the date window does real work here. Keyword mode because most items are education policy generally rather than AI.",
+    "maxPerRun": 4,
+    "active": true,
     "urlPattern": null
   },
   {
@@ -539,10 +539,10 @@
   },
   {
     "id": "gov-uk-dfe-ai",
-    "name": "GOV.UK — Department for Education, AI updates",
+    "name": "GOV.UK — Department for Education",
     "homepage": "https://www.gov.uk/government/organisations/department-for-education",
-    "feedUrl": null,
-    "feedFormat": "none",
+    "feedUrl": "https://www.gov.uk/government/organisations/department-for-education.atom",
+    "feedFormat": "atom",
     "category": "policy",
     "language": "en",
     "region": "UK",
@@ -550,16 +550,15 @@
       "www.gov.uk"
     ],
     "tier": "first-party",
-    "relevanceMode": "always",
+    "relevanceMode": "keyword",
     "defaultTopics": [
-      "policy",
-      "k12"
+      "policy"
     ],
-    "licenseNote": "A valid Atom feed EXISTS at /search/all.atom, but robots.txt disallows /search/all* — automated polling would ignore a stated crawl rule.",
-    "lastVerified": "2026-08-18",
-    "notes": "Deliberately left inactive despite having a working feed. This is the only source in the registry excluded purely on robots.txt grounds; reinstating it needs GOV.UK's permission or a different, allowed endpoint.",
-    "maxPerRun": 8,
-    "active": false,
+    "licenseNote": "robots.txt disallows /search/all* — this feed is NOT under that path. Most GOV.UK content is Open Government Licence; the site still publishes only an excerpt and the link.",
+    "lastVerified": "2026-08-19",
+    "notes": "Reinstated on 2026-08-19. The earlier refusal was correct but aimed at the wrong endpoint: the feed found then sat under /search/all*, which robots.txt forbids. This one is the department's own Atom feed and is not covered by any Disallow rule — the full robots.txt was re-read to confirm. Keyword mode is essential: the feed is mostly administrative (data collection guides, funding agreements), and only a small share touches AI.",
+    "maxPerRun": 5,
+    "active": true,
     "urlPattern": null
   },
   {
@@ -610,6 +609,56 @@
     "maxPerRun": 8,
     "active": false,
     "urlPattern": null
+  },
+  {
+    "id": "education-estonia",
+    "name": "Education Estonia",
+    "homepage": "https://www.educationestonia.org/",
+    "feedUrl": "https://www.educationestonia.org/feed/",
+    "feedFormat": "rss",
+    "urlPattern": null,
+    "category": "policy",
+    "language": "en",
+    "region": "EE",
+    "officialDomains": [
+      "educationestonia.org"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "policy",
+      "teaching"
+    ],
+    "maxPerRun": 4,
+    "active": true,
+    "licenseNote": "robots.txt sets an empty Disallow, permitting everything, and advertises a sitemap. The feed carries full post bodies, which is not a reuse licence — the site keeps an excerpt and links out.",
+    "lastVerified": "2026-08-19",
+    "notes": "Estonia's English-language education portal, and the answer to a question Finland could not: how a non-English-speaking country's education policy reaches this site at all. Verified 2026-08-19: 10 items, all ten about education, three explicitly about AI, feed carries full text. Estonia's AI Leap programme puts AI tools into every upper-secondary school, which makes this first-party rather than commentary. Keyword mode because the portal covers Estonian education broadly."
+  },
+  {
+    "id": "e-estonia",
+    "name": "e-Estonia",
+    "homepage": "https://e-estonia.com/",
+    "feedUrl": "https://e-estonia.com/feed/",
+    "feedFormat": "rss",
+    "urlPattern": null,
+    "category": "policy",
+    "language": "en",
+    "region": "EE",
+    "officialDomains": [
+      "e-estonia.com"
+    ],
+    "tier": "institution",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "policy",
+      "workforce"
+    ],
+    "maxPerRun": 3,
+    "active": true,
+    "licenseNote": "robots.txt disallows only /wp-admin/. Feed carries full post bodies; the site keeps an excerpt and links out.",
+    "lastVerified": "2026-08-19",
+    "notes": "Estonia's digital-state showcase. Broader than education — four of ten items were education-related and two were about both education and AI — so keyword mode does real narrowing. Kept because it covers the national programmes (AI Leap, the //kood school) that Education Estonia reports from the inside."
   },
   {
     "id": "times-higher-education",

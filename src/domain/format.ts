@@ -39,6 +39,7 @@ const regionKeys: Record<string, MessageKey> = {
   CN: 'regionCN',
   JP: 'regionJP',
   APAC: 'regionAPAC',
+  EE: 'regionEE',
 };
 
 export function formatTopic(locale: Locale, topic: Topic): string {

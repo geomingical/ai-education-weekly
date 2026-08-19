@@ -86,6 +86,36 @@ Load the key first: `set -a; . ./.env; set +a`.
 8. **Report** one JSON document on stdout — per-source status, accepted counts,
    and a rejection-reason histogram.
 
+### The relevance rule, and how it was got wrong twice
+
+The gate asks one question: is this story about AI in education? It reads the
+headline and excerpt as statements of subject, and the article body only by
+weight — a long article touches many things in passing.
+
+    headline says both            -> accept
+    otherwise, per missing signal -> require it in the body:
+                                     AI >= 3 mentions, education >= 8
+
+Both thresholds are measured, and both corrections came from live runs:
+
+1. **Checking only the headline and excerpt missed real stories.** The excerpt
+   is the first ~400 characters, and four of ten OECD posts opened on teachers
+   while being about AI. Measured across five full-text feeds: articles genuinely
+   about AI mention it 8 to 44 times; a passing name-drop mentions it once.
+2. **Then the fix over-corrected, because it was asymmetric.** Requiring AI to
+   be substantive while accepting one education word anywhere is fine for a
+   general publisher and useless for an AI company, where the AI test is free.
+   A live run let in "Introducing Claude Sonnet 5" — triggered by `assessment`
+   twice, meaning model evaluation — and an executive appointment triggered by
+   `school`, `university` and `academia` appearing once each in a biography.
+   Genuine education articles score 14 to 85; those false positives scored 2 to
+   4.
+3. **And "machine learning" was counting as a mention of learning.** A test
+   caught it. AI compounds that embed an education word are stripped before the
+   education terms are counted.
+
+Each of the three is pinned by a test named after the story that exposed it.
+
 ### Why the flow looks like this
 
 The original design summarized from the feed's `description` alone. Measuring it
@@ -109,11 +139,41 @@ it is the only thing that rewrites an existing record, and it can only write the
 two Chinese fields. Title, summary, URL, date, and issue are untouchable, because
 they are the reader's check on the machine.
 
-## The model
+## The model, and its fallback
 
-`pipeline/config/agents.json` — `nvidia/nemotron-3-ultra-550b-a55b` on NVIDIA's
-OpenAI-compatible endpoint. About 32 seconds per batch of six, so a normal week
-is well under a minute and the 66-story backfill took roughly six.
+`pipeline/config/agents.json` lists providers in order. They are tried in that
+order, and the second is only ever called when the first produces nothing.
+
+| | endpoint | model | JSON mode |
+| --- | --- | --- | --- |
+| primary | `integrate.api.nvidia.com` | `nvidia/nemotron-3-ultra-550b-a55b` | `json_schema` |
+| fallback | `api.deepseek.com` | `deepseek-v4-flash` | `json_object` |
+
+**Why a second vendor rather than falling back to no summaries.** NVIDIA's free
+tier returned 503 repeatedly during development, including mid-run. Degrading to
+source-verbatim text would cost a whole week's Chinese summaries for what is
+one vendor's bad afternoon. A live failover test — a deliberately invalid NVIDIA
+key — handed over in 204ms and DeepSeek finished the story in 2.7 seconds.
+
+**The two are not equivalent, and the difference matters.** NVIDIA accepts
+`response_format: json_schema`, which constrains decoding to our exact shape and
+is what took summarization from 24/66 to 66/66. DeepSeek rejects `json_schema`
+outright ("This response_format type is unavailable now") and offers only
+`json_object`. So the fallback leans on the other three defences instead:
+preamble-tolerant JSON extraction, per-entry validation, and one retry. Tested
+working, but with a weaker guarantee — which is the right trade for a fallback
+and the wrong one for a primary.
+
+Validation is identical for both. That is what makes a weaker provider safe to
+fall back to, and it is asserted by a test.
+
+Keys come from the environment, first match wins:
+`AI_EDU_API_KEY` then `NVIDIA_API_KEY`; `AI_EDU_FALLBACK_API_KEY` then
+`DEEPSEEK_API_KEY`. A provider with no key is skipped silently — running with
+only one configured, or none, is a normal local state.
+
+About 32 seconds per NVIDIA call at batch size six; one story per call now, at
+roughly 2-4 seconds each plus 8 seconds of pacing.
 
 Two smaller models on the same endpoint were tried and rejected:
 `nemotron-3.5-lightning-30b-a3b` and `nemotron-3-super-120b-a12b`. Both are
@@ -197,11 +257,74 @@ tag is still refused; it just no longer takes five innocent summaries with it.
 `src/data/sources.json` — 33 sources, 15 active. Built from the verification pass
 in `docs/research/SOURCE_CANDIDATES.md`, where every URL was actually fetched.
 
-**Active (18):** ChatGPT for Education Newsletter, OpenAI News, **Google for
+**Active (23):** ChatGPT for Education Newsletter, OpenAI News, **Google for
 Education**, Microsoft Education Blog, Khan Academy Blog, EdSurge, Education
 Week, Inside Higher Ed, three arXiv feeds, MIT News Education, Digital Promise,
-AI4K12, Hugging Face Blog, PanSci, plus two indexed through a sitemap:
+AI4K12, Hugging Face Blog, PanSci, five policy sources (**GOV.UK Department
+for Education**, **OECD Education and Skills Today**, **European Commission
+Education and Training**, **Education Estonia**, **e-Estonia**), plus two
+indexed through a sitemap:
 **Anthropic News** and **DeepLearning.AI The Batch**.
+
+### The policy gap, and closing it
+
+Until 2026-08-19 the registry had **no active policy source at all**. Twenty-three
+of ninety-four stories carried a `policy` tag, but every one had reached the site
+second-hand, through an arXiv paper or a news outlet. No government or
+inter-governmental body spoke on it directly — a real hole for a product about
+AI in education, where what ministries mandate is what schools end up doing.
+
+Three feeds closed it, all verified on 2026-08-19:
+
+- **GOV.UK Department for Education** — and this corrected an earlier decision.
+  The feed found in the first pass sat under `/search/all*`, which robots.txt
+  forbids, so refusing it was right. The department's own `.atom` feed is not
+  covered by any Disallow rule; the full robots.txt was re-read to confirm.
+- **OECD Education and Skills Today** — OECD's official education blog, and the
+  way in after `oecd.org` itself returned 403 to every request. Its feed carries
+  full post bodies.
+- **European Commission Education and Training** — the education directorate's
+  own feed. Low and irregular volume.
+
+All of them run in `keyword` mode: their output is education policy generally,
+and only a slice of it touches AI.
+
+Their first run produced nothing, for three different and unalarming reasons:
+OECD's relevant posts were dated February and fell outside the collection
+window; half the Commission's feed was outside it too; and GOV.UK's twenty
+items were genuinely administrative — data collection guides and funding
+agreements, none about AI. Policy sources are low-volume by nature. They earn
+their place on the weeks something happens, not every week.
+
+### Reaching a non-English-speaking country
+
+Finland was checked first and does not work. Seven routes were tried on
+2026-08-19: the Ministry (`okm.fi`) returns 403; the National Agency for
+Education publishes no feed, and its sitemap is paginated across six-plus
+unsorted pages — one page alone spans 2019 to 2026, so there is no reliable way
+to ask it for the last week — and is 68% Finnish, 26% Swedish, 6% English; Yle's
+English feed carried zero education and zero AI items; Sitra's feed is circular
+economy and labour migration; Elements of AI is a course site, not a news
+source; HundrED and Aalto publish nothing fetchable.
+
+Estonia works, and for a specific reason: it maintains an English-language
+education portal. **Education Estonia** carried ten items of which all ten were
+about education and three explicitly about AI, with full post bodies in the
+feed. Estonia's AI Leap programme puts AI tools into every upper-secondary
+school, which makes this a first-party account rather than commentary.
+**e-Estonia** is the broader digital-state showcase and covers the same
+programmes from outside.
+
+The lesson generalises: the reachable route into a non-English-speaking
+country's education policy is its own English-language outreach site, not its
+ministry and not its national broadcaster. Both of those were dead ends in
+Finland and, for the broadcaster, in Estonia too — ERR News carried 50 items
+with zero touching both education and AI, so it was left out.
+
+A second constraint sits behind this. `pipeline/src/classify.ts` knows English
+and Chinese terms only, so a Finnish or Estonian-language feed would be filtered
+to nothing even if it could be fetched. Extending the vocabulary is the
+prerequisite for any source that publishes in its own language.
 
 Stanford HAI was tried through its sitemap and withdrawn the same day: the
 sitemap is excellent, but its article pages serve 164KB of HTML containing seven
@@ -253,8 +376,12 @@ definitive test. Its robots.txt says `Allow: /` and advertises the sitemap.
 - **Dormant** — MIT Teaching Systems Lab; its newest ten posts are from 2020–21.
 
 **The biggest gap is Taiwan.** 教育部 and 數位發展部 are the primary sources for
-Taiwanese school and university AI policy, and neither publishes a feed. Nothing
-Taiwan-specific reaches the site today except whatever PanSci happens to write.
+Taiwanese school and university AI policy. Neither publishes a feed, and the
+sitemap route does not rescue them either: `edu.tw/sitemap.xml` lists 105 URLs
+with **zero `<lastmod>` dates**, so there is nothing to filter a week by, and
+several of its entries are malformed (`edu.tw/https://depart.moe.edu.tw/…`).
+Covering Taiwan needs listing-page parsing — the fragile kind. Nothing
+Taiwan-specific reaches the site today.
 
 ## What the first real collection produced
 
@@ -335,6 +462,13 @@ and no `:global(` outside the layout.
   Worth a decision.
 - **`region` comes from the source, not the story.** A US outlet covering an EU
   policy is tagged US.
+- **A country is its own region, not folded into its bloc.** Estonian stories
+  are tagged `EE`, and the region filter matches a story's own region plus
+  `GLOBAL` — so selecting `EU` does not surface them. Precise today; it becomes
+  a region hierarchy only if the list grows enough to need one.
+  `tests/unit/format.test.ts` asserts every region an active source can produce
+  has a label in both languages and appears in the filter, so adding a country
+  cannot silently leave a raw code like `EE` on the page.
 - **Topic tags are keyword-matched**, so they are approximate. They are filters,
   not claims.
 - **A failed summarization is not re-attempted on a later day.** The in-run

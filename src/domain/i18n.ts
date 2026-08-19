@@ -82,6 +82,7 @@ export const messages = {
   regionCN: { 'zh-tw': '中國大陸', en: 'Mainland China' },
   regionJP: { 'zh-tw': '日本', en: 'Japan' },
   regionAPAC: { 'zh-tw': '亞太', en: 'Asia-Pacific' },
+  regionEE: { 'zh-tw': '愛沙尼亞', en: 'Estonia' },
 
   storyOriginalTitleLabel: { 'zh-tw': '原標題', en: 'Original headline' },
   storySourceLabel: { 'zh-tw': '來源', en: 'Source' },

@@ -100,7 +100,7 @@ const CATEGORY_VALUES: ReadonlySet<string> = new Set(SOURCE_CATEGORIES);
 // Region codes accepted in a URL. Anything else falls back to 'all' rather
 // than throwing — a shared link with a stale region must still render.
 const REGION_VALUES: ReadonlySet<string> = new Set([
-  'GLOBAL', 'TW', 'US', 'EU', 'UK', 'CN', 'JP', 'APAC',
+  'GLOBAL', 'TW', 'US', 'EU', 'UK', 'EE', 'CN', 'JP', 'APAC',
 ]);
 
 export function parseFilterState(input: URLSearchParams | string): FilterState {
@@ -120,4 +120,10 @@ export function parseFilterState(input: URLSearchParams | string): FilterState {
   };
 }
 
-export const REGION_FILTER_OPTIONS = ['all', 'GLOBAL', 'TW', 'US', 'EU', 'UK'] as const;
+// A country sits in the list on its own rather than folded into its bloc:
+// selecting EU would not surface an Estonian story, because the region filter
+// matches the story's own region plus GLOBAL. Precision now, a region hierarchy
+// only if the list grows enough to need one.
+export const REGION_FILTER_OPTIONS = [
+  'all', 'GLOBAL', 'TW', 'US', 'EU', 'UK', 'EE',
+] as const;

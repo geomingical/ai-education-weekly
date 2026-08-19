@@ -8,10 +8,49 @@ import {
   replySchema,
   summarizeAll,
   validateBatchReply,
+  type ProviderConfig,
   type RetryTiming,
   type SummaryInput,
 } from '../src/summarize/summarizer';
 import type { ChatTransport, TransportFailure } from '../src/summarize/transport';
+
+function provider(
+  transport: ChatTransport,
+  overrides: Partial<ProviderConfig> = {},
+): ProviderConfig {
+  return { id: 'primary', model: 'm', maxOutputTokens: 100, jsonMode: 'json-schema', transport, ...overrides };
+}
+
+/** Keeps the two-argument call shape readable in these tests. */
+function one(transport: ChatTransport, overrides: Partial<ProviderConfig> = {}): ProviderConfig[] {
+  return [provider(transport, overrides)];
+}
+
+function ok(content: string) {
+  return { content, meta: { status: 200, durationMs: 10 }, error: null } as const;
+}
+
+function fail(error: TransportFailure) {
+  return { content: null, meta: { status: error.status, durationMs: 10 }, error } as const;
+}
+
+const good = reply([{ index: 0, title: '標題', summary: '摘要' }]);
+
+/** Injected timing, so the whole retry policy runs without the suite waiting. */
+function timing(overrides: Partial<RetryTiming> = {}): RetryTiming & { slept: number[] } {
+  const slept: number[] = [];
+  let clock = 0;
+  return {
+    slept,
+    sleep: async (ms: number) => {
+      slept.push(ms);
+      clock += ms;
+    },
+    random: () => 0.5,
+    now: () => clock,
+    ...overrides,
+  };
+}
 
 function input(overrides: Partial<SummaryInput> = {}): SummaryInput {
   return {
@@ -160,40 +199,12 @@ describe('validateBatchReply', () => {
 });
 
 describe('summarizeAll', () => {
-  // Timing is injected, so the whole retry policy is exercised without the
-  // suite ever actually waiting.
-  function timing(overrides: Partial<RetryTiming> = {}): RetryTiming & { slept: number[] } {
-    const slept: number[] = [];
-    let clock = 0;
-    return {
-      slept,
-      sleep: async (ms: number) => {
-        slept.push(ms);
-        clock += ms;
-      },
-      random: () => 0.5,
-      now: () => clock,
-      ...overrides,
-    };
-  }
-
-  function ok(content: string) {
-    return { content, meta: { status: 200, durationMs: 10 }, error: null } as const;
-  }
-
-  function fail(error: TransportFailure) {
-    return { content: null, meta: { status: error.status, durationMs: 10 }, error } as const;
-  }
-
-  const good = reply([{ index: 0, title: '標題', summary: '摘要' }]);
-  const config = { model: 'm', maxOutputTokens: 100 };
-
   it('splits work into batches', () => {
     expect(chunk(new Array(13).fill(0), BATCH_SIZE)).toHaveLength(Math.ceil(13 / BATCH_SIZE));
   });
 
   it('returns validated outputs on a good reply', async () => {
-    const result = await summarizeAll([input()], async () => ok(good), config, timing());
+    const result = await summarizeAll([input()], one(async () => ok(good)), timing());
     expect(result.outputs).toHaveLength(1);
     expect(result.failures).toBe(0);
     expect(result.attempts[0]).toMatchObject({ batch: 0, attempt: 0, outcome: 'accepted' });
@@ -201,13 +212,13 @@ describe('summarizeAll', () => {
 
   it('passes the configured reasoning effort down to the transport', async () => {
     const transport = vi.fn<ChatTransport>(async () => ok(good));
-    await summarizeAll([input()], transport, { ...config, reasoningEffort: 'none' }, timing());
+    await summarizeAll([input()], one(transport, { reasoningEffort: 'none' }), timing());
     expect(transport.mock.calls[0]?.[0].reasoningEffort).toBe('none');
   });
 
   it('sends the system prompt with every call', async () => {
     const transport = vi.fn<ChatTransport>(async () => ok(good));
-    await summarizeAll([input()], transport, config, timing());
+    await summarizeAll([input()], one(transport), timing());
     expect(transport.mock.calls[0]?.[0].messages[0]?.role).toBe('system');
   });
 
@@ -229,7 +240,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(ok(good));
 
       const clock = timing();
-      const result = await summarizeAll([input()], transport, config, clock);
+      const result = await summarizeAll([input()], one(transport), clock);
       expect(transport).toHaveBeenCalledTimes(2);
       expect(result.outputs).toHaveLength(1);
       expect(result.failures).toBe(0);
@@ -250,7 +261,7 @@ describe('summarizeAll', () => {
       const transport = vi.fn<ChatTransport>(async () =>
         fail({ kind: 'http', status, message: `HTTP ${status}` }),
       );
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(transport).toHaveBeenCalledTimes(1);
       expect(result.failures).toBe(1);
     });
@@ -260,7 +271,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(ok('not json at all'));
       transport.mockResolvedValueOnce(ok(good));
 
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(transport).toHaveBeenCalledTimes(2);
       expect(result.outputs).toHaveLength(1);
       expect(result.attempts[0]?.outcome).toBe('shape-rejected');
@@ -268,7 +279,7 @@ describe('summarizeAll', () => {
 
     it('gives up after a second shape rejection rather than burning more quota', async () => {
       const transport = vi.fn<ChatTransport>(async () => ok('still not json'));
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(transport).toHaveBeenCalledTimes(2);
       expect(result.failures).toBe(1);
     });
@@ -281,7 +292,7 @@ describe('summarizeAll', () => {
         meta: { status: 200, finishReason: 'length', durationMs: 10 },
         error: null,
       }));
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(result.errors.join(' ')).toMatch(/finish_reason=length/);
     });
 
@@ -292,7 +303,7 @@ describe('summarizeAll', () => {
       const transport = vi.fn<ChatTransport>(async () =>
         ok(reply([{ index: 0, title: '', summary: 'bad' }])),
       );
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(transport).toHaveBeenCalledTimes(1);
       expect(result.outputs).toEqual([]);
       expect(result.failures).toBe(1);
@@ -306,7 +317,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(fail({ kind: 'timeout', message: 't' }));
       transport.mockResolvedValueOnce(ok(good));
 
-      await summarizeAll([input()], transport, config, timing());
+      await summarizeAll([input()], one(transport), timing());
       const first = transport.mock.calls[0]?.[0].timeoutMs ?? 0;
       const second = transport.mock.calls[1]?.[0].timeoutMs ?? 0;
       expect(second).toBeGreaterThan(first);
@@ -330,7 +341,7 @@ describe('summarizeAll', () => {
               : [],
           }),
         );
-      await summarizeAll(items, transport, config, clock);
+      await summarizeAll(items, one(transport), clock);
       // 3 batches -> 2 gaps.
       expect(clock.slept).toEqual([
         RETRY_POLICY.interBatchDelayMs,
@@ -346,7 +357,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(ok(good));
 
       const clock = timing();
-      await summarizeAll([input()], transport, config, clock);
+      await summarizeAll([input()], one(transport), clock);
       expect(clock.slept).toContain(60_000);
     });
 
@@ -358,7 +369,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(ok(good));
 
       const clock = timing();
-      await summarizeAll([input()], transport, config, clock);
+      await summarizeAll([input()], one(transport), clock);
       expect(clock.slept.some((ms) => ms >= RETRY_POLICY.retryBaseDelayMs)).toBe(true);
     });
 
@@ -368,7 +379,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(ok(good));
 
       const clock = timing({ random: () => 0 });
-      await summarizeAll([input()], transport, config, clock);
+      await summarizeAll([input()], one(transport), clock);
       expect(clock.slept).toContain(RETRY_POLICY.retryBaseDelayMs);
     });
 
@@ -381,7 +392,7 @@ describe('summarizeAll', () => {
         .fill(0)
         .map((_, index) => input({ id: String(index).padStart(16, '0') }));
 
-      await summarizeAll(items, transport, config, timing());
+      await summarizeAll(items, one(transport), timing());
       // Every batch gets one attempt; only the first `maxRetriesPerRun` get a second.
       expect(transport).toHaveBeenCalledTimes(batches + RETRY_POLICY.maxRetriesPerRun);
     });
@@ -402,7 +413,7 @@ describe('summarizeAll', () => {
         .fill(0)
         .map((_, index) => input({ id: String(index).padStart(16, '0') }));
 
-      const result = await summarizeAll(items, transport, config, jump);
+      const result = await summarizeAll(items, one(transport), jump);
       expect(result.attempts.some((entry) => entry.outcome === 'budget-exhausted')).toBe(true);
       expect(result.failures).toBeGreaterThan(0);
       expect(transport.mock.calls.length).toBeLessThan(4);
@@ -414,7 +425,7 @@ describe('summarizeAll', () => {
       const transport: ChatTransport = async () => {
         throw new Error('socket exploded');
       };
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(result.failures).toBe(1);
       expect(result.errors[0]).toMatch(/socket exploded/);
     });
@@ -429,7 +440,7 @@ describe('summarizeAll', () => {
           throw new Error('clock is on fire');
         },
       });
-      const result = await summarizeAll([input()], transport, config, hostile);
+      const result = await summarizeAll([input()], one(transport), hostile);
       expect(result.outputs).toHaveLength(1);
     });
   });
@@ -440,7 +451,7 @@ describe('summarizeAll', () => {
       transport.mockResolvedValueOnce(fail({ kind: 'http', status: 503, message: 'down' }));
       transport.mockResolvedValueOnce(ok(good));
 
-      const result = await summarizeAll([input()], transport, config, timing());
+      const result = await summarizeAll([input()], one(transport), timing());
       expect(result.attempts.map((entry) => entry.attempt)).toEqual([0, 1]);
       expect(result.attempts[0]).toMatchObject({ outcome: 'transport-failed', status: 503 });
       expect(result.attempts[1]?.outcome).toBe('accepted');
@@ -453,8 +464,7 @@ describe('summarizeAll', () => {
       );
       const result = await summarizeAll(
         [input({ title: 'SECRET-FEED-TITLE', summary: 'SECRET-FEED-BODY' })],
-        transport,
-        config,
+        one(transport),
         timing(),
       );
       const serialized = JSON.stringify(result.attempts);
@@ -541,7 +551,7 @@ describe('response schema wiring', () => {
       }) as const,
     );
     const items = new Array(3).fill(0).map((_, index) => input({ id: String(index).padStart(16, '0') }));
-    const result = await summarizeAll(items, transport, { model: 'm', maxOutputTokens: 100 }, {
+    const result = await summarizeAll(items, one(transport), {
       sleep: async () => {},
       random: () => 0.5,
       now: () => 0,
@@ -554,18 +564,130 @@ describe('response schema wiring', () => {
     expect(result.outputs).toHaveLength(3);
   });
 
-  // Not every provider accepts response_format; the escape hatch must work.
-  it('omits the schema when the provider cannot take one', async () => {
-    const transport = vi.fn<ChatTransport>(async () => ({
-      content: JSON.stringify({ items: [{ index: 0, title: '標題', summary: '摘要' }] }),
-      meta: { status: 200, durationMs: 1 },
-      error: null,
-    }));
-    await summarizeAll([input()], transport, { model: 'm', maxOutputTokens: 100, useResponseSchema: false }, {
-      sleep: async () => {},
-      random: () => 0.5,
-      now: () => 0,
-    });
-    expect(transport.mock.calls[0]?.[0].responseFormat).toBeUndefined();
+  // DeepSeek rejects json_schema outright, so a fallback provider has to be
+  // able to ask for less. Validation does not change either way — that is what
+  // makes a weaker provider safe to fall back to.
+  it.each([
+    ['json-schema', (f: any) => f.json_schema.schema.properties.items.minItems === 1],
+    ['json-object', (f: any) => f.type === 'json_object'],
+    ['none', (f: any) => f === undefined],
+  ] as const)('asks for %s when that is what the provider supports', async (mode, check) => {
+    const transport = vi.fn<ChatTransport>(async () => ok(good));
+    await summarizeAll([input()], [provider(transport, { jsonMode: mode })], timing());
+    expect(check(transport.mock.calls[0]?.[0].responseFormat as any)).toBe(true);
+  });
+});
+
+// A provider outage is the provider's problem, not the week's. NVIDIA's free
+// tier returned 503 repeatedly during development; falling back to keyword-only
+// summaries would cost a whole week's Chinese text, while falling back to a
+// second vendor costs nothing visible.
+describe('provider fallback', () => {
+  const second = (transport: ChatTransport, overrides: Partial<ProviderConfig> = {}) =>
+    provider(transport, { id: 'fallback', jsonMode: 'json-object', ...overrides });
+
+  it('never calls the fallback while the primary is working', async () => {
+    const primary = vi.fn<ChatTransport>(async () => ok(good));
+    const backup = vi.fn<ChatTransport>(async () => ok(good));
+    const result = await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    expect(primary).toHaveBeenCalledTimes(1);
+    expect(backup).not.toHaveBeenCalled();
+    expect(result.outputs).toHaveLength(1);
+  });
+
+  it('hands over to the fallback when the primary exhausts its attempts', async () => {
+    const primary = vi.fn<ChatTransport>(async () => fail({ kind: 'http', status: 503, message: 'down' }));
+    const backup = vi.fn<ChatTransport>(async () => ok(good));
+    const result = await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    expect(primary).toHaveBeenCalledTimes(RETRY_POLICY.maxAttemptsPerBatch);
+    expect(backup).toHaveBeenCalledTimes(1);
+    expect(result.outputs).toHaveLength(1);
+    expect(result.failures).toBe(0);
+  });
+
+  it('asks each provider for the JSON mode it actually supports', async () => {
+    const primary = vi.fn<ChatTransport>(async () => fail({ kind: 'http', status: 503, message: 'down' }));
+    const backup = vi.fn<ChatTransport>(async () => ok(good));
+    await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    // The primary got a full schema; DeepSeek rejects those, so it got JSON mode.
+    expect((primary.mock.calls[0]?.[0].responseFormat as any).json_schema).toBeDefined();
+    expect(backup.mock.calls[0]?.[0].responseFormat).toEqual({ type: 'json_object' });
+  });
+
+  // The weaker provider is safe precisely because validation does not relax.
+  it('holds the fallback to the same validation', async () => {
+    const primary = vi.fn<ChatTransport>(async () => fail({ kind: 'timeout', message: 't' }));
+    const backup = vi.fn<ChatTransport>(async () => ok('here you go: not json'));
+    const result = await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    expect(result.outputs).toEqual([]);
+    expect(result.failures).toBe(1);
+  });
+
+  it('falls back for a shape rejection too, not only a transport failure', async () => {
+    const primary = vi.fn<ChatTransport>(async () => ok('not json at all'));
+    const backup = vi.fn<ChatTransport>(async () => ok(good));
+    const result = await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    expect(backup).toHaveBeenCalled();
+    expect(result.outputs).toHaveLength(1);
+  });
+
+  // A permanent error is permanent at that endpoint. Another vendor may still
+  // work, so handing over is right — but retrying the same one is not.
+  it('does not retry an auth failure, yet still tries the other provider', async () => {
+    const primary = vi.fn<ChatTransport>(async () => fail({ kind: 'http', status: 401, message: 'bad key' }));
+    const backup = vi.fn<ChatTransport>(async () => ok(good));
+    const result = await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    expect(primary).toHaveBeenCalledTimes(1);
+    expect(backup).toHaveBeenCalledTimes(1);
+    expect(result.outputs).toHaveLength(1);
+  });
+
+  it('reports which provider served each attempt', async () => {
+    const primary = vi.fn<ChatTransport>(async () => fail({ kind: 'http', status: 503, message: 'down' }));
+    const backup = vi.fn<ChatTransport>(async () => ok(good));
+    const result = await summarizeAll([input()], [provider(primary), second(backup)], timing());
+
+    expect(result.attempts.map((entry) => entry.provider)).toEqual([
+      'primary',
+      'primary',
+      'fallback',
+    ]);
+    expect(result.attempts.at(-1)?.outcome).toBe('accepted');
+  });
+
+  it('falls back to the source text when every provider fails', async () => {
+    const down = () => vi.fn<ChatTransport>(async () => fail({ kind: 'http', status: 503, message: 'down' }));
+    const result = await summarizeAll([input()], [provider(down()), second(down())], timing());
+    expect(result.outputs).toEqual([]);
+    expect(result.failures).toBe(1);
+  });
+
+  it('treats an empty provider list as a clean degrade, not a crash', async () => {
+    const result = await summarizeAll([input()], [], timing());
+    expect(result.outputs).toEqual([]);
+    expect(result.failures).toBe(1);
+    expect(result.errors[0]).toMatch(/no model provider/);
+  });
+
+  // The run-wide retry ceiling exists so a bad afternoon cannot multiply into
+  // unbounded calls — adding a provider must not quietly double it.
+  it('shares the run-wide retry budget across providers', async () => {
+    const down = () => vi.fn<ChatTransport>(async () => fail({ kind: 'http', status: 503, message: 'down' }));
+    const primary = down();
+    const backup = down();
+    const items = new Array(RETRY_POLICY.maxRetriesPerRun + 4)
+      .fill(0)
+      .map((_, index) => input({ id: String(index).padStart(16, '0') }));
+
+    await summarizeAll(items, [provider(primary), second(backup)], timing());
+    const retries =
+      primary.mock.calls.length + backup.mock.calls.length - items.length * 2;
+    expect(retries).toBeLessThanOrEqual(RETRY_POLICY.maxRetriesPerRun);
   });
 });

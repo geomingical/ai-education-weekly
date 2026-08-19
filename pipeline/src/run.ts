@@ -26,7 +26,7 @@ import { itemsFromSitemap, parseSitemap, selectSitemapEntries } from './sitemap'
 import { safeFetch, type FetchIO } from './fetcher';
 import { ingestSourceItems, type IngestedItem, type IngestSource } from './ingest';
 import { summarizeAll, type SummaryInput } from './summarize/summarizer';
-import { createHttpTransport } from './summarize/transport';
+import { buildProviders, type SummarizerConfig } from './summarize/providers';
 import type { RawFeedItem, RunReport, SourceOutcome } from './contracts';
 import { loadSources, type Source } from '../../src/domain/source';
 import { issueLabelFromIso } from '../../src/domain/issue';
@@ -280,28 +280,23 @@ async function main(): Promise<void> {
   }
 
   // --- summarization (best effort) ---
-  const apiKey = process.env['AI_EDU_API_KEY'] ?? process.env['NVIDIA_API_KEY'] ?? '';
-  const agents = (await readJson(AGENTS_PATH)) as {
-    summarizer: {
-      baseUrl: string;
-      model: string;
-      maxOutputTokens: number;
-      reasoningEffort?: 'none' | 'low' | 'medium' | 'high';
-      useResponseSchema?: boolean;
-    };
-  };
-  const summaryConfig = agents.summarizer;
+  const agents = (await readJson(AGENTS_PATH)) as { summarizer: SummarizerConfig };
+  const { providers, skipped } = buildProviders(agents.summarizer, process.env);
 
   const summaryById = new Map<string, { titleZhTW: string; summaryZhTW: string }>();
   let summaries = { requested: 0, succeeded: 0, failed: 0, skippedReason: null as string | null };
 
+  if (skipped.length > 0) {
+    log(`no key for: ${skipped.join(', ')} — those providers are unavailable this run`);
+  }
+
   if (items.length === 0) {
     summaries.skippedReason = 'no new stories to summarize';
-  } else if (apiKey.length === 0) {
-    // No key is a normal local-development state, not an error. Stories still
-    // publish, carrying the source's own summary and untranslated headline.
-    summaries.skippedReason = 'no AI_EDU_API_KEY / NVIDIA_API_KEY set';
-    warnings.push('summarization skipped: no API key; stories publish with source-verbatim summaries');
+  } else if (providers.length === 0) {
+    // No key at all is a normal local-development state, not an error. Stories
+    // still publish, carrying the source's own summary.
+    summaries.skippedReason = 'no model provider has a key';
+    warnings.push('summarization skipped: no provider key; stories publish with source-verbatim summaries');
   } else {
     const sourceNames = new Map(sources.map((source) => [source.id, source.name]));
     // The model reads the article when we have it and the excerpt otherwise.
@@ -313,26 +308,30 @@ async function main(): Promise<void> {
       sourceName: sourceNames.get(item.sourceId) ?? item.sourceId,
     }));
 
-    log(`summarizing ${inputs.length} stories …`);
-    const transport = createHttpTransport({
-      baseUrl: summaryConfig.baseUrl,
-      apiKey,
-    });
-    const result = await summarizeAll(inputs, transport, {
-      model: summaryConfig.model,
-      maxOutputTokens: summaryConfig.maxOutputTokens,
-      reasoningEffort: summaryConfig.reasoningEffort,
-      useResponseSchema: summaryConfig.useResponseSchema,
-    });
+    log(`summarizing ${inputs.length} stories via ${providers.map((p) => p.id).join(' → ')} …`);
+    const result = await summarizeAll(inputs, providers);
 
-    // Per-attempt chronology, so a run report says WHY a source went quiet
-    // rather than only that it did. Carries no feed text and no model output.
     for (const attempt of result.attempts) {
       log(
-        `  batch ${attempt.batch + 1} attempt ${attempt.attempt + 1}: ${attempt.outcome}` +
+        `  [${attempt.provider}] batch ${attempt.batch + 1} attempt ${attempt.attempt + 1}: ${attempt.outcome}` +
           ` (${attempt.durationMs}ms${attempt.status ? `, HTTP ${attempt.status}` : ''}` +
           `${attempt.finishReason ? `, finish=${attempt.finishReason}` : ''}` +
           `${attempt.completionTokens ? `, ${attempt.completionTokens} tokens` : ''})`,
+      );
+    }
+
+    // Which provider actually served the run — the thing you want to know when
+    // the primary is having a bad day.
+    const served = new Map<string, number>();
+    for (const attempt of result.attempts) {
+      if (attempt.outcome === 'accepted' || attempt.outcome === 'accepted-with-drops') {
+        served.set(attempt.provider, (served.get(attempt.provider) ?? 0) + (attempt.accepted ?? 0));
+      }
+    }
+    for (const [id, n] of served) log(`  ${id} produced ${n} summaries`);
+    if (served.size > 1 || (served.size === 1 && !served.has(providers[0]!.id))) {
+      warnings.push(
+        `summaries came from more than the primary provider: ${[...served].map(([id, n]) => `${id}=${n}`).join(', ')}`,
       );
     }
 

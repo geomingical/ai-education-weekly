@@ -7,6 +7,7 @@ import {
   showsTranslatedHeadline,
   summaryView,
 } from '../../src/domain/format';
+import { REGION_FILTER_OPTIONS } from '../../src/domain/filters';
 import { makeStory } from '../fixtures/stories';
 
 describe('primaryHeadline', () => {
@@ -78,5 +79,34 @@ describe('formatting helpers', () => {
   it('substitutes a count into a template', () => {
     expect(countText('zh-tw', 'resultsCountTemplate', 3)).toBe('符合條件：3 則');
     expect(countText('en', 'resultsCountTemplate', 3)).toBe('3 matching stories');
+  });
+});
+
+describe('region coverage', () => {
+  // Every region a source can produce must have a label, or the UI falls back
+  // to a raw code like "EE" that means nothing to a reader.
+  it('labels every region the shipped registry uses', async () => {
+    const raw = await import('../../src/data/sources.json', { with: { type: 'json' } });
+    const regions = new Set(
+      (raw.default as { active: boolean; region: string }[])
+        .filter((source) => source.active)
+        .map((source) => source.region),
+    );
+    for (const region of regions) {
+      expect(formatRegion('zh-tw', region)).not.toBe(region);
+      expect(formatRegion('en', region)).not.toBe(region);
+    }
+  });
+
+  it('offers every produced region as a filter option', async () => {
+    const raw = await import('../../src/data/sources.json', { with: { type: 'json' } });
+    const regions = new Set(
+      (raw.default as { active: boolean; region: string }[])
+        .filter((source) => source.active)
+        .map((source) => source.region),
+    );
+    for (const region of regions) {
+      expect(REGION_FILTER_OPTIONS as readonly string[]).toContain(region);
+    }
   });
 });

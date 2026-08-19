@@ -18,7 +18,7 @@ import { lookup } from 'node:dns/promises';
 import { createHostPacer, fetchArticleText } from './article';
 import type { FetchIO } from './fetcher';
 import { summarizeAll, type SummaryInput } from './summarize/summarizer';
-import { createHttpTransport } from './summarize/transport';
+import { buildProviders, firstKey, type SummarizerConfig } from './summarize/providers';
 import { loadSources } from '../../src/domain/source';
 import type { Story } from '../../src/domain/story';
 
@@ -85,12 +85,6 @@ async function main(): Promise<void> {
   const dryRun = process.argv.includes('--dry-run');
   const limit = parseLimit(process.argv);
 
-  const apiKey = process.env['AI_EDU_API_KEY'] ?? process.env['NVIDIA_API_KEY'] ?? '';
-  if (apiKey.length === 0) {
-    log('no AI_EDU_API_KEY / NVIDIA_API_KEY set — nothing to do');
-    process.exitCode = 1;
-    return;
-  }
 
   const stories = JSON.parse(await readFile(STORIES_PATH, 'utf8')) as Story[];
   const sources = loadSources(JSON.parse(await readFile(SOURCES_PATH, 'utf8')));
@@ -102,18 +96,27 @@ async function main(): Promise<void> {
   if (targets.length === 0) return;
 
   const agents = JSON.parse(await readFile(AGENTS_PATH, 'utf8')) as {
-    summarizer: {
-      baseUrl: string;
-      model: string;
-      maxOutputTokens: number;
-      reasoningEffort?: 'none' | 'low' | 'medium' | 'high';
-      useResponseSchema?: boolean;
-    };
+    summarizer: SummarizerConfig;
   };
-  const config = agents.summarizer;
   const modelOverrideIndex = process.argv.indexOf('--model');
-  const model =
-    modelOverrideIndex === -1 ? config.model : (process.argv[modelOverrideIndex + 1] ?? config.model);
+  const modelOverride =
+    modelOverrideIndex === -1 ? null : (process.argv[modelOverrideIndex + 1] ?? null);
+  const onlyIndex = process.argv.indexOf('--provider');
+  const onlyProvider = onlyIndex === -1 ? null : (process.argv[onlyIndex + 1] ?? null);
+
+  const specs = onlyProvider
+    ? agents.summarizer.providers.filter((spec) => spec.id === onlyProvider)
+    : agents.summarizer.providers;
+  const { providers, skipped } = buildProviders({ ...agents.summarizer, providers: specs }, process.env);
+
+  if (skipped.length > 0) log(`no key for: ${skipped.join(', ')}`);
+  if (providers.length === 0) {
+    log('no model provider has a key — nothing to do');
+    process.exitCode = 1;
+    return;
+  }
+  if (modelOverride !== null && providers[0]) providers[0].model = modelOverride;
+  log(`providers: ${providers.map((entry) => entry.id).join(' → ')}`);
 
   // A backfill reads stories.json, which deliberately does not keep the article
   // body — so the article page is fetched here. Failing to read one is not an
@@ -149,16 +152,7 @@ async function main(): Promise<void> {
   }));
 
   const started = Date.now();
-  const result = await summarizeAll(
-    inputs,
-    createHttpTransport({ baseUrl: config.baseUrl, apiKey }),
-    {
-      model,
-      maxOutputTokens: config.maxOutputTokens,
-      reasoningEffort: config.reasoningEffort,
-      useResponseSchema: config.useResponseSchema,
-    },
-  );
+  const result = await summarizeAll(inputs, providers);
   const elapsed = ((Date.now() - started) / 1000).toFixed(1);
 
   const byId = new Map(
@@ -169,10 +163,10 @@ async function main(): Promise<void> {
   );
   const updated = applySummaries(stories, byId);
 
-  log(`model=${model} ${elapsed}s — ${result.outputs.length} summarized, ${result.failures} fell back`);
+  log(`${elapsed}s — ${result.outputs.length} summarized, ${result.failures} fell back`);
   for (const attempt of result.attempts) {
     log(
-      `  batch ${attempt.batch + 1} attempt ${attempt.attempt + 1}: ${attempt.outcome}` +
+      `  [${attempt.provider}] batch ${attempt.batch + 1} attempt ${attempt.attempt + 1}: ${attempt.outcome}` +
         ` (${attempt.durationMs}ms${attempt.status ? `, HTTP ${attempt.status}` : ''}` +
         `${attempt.finishReason ? `, finish=${attempt.finishReason}` : ''}` +
         `${attempt.completionTokens ? `, ${attempt.completionTokens} tokens` : ''}` +

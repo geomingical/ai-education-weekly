@@ -86,6 +86,40 @@ const TOPIC_TERMS: Record<Topic, string[]> = {
   ],
 };
 
+/**
+ * How many times an AI term must appear in an article BODY for the article to
+ * count as being about AI, when the title and excerpt do not say so.
+ *
+ * Measured, not guessed. Across five full-text feeds, articles genuinely about
+ * AI mentioned it 8 to 44 times; articles that merely name-dropped it mentioned
+ * it once. An OECD post on teacher education said "artificial intelligence"
+ * exactly once, 14% of the way in, and is not an AI story. The observed gap
+ * between passing mention and subject sits between 4 and 8.
+ *
+ * This exists because the excerpt is only the first ~400 characters. Checking
+ * relevance against it alone silently dropped four of ten OECD posts whose
+ * opening paragraphs were about teachers and whose subject was AI.
+ */
+export const MIN_AI_MENTIONS_IN_BODY = 3;
+
+/**
+ * The same rule for the education signal, and it exists because the first
+ * version did NOT have it and the asymmetry showed up immediately.
+ *
+ * Requiring AI to be substantive while accepting a single education word
+ * anywhere in the body is fine for a general publisher and useless for an AI
+ * company, where the AI test is trivially satisfied and education is the one
+ * that has to discriminate. A live run let in "Introducing Claude Sonnet 5"
+ * (triggered by `assessment` twice — model evaluation, not exams) and an
+ * executive appointment (triggered by `school`, `university` and `academia`
+ * once each, from the person's biography).
+ *
+ * Measured across five education feeds: genuine education articles mention
+ * education terms 14 to 85 times. The false positives above scored 2 to 4.
+ * Eight sits in the middle of a very wide gap.
+ */
+export const MIN_EDUCATION_MENTIONS_IN_BODY = 8;
+
 /** Word-boundary match for Latin terms; substring for CJK, which has no spaces. */
 function containsTerm(haystack: string, term: string): boolean {
   if (/^[\x20-\x7e]+$/.test(term)) {
@@ -95,15 +129,65 @@ function containsTerm(haystack: string, term: string): boolean {
   return haystack.includes(term);
 }
 
+/**
+ * AI compounds that embed an education word. "machine learning" is not a
+ * mention of learning, and counting it as one is how a pure AI article starts
+ * to look educational — a test caught exactly that. Removed before the
+ * education terms are counted, and only then.
+ */
+const AI_COMPOUNDS_WITH_EDUCATION_WORDS =
+  /\b(machine|deep|reinforcement|supervised|unsupervised|transfer|federated|in-context|few-shot|zero-shot)[\s-]learning\b/gi;
+
+function withoutAiCompounds(text: string): string {
+  return text.replace(AI_COMPOUNDS_WITH_EDUCATION_WORDS, ' ');
+}
+
+function countTerms(haystack: string, terms: readonly string[]): number {
+  let total = 0;
+  for (const term of terms) {
+    if (/^[\x20-\x7e]+$/.test(term)) {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      total += (haystack.match(new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'gi')) ?? []).length;
+    } else {
+      total += haystack.split(term).length - 1;
+    }
+  }
+  return total;
+}
+
 function searchText(item: RawFeedItem): string {
   return `${item.title} ${item.summary}`.toLocaleLowerCase();
 }
 
+/**
+ * Is this story about AI in education?
+ *
+ * The headline and excerpt are trusted: naming something there is a statement
+ * about the subject. The body is not — a long article touches many things in
+ * passing — so whichever signal the headline leaves out has to be established
+ * in the body by weight, not by a single appearance.
+ */
 export function isEducationRelevant(item: RawFeedItem): boolean {
-  const text = searchText(item);
-  const hasEducation = EDUCATION_TERMS.some((term) => containsTerm(text, term));
-  if (!hasEducation) return false;
-  return AI_TERMS.some((term) => containsTerm(text, term));
+  const headline = searchText(item);
+  const body = item.fullText.toLocaleLowerCase();
+
+  const educationInHeadline = EDUCATION_TERMS.some((term) =>
+    containsTerm(withoutAiCompounds(headline), term),
+  );
+  const aiInHeadline = AI_TERMS.some((term) => containsTerm(headline, term));
+
+  // The headline says it is about both. Nothing further to check.
+  if (educationInHeadline && aiInHeadline) return true;
+
+  // Nothing else to consult.
+  if (body.length === 0) return false;
+
+  const hasEducation =
+    educationInHeadline ||
+    countTerms(withoutAiCompounds(body), EDUCATION_TERMS) >= MIN_EDUCATION_MENTIONS_IN_BODY;
+  const hasAi = aiInHeadline || countTerms(body, AI_TERMS) >= MIN_AI_MENTIONS_IN_BODY;
+
+  return hasEducation && hasAi;
 }
 
 /**
@@ -112,6 +196,8 @@ export function isEducationRelevant(item: RawFeedItem): boolean {
  * this function inventing one, so an untagged story is impossible.
  */
 export function inferTopics(item: RawFeedItem): Topic[] {
+  // Topics come from the headline and excerpt only. A whole article touches
+  // many subjects in passing; the tags are meant to say what it is about.
   const text = searchText(item);
   const found = (Object.keys(TOPIC_TERMS) as Topic[]).filter((topic) =>
     TOPIC_TERMS[topic].some((term) => containsTerm(text, term)),

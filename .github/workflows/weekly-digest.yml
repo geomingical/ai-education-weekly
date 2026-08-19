@@ -16,8 +16,9 @@
 #   4. commits the updated src/data/stories.json to main,
 #   5. rebuilds and deploys the site.
 #
-# Step 3 is the only step that can silently degrade: if the model is down or the
-# key is missing, stories still publish, carrying the source's own summary.
+# Step 3 is the only step that can silently degrade, and it degrades in stages:
+# NVIDIA first, DeepSeek if NVIDIA produces nothing, and the source's own
+# summary if neither does. The run report names which provider served the run.
 
 name: Weekly digest
 
@@ -68,6 +69,10 @@ jobs:
       - name: Collect and summarize
         env:
           AI_EDU_API_KEY: ${{ secrets.AI_EDU_API_KEY }}
+          # Second vendor, tried only when the first produces nothing. A
+          # provider outage should cost a week's Chinese summaries, and this is
+          # what stops it doing so.
+          AI_EDU_FALLBACK_API_KEY: ${{ secrets.AI_EDU_FALLBACK_API_KEY }}
         run: |
           npx tsx pipeline/src/run.ts --since "${{ inputs.since_days || '8' }}" \
             > "$RUNNER_TEMP/report.json"
