@@ -119,14 +119,39 @@ export interface IngestWindow {
 // publisher must not let that create an issue for a week that has not happened.
 const FUTURE_TOLERANCE_MS = 6 * 60 * 60 * 1000;
 
-export function ingestSourceItems(
-  source: IngestSource,
+/**
+ * A candidate that passed every deterministic gate and is waiting on a
+ * relevance verdict. Carries the raw feed item so a classifier can read it.
+ */
+export interface Candidate {
+  item: IngestedItem;
+  raw: RawFeedItem;
+}
+
+export interface ScreenResult {
+  candidates: Candidate[];
+  rejected: { reason: RejectReason; title: string }[];
+  rejectCounts: RejectCounts;
+}
+
+/**
+ * Everything that can be decided without judgement: a title, an https link on
+ * the source's own domain, a real publication date inside the window and not in
+ * the future, and not already published.
+ *
+ * Relevance and the per-source cap are NOT applied here. They come after,
+ * because the cap should count stories worth publishing rather than stories
+ * that happened to be checked first, and because a model-based relevance
+ * verdict is asynchronous and batched.
+ */
+export function screenSourceItems(
+  source: Omit<IngestSource, 'relevanceMode' | 'maxPerRun'>,
   items: readonly RawFeedItem[],
   window: IngestWindow,
   seenIds: Set<string>,
-): IngestResult {
-  const accepted: IngestedItem[] = [];
-  const rejected: IngestResult['rejected'] = [];
+): ScreenResult {
+  const candidates: Candidate[] = [];
+  const rejected: ScreenResult['rejected'] = [];
   const rejectCounts: RejectCounts = {};
 
   const reject = (reason: RejectReason, title: string) => {
@@ -134,8 +159,12 @@ export function ingestSourceItems(
     rejectCounts[reason] = (rejectCounts[reason] ?? 0) + 1;
   };
 
-  // The cap keeps the newest items, so sort before deciding what fits. Items
-  // without a usable date sort last and are rejected on the date check anyway.
+  // Screening does not mark ids as seen — relevance and the cap may still turn
+  // a candidate away, and one turned away today must stay eligible next week.
+  // Duplicates WITHIN this batch still have to collapse, so they are tracked
+  // separately and discarded when the pass ends.
+  const seenInThisBatch = new Set<string>();
+
   const ordered = [...items].sort((left, right) => {
     const leftTime = left.publishedAt ? Date.parse(left.publishedAt) : 0;
     const rightTime = right.publishedAt ? Date.parse(right.publishedAt) : 0;
@@ -155,9 +184,6 @@ export function ingestSourceItems(
       continue;
     }
     if (!hostAllowed(url, source.officialDomains)) {
-      // A feed on an allowlisted host can still link anywhere. Rejecting
-      // off-domain links is what stops a compromised or syndicating feed from
-      // publishing a link to a site nobody vetted.
       reject('off-domain', title);
       continue;
     }
@@ -180,38 +206,109 @@ export function ingestSourceItems(
       continue;
     }
 
-    if (source.relevanceMode === 'keyword' && !isEducationRelevant(item)) {
-      reject('not-relevant', title);
-      continue;
-    }
-
     const id = storyId(url);
-    if (seenIds.has(id)) {
+    if (seenIds.has(id) || seenInThisBatch.has(id)) {
       reject('duplicate', title);
       continue;
     }
-    if (accepted.length >= source.maxPerRun) {
-      // Everything from here on is older than what already fits, because the
-      // list was sorted newest-first above.
-      reject('over-cap', title);
-      continue;
-    }
+    seenInThisBatch.add(id);
 
-    seenIds.add(id);
-
-    accepted.push({
-      id,
-      sourceId: source.id,
-      title,
-      summaryOriginal: item.summary.trim(),
-      fullText: item.fullText,
-      url: canonicalUrl(url),
-      publishedAt: published.toISOString(),
-      topics: resolveTopics(item, source.defaultTopics),
-      region: source.region,
-      language: source.language,
+    candidates.push({
+      raw: item,
+      item: {
+        id,
+        sourceId: source.id,
+        title,
+        summaryOriginal: item.summary.trim(),
+        fullText: item.fullText,
+        url: canonicalUrl(url),
+        publishedAt: published.toISOString(),
+        // Filled in by the relevance stage; never left empty on an accepted story.
+        topics: [],
+        region: source.region,
+        language: source.language,
+      },
     });
   }
 
+  return { candidates, rejected, rejectCounts };
+}
+
+/** A relevance verdict for one candidate, however it was reached. */
+export interface RelevanceVerdict {
+  relevant: boolean;
+  topics: readonly Topic[];
+}
+
+/**
+ * Applies verdicts and the per-source cap, newest first.
+ *
+ * The cap lands here rather than in screening so it counts stories worth
+ * publishing: a feed of fifty irrelevant items no longer consumes the budget
+ * before a relevant one is reached.
+ */
+export function acceptCandidates(
+  candidates: readonly Candidate[],
+  verdictFor: (candidate: Candidate) => RelevanceVerdict,
+  maxPerRun: number,
+  seenIds: Set<string>,
+): IngestResult {
+  const accepted: IngestedItem[] = [];
+  const rejected: IngestResult['rejected'] = [];
+  const rejectCounts: RejectCounts = {};
+
+  const reject = (reason: RejectReason, title: string) => {
+    rejected.push({ reason, title: title.slice(0, 120) });
+    rejectCounts[reason] = (rejectCounts[reason] ?? 0) + 1;
+  };
+
+  for (const candidate of candidates) {
+    const verdict = verdictFor(candidate);
+    if (!verdict.relevant) {
+      reject('not-relevant', candidate.item.title);
+      continue;
+    }
+    if (accepted.length >= maxPerRun) {
+      reject('over-cap', candidate.item.title);
+      continue;
+    }
+    seenIds.add(candidate.item.id);
+    accepted.push({ ...candidate.item, topics: [...verdict.topics] });
+  }
+
   return { accepted, rejected, rejectCounts };
+}
+
+/**
+ * Screen and accept in one call, using the keyword rules. This is the fallback
+ * path — what runs when no model is available — and what the unit tests
+ * exercise, because it is deterministic.
+ */
+export function ingestSourceItems(
+  source: IngestSource,
+  items: readonly RawFeedItem[],
+  window: IngestWindow,
+  seenIds: Set<string>,
+): IngestResult {
+  const screened = screenSourceItems(source, items, window, seenIds);
+
+  const accepted = acceptCandidates(
+    screened.candidates,
+    (candidate) => {
+      if (source.relevanceMode === 'always') {
+        return { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) };
+      }
+      return isEducationRelevant(candidate.raw)
+        ? { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) }
+        : { relevant: false, topics: [] };
+    },
+    source.maxPerRun,
+    seenIds,
+  );
+
+  return {
+    accepted: accepted.accepted,
+    rejected: [...screened.rejected, ...accepted.rejected],
+    rejectCounts: { ...screened.rejectCounts, ...accepted.rejectCounts },
+  };
 }

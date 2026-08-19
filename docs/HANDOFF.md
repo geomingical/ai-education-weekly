@@ -86,7 +86,39 @@ Load the key first: `set -a; . ./.env; set +a`.
 8. **Report** one JSON document on stdout — per-source status, accepted counts,
    and a rejection-reason histogram.
 
-### The relevance rule, and how it was got wrong twice
+### Relevance is now judged by model, with the keyword rules behind it
+
+`pipeline/src/classify-agent.ts` asks a model, in batches of twelve, whether
+each candidate is about AI in education and which topics it carries. The
+keyword rules in `classify.ts` remain as the fallback for when no provider
+answers, so a model outage degrades judgement rather than stopping the week.
+
+**Why.** The keyword gate was wrong twice in one day, in both directions, and
+the failures were not tuning errors — they are what word-matching does with
+words that mean two things (`assessment` as model evaluation, `university` in a
+biography). It also lifts a limit unrelated to quality: the term lists were
+English and Chinese only, so a Finnish or Estonian feed would have been filtered
+to nothing however relevant.
+
+**Why it is affordable.** The date window runs first and does most of the work:
+2,463 feed items collapse to about 405 over thirty days, roughly 108 in a normal
+week — a handful of batched calls beside the summarization already happening.
+
+**The candidate's body is sent when the feed carried one**, free, no extra
+request. Without it the classifier inherits exactly the blind spot it was meant
+to fix: a side-by-side test on seven known-hard stories had model and keywords
+tied at 6/7, failing the same one. With the body: model 7/7, keywords 6/7 — and
+the model's topic tags were markedly better.
+
+**The cap moved after relevance.** It now counts stories worth publishing rather
+than stories that happened to be checked first, so a feed of fifty irrelevant
+items no longer consumes the budget before a relevant one is reached.
+
+This gate decides whether content is PUBLISHED, not just how it is described, so
+it carries the same injection defences as the summarizer — framed and sanitized
+input, bounded size, structured output validated against the exact request.
+
+### The keyword rules, and how they were got wrong twice
 
 The gate asks one question: is this story about AI in education? It reads the
 headline and excerpt as statements of subject, and the article body only by

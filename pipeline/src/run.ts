@@ -24,13 +24,21 @@ import { createHostPacer, fetchArticleText } from './article';
 import { parseFeed } from './feed-parser';
 import { itemsFromSitemap, parseSitemap, selectSitemapEntries } from './sitemap';
 import { safeFetch, type FetchIO } from './fetcher';
-import { ingestSourceItems, type IngestedItem, type IngestSource } from './ingest';
+import {
+  acceptCandidates,
+  screenSourceItems,
+  type Candidate,
+  type IngestedItem,
+  type IngestSource,
+} from './ingest';
+import { classifyAll, type ClassifyInput } from './classify-agent';
+import { isEducationRelevant, resolveTopics } from './classify';
 import { summarizeAll, type SummaryInput } from './summarize/summarizer';
 import { buildProviders, type SummarizerConfig } from './summarize/providers';
 import type { RawFeedItem, RunReport, SourceOutcome } from './contracts';
 import { loadSources, type Source } from '../../src/domain/source';
 import { issueLabelFromIso } from '../../src/domain/issue';
-import type { Story } from '../../src/domain/story';
+import type { Story, Topic } from '../../src/domain/story';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const SOURCES_PATH = resolve(ROOT, 'src/data/sources.json');
@@ -115,11 +123,11 @@ async function collect(
   window: { start: Date; end: Date },
   windowDays: number,
   seenIds: Set<string>,
-): Promise<{ items: IngestedItem[]; outcomes: SourceOutcome[] }> {
+): Promise<{ candidates: { source: Source; candidate: Candidate }[]; outcomes: SourceOutcome[] }> {
   // Sitemap sources read article pages during collection, so they need the same
   // per-host politeness the article stage uses.
   const sitemapPacer = createHostPacer(ARTICLE_FETCH_DELAY_MS, delay);
-  const items: IngestedItem[] = [];
+  const candidates: { source: Source; candidate: Candidate }[] = [];
   const outcomes: SourceOutcome[] = [];
 
   for (const source of sources) {
@@ -189,32 +197,18 @@ async function collect(
       parsedItems = parsed.items;
     }
 
-    const result = ingestSourceItems(
-      { ...toIngestSource(source), maxPerRun: effectiveCap(source.maxPerRun, windowDays) },
-      parsedItems,
-      window,
-      seenIds,
-    );
-    outcome.itemsAccepted = result.accepted.length;
-    outcome.itemsRejected = result.rejected.length;
-    outcome.rejectCounts = result.rejectCounts as Record<string, number>;
-    // "In window" means the date check passed — the pool the relevance gate and
-    // the cap actually chose from.
-    outcome.itemsInWindow =
-      result.accepted.length +
-      result.rejected.filter(
-        (entry) =>
-          entry.reason !== 'outside-window' &&
-          entry.reason !== 'future-dated' &&
-          entry.reason !== 'no-date',
-      ).length;
+    const screened = screenSourceItems(toIngestSource(source), parsedItems, window, seenIds);
+    outcome.rejectCounts = screened.rejectCounts as Record<string, number>;
+    outcome.itemsRejected = screened.rejected.length;
+    // "In window" means the date check passed — the pool relevance chooses from.
+    outcome.itemsInWindow = screened.candidates.length;
 
-    items.push(...result.accepted);
+    for (const candidate of screened.candidates) candidates.push({ source, candidate });
     outcomes.push(outcome);
-    log(`  ${source.id}: ${result.accepted.length} accepted of ${parsedItems.length} seen`);
+    log(`  ${source.id}: ${screened.candidates.length} candidates of ${parsedItems.length} seen`);
   }
 
-  return { items, outcomes };
+  return { candidates, outcomes };
 }
 
 async function main(): Promise<void> {
@@ -231,13 +225,116 @@ async function main(): Promise<void> {
   const existing = await readExistingStories();
   const seenIds = new Set(existing.map((story) => story.id));
 
-  const { items, outcomes } = await collect(sources, window, windowDays, seenIds);
+  const { candidates, outcomes } = await collect(sources, window, windowDays, seenIds);
   const warnings: string[] = outcomes
     .filter((outcome) => outcome.fetchError !== null || outcome.parseError !== null)
     .map(
       (outcome) =>
         `${outcome.sourceId}: ${outcome.fetchError ?? outcome.parseError} (status ${outcome.status})`,
     );
+
+  // --- relevance: judged by model, keyword rules as the fallback ---
+  //
+  // The date window has already cut 2,463 feed items to a few hundred, so this
+  // is a handful of batched calls. Doing it here rather than inside screening
+  // is what lets the per-source cap count stories worth publishing instead of
+  // stories that happened to be checked first.
+  const agents = (await readJson(AGENTS_PATH)) as { summarizer: SummarizerConfig };
+  const { providers, skipped: providersWithoutKeys } = buildProviders(
+    agents.summarizer,
+    process.env,
+  );
+  if (providersWithoutKeys.length > 0) {
+    log(`no key for: ${providersWithoutKeys.join(', ')} — those providers are unavailable`);
+  }
+
+  const sourceNameById = new Map(sources.map((source) => [source.id, source.name]));
+
+  // `always` sources are not sent: their whole feed is on topic by registration,
+  // and asking about them would spend calls to be told yes.
+  const needsJudgement = candidates.filter(
+    (entry) => entry.source.relevanceMode !== 'always',
+  );
+  const classifyInputs: ClassifyInput[] = needsJudgement.map(({ candidate }) => ({
+    id: candidate.item.id,
+    title: candidate.raw.title,
+    excerpt: candidate.item.summaryOriginal,
+    // Free when the feed shipped it; no page is fetched for this.
+    body: candidate.item.fullText,
+    sourceName: sourceNameById.get(candidate.item.sourceId) ?? candidate.item.sourceId,
+  }));
+
+  let classified = new Map<string, { relevant: boolean; topics: readonly string[] }>();
+  let undecided = new Set<string>(classifyInputs.map((entry) => entry.id));
+
+  if (classifyInputs.length > 0 && providers.length > 0) {
+    log(`judging relevance of ${classifyInputs.length} candidates via ${providers.map((p) => p.id).join(' → ')} …`);
+    const result = await classifyAll(classifyInputs, providers, { sleep: delay });
+    classified = new Map(
+      [...result.decisions].map(([id, decision]) => [
+        id,
+        { relevant: decision.relevant, topics: decision.topics },
+      ]),
+    );
+    undecided = new Set(result.undecided);
+    for (const attempt of result.attempts) {
+      log(
+        `  [${attempt.provider}] classify batch ${attempt.batch + 1} (${attempt.size}): ${attempt.outcome}` +
+          ` (${attempt.durationMs}ms${attempt.status ? `, HTTP ${attempt.status}` : ''})`,
+      );
+    }
+    warnings.push(...result.errors.map((error) => `classifier: ${error}`));
+    if (result.undecided.length > 0) {
+      warnings.push(
+        `${result.undecided.length} candidates fell back to keyword relevance because no provider answered`,
+      );
+    }
+  } else if (classifyInputs.length > 0) {
+    warnings.push('relevance judged by keyword rules: no model provider has a key');
+  }
+
+  // Apply verdicts and the per-source cap, source by source.
+  const items: IngestedItem[] = [];
+  const byOutcome = new Map(outcomes.map((outcome) => [outcome.sourceId, outcome]));
+
+  for (const source of sources) {
+    const mine = candidates.filter((entry) => entry.source.id === source.id).map((e) => e.candidate);
+    if (mine.length === 0) continue;
+
+    const accepted = acceptCandidates(
+      mine,
+      (candidate) => {
+        if (source.relevanceMode === 'always') {
+          return { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) };
+        }
+        const verdict = classified.get(candidate.item.id);
+        if (verdict && !undecided.has(candidate.item.id)) {
+          return {
+            relevant: verdict.relevant,
+            topics: (verdict.topics.length > 0
+              ? verdict.topics
+              : source.defaultTopics) as readonly Topic[],
+          };
+        }
+        // Fallback: the deterministic rules, so a model outage degrades
+        // judgement rather than stopping the week.
+        return isEducationRelevant(candidate.raw)
+          ? { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) }
+          : { relevant: false, topics: [] };
+      },
+      effectiveCap(source.maxPerRun, windowDays),
+      seenIds,
+    );
+
+    items.push(...accepted.accepted);
+    const outcome = byOutcome.get(source.id);
+    if (outcome) {
+      outcome.itemsAccepted = accepted.accepted.length;
+      outcome.itemsRejected += accepted.rejected.length;
+      outcome.rejectCounts = { ...outcome.rejectCounts, ...(accepted.rejectCounts as Record<string, number>) };
+    }
+  }
+  log(`accepted ${items.length} of ${candidates.length} candidates`);
 
   // --- article text: only for what the feed did not already carry ---
   //
@@ -280,15 +377,8 @@ async function main(): Promise<void> {
   }
 
   // --- summarization (best effort) ---
-  const agents = (await readJson(AGENTS_PATH)) as { summarizer: SummarizerConfig };
-  const { providers, skipped } = buildProviders(agents.summarizer, process.env);
-
   const summaryById = new Map<string, { titleZhTW: string; summaryZhTW: string }>();
   let summaries = { requested: 0, succeeded: 0, failed: 0, skippedReason: null as string | null };
-
-  if (skipped.length > 0) {
-    log(`no key for: ${skipped.join(', ')} — those providers are unavailable this run`);
-  }
 
   if (items.length === 0) {
     summaries.skippedReason = 'no new stories to summarize';
