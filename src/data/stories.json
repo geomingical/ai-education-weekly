@@ -1,0 +1,1240 @@
+[
+  {
+    "id": "2728b4e077a0c142",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Psychological Determinants of Academic Integrity in the Use of Generative AI in Higher Education",
+    "summaryOriginal": "arXiv:2608.14605v1 Announce Type: new Abstract: This paper examines the psychological determinants that shape academically honest and dishonest uses of generative artificial intelligence (GenAI) in higher education. Rather than treating academic misconduct as a purely technological problem, the study conceptualizes academic integrity as a psychologically mediated decision process influenced by…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.14605",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "research",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e53e54e51066120b",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Local AI pre-screening for human triple-blind peer review in health sciences",
+    "summaryOriginal": "arXiv:2608.14625v1 Announce Type: new Abstract: Academic peer review is under mounting strain: NeurIPS 2025 received 21,575 submissions, ICLR 2025 received 11,603, and ICML 2025 received 12,107. This volume has outpaced the supply of qualified reviewers, and large language models (LLMs) are already filling the gap, largely undisclosed. An independent analysis of ICLR 2026 found roughly 21% of its…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.14625",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "492afcdd53290657",
+    "sourceId": "arxiv-cs-cy",
+    "title": "An AI-Based Adaptive Learning Platform for Multilingual and Low-Resource Educational Contexts: A Case Study on Nigeria",
+    "summaryOriginal": "arXiv:2608.15738v1 Announce Type: new Abstract: Educational platforms in under-resourced and multilingual contexts, such as Nigeria, often struggle with limited personalisation, inadequate language support, and weak curriculum internationalisation, leading to reduced learner engagement and inclusivity. This paper presents an AI-based adaptive learning platform designed for multilingual and…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.15738",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5d90254894c83e70",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Mitigating AI Risks in Computing Education via LLM-Driven Lecture Video Curation",
+    "summaryOriginal": "arXiv:2608.16131v1 Announce Type: new Abstract: This study evaluates the effectiveness of utilising large language models (LLMs) to retrieve targeted segments from delivered video recordings to answer student questions in introductory programming environments. By restricting AI to identifying existing, educator-verified media rather than generating open-ended text, this approach aims to mitigate…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16131",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "cf838be546ea052b",
+    "sourceId": "arxiv-cs-cy",
+    "title": "The Benchmark Trap: Structures of Power and Injustice in AI Evaluations",
+    "summaryOriginal": "arXiv:2608.15326v1 Announce Type: cross Abstract: Artificial intelligence (AI) benchmarks are not neutral tools of evaluation but socio-technical artefacts that shape competition, power, and research priorities within AI. Benchmarks standardise the assessment of systems and facilitate the creation of leaderboards that reward state-of-the-art performance with prestige, citations, trust, and…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.15326",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4e1e8196514e2888",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Beyond Access: Guided LLM Scaffolding for Independent Learning in Undergraduate Statistics",
+    "summaryOriginal": "arXiv:2606.01375v3 Announce Type: replace Abstract: Large language models (LLMs) are increasingly entering students' learning practices, but their educational value may depend on whether they are used to support reasoning or to complete tasks without engaging in the underlying reasoning. This study examines guided LLM use in an undergraduate Probability and Statistics course, focusing on the…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2606.01375",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b8269c77c094a035",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Culturally-Aware AI for Cross-Boundary Community Learning: Undergraduate Innovation at the Intersection of Computation and Design",
+    "summaryOriginal": "arXiv:2606.09041v2 Announce Type: replace Abstract: Research on artificial intelligence in education (AIED) is rapidly expanding, yet technical progress often lacks human-centered grounding and adequate attention to cultural context. Community-Based Learning, a pedagogy rooted in social work, remains underrepresented in AIED research, particularly within Asia-Pacific contexts. This paper reports…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2606.09041",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "222cc4b990af2711",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Generating Synthetic Behavioral Populations from XR Motion",
+    "summaryOriginal": "arXiv:2608.14867v1 Announce Type: new Abstract: Large-scale behavioral datasets are becoming increasingly important for machine learning, personalization, and behavioral modeling in extended reality (XR). However, collecting XR motion data from hundreds or thousands of participants remains expensive, time-consuming, and difficult to reproduce across research groups. As a result, many XR studies…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.14867",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b362104f3edaf9ee",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Dynamic Evidence Collection Ecosystem for Assessment Integrity and Authentic Competence",
+    "summaryOriginal": "arXiv:2608.16016v1 Announce Type: new Abstract: Generative Artificial Intelligence (GenAI) can produce high-quality essays, code, and design artefacts, challenging the validity of conventional assessments that rely on single-point submissions and product-only grading. This paper proposes a design framework called \"Dynamic Evidence Collection Ecosystem\" that shifts assessment toward continuous,…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16016",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "6e92a85b4dd31503",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Artly: Exploring Digital Artists' Perceptions of AI-Generated Feedback",
+    "summaryOriginal": "arXiv:2608.16189v1 Announce Type: new Abstract: Recent developments in generative AI have lowered barriers to image generation, but existing tools mostly optimize for efficiency, producing generic results and offering little support for artistic growth. We present Artly, an AI system that combines personalizable AI feedback with human-authored learning resources. In a between-subjects study with…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16189",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "592b8a748de66d72",
+    "sourceId": "arxiv-cs-hc",
+    "title": "PolyDebate: A Game-Orchestrated Multimodal System for Debate Skills Practice and Evaluation",
+    "summaryOriginal": "arXiv:2608.16276v1 Announce Type: new Abstract: Debate is a structured form of persuasive communication that trains argument construction, rebuttal, oral delivery, and audience awareness. These skills are valued in education, language learning, and professional communication. Recent AI debate systems and LLM-based judges have advanced argument generation and debate evaluation, but most remain…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16276",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "0cf67ee2f185a4d9",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Love in the Age of AI: An Integrative Process Model of Romantic Human-Chatbot Relationships",
+    "summaryOriginal": "arXiv:2608.16633v1 Announce Type: new Abstract: The increasing ability of social chatbots to form deep and even romantic Human-Chatbot Re lationships (HCRs) has drawn growing academic attention. Yet, existing research remains fragmented, often examining individual stages such as initiation or dissolution in isolation, without tracing the full relational trajectory. Such fragmentation, however,…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16633",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b90e51b69c12584f",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Evaluating Beyond the Screen: Collective Assessment of AI-Generated Business Plans with Resource-Constrained Entrepreneurs",
+    "summaryOriginal": "arXiv:2608.16886v1 Announce Type: new Abstract: Entrepreneurs increasingly use end-user generative AI technologies such as ChatGPT for high-stakes documents like loan applications and business plans, where AI-generated errors---a wrong price, a fabricated product---can affect loan or funding outcomes. Current approaches to supporting evaluation of AI-generated text assume a single user assessing…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16886",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "52e754a3f5fe03c6",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Automating Learner Assessment: Benchmarking Machine Learning and Deep Learning Models for EEG-Based Familiarity Prediction",
+    "summaryOriginal": "arXiv:2608.16541v1 Announce Type: cross Abstract: Objective assessment of learning remains a fundamental challenge in education. Electroencephalography (EEG) provides a direct, non-invasive window into the neural correlates of knowledge acquisition, including cognitive familiarity. This study benchmarks fifteen machine learning (ML) and deep learning (DL) models for EEG-based familiarity…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.16541",
+    "publishedAt": "2026-08-18T04:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "16c8c19f5d2b6a62",
+    "sourceId": "inside-higher-ed",
+    "title": "CUNY’s Computer Science Growing Pains",
+    "summaryOriginal": "CUNY’s Computer Science Growing Pains Joshua.Bay Mon, 08/17/2026 - 03:00 AM After a decade-long enrollment boom, CUNY faces faculty shortages and pressure to prepare students in the field for an AI-driven job market. Byline(s) Joshua Bay",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://www.insidehighered.com/news/student-success/academic-life/2026/08/17/cunys-computer-science-growing-pains",
+    "publishedAt": "2026-08-17T07:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "3ee0d6d034d7a118",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Academic League of Artificial Intelligence - An Integrative Perspective of Teaching, Research, and Extension",
+    "summaryOriginal": "Academic leagues have become important mechanisms for promoting extracurricular education and strengthening the integration between universities and society. This paper presents the organizational framework adopted by the Academic League of Artificial Intelligence (LIA) at the Federal University of Santa Catarina (UFSC), designed to integrate teaching, research, and university extension through a…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.13447v2",
+    "publishedAt": "2026-08-13T16:32:44.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "policy",
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "269a09f84359f803",
+    "sourceId": "openai-education-newsletter",
+    "title": "Developing Voice with ChatGPT",
+    "summaryOriginal": "Three professors are using AI to help students (and themselves) rehearse participation, write, and take creative risks.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edunewsletter.openai.com/p/developing-voice-with-chatgpt",
+    "publishedAt": "2026-08-13T15:01:53.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "216ed93dcc0a2a69",
+    "sourceId": "edsurge",
+    "title": "On AI Policy, Students Have Plenty to Say",
+    "summaryOriginal": "At a gathering in Boston, ‘student senators’ proposed a first-of-its-kind national AI policy for K-12 classrooms.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/on-ai-policy-students-have-plenty-to-say",
+    "publishedAt": "2026-08-13T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "2f218bf7eb5fdd4b",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Probing AI-generated physics solutions and preparing students to critique them",
+    "summaryOriginal": "This study examines Artificial Intelligence (AI)-generated physics solutions from two connected perspectives: how prompt design shapes these solutions and how students can be prepared to critique them. Using a rotational-mechanics problem, we adapted a problem-classification framework to examine prompt variations, evaluating OpenAI's o4-mini responses with the Minnesota Assessment of Problem…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.12533v1",
+    "publishedAt": "2026-08-12T19:07:41.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "policy",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b50b081ef25565e4",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Structural Silence: When AI Infrastructure Fails Speakers of Underrepresented Languages",
+    "summaryOriginal": "Artificial intelligence tools for education and language support are increasingly framed as scalable responses to access gaps in under-resourced communities. Yet the infrastructure underlying these tools, including training corpora, tokenization schemes, evaluation benchmarks, and deployment architectures, can systematically disadvantage speakers of underrepresented languages before a model is…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.12278v1",
+    "publishedAt": "2026-08-12T17:17:25.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "ad3123b15a13c2c7",
+    "sourceId": "openai-education-newsletter",
+    "title": "The Edu Prompt: Skills Jams and Education Plugins",
+    "summaryOriginal": "OpenAI Academy Skills Jams, new education plugins, course build as website, and back-to-school ideas.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edunewsletter.openai.com/p/the-edu-prompt-issue-4",
+    "publishedAt": "2026-08-12T15:01:52.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "k12",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "72ba70daefe7e355",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Making AI-Generated Feedback Matter: A Large-Scale Study of Feedback Workflows and Student Enactment",
+    "summaryOriginal": "Feedback processes strongly influence student learning, yet their educational value depends on addressing two distinct challenges: providing high-quality, timely, and individualised feedback at scale, and supporting students to interpret, evaluate, and act on that feedback productively. Generative AI offers a credible means of addressing the provision challenge, but students' uptake of…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.11625v2",
+    "publishedAt": "2026-08-12T04:12:34.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "policy",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "87577034979ff009",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "A Conceptual Framework for Enhancing Workforce Readiness for Smart Manufacturing in the AI Era",
+    "summaryOriginal": "The convergence of artificial intelligence (AI), Industrial Internet of Things, cyber-physical systems, and advanced robotics is reshaping manufacturing faster than engineering curricula can adapt, widening the gap between the competencies required on the shop floor and those delivered by traditional engineering and technology education. This paper proposes a Workforce Readiness Level (WRL)…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.11540v1",
+    "publishedAt": "2026-08-12T01:09:37.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "policy",
+      "research",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "20734c51d0f8f048",
+    "sourceId": "edsurge",
+    "title": "The K-12 Silo Won’t Survive AI — But Our Relationships Might",
+    "summaryOriginal": "I left my school to ask tech executives how to prepare students for the future.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/the-k-12-silo-wont-survive-ai-but-our-relationships-might",
+    "publishedAt": "2026-08-12T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "289012c297d6fb3c",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Principal Trait Analysis: Towards Deriving \"Skills\" in Human-AI Collaboration",
+    "summaryOriginal": "Large Language Model-powered agents are increasingly used in the workplace via human-artificial intelligence (AI) collaboration. In this new era of work, it is important to understand the kinds of prompting traits that contribute to task success. Moreover, we need to uncover key skills required for modern professionals and inform educators on how to foster these skills among students. Existing…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.11460v1",
+    "publishedAt": "2026-08-11T21:49:35.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "10b3673cf05edab9",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "AI-Generated Interactive Fiction for Educational Use: A Pilot Study of Perceived Comprehensibility, Coherence, and Engagement",
+    "summaryOriginal": "Generative artificial intelligence (AI) can produce educational content at scale, including interactive and narrative learning experiences, but technical generation alone is not sufficient: scenarios that are confusing, narratively inconsistent, or unengaging are unlikely to be useful in practice. This paper presents a pilot user-centred evaluation of AI-generated interactive fiction (IF) for…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.10818v1",
+    "publishedAt": "2026-08-11T11:41:05.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "616640b95733c476",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "INSIDE the Student's Mind: Jointly Modeling Latent Reasoning and Action in LLM Student Simulators",
+    "summaryOriginal": "Large Language Model (LLM)-based simulators often reproduce observable actions but fail to capture the underlying reasoning behind them. In education, where student simulation is increasingly used for various applications such as evaluating tutoring systems, this gap is especially pronounced. Two students may submit identical submissions for entirely different reasons. We present INTERNAL STUDENT…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.10492v2",
+    "publishedAt": "2026-08-11T05:07:49.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5a9f606fec91b343",
+    "sourceId": "openai-education-newsletter",
+    "title": "National University of Singapore and OpenAI deepen collaboration to help Singapore’s next generation lead with AI",
+    "summaryOriginal": "Today, the National University of Singapore (NUS) and OpenAI announced a strategic collaboration to expand how students, educators, researchers, and staff can learn, build and lead with AI.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edunewsletter.openai.com/p/nus-openai-collaboration",
+    "publishedAt": "2026-08-11T03:15:29.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W33",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "32c3f2de9443e6c7",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Findings of the First Teaching Monster Challenge: A Benchmark of Pedagogical Content Knowledge in AI Agents",
+    "summaryOriginal": "AI agents can now solve problems, answer like subject experts, and generate long-form multimodal content. However, whether they can adapt a lesson to fit a specified learner, which education calls Pedagogical Content Knowledge (PCK), has not been benchmarked. To measure it, we introduce the Teaching Monster Challenge, the first instructional video generation benchmark to treat the learner persona…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.08852v1",
+    "publishedAt": "2026-08-09T18:28:01.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4d61a01147436538",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Rethinking Higher Education: From Fixed Curricula to Learnity Graphs",
+    "summaryOriginal": "Higher education stands at a turning point. In an era where knowledge is increasingly accessible and which is, more often than not, mediated by advanced Artificial Intelligence (AI), the value of traditional curricula models warrants reconsideration. This does not imply that one should replace thorough academic studies. Universities remain essential in providing foundational knowledge,…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://arxiv.org/abs/2608.08543v1",
+    "publishedAt": "2026-08-09T07:42:58.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e8c9dcd39a162cdb",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Beyond Tables: Doc2DB-Bench for Relationally Faithful Document-to-Database Construction",
+    "summaryOriginal": "Practical AI systems increasingly need to turn long, heterogeneous documents into queryable relational databases, not isolated spreadsheets. In domains such as finance, healthcare, education, transportation, and enterprise operations, downstream workflows rely on normalized schemas, entity identities, keys, cross-table relationships, and integrity constraints for analytics, compliance, auditing,…",
+    "titleZhTW": "Doc2DB-Bench：文件轉關聯資料庫基準測試",
+    "summaryZhTW": "該研究提出 Doc2DB-Bench，提供將長且異質文件轉為可查詢關聯資料庫的標準評測。此基準支援金融、醫療、教育等領域對正規化結構、實體識別與跨表關係的需求，有助於下游分析、合規與稽核流程。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.08459v1",
+    "publishedAt": "2026-08-09T03:58:39.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "policy"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f52cecfa6a7b63c4",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Agentic AI-driven Immersive Simulation: A Knowledge-Aware Virtual Training Platform forHigh Dose Rate (HDR) Brachytherapy",
+    "summaryOriginal": "The convergence of the Metaverse and Large Language Model (LLM)-based AI agent is catalyzing a shift toward autonomous, immersive, and personalized pedagogical frameworks in medical education. This paper presents a novel agentic AI-driven immersive simulation specifically designed for High Dose Rate (HDR) vaginal cylinder (VC) brachytherapy in cancer care. By integrating Virtual Reality (VR) and…",
+    "titleZhTW": "代理人 AI 沉浸式模擬：高劑率近距離放療虛擬訓練平台",
+    "summaryZhTW": "結合虛擬實境與大型語言模型代理，建構專為高劑率陰道筒近距離放療設計的個人化訓練環境。醫學教育者可透過自主、沉浸式模擬提升學習者操作技能與決策能力。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.08163v1",
+    "publishedAt": "2026-08-08T14:46:08.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "teaching",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b6e51c0fd0131ece",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "CyberAGENTS: Structured Autonomy for Agentic Gamified Learning in Cybersecurity",
+    "summaryOriginal": "Gamification is especially effective in learning domains requiring active problem-solving and iterative skill-building, such as cybersecurity education. Generative AI agents offer a path to delivering such experiences adaptively at scale, but introduce well-documented risks in educational settings: inconsistent behavior, hallucinated reasoning, and misalignment with pedagogical frameworks.…",
+    "titleZhTW": "CyberAGENTS：網安教育的結構化自主遊戲化學習",
+    "summaryZhTW": "提出 CyberAGENTS 框架，利用生成式 AI 代理在網安課程中提供適應性、可擴展的遊戲化體驗，並透過結構化自主機制降低幻覺與教學目標錯位風險。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.07965v1",
+    "publishedAt": "2026-08-08T06:59:45.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "cea41ef8f4f6c7b2",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Curriculum as Code: An AI-Assisted Architecture for Instructional Design in STEM Education",
+    "summaryOriginal": "Contribution: This paper presents a six-phase AI-assisted instructional design architecture based on the Curriculum as Code paradigm, integrating Generative AI with LaTeX and Python to automate the creation of reproducible, visually consistent, and technically precise materials for STEM education. Background: Creating customized instructional materials for active learning imposes a heavy workload…",
+    "titleZhTW": "課程即代碼：STEM 教學設計的 AI 輔助架構",
+    "summaryZhTW": "以「課程即代碼」範式整合生成式 AI、LaTeX 與 Python，建立六階段教學設計流程，自動產出可重現、視覺一致且技術精確的 STEM 教材，減輕教師客製化教材的工作負擔。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.07364v1",
+    "publishedAt": "2026-08-07T16:09:10.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f98fa83466eb79bd",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Methodologies for Improving the Quality of AI Tutoring in K-12 Education",
+    "summaryOriginal": "Many AI tutors leverage large language models (LLMs) today. Given that LLMs are opaque black boxes, robust evaluation and live experimentation to measure the impact of every change are essential. We pioneered AI-powered tutoring for K-12 with the launch of Khanmigo (Khan Academy, 2023). We describe the metrics we use to measure AI tutoring quality and student engagement as well as various…",
+    "titleZhTW": "提升 K-12 AI 導師品質的方法論",
+    "summaryZhTW": "針對 K-12 階段的 AI 導師（如 Khanmigo），建立評估指標與即時實驗流程，量測教學品質與學生參與度，確保每次模型更新都經過嚴格驗證。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.11259v1",
+    "publishedAt": "2026-08-07T15:20:08.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "c3107593abc8d136",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Where Does AI Innovation Go? Measuring Research Attention Imbalance in AI Music",
+    "summaryOriginal": "The rapid growth of artificial intelligence (AI) in music has expanded research from generation and information retrieval to education, health, and governance. Yet this growth does not necessarily imply balanced research attention. Where is research attention directed across diverse music tasks, and how can such imbalance be systematically measured? Existing studies examine AI music from separate…",
+    "titleZhTW": "AI 音樂研究關注度失衡的測量",
+    "summaryZhTW": "分析 AI 音樂領域的研究分布，發現生成、檢索、教育、健康與治理等任務的關注度不均，並提出系統化指標量測此失衡，為音樂教育相關研究資源配置提供參考。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.06903v1",
+    "publishedAt": "2026-08-07T07:37:02.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "fd145901a5d5ea53",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Can MLLMs Decode the Creative Leap? Introducing C4 for Cross-Concept Understanding",
+    "summaryOriginal": "Creative capabilities of MLLMs matter in design, communication, education, and human--AI collaboration, yet remain difficult to evaluate because explicit targets and reward signals are scarce compared with accuracy-oriented tasks. Cross-concept understanding is a core cognitive capacity underlying receptive creativity. It enables a perceiver to recover intended meaning from non-obvious but…",
+    "titleZhTW": "多模態大語言模型能否理解跨概念創意？引入 C4 評估框架",
+    "summaryZhTW": "研究指出多模態大語言模型在設計、溝通、教育與人機協作的創意表現難以評估，因缺乏明確目標與獎勵訊號。團隊提出 C4 基準，測試模型從非顯性線索還原意圖的跨概念理解能力，為教育場域評估 AI 創造力提供新工具。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.06501v1",
+    "publishedAt": "2026-08-06T18:38:14.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "fa7fa85099874d5f",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "From Precision Medicine to Precision Education: A Vision for AI-Powered Student Digital Twins, Preventive Student Success, and Career-Aligned Academic Pathways",
+    "summaryOriginal": "Higher education remains largely reactive in its approach to student success. Institutions frequently identify academic problems only after students have failed courses, fallen behind in degree progression, accumulated excessive debt, or departed without a credential. Healthcare faced a similar challenge decades ago. It responded by shifting from reactive treatment to preventive care powered by…",
+    "titleZhTW": "從精準醫療到精準教育：學生數位雙生與預防式成功策略",
+    "summaryZhTW": "高等教育長期採事後補救，論文借鏡醫療轉型，提出以 AI 驅動的學生數位雙生體系，及早識別輟學、修課失敗與債務風險，並規劃職涯導向學習路徑，將學生成功從被動反應轉為主動預防。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.06322v2",
+    "publishedAt": "2026-08-06T17:36:56.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "higher-ed",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "32f15e13e9308699",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Once a Response, Always a Response: Detecting LLM-generated Text via Latent Prompt Restoration",
+    "summaryOriginal": "Large language models (LLMs) can generate fluent and convincing text at scale, creating growing risks for misinformation dissemination, educational misuse, and platform governance. These concerns make robust detection of machine-generated text increasingly necessary. Recent zero-shot detectors mainly exploit probability-based statistical discrepancies, but they do not explicitly account for the…",
+    "titleZhTW": "透過潛在提示還原偵測 LLM 生成文本，應對教育濫用風險",
+    "summaryZhTW": "大語言模型大量產出流暢文本，加劇誤資訊與教育作弊風險。研究提出零樣本偵測新法，透過還原生成時的潛在提示，捕捉機器文本的深層統計特徵，為校園學術誠信與平台治理提供更穩健的鑑別手段。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.05741v1",
+    "publishedAt": "2026-08-06T08:22:19.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "tools",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f3e49c6f99ceacf4",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "Exploring Fraction Comprehension and Interest in Elementary Education Through AI-Powered Personalized Learning",
+    "summaryOriginal": "Artificial intelligence systems that adapt instruction to individual learners are increasingly deployed in K-12 classrooms, yet empirical evidence on their effects in authentic elementary settings remains limited, particularly for students with mathematics learning difficulties. This dissertation examines AI-powered personalized learning during primary school fraction instruction, a domain that…",
+    "titleZhTW": "AI 個別化學習在國小分數教學的實證探索",
+    "summaryZhTW": "博士論文在真實國小課堂測試 AI 適應性教學系統，聚焦分數概念理解與學習興趣，特別納入數學學習困難學生。研究提供實證依據，說明 AI 個別化教學如何影響弱勢學童的數學核心概念建構與動機。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.04892v1",
+    "publishedAt": "2026-08-05T14:17:19.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "k12",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "89693f941f07134c",
+    "sourceId": "arxiv-ai-education-query",
+    "title": "AI Literacy for Legal Translation: Developing Digital Resilience",
+    "summaryOriginal": "Generative AI is transforming legal translation by introducing opportunities alongside linguistic, technical, legal, ethical and cognitive risks. This chapter examines the implications of AI for professional legal translation and proposes an AI literacy framework tailored to the profession. It argues that AI does not change the fundamental objectives of legal translation but requires an extension…",
+    "titleZhTW": "法律翻譯的 AI 素養框架：建立數位韌性",
+    "summaryZhTW": "生成式 AI 為法律翻譯帶來機遇與語言、法律、倫理等多重風險。章節提出專屬 AI 素養框架，強調核心翻譯目標不變，但譯者需擴展能力以驗證輸出、管理機密與判斷責任歸屬，培養面對技術變遷的數位韌性。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.04641v1",
+    "publishedAt": "2026-08-05T09:58:59.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "policy"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "bce66787a82e4b00",
+    "sourceId": "edsurge",
+    "title": "What Happens When AI Policy Meets a Real Classroom?",
+    "summaryOriginal": "One national study, one local leader, and a reality check on how schools are really regulating AI.",
+    "titleZhTW": "AI 政策走進真實教室：全美研究與一線校長的現實檢視",
+    "summaryZhTW": "全國性研究與一位學區領導的親身經驗揭示，學校在落實 AI 管制時面臨資源不足、師資準備度參差與學生實際用途難掌握等落差。報導呼籲政策制定者必須聽取一線聲音，才能制定可執行的校園 AI 治理規範。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/what-happens-when-ai-policy-meets-a-real-classroom",
+    "publishedAt": "2026-08-05T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "policy",
+      "k12",
+      "research"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "129511f54188e7df",
+    "sourceId": "openai-news",
+    "title": "New ways to learn and teach with ChatGPT Work and Codex",
+    "summaryOriginal": "Explore new education plugins for ChatGPT Work and Codex that help K–12 teachers, college educators, and students learn, teach, research, and build.",
+    "titleZhTW": "ChatGPT Work 與 Codex 推出教育新外掛",
+    "summaryZhTW": "OpenAI 為 ChatGPT Work 和 Codex 推出教育外掛，協助 K-12 教師、大學講師與學生進行學習、教學、研究與建構。這些工具旨在提升課堂與研究效率。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/learn-teach-chatgpt-work-codex",
+    "publishedAt": "2026-08-04T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "065495b11ed5f0a1",
+    "sourceId": "edsurge",
+    "title": "Teachers Forge Ahead on Integrating AI",
+    "summaryOriginal": "A new report highlights a growing push for tools tailored specifically to the classroom.",
+    "titleZhTW": "教師積極推動 AI 融入課堂",
+    "summaryZhTW": "新報告顯示教師推動整合 AI 的趨勢增長，呼籲開發專為課室設計的工具。這反映教育現場對客製化 AI 需求日益迫切。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/teachers-forge-ahead-on-integrating-ai",
+    "publishedAt": "2026-08-04T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "76fb4c5c408bbdb4",
+    "sourceId": "edsurge",
+    "title": "I Used AI to Build AI-Resistant Assignments",
+    "summaryOriginal": "A teacher created an app to fight cheating — and discovered a bigger takeaway.",
+    "titleZhTW": "教師自製 AI 抗作弊作業並獲啟示",
+    "summaryZhTW": "一位教師開發應用程式對抗作弊，過程中發現更重要的啟示。這顯示 AI 可協助設計更具挑戰性的評量方式。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/i-used-ai-to-build-ai-resistant-assignments",
+    "publishedAt": "2026-08-03T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W32",
+    "topics": [
+      "teaching",
+      "tools",
+      "integrity"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "5462dabded77fc3f",
+    "sourceId": "openai-education-newsletter",
+    "title": "Sparking Cultural Curiosity with AI",
+    "summaryOriginal": "How Marion Carre and Ask Mona are igniting curiosity and learning in museums with ChatGPT",
+    "titleZhTW": "以 AI 點燃博物館文化好奇心",
+    "summaryZhTW": "Marion Carre 與 Ask Mona 利用 ChatGPT 在博物館激發好奇心與學習。AI 成為連結觀眾與文化內容的新橋樑。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/sparking-cultural-curiosity",
+    "publishedAt": "2026-07-30T14:04:04.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W31",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "47da73cdc4f72b4c",
+    "sourceId": "openai-news",
+    "title": "Accelerating scientific discovery with ChatGPT for Academic Researchers",
+    "summaryOriginal": "OpenAI is giving 100,000 academic researchers free access to ChatGPT's most advanced AI models to accelerate scientific research, collaboration, and discovery.",
+    "titleZhTW": "OpenAI 免費開放進階 ChatGPT 予 10 萬學者",
+    "summaryZhTW": "OpenAI 向 10 萬名學術研究者免費提供最先進 ChatGPT 模型，加速科學研究、合作與發現。此舉預期大幅提升學術產出效率。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/chatgpt-for-academic-researchers",
+    "publishedAt": "2026-07-29T10:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W31",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "ee8d2b0771d8d231",
+    "sourceId": "microsoft-education",
+    "title": "Study and Learn: AI built for learning in Microsoft 365 Copilot",
+    "summaryOriginal": "Students are already using AI. Learn how Study and Learn in Microsoft 365 Copilot supports active learning and why institutions should consider enabling Copilot Chat to provide learning-first AI experiences. The post Study and Learn: AI built for learning in Microsoft 365 Copilot appeared first on Microsoft Education Blog.",
+    "titleZhTW": "Microsoft 365 Copilot 推出 Study and Learn 學習功能",
+    "summaryZhTW": "Microsoft 365 Copilot 推出 Study and Learn 功能，支援主動學習，建議機構啟用 Copilot Chat 提供以學習為優先的 AI 體驗。此功能旨在強化學生自主探究能力。",
+    "summarySource": "machine",
+    "url": "https://www.microsoft.com/en-us/education/blog/2026/07/study-and-learn-ai-built-for-learning-in-microsoft-365-copilot",
+    "publishedAt": "2026-07-28T15:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W31",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f9382914f69a5da7",
+    "sourceId": "edsurge",
+    "title": "We Must Stop Using AI to ‘Level-Down’ Our Students",
+    "summaryOriginal": "How AI deprived my students of the reading struggle they needed to succeed — and five better ways to use it.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/we-must-stop-using-ai-to-level-down-our-students",
+    "publishedAt": "2026-07-22T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W30",
+    "topics": [
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "33a3703ec57af08f",
+    "sourceId": "openai-education-newsletter",
+    "title": "What Changes When Class Prep Talks Back?",
+    "summaryOriginal": "Dan Wang, Johanna Chouraqui, and the CAiSEY team are using OpenAI’s Realtime API to turn class prep into live practice for discussion, debate, and ambiguity.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edunewsletter.openai.com/p/what-changes-when-class-prep-talks",
+    "publishedAt": "2026-07-20T14:17:29.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W30",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "648bd58d258d3bdb",
+    "sourceId": "openai-education-newsletter",
+    "title": "The Edu Prompt: AI for the Work of Education",
+    "summaryOriginal": "ChatGPT Work, Sites, practical prompts, reusable skills, and new Skill Labs from OpenAI Academy.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edunewsletter.openai.com/p/the-edu-prompt-issue-3",
+    "publishedAt": "2026-07-17T15:00:44.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a907415b440a72c9",
+    "sourceId": "openai-news",
+    "title": "Why teens deserve access to safe AI",
+    "summaryOriginal": "Learn how OpenAI is making ChatGPT safer for teens with age-appropriate protections, learning tools, parental controls, and expert partnerships.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
+    "publishedAt": "2026-07-16T16:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "79419403e725a1c2",
+    "sourceId": "edsurge",
+    "title": "AI Meets ESL, and Teachers Are Intrigued",
+    "summaryOriginal": "Can AI chatbots support K-12 emergent bilingual learners without widening gaps?",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/ai-meets-esl-and-teachers-are-intrigued",
+    "publishedAt": "2026-07-16T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "c0ab462f47bea6a7",
+    "sourceId": "openai-education-newsletter",
+    "title": "Transforming Law Education in Colombia",
+    "summaryOriginal": "Inside Sebastián Díaz Bolívar's AI-powered classroom at Universidad Católica Luis Amigó, where students learn to practice law for the future.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edunewsletter.openai.com/p/transforming-law-education-in-colombia",
+    "publishedAt": "2026-07-15T13:15:42.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "bc14c4e491be941e",
+    "sourceId": "edsurge",
+    "title": "How My School Used Common Sense and Collaboration to Confront AI",
+    "summaryOriginal": "What I learned navigating a policy vacuum as a tech coordinator and the collaborative process to build an AI-ready culture.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/how-my-school-used-common-sense-and-collaboration-to-confront-ai",
+    "publishedAt": "2026-07-15T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "0e06241216b824d8",
+    "sourceId": "edsurge",
+    "title": "What Is the AI Cheating Panic Really About?",
+    "summaryOriginal": "A conversation with Pat Yongpradit, general manager of global education and workforce policy at Microsoft.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/podcast-what-is-the-ai-cheating-panic-really-about",
+    "publishedAt": "2026-07-15T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "policy",
+      "integrity",
+      "workforce"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "5f4f3d73388e3553",
+    "sourceId": "mit-news-education",
+    "title": "Can AI build a jet engine? JARVIS Challenge tests role of AI copilots in tough-tech engineering",
+    "summaryOriginal": "MIT students designed, built, and tested a jet engine with AI copilots, assessing AI’s usefulness in developing high-performance aerospace systems.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://news.mit.edu/2026/can-ai-build-jet-engine-jarvis-challenge-tests-ai-copilots-in-tough-tech-engineering-0714",
+    "publishedAt": "2026-07-14T18:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "research",
+      "higher-ed"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "57e3c079b6099392",
+    "sourceId": "edsurge",
+    "title": "Anthropic Introduces Claude for Teachers",
+    "summaryOriginal": "The AI rollout is the latest effort by a tech giant to win over educators and districts.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/anthropic-introduces-claude-for-teachers",
+    "publishedAt": "2026-07-14T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "4c9b5615c1d870db",
+    "sourceId": "edsurge",
+    "title": "Study: The National AI Policy Landscape in K–12 Education",
+    "summaryOriginal": "A snapshot of where districts stand on AI and what it reveals.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/study-the-national-ai-policy-landscape-in-k-12-education",
+    "publishedAt": "2026-07-13T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W29",
+    "topics": [
+      "policy",
+      "research"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "2ca3d4b7f165670f",
+    "sourceId": "edsurge",
+    "title": "In Rural Districts, AI Resources for Educators Are Scarce",
+    "summaryOriginal": "Despite challenges, teachers believe AI can broaden students’ horizons.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://edsurge.com/news/in-rural-districts-ai-resources-for-educators-are-scarce",
+    "publishedAt": "2026-07-10T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "ed00819e1dacb239",
+    "sourceId": "openai-education-newsletter",
+    "title": "Introducing ChatGPT Work. A More Capable ChatGPT for Education",
+    "summaryOriginal": "Introducing ChatGPT Work, a new way for faculty and staff to carry out longer, multi-step work across approved files, connected apps, and the web.",
+    "titleZhTW": "ChatGPT Work 推出，為教育界提供更強大的多步驟工作支援",
+    "summaryZhTW": "ChatGPT Work 讓教職員能跨越核准檔案、連結應用程式與網頁，執行更長、多步驟的工作流程。這將協助教育工作者更高效地處理複雜教學與行政任務。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/introducing-chatgpt-work-a-more-capable",
+    "publishedAt": "2026-07-09T17:53:49.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a7c913899fca00f7",
+    "sourceId": "microsoft-education",
+    "title": "6 key takeaways from ISTE 2026: How educators are applying AI in the classroom",
+    "summaryOriginal": "Discover key takeaways from ISTE 2026 as educators explore how AI is moving from experimentation to practical classroom use. The post 6 key takeaways from ISTE 2026: How educators are applying AI in the classroom appeared first on Microsoft Education Blog.",
+    "titleZhTW": "ISTE 2026 六大觀察：AI 從實驗走向課堂實務應用",
+    "summaryZhTW": "教育工作者在 ISTE 2026 分享 AI 如何從實驗階段轉向實際課堂應用的六大關鍵觀察。這顯示 AI 在教育現場的落地正加速，教師開始掌握實務運用方式。",
+    "summarySource": "machine",
+    "url": "https://www.microsoft.com/en-us/education/blog/2026/07/6-key-takeaways-from-iste-2026-how-educators-are-applying-ai-in-the-classroom",
+    "publishedAt": "2026-07-08T16:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3447f8d32f7ed63d",
+    "sourceId": "openai-news",
+    "title": "Helping K–12 educators build practical AI skills",
+    "summaryOriginal": "OpenAI Academy and the Walton Family Foundation are bringing hands-on AI Skills Jams to help K–12 educators build practical AI skills for the classroom.",
+    "titleZhTW": "OpenAI Academy 與 Walton 基金會合辦 AI 技能工作坊，助 K-12 教師建構實務能力",
+    "summaryZhTW": "OpenAI Academy 攜手 Walton Family Foundation 推出實作型 AI Skills Jams，協助 K-12 教師培養課堂實用的 AI 技能。此計畫著重實戰演練，讓教師能直接將所學應用於教學情境。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/k-12-educators-practical-skills",
+    "publishedAt": "2026-07-08T10:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "k12",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f39666f45dedd97f",
+    "sourceId": "edsurge",
+    "title": "How a Vinyl Record Resurgence Helped Me Understand the Future of AI in Education",
+    "summaryOriginal": "Streaming solved the problem of access. Now, we must solve the problem of engagement.",
+    "titleZhTW": "從黑膠唱片復興看 AI 教育未來：解決參與度而非獲取難題",
+    "summaryZhTW": "串流解決了資源獲取問題，黑膠復興卻揭示參與度才是核心挑戰。同理，AI 在教育的關鍵不在提供內容，而在設計能激發學生深度投入的學習體驗。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/how-a-vinyl-record-resurgence-helped-me-understand-the-future-of-ai-in-education",
+    "publishedAt": "2026-07-08T00:00:00.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "023d0a410c26b4ac",
+    "sourceId": "openai-education-newsletter",
+    "title": "Teaching Web Development with AI at Plaksha University",
+    "summaryOriginal": "Dr. Anupam Sobti’s experiment in integrating AI workflows into the undergraduate engineering classroom",
+    "titleZhTW": "Plaksha 大學嘗試將 AI 工作流程融入網頁開發教學",
+    "summaryZhTW": "Sobti 博士在本科工程課程中實驗整合 AI 工作流程，探索 AI 如何輔助網頁開發教學。此嘗試為高等教育引入 AI 輔助程式設計教學提供實務參考。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/teaching-web-development-with-ai",
+    "publishedAt": "2026-07-07T14:02:34.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "k12",
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "42c9bbd075b954e6",
+    "sourceId": "openai-education-newsletter",
+    "title": "Opening the Black Box of Group Work",
+    "summaryOriginal": "Duke Professor Scott Dyreng uses audio, transcripts and OpenAI’s API to provide better insights to business school students to prepare them for the world of work",
+    "titleZhTW": "杜克大學教授利用音訊、逐字稿與 OpenAI API 解析小組合作歷程",
+    "summaryZhTW": "Dyreng 教授透過錄音、逐字稿與 OpenAI API 分析商學院學生的小組互動，提供更深入的合作洞察。此做法幫助學生理解團隊動態，為職場協作做準備。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/making-group-work-visible-with-ai",
+    "publishedAt": "2026-07-06T13:02:53.000Z",
+    "fetchedAt": "2026-08-18T04:24:13.233Z",
+    "issue": "2026-W28",
+    "topics": [
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  }
+]

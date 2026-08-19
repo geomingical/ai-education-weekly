@@ -1,0 +1,776 @@
+[
+  {
+    "id": "openai-news",
+    "name": "OpenAI News",
+    "homepage": "https://academy.openai.com/",
+    "feedUrl": "https://openai.com/news/rss.xml",
+    "feedFormat": "rss",
+    "category": "vendor-education",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "openai.com"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "tools"
+    ],
+    "maxPerRun": 6,
+    "active": true,
+    "licenseNote": "robots.txt allows /. Feed ships content:encoded HTML, which is not a reuse licence — this site keeps the summary short and links out.",
+    "lastVerified": "2026-08-18",
+    "notes": "Broad company news feed, not an education-only feed: keyword mode filters it down. The openai.com/education landing page returned 403 to the research client; academy.openai.com is used as the homepage instead."
+  },
+  {
+    "id": "openai-education-newsletter",
+    "name": "ChatGPT for Education Newsletter",
+    "homepage": "https://edunewsletter.openai.com/",
+    "feedUrl": "https://edunewsletter.openai.com/feed",
+    "feedFormat": "rss",
+    "category": "vendor-education",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "openai.com"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "tools",
+      "teaching"
+    ],
+    "maxPerRun": 5,
+    "active": true,
+    "licenseNote": "Newsletter body is OpenAI's; this site keeps the feed's own summary and links out. No reuse licence inferred.",
+    "lastVerified": "2026-08-18",
+    "notes": "Ming's find, and the best first-party education source in the registry — the whole newsletter is about AI in teaching, so relevanceMode is 'always'. Published from Substack under openaiforeducation@substack.com, but openaiforeducation.substack.com 301-redirects to this openai.com subdomain; officialDomains is openai.com so the fetcher follows that redirect. Allowlisting substack.com instead would have opened the fetcher to every publication on the platform."
+  },
+  {
+    "id": "microsoft-education",
+    "name": "Microsoft Education Blog",
+    "homepage": "https://www.microsoft.com/en-us/education/blog/",
+    "feedUrl": "https://www.microsoft.com/en-us/education/blog/feed/",
+    "feedFormat": "rss",
+    "category": "vendor-education",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "microsoft.com"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "tools",
+      "teaching"
+    ],
+    "maxPerRun": 8,
+    "active": true,
+    "licenseNote": "robots.txt allows the blog path. WordPress content markup is not a reuse licence.",
+    "lastVerified": "2026-08-18",
+    "notes": "Education-only blog, so every item is on topic. Cadence is roughly weekly to a few per month."
+  },
+  {
+    "id": "khan-academy-blog",
+    "name": "Khan Academy Blog",
+    "homepage": "https://blog.khanacademy.org/",
+    "feedUrl": "https://blog.khanacademy.org/feed/",
+    "feedFormat": "rss",
+    "category": "vendor-education",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "khanacademy.org"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "tools",
+      "teaching"
+    ],
+    "maxPerRun": 8,
+    "active": true,
+    "licenseNote": "robots.txt sets Crawl-delay: 10; content markup is not a reuse licence.",
+    "lastVerified": "2026-08-18",
+    "notes": "Khanmigo and AI-learning product updates mixed with general Khan Academy news, so keyword mode applies."
+  },
+  {
+    "id": "edsurge",
+    "name": "EdSurge",
+    "homepage": "https://www.edsurge.com/",
+    "feedUrl": "https://www.edsurge.com/articles_rss",
+    "feedFormat": "rss",
+    "category": "edtech-news",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "edsurge.com"
+    ],
+    "tier": "media",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "k12"
+    ],
+    "maxPerRun": 6,
+    "active": true,
+    "licenseNote": "robots.txt allows public paths, disallows /api/. Summary and link only; no article text is republished.",
+    "lastVerified": "2026-08-18",
+    "notes": "Covers edtech generally; keyword mode narrows to the AI stories."
+  },
+  {
+    "id": "edweek",
+    "name": "Education Week",
+    "homepage": "https://www.edweek.org/",
+    "feedUrl": "https://www.edweek.org/feed.rss",
+    "feedFormat": "rss",
+    "category": "edtech-news",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "edweek.org"
+    ],
+    "tier": "media",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "k12"
+    ],
+    "maxPerRun": 6,
+    "active": true,
+    "licenseNote": "robots.txt sets Crawl-delay: 10 and disallows /search. Summary and link only.",
+    "lastVerified": "2026-08-18",
+    "notes": "Feed returned items dated in the future relative to the 2026-08-18 verification run. The ingest stage rejects future-dated items, so this cannot push a story into an issue that has not happened yet."
+  },
+  {
+    "id": "inside-higher-ed",
+    "name": "Inside Higher Ed",
+    "homepage": "https://www.insidehighered.com/",
+    "feedUrl": "https://www.insidehighered.com/rss.xml",
+    "feedFormat": "rss",
+    "category": "edtech-news",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "insidehighered.com"
+    ],
+    "tier": "media",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "higher-ed"
+    ],
+    "maxPerRun": 6,
+    "active": true,
+    "licenseNote": "robots.txt carries content-signal conditions. Do not republish article text; summary and link only.",
+    "lastVerified": "2026-08-18",
+    "notes": "High volume on publishing days; keyword mode is doing most of the work here."
+  },
+  {
+    "id": "arxiv-cs-cy",
+    "name": "arXiv — Computers and Society (cs.CY)",
+    "homepage": "https://arxiv.org/list/cs.CY/recent",
+    "feedUrl": "https://export.arxiv.org/rss/cs.CY",
+    "feedFormat": "rss",
+    "category": "research",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "arxiv.org"
+    ],
+    "tier": "research",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "research"
+    ],
+    "maxPerRun": 1,
+    "active": true,
+    "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
+    "lastVerified": "2026-08-18",
+    "notes": "Daily on submission days and mostly off-topic for this product, so keyword mode is mandatory."
+  },
+  {
+    "id": "arxiv-cs-hc",
+    "name": "arXiv — Human-Computer Interaction (cs.HC)",
+    "homepage": "https://arxiv.org/list/cs.HC/recent",
+    "feedUrl": "https://export.arxiv.org/rss/cs.HC",
+    "feedFormat": "rss",
+    "category": "research",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "arxiv.org"
+    ],
+    "tier": "research",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "research"
+    ],
+    "maxPerRun": 1,
+    "active": true,
+    "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
+    "lastVerified": "2026-08-18",
+    "notes": "Learner, teacher and accessibility research surfaces here before it reaches journals."
+  },
+  {
+    "id": "arxiv-ai-education-query",
+    "name": "arXiv — AI and education query",
+    "homepage": "https://arxiv.org/list/cs.CY/recent",
+    "feedUrl": "https://export.arxiv.org/api/query?search_query=all:%22artificial%20intelligence%22%20AND%20all:education&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending",
+    "feedFormat": "atom",
+    "category": "research",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "arxiv.org"
+    ],
+    "tier": "research",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "research"
+    ],
+    "maxPerRun": 3,
+    "active": true,
+    "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
+    "lastVerified": "2026-08-18",
+    "notes": "A pre-filtered arXiv API query. The research pass found it returns false positives, so keyword mode still applies on top of the query."
+  },
+  {
+    "id": "mit-news-education",
+    "name": "MIT News — Education",
+    "homepage": "https://news.mit.edu/topic/education",
+    "feedUrl": "https://news.mit.edu/rss/topic/education",
+    "feedFormat": "rss",
+    "category": "research",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "mit.edu"
+    ],
+    "tier": "institution",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "research",
+      "higher-ed"
+    ],
+    "maxPerRun": 8,
+    "active": true,
+    "licenseNote": "Feed excerpts and content markup are not a reuse licence.",
+    "lastVerified": "2026-08-18",
+    "notes": "Education topic feed, but not AI-only, so keyword mode applies. A few items per month."
+  },
+  {
+    "id": "digital-promise",
+    "name": "Digital Promise",
+    "homepage": "https://digitalpromise.org/",
+    "feedUrl": "https://digitalpromise.org/feed/",
+    "feedFormat": "rss",
+    "category": "practitioner",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "digitalpromise.org"
+    ],
+    "tier": "institution",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "teaching",
+      "k12"
+    ],
+    "maxPerRun": 8,
+    "active": true,
+    "licenseNote": "robots.txt is empty; no reuse licence inferred. Summary and link only.",
+    "lastVerified": "2026-08-18",
+    "notes": "Implementation and equity-focused district resources; several items per week."
+  },
+  {
+    "id": "ai4k12",
+    "name": "AI4K12 Initiative",
+    "homepage": "https://ai4k12.org/",
+    "feedUrl": "https://ai4k12.org/feed/",
+    "feedFormat": "rss",
+    "category": "practitioner",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "ai4k12.org"
+    ],
+    "tier": "community",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "k12",
+      "teaching"
+    ],
+    "maxPerRun": 8,
+    "active": true,
+    "licenseNote": "robots.txt disallows wp-admin only. Individual resources carry their own licences.",
+    "lastVerified": "2026-08-18",
+    "notes": "Entirely about AI in K-12, so every item qualifies. Publishes sparsely — roughly monthly to quarterly — and will be absent from most issues."
+  },
+  {
+    "id": "huggingface-blog",
+    "name": "Hugging Face Blog",
+    "homepage": "https://huggingface.co/blog",
+    "feedUrl": "https://huggingface.co/blog/feed.xml",
+    "feedFormat": "rss",
+    "category": "practitioner",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "huggingface.co"
+    ],
+    "tier": "community",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "tools"
+    ],
+    "maxPerRun": 3,
+    "active": true,
+    "licenseNote": "robots.txt allows /. Item licences vary by post.",
+    "lastVerified": "2026-08-18",
+    "notes": "Near-daily and mostly technical; keyword mode keeps only the teaching and AI-literacy posts."
+  },
+  {
+    "id": "pansci",
+    "name": "PanSci 泛科學",
+    "homepage": "https://pansci.asia/",
+    "feedUrl": "https://pansci.asia/feed",
+    "feedFormat": "rss",
+    "category": "taiwan-local",
+    "language": "zh-tw",
+    "region": "TW",
+    "officialDomains": [
+      "pansci.asia"
+    ],
+    "tier": "media",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "teaching"
+    ],
+    "maxPerRun": 3,
+    "active": true,
+    "licenseNote": "robots.txt allows /. Copyright stays with PanSci and its authors; summary and link only.",
+    "lastVerified": "2026-08-18",
+    "notes": "The one Chinese-language feed the research pass could verify. Broad science coverage, so keyword mode narrows it."
+  },
+  {
+    "id": "google-education",
+    "name": "Google for Education / Google Blog — Learning & Education",
+    "homepage": "https://blog.google/products-and-platforms/products/education/",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "vendor-education",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "blog.google"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "tools"
+    ],
+    "licenseNote": "robots.txt lists a sitemap and does not disallow the listing path.",
+    "lastVerified": "2026-08-18",
+    "notes": "No usable feed: /feed returned HTML and the old category feed returned 404. Reaching this would need HTML listing polling, which is not built. First-party Gemini for Education and Classroom AI announcements are therefore missing from the site.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "anthropic-education",
+    "name": "Claude for Education / Anthropic News",
+    "homepage": "https://claude.com/solutions/education",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "vendor-education",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "claude.com"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "tools",
+      "higher-ed"
+    ],
+    "licenseNote": "robots.txt says Allow: /.",
+    "lastVerified": "2026-08-18",
+    "notes": "anthropic.com/education now redirects to claude.com/solutions/education. No feed exists — /rss.xml returned 404 — so Claude for Education news needs HTML polling that is not built.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "unesco-ai-education",
+    "name": "UNESCO — Artificial intelligence in education",
+    "homepage": "https://www.unesco.org/en/artificial-intelligence/education",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "unesco.org"
+    ],
+    "tier": "institution",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy"
+    ],
+    "licenseNote": "robots.txt carries content-signal conditions; scraping needs a permission review first.",
+    "lastVerified": "2026-08-18",
+    "notes": "The page returned 403 to the research client, so neither the content nor a feed could be verified. Primary global AI-in-education guidance is consequently absent from the site.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "oecd-ai-education",
+    "name": "OECD — AI and education",
+    "homepage": "https://www.oecd.org/en/topics/sub-issues/ai-and-education.html",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "oecd.org"
+    ],
+    "tier": "institution",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy",
+      "workforce"
+    ],
+    "licenseNote": "robots.txt disallows /content/dam/oecd/. No reuse licence inferred.",
+    "lastVerified": "2026-08-18",
+    "notes": "Cloudflare returned 403 for both the homepage and the feed candidate.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "ec-ai-act",
+    "name": "European Commission — Regulatory framework for AI",
+    "homepage": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "en",
+    "region": "EU",
+    "officialDomains": [
+      "ec.europa.eu"
+    ],
+    "tier": "institution",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy"
+    ],
+    "licenseNote": "robots.txt returned 200; no feed and no reuse licence observed.",
+    "lastVerified": "2026-08-18",
+    "notes": "A policy page rather than a news stream. AI Act obligations reach education providers and edtech vendors, so this belongs on the reading list even without a feed.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "ec-digital-education",
+    "name": "European Commission — Digital Education Action Plan",
+    "homepage": "https://education.ec.europa.eu/focus-topics/digital-education/actions/plan",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "en",
+    "region": "EU",
+    "officialDomains": [
+      "ec.europa.eu"
+    ],
+    "tier": "institution",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy",
+      "workforce"
+    ],
+    "licenseNote": "robots.txt returned 200; no feed or reuse licence observed.",
+    "lastVerified": "2026-08-18",
+    "notes": "Programme page, no feed.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "us-dept-education-ai",
+    "name": "U.S. Department of Education — AI and the Future of Teaching and Learning",
+    "homepage": "https://www2.ed.gov/documents/ai-report/ai-report.pdf",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "ed.gov"
+    ],
+    "tier": "institution",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy"
+    ],
+    "licenseNote": "Crawler permission is UNVERIFIED: the robots path returned 404 after a redirect.",
+    "lastVerified": "2026-08-18",
+    "notes": "A standing guidance PDF, not a news feed. The department's /ai landing candidates returned 404.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "gov-uk-dfe-ai",
+    "name": "GOV.UK — Department for Education, AI updates",
+    "homepage": "https://www.gov.uk/government/organisations/department-for-education",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "en",
+    "region": "UK",
+    "officialDomains": [
+      "www.gov.uk"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy",
+      "k12"
+    ],
+    "licenseNote": "A valid Atom feed EXISTS at /search/all.atom, but robots.txt disallows /search/all* — automated polling would ignore a stated crawl rule.",
+    "lastVerified": "2026-08-18",
+    "notes": "Deliberately left inactive despite having a working feed. This is the only source in the registry excluded purely on robots.txt grounds; reinstating it needs GOV.UK's permission or a different, allowed endpoint.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "taiwan-moe",
+    "name": "教育部全球資訊網 — 即時新聞",
+    "homepage": "https://www.edu.tw/News.aspx?n=BA5E856472F10901&sms=461F4DA9139BDF30",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "zh-tw",
+    "region": "TW",
+    "officialDomains": [
+      "www.edu.tw"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy"
+    ],
+    "licenseNote": "robots.txt does not disallow this listing; no reuse licence inferred.",
+    "lastVerified": "2026-08-18",
+    "notes": "The most important gap in this registry. Taiwan's primary school and university AI policy source publishes no RSS, and the site does not do HTML polling, so Taiwanese policy news is currently absent.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "taiwan-moda",
+    "name": "數位發展部 — 人工智慧",
+    "homepage": "https://moda.gov.tw/major-policies/ai/1781.html",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "policy",
+    "language": "zh-tw",
+    "region": "TW",
+    "officialDomains": [
+      "moda.gov.tw"
+    ],
+    "tier": "first-party",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy",
+      "workforce"
+    ],
+    "licenseNote": "Crawl permission UNVERIFIED: the conventional robots.txt path returned 404.",
+    "lastVerified": "2026-08-18",
+    "notes": "National AI policy context for Taiwan. No feed found.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "times-higher-education",
+    "name": "Times Higher Education",
+    "homepage": "https://www.timeshighereducation.com/",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "edtech-news",
+    "language": "en",
+    "region": "UK",
+    "officialDomains": [
+      "timeshighereducation.com"
+    ],
+    "tier": "media",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "higher-ed"
+    ],
+    "licenseNote": "RSS candidate returned 403. No reuse licence inferred and articles may be paywalled.",
+    "lastVerified": "2026-08-18",
+    "notes": "CDN denied the feed to the research client.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "the-campus",
+    "name": "THE Campus",
+    "homepage": "https://www.timeshighereducation.com/campus",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "practitioner",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "timeshighereducation.com"
+    ],
+    "tier": "media",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "teaching",
+      "higher-ed"
+    ],
+    "licenseNote": "Parent-domain robots policy applies; some content is subscription-only.",
+    "lastVerified": "2026-08-18",
+    "notes": "RSS candidate returned 404.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "deeplearning-ai-batch",
+    "name": "The Batch — DeepLearning.AI",
+    "homepage": "https://www.deeplearning.ai/the-batch",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "practitioner",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "deeplearning.ai"
+    ],
+    "tier": "community",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "research"
+    ],
+    "licenseNote": "robots.txt allows /; feed candidates returned 404 and 500.",
+    "lastVerified": "2026-08-18",
+    "notes": "Weekly newsletter with no valid feed found.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "stanford-hai",
+    "name": "Stanford HAI News",
+    "homepage": "https://hai.stanford.edu/news",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "research",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "stanford.edu"
+    ],
+    "tier": "research",
+    "relevanceMode": "keyword",
+    "defaultTopics": [
+      "research",
+      "policy"
+    ],
+    "licenseNote": "robots.txt disallows /cms/, /api/, /cp/. No reuse licence inferred.",
+    "lastVerified": "2026-08-18",
+    "notes": "The RSS-looking URL returned HTML, not a feed.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "mit-teaching-systems-lab",
+    "name": "MIT Teaching Systems Lab",
+    "homepage": "https://tsl.mit.edu/about-new/",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "research",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "mit.edu"
+    ],
+    "tier": "research",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "teaching",
+      "research"
+    ],
+    "licenseNote": "robots.txt sets Crawl-delay: 10; no blanket reuse grant.",
+    "lastVerified": "2026-08-18",
+    "notes": "A valid RSS feed exists but is dormant — the latest ten items are from 2020-03 to 2021-01. Left inactive so a weekly run does not spend a request on a feed that has not moved in five years.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "computers-education-ai",
+    "name": "Computers & Education: Artificial Intelligence",
+    "homepage": "https://www.sciencedirect.com/journal/computers-and-education-artificial-intelligence",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "research",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "sciencedirect.com"
+    ],
+    "tier": "research",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "research"
+    ],
+    "licenseNote": "MUST NOT BE AUTOMATED: the RSS host's robots.txt says Disallow: /. The journal page also returned 403 and articles may be paywalled.",
+    "lastVerified": "2026-08-18",
+    "notes": "The most directly relevant peer-reviewed journal for this product, and the one it is least allowed to poll. Human reading only.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "teachai",
+    "name": "TeachAI",
+    "homepage": "https://www.teachai.org/",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "practitioner",
+    "language": "en",
+    "region": "US",
+    "officialDomains": [
+      "teachai.org"
+    ],
+    "tier": "community",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "policy",
+      "teaching"
+    ],
+    "licenseNote": "robots.txt allows / except API, embedded and SAML paths.",
+    "lastVerified": "2026-08-18",
+    "notes": "School-ready AI guidance. No feed.",
+    "maxPerRun": 8,
+    "active": false
+  },
+  {
+    "id": "1edtech",
+    "name": "1EdTech Consortium",
+    "homepage": "https://www.1edtech.org/",
+    "feedUrl": null,
+    "feedFormat": "none",
+    "category": "practitioner",
+    "language": "en",
+    "region": "GLOBAL",
+    "officialDomains": [
+      "1edtech.org"
+    ],
+    "tier": "institution",
+    "relevanceMode": "always",
+    "defaultTopics": [
+      "tools"
+    ],
+    "licenseNote": "robots.txt returned 200; the tested rss.xml returned 404. Standards carry separate terms.",
+    "lastVerified": "2026-08-18",
+    "notes": "Interoperability and credential standards. No feed.",
+    "maxPerRun": 8,
+    "active": false
+  }
+]
