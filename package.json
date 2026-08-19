@@ -23,6 +23,7 @@
     "@axe-core/playwright": "^4.12.1",
     "@mozilla/readability": "^0.6.0",
     "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
     "@vitest/coverage-v8": "^4.1.10",
     "fast-xml-parser": "^5.11.0",
     "linkedom": "^0.18.13",
