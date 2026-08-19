@@ -197,7 +197,13 @@ async function main(): Promise<void> {
   // --- summarization (best effort) ---
   const apiKey = process.env['AI_EDU_API_KEY'] ?? process.env['NVIDIA_API_KEY'] ?? '';
   const agents = (await readJson(AGENTS_PATH)) as {
-    summarizer: { baseUrl: string; model: string; maxOutputTokens: number };
+    summarizer: {
+      baseUrl: string;
+      model: string;
+      maxOutputTokens: number;
+      reasoningEffort?: 'none' | 'low' | 'medium' | 'high';
+      useResponseSchema?: boolean;
+    };
   };
   const summaryConfig = agents.summarizer;
 
@@ -228,7 +234,20 @@ async function main(): Promise<void> {
     const result = await summarizeAll(inputs, transport, {
       model: summaryConfig.model,
       maxOutputTokens: summaryConfig.maxOutputTokens,
+      reasoningEffort: summaryConfig.reasoningEffort,
+      useResponseSchema: summaryConfig.useResponseSchema,
     });
+
+    // Per-attempt chronology, so a run report says WHY a source went quiet
+    // rather than only that it did. Carries no feed text and no model output.
+    for (const attempt of result.attempts) {
+      log(
+        `  batch ${attempt.batch + 1} attempt ${attempt.attempt + 1}: ${attempt.outcome}` +
+          ` (${attempt.durationMs}ms${attempt.status ? `, HTTP ${attempt.status}` : ''}` +
+          `${attempt.finishReason ? `, finish=${attempt.finishReason}` : ''}` +
+          `${attempt.completionTokens ? `, ${attempt.completionTokens} tokens` : ''})`,
+      );
+    }
 
     for (const output of result.outputs) {
       summaryById.set(output.id, {

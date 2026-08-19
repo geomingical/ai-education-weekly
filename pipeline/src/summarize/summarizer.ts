@@ -25,7 +25,7 @@
 //      the source's own verbatim summary and untranslated headline. The site
 //      degrades to plain quoting; it never publishes an unvalidated reply.
 
-import type { ChatTransport } from './transport';
+import type { ChatTransport, TransportFailure } from './transport';
 
 export interface SummaryInput {
   id: string;
@@ -44,6 +44,95 @@ export interface SummarizeResult {
   outputs: SummaryOutput[];
   failures: number;
   errors: string[];
+  /** Per-attempt chronology, for the run report. Never contains feed text or
+   *  model output — both are untrusted and one of them may be hostile. */
+  attempts: AttemptRecord[];
+}
+
+export interface AttemptRecord {
+  batch: number;
+  attempt: number;
+  durationMs: number;
+  outcome:
+    | 'accepted'
+    | 'accepted-with-drops'
+    | 'shape-rejected'
+    | 'transport-failed'
+    | 'budget-exhausted';
+  status?: number;
+  finishReason?: string;
+  completionTokens?: number;
+  requestId?: string;
+  accepted?: number;
+  dropped?: number;
+  failureKind?: TransportFailure['kind'];
+  retriedAfterMs?: number;
+}
+
+/** Injected so the suite can exercise the whole policy without real waiting. */
+export interface RetryTiming {
+  sleep: (ms: number) => Promise<void>;
+  random: () => number;
+  now: () => number;
+}
+
+export const defaultTiming: RetryTiming = {
+  sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+  random: Math.random,
+  now: Date.now,
+};
+
+export const RETRY_POLICY = {
+  /** One initial attempt plus one retry. With a single retry, elaborate
+   *  exponential backoff buys nothing; more attempts would multiply both
+   *  wall-clock time and free-tier generations invisibly. */
+  maxAttemptsPerBatch: 2,
+  /** Run-wide ceiling, so a bad afternoon at the provider cannot turn an
+   *  11-batch run into 22 paid calls. */
+  maxRetriesPerRun: 6,
+  /** Healthy latency measured at ~32s. A flat 60s allowed under a 2x slowdown;
+   *  the second attempt gets longer specifically to test whether the request
+   *  was stalled rather than dead. */
+  attemptTimeoutsMs: [75_000, 120_000],
+  /** Between finished batches, including successful ones. Cheap insurance
+   *  (~30s over 11 batches) against arriving in a burst. */
+  interBatchDelayMs: 3_000,
+  retryBaseDelayMs: 10_000,
+  /** GitHub schedules many jobs on clock boundaries; jitter spreads them. */
+  retryJitterMs: 5_000,
+  maxRetryAfterMs: 120_000,
+  /** Whole-run wall clock. Exhaustion returns fallbacks, never an exception. */
+  budgetMs: 25 * 60 * 1000,
+} as const;
+
+// Retryable because delay plausibly changes the outcome. Everything else —
+// 400, 401, 403, 404, 409, 413, 422, and permanent protocol statuses like 501
+// and 505 — is a request, credential, or model problem that an identical retry
+// will reproduce exactly. An allow-list is clearer than "all 5xx".
+const RETRYABLE_STATUSES: ReadonlySet<number> = new Set([408, 429, 500, 502, 503, 504]);
+
+export function isRetryableFailure(failure: TransportFailure): boolean {
+  switch (failure.kind) {
+    case 'timeout':
+    case 'network':
+    case 'malformed-body':
+    case 'empty-content':
+      return true;
+    case 'http':
+      return failure.status !== undefined && RETRYABLE_STATUSES.has(failure.status);
+  }
+}
+
+/** Ordinary backoff, or the server's own request when it sent a longer one. */
+export function retryDelayMs(
+  failure: TransportFailure | null,
+  timing: RetryTiming,
+): number {
+  const base =
+    RETRY_POLICY.retryBaseDelayMs + Math.floor(timing.random() * RETRY_POLICY.retryJitterMs);
+  const serverAsked = failure?.retryAfterMs;
+  if (serverAsked === undefined) return base;
+  return Math.min(Math.max(base, serverAsked), RETRY_POLICY.maxRetryAfterMs);
 }
 
 export const SUMMARY_SYSTEM_PROMPT = `你是一份「AI 教育週報」的編譯助理。你會收到幾則新聞的原始標題與原始摘要，任務是為每一則產生繁體中文標題與 2 到 3 句的繁體中文摘要。
@@ -64,6 +153,56 @@ export const SUMMARY_SYSTEM_PROMPT = `你是一份「AI 教育週報」的編譯
 // Batch size is a cost-versus-blast-radius trade-off: a rejected reply
 // discards the whole batch, so keeping batches small means one bad reply
 // costs a handful of summaries rather than a whole issue.
+/**
+ * The reply contract, expressed for the provider's constrained decoder.
+ *
+ * Measured, not guessed, in three steps:
+ *   1. `nvext.guided_json` is rejected by this endpoint; `response_format`
+ *      with a `json_schema` is accepted.
+ *   2. Constraining structure fixed the real defect — the first live backfill
+ *      produced replies whose CONTENT was correct but whose array punctuation
+ *      was not (a missing comma between elements, an array closed early, a
+ *      doubled bracket). That class is now impossible rather than parsed around.
+ *   3. A schema without a length bound made things worse, not better: the model
+ *      satisfied it with one or two items and replies collapsed to ~130 tokens.
+ *      The array length therefore has to be part of the contract.
+ *
+ * It does not replace validation. The schema fixes shape; the summarizer still
+ * enforces index range and uniqueness, field lengths, and the no-URL,
+ * no-markup rule the injection defence depends on.
+ */
+export function replySchema(itemCount: number): unknown {
+  return {
+    type: 'json_schema',
+    json_schema: {
+      name: 'weekly_summaries',
+      strict: true,
+      schema: {
+        type: 'object',
+        properties: {
+          items: {
+            type: 'array',
+            minItems: itemCount,
+            maxItems: itemCount,
+            items: {
+              type: 'object',
+              properties: {
+                index: { type: 'integer', minimum: 0, maximum: Math.max(0, itemCount - 1) },
+                title: { type: 'string' },
+                summary: { type: 'string' },
+              },
+              required: ['index', 'title', 'summary'],
+              additionalProperties: false,
+            },
+          },
+        },
+        required: ['items'],
+        additionalProperties: false,
+      },
+    },
+  };
+}
+
 export const BATCH_SIZE = 6;
 // Generous enough that a legitimate headline carrying a product name
 // ("Microsoft 365 Copilot 推出 Study and Learn 功能") is not thrown away, tight
@@ -228,62 +367,213 @@ export function chunk<T>(items: readonly T[], size: number): T[][] {
 }
 
 /**
- * Summarizes every item, batch by batch. Never throws: a transport failure or
- * a rejected reply increments `failures` and the affected stories fall back to
- * the source's own words.
+ * Summarizes every item, batch by batch.
+ *
+ * Never throws — not on a transport failure, not on a transport that violates
+ * its own never-throw contract, and not on an injected clock or sleep that
+ * misbehaves. Anything that goes wrong becomes a counted failure, and every
+ * story without an accepted output falls back to its source's own words.
+ *
+ * The retry policy is deliberately small: one second chance per batch, a
+ * run-wide retry ceiling, and a wall-clock budget. Retrying is resilience, not
+ * diagnosis — if a batch fails twice, that is evidence about the prompt or the
+ * configuration, and spending more quota will not produce it.
  */
 export async function summarizeAll(
   items: readonly SummaryInput[],
   transport: ChatTransport,
-  config: { model: string; maxOutputTokens: number },
+  config: {
+    model: string;
+    maxOutputTokens: number;
+    reasoningEffort?: 'none' | 'low' | 'medium' | 'high';
+    /** Set false for a provider that rejects `response_format`. */
+    useResponseSchema?: boolean;
+  },
+  timing: RetryTiming = defaultTiming,
 ): Promise<SummarizeResult> {
   const outputs: SummaryOutput[] = [];
   const errors: string[] = [];
+  const attempts: AttemptRecord[] = [];
   let failures = 0;
+  let retriesUsed = 0;
 
-  for (const batch of chunk(items, BATCH_SIZE)) {
-    let response;
+  const deadline = timing.now() + RETRY_POLICY.budgetMs;
+  const remainingMs = () => deadline - timing.now();
+
+  // Injected collaborators are not ours; a throwing sleep must not end the run.
+  const safeSleep = async (ms: number): Promise<void> => {
     try {
-      response = await transport({
-        model: config.model,
-        maxOutputTokens: config.maxOutputTokens,
-        messages: [
-          { role: 'system', content: SUMMARY_SYSTEM_PROMPT },
-          { role: 'user', content: buildBatchPrompt(batch) },
-        ],
+      await timing.sleep(ms);
+    } catch {
+      /* a sleep that refuses to wait is not a reason to lose the remaining work */
+    }
+  };
+
+  const batches = chunk(items, BATCH_SIZE);
+
+  for (const [batchIndex, batch] of batches.entries()) {
+    if (batchIndex > 0) await safeSleep(RETRY_POLICY.interBatchDelayMs);
+
+    let accepted: SummaryOutput[] | null = null;
+
+    for (let attempt = 0; attempt < RETRY_POLICY.maxAttemptsPerBatch; attempt += 1) {
+      const timeoutMs =
+        RETRY_POLICY.attemptTimeoutsMs[attempt] ?? RETRY_POLICY.attemptTimeoutsMs.at(-1)!;
+
+      if (remainingMs() <= timeoutMs) {
+        attempts.push({
+          batch: batchIndex,
+          attempt,
+          durationMs: 0,
+          outcome: 'budget-exhausted',
+        });
+        errors.push(
+          `run budget exhausted before batch ${batchIndex + 1} of ${batches.length}; remaining stories fall back to the source text`,
+        );
+        break;
+      }
+
+      let response;
+      try {
+        response = await transport({
+          model: config.model,
+          maxOutputTokens: config.maxOutputTokens,
+          reasoningEffort: config.reasoningEffort,
+          responseFormat:
+            config.useResponseSchema === false ? undefined : replySchema(batch.length),
+          timeoutMs,
+          messages: [
+            { role: 'system', content: SUMMARY_SYSTEM_PROMPT },
+            { role: 'user', content: buildBatchPrompt(batch) },
+          ],
+        });
+      } catch (error) {
+        // The transport contract says it never throws. Defence in depth.
+        attempts.push({
+          batch: batchIndex,
+          attempt,
+          durationMs: 0,
+          outcome: 'transport-failed',
+          failureKind: 'network',
+        });
+        errors.push(`transport threw: ${(error as Error).message}`);
+        break;
+      }
+
+      if (response.error !== null) {
+        const failure = response.error;
+        const record: AttemptRecord = {
+          batch: batchIndex,
+          attempt,
+          durationMs: response.meta.durationMs,
+          outcome: 'transport-failed',
+          status: failure.status,
+          requestId: failure.requestId,
+          failureKind: failure.kind,
+        };
+
+        const canRetry =
+          isRetryableFailure(failure) &&
+          attempt + 1 < RETRY_POLICY.maxAttemptsPerBatch &&
+          retriesUsed < RETRY_POLICY.maxRetriesPerRun;
+
+        if (!canRetry) {
+          attempts.push(record);
+          errors.push(failure.message);
+          break;
+        }
+
+        const delay = retryDelayMs(failure, timing);
+        if (remainingMs() <= delay) {
+          attempts.push({ ...record, outcome: 'budget-exhausted' });
+          errors.push(`${failure.message} (no budget left to retry)`);
+          break;
+        }
+
+        retriesUsed += 1;
+        attempts.push({ ...record, retriedAfterMs: delay });
+        await safeSleep(delay);
+        continue;
+      }
+
+      const validated = validateBatchReply(response.content, batch);
+
+      if (validated === null) {
+        const record: AttemptRecord = {
+          batch: batchIndex,
+          attempt,
+          durationMs: response.meta.durationMs,
+          outcome: 'shape-rejected',
+          status: response.meta.status,
+          finishReason: response.meta.finishReason,
+          completionTokens: response.meta.completionTokens,
+          requestId: response.meta.requestId,
+        };
+
+        // A shape rejection is worth exactly one second look: the same prompt
+        // can produce a valid reply, and `finish_reason: "length"` here means
+        // the answer was cut off rather than wrong. Twice is a signal about the
+        // prompt or the token budget, which more calls will not fix.
+        const canRetry =
+          attempt + 1 < RETRY_POLICY.maxAttemptsPerBatch &&
+          retriesUsed < RETRY_POLICY.maxRetriesPerRun;
+
+        if (!canRetry) {
+          attempts.push(record);
+          const truncated = response.meta.finishReason === 'length';
+          errors.push(
+            `model reply rejected for a batch of ${batch.length}: the reply's shape did not match the request` +
+              (truncated ? ' (finish_reason=length — the reply was cut off, not malformed)' : ''),
+          );
+          break;
+        }
+
+        const delay = retryDelayMs(null, timing);
+        if (remainingMs() <= delay) {
+          attempts.push({ ...record, outcome: 'budget-exhausted' });
+          break;
+        }
+
+        retriesUsed += 1;
+        attempts.push({ ...record, retriedAfterMs: delay });
+        await safeSleep(delay);
+        continue;
+      }
+
+      // A shape-sound reply is final even when some entries were dropped:
+      // those stories already have a safe fallback, and re-rolling the whole
+      // batch to rescue one would risk replacing summaries that are fine.
+      const dropped = batch.length - validated.length;
+      attempts.push({
+        batch: batchIndex,
+        attempt,
+        durationMs: response.meta.durationMs,
+        outcome: dropped > 0 ? 'accepted-with-drops' : 'accepted',
+        status: response.meta.status,
+        finishReason: response.meta.finishReason,
+        completionTokens: response.meta.completionTokens,
+        requestId: response.meta.requestId,
+        accepted: validated.length,
+        dropped,
       });
-    } catch (error) {
+
+      if (dropped > 0) {
+        errors.push(
+          `${dropped} of ${batch.length} summaries failed a content check and fell back to the source text`,
+        );
+      }
+
+      accepted = validated;
+      break;
+    }
+
+    if (accepted === null) {
       failures += batch.length;
-      errors.push(`transport threw: ${(error as Error).message}`);
-      continue;
+    } else {
+      failures += batch.length - accepted.length;
+      outputs.push(...accepted);
     }
-
-    if (response.content === null) {
-      failures += batch.length;
-      errors.push(response.error ?? 'model returned no content');
-      continue;
-    }
-
-    const validated = validateBatchReply(response.content, batch);
-    if (validated === null) {
-      failures += batch.length;
-      errors.push(
-        `model reply rejected for a batch of ${batch.length}: the reply's shape did not match the request`,
-      );
-      continue;
-    }
-
-    // A shape-sound reply can still have dropped individual entries.
-    const dropped = batch.length - validated.length;
-    if (dropped > 0) {
-      failures += dropped;
-      errors.push(
-        `${dropped} of ${batch.length} summaries failed a content check and fell back to the source text`,
-      );
-    }
-
-    outputs.push(...validated);
   }
 
-  return { outputs, failures, errors };
+  return { outputs, failures, errors, attempts };
 }

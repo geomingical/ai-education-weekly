@@ -2,6 +2,8 @@
   "summarizer": {
     "baseUrl": "https://integrate.api.nvidia.com/v1",
     "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "reasoningEffort": "none",
+    "useResponseSchema": true,
     "maxInputChars": 24000,
     "maxOutputTokens": 2000
   }

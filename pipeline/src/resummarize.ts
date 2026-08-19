@@ -82,7 +82,13 @@ async function main(): Promise<void> {
   if (targets.length === 0) return;
 
   const agents = JSON.parse(await readFile(AGENTS_PATH, 'utf8')) as {
-    summarizer: { baseUrl: string; model: string; maxOutputTokens: number };
+    summarizer: {
+      baseUrl: string;
+      model: string;
+      maxOutputTokens: number;
+      reasoningEffort?: 'none' | 'low' | 'medium' | 'high';
+      useResponseSchema?: boolean;
+    };
   };
   const config = agents.summarizer;
   const modelOverrideIndex = process.argv.indexOf('--model');
@@ -100,7 +106,12 @@ async function main(): Promise<void> {
   const result = await summarizeAll(
     inputs,
     createHttpTransport({ baseUrl: config.baseUrl, apiKey }),
-    { model, maxOutputTokens: config.maxOutputTokens },
+    {
+      model,
+      maxOutputTokens: config.maxOutputTokens,
+      reasoningEffort: config.reasoningEffort,
+      useResponseSchema: config.useResponseSchema,
+    },
   );
   const elapsed = ((Date.now() - started) / 1000).toFixed(1);
 
@@ -113,6 +124,15 @@ async function main(): Promise<void> {
   const updated = applySummaries(stories, byId);
 
   log(`model=${model} ${elapsed}s — ${result.outputs.length} summarized, ${result.failures} fell back`);
+  for (const attempt of result.attempts) {
+    log(
+      `  batch ${attempt.batch + 1} attempt ${attempt.attempt + 1}: ${attempt.outcome}` +
+        ` (${attempt.durationMs}ms${attempt.status ? `, HTTP ${attempt.status}` : ''}` +
+        `${attempt.finishReason ? `, finish=${attempt.finishReason}` : ''}` +
+        `${attempt.completionTokens ? `, ${attempt.completionTokens} tokens` : ''}` +
+        `${attempt.retriedAfterMs ? `, retrying in ${Math.round(attempt.retriedAfterMs / 1000)}s` : ''})`,
+    );
+  }
   for (const error of result.errors) log(`  ${error}`);
 
   if (dryRun) {

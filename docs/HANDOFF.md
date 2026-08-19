@@ -87,6 +87,55 @@ JSON after a preamble or inside a code fence, so a model that merely *starts*
 with prose is fine; one that never finishes still is not. If you swap models,
 run `resummarize --dry-run --limit 6` and read the output before committing.
 
+### How the reliability problem was actually solved
+
+The first full backfill summarized only 24 of 66 stories. The obvious diagnosis
+— free-tier rate limiting under sustained load — was wrong, and a cross-model
+review (`docs/research/SUMMARIZER_RETRY_REVIEW.md`) caught it: three timeouts
+consumed 180 of the 435 seconds, leaving the other eight calls at 31.9 seconds
+each, which is the same as an isolated healthy call. There was no slowdown to
+back off from.
+
+Adding observability first — `finish_reason`, token usage, HTTP status, request
+id, per-attempt duration — is what found the real cause, in three measured steps:
+
+1. **Reasoning was on by default.** Nemotron 3 is a reasoning model; the same
+   trivial request spent 113 completion tokens by default and 29 with
+   `reasoning_effort: "none"`. Turning it off helped, but did not fix it.
+2. **The rejected replies were not truncated.** Every one came back
+   `finish_reason: "stop"` with 700–950 tokens — complete answers. Inspecting
+   them showed correct Chinese content inside **broken array punctuation**: a
+   missing comma between elements, an array closed early then continued, a
+   doubled bracket. A classic delimiter failure, not a content failure.
+3. **Constrained decoding fixed it, but only with a length bound.** The endpoint
+   rejects `nvext.guided_json` and accepts `response_format` with a
+   `json_schema`. A schema without `minItems`/`maxItems` made things *worse* —
+   the model satisfied it with one or two items and replies collapsed to ~130
+   tokens. Pinning the array to exactly the batch length was the fix.
+
+Result: **18 of 18 on the final run, zero fallbacks, zero retries needed.** All
+66 stories now carry a machine headline and summary.
+
+The retry policy stayed in anyway, because 503s from this endpoint are real and
+were observed recovering on the second attempt. It is resilience, not the fix.
+
+### Retry policy
+
+Owned by `summarizeAll`, not the transport: only the summarizer knows whether a
+200 response actually passed validation, and two retry loops would silently
+become four wire calls per batch. The transport makes exactly one attempt and
+returns typed failure data (`kind`, `status`, `retryAfterMs`, `requestId`).
+
+- Two attempts per batch, six retries per run, 25-minute wall-clock budget.
+- Retries timeouts, network errors, 408, 429, 500, 502, 503, 504, a malformed
+  body, empty content, and **one** shape rejection. Does not retry 400/401/403/
+  404/422/501/505, and never retries a per-entry content rejection.
+- Attempt timeouts 75s then 120s — the longer second deadline tests whether a
+  request was stalled rather than dead.
+- 3s between batches; 10s + 0–5s jitter before a retry; a server `Retry-After`
+  wins when it asks for longer, capped at 120s.
+- Timing is injected, so all of it is tested without the suite ever sleeping.
+
 ### One thing the first live run changed
 
 The validator originally discarded a whole batch of six if any single field
@@ -171,9 +220,9 @@ Two things worth knowing about that mix:
 
 ## Testing
 
-`npm run verify` runs all three layers: unit tests, a production build, and 42
-browser tests. Coverage of the pure logic is above the 80% threshold the config
-enforces.
+`npm run verify` runs all three layers: 425 unit tests, a production build, and
+42 browser tests. Coverage of the pure logic is above the 80% threshold the
+config enforces.
 
 The unit suite covers ISO-week edge cases (including the year-boundary rule that
 puts 2027-01-01 in 2026-W53), filtering and URL round-trips, every schema rule,
@@ -208,10 +257,13 @@ and no `:global(` outside the layout.
   policy is tagged US.
 - **Topic tags are keyword-matched**, so they are approximate. They are filters,
   not claims.
-- **A failed summarization is not retried automatically.** If the model is down
-  on a Monday, those stories publish with the source's own summary and stay that
-  way until someone runs `pipeline:resummarize`. Worth wiring into the workflow
-  once the schedule is live and its real failure rate is known.
+- **A failed summarization is not re-attempted on a later day.** The in-run
+  retry policy covers a transient failure, but if a whole run degrades, those
+  stories publish with the source's own summary and stay that way until someone
+  runs `pipeline:resummarize`. Worth wiring into the workflow once the schedule
+  is live and its real failure rate is known.
+- **Batch size was deliberately not tuned.** Six is what the evidence covers.
+  Changing it now would confound the next measurement.
 
 ## Before this goes live
 
