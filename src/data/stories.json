@@ -1,5 +1,81 @@
 [
   {
+    "id": "69ef2e68614e242d",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Advancing Health Equity through Multi-Level Fairness in Health Informatics",
+    "summaryOriginal": "arXiv:2608.16902v1 Announce Type: new Abstract: The increasing integration of machine learning in healthcare has highlighted critical challenges related to fairness, transparency, and health equity. Specifically, the use of multi-level fairness techniques, which combine multiple bias mitigation steps or techniques, show promise for reducing biases across different patient demographics, yet this…",
+    "titleZhTW": "多層次公平機制推動醫療資訊公平性",
+    "summaryZhTW": "研究檢視機器學習在醫療領域應用多層次公平技術的現況，發現雖然結合多種去偏步驟有助減少不同族群間的偏差，但實作與健康公平影響的回報仍有缺口。論文分析 MINIMAR 與 TRIPOD 等報告標準對模型透明度的貢獻，並建議強化揭露機制、擴大多層次公平技術採用，且在未來研究中明確優先考量健康公平。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.16902",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T04:12:45.015Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "7a2f4b54e01af58f",
+    "sourceId": "arxiv-cs-cy",
+    "title": "AI, Brain Death Detection, and Islamic Law",
+    "summaryOriginal": "arXiv:2608.16903v1 Announce Type: new Abstract: The deployment of machine learning systems capable of detecting covert consciousness in neurologically injured patients creates a profound challenge at the intersection of clinical medicine, AI ethics, and Islamic jurisprudence. We argue that the shift from binary clinical verdicts to probabilistic, temporally granular neural-state estimates should…",
+    "titleZhTW": "AI輔助意識偵測挑戰伊斯蘭腦死定義與醫療決策",
+    "summaryZhTW": "研究指出機器學習能以機率方式偵測神經受損患者的隱性意識，使傳統二元腦死判定轉向連續性神經狀態估測。作者依據伊斯蘭法學中的「明證」、「確知」與靈魂不可知論三大核心概念，分析此技術對腦死學說與AI代理決策系統的衝擊，呼籲跨領域對話以因應臨床、倫理與教法的交織挑戰。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.16903",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T04:12:45.015Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "research",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "580eee9e7e2cdb93",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Procedural Collapse: A Structural Account of Disengagement in LLM-Assisted Writing",
+    "summaryOriginal": "arXiv:2608.17326v1 Announce Type: new Abstract: When students use large language models for writing, the dominant explanation for disengagement is dispositional: they are over-reliant, and the remedy is to scaffold self-regulation. We argue that a structural explanation is needed, offering an alternative basis for design interventions to support appropriate AI-assisted writing. Current LLM…",
+    "titleZhTW": "LLM 寫作介面導致「程序崩塌」 研究建議重構互動而非只靠自我調節",
+    "summaryZhTW": "研究指出現行 LLM 寫作介面將反覆推敲的寫作過程壓縮為單次輸出，迫使學生從「生成」轉為「全盤評估」，評估成本過高導致淺層參與成為常態，認知訓練效果流失。作者提出分解互動、預設目標引導、單層級輸出等設計方向，從介面結構降低自我調節負擔，而非單純強化元認知輔助。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.17326",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T04:12:45.015Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "eddd485e5c401ebd",
+    "sourceId": "arxiv-cs-hc",
+    "title": "From Substitution to Scaffolding: Breaking the Self-Reinforcing Harm Cycle of AI in Education (and Beyond)",
+    "summaryOriginal": "arXiv:2608.17451v1 Announce Type: new Abstract: Artificial intelligence is being adopted in educational settings faster than its consequences are understood. We argue that the central risk is misalignment: AI that eliminates human effort erodes the very capacities education is meant to build. We organize this risk into an integrative framework of four interrelated dimensions -cognition, agency,…",
+    "titleZhTW": "研究揭 AI 取代人類努力恐侵蝕學習能力，提倡「腳手架而非替代」設計原則",
+    "summaryZhTW": "論文分析 49 篇 IB 學生論說文，發現 8 成學生認為過度依賴 AI 會減少思考，並期望系統能透過提問、延遲給答等方式支援學習而非直接給解。研究據此提出「腳手架而非替代」單一設計原則，強調 AI 應強化而非削弱人類認知、能動性與情感福祉，並呼籲建立長期研究議程以發展促進人類持久能力的 AI 系統。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.17451",
+    "publishedAt": "2026-08-19T04:00:00.000Z",
+    "fetchedAt": "2026-08-19T04:12:45.015Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "e3c21286ff3c9a0c",
     "sourceId": "edweek",
     "title": "How Teachers Are Experimenting With AI (Opinion)",
