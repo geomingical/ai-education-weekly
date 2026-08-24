@@ -1,5 +1,253 @@
 [
   {
+    "id": "0685a773ffbd1721",
+    "sourceId": "edweek",
+    "title": "Facing 'Techlash,' How Should Schools Talk to Parents About Tech Use?",
+    "summaryOriginal": "A school communications expert explains how schools should approach their messaging around tech.",
+    "titleZhTW": "學校面臨「科技反彈」：如何向家長解釋教育科技的價值？",
+    "summaryZhTW": "家長擔心學生在校螢幕時間過長，影響身心健康與社交技能，引發「科技反彈」。全美學校公共關係協會建議，學校應先傾聽家長疑慮，再以短影片、海報、校長談話要點等方式，具體說明「教育科技」與「娛樂螢幕時間」的差異。溝通需個人化、針對特定班級或教師，才能穿透資訊雜訊，建立信任。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/technology/facing-techlash-how-should-schools-talk-to-parents-about-tech-use/2026/08",
+    "publishedAt": "2026-08-21T19:46:48.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "0956cfb8ba5b873a",
+    "sourceId": "openai-education-newsletter",
+    "title": "Practice Before the Stakes Are Real",
+    "summaryOriginal": "How three educators give students a safer place to rehearse medicine, conflict, and counseling before another person is counting on them.",
+    "titleZhTW": "三大學者用生成式 AI 打造低風險實境演練，強化醫學、溝通與諮商教學",
+    "summaryZhTW": "聖安德魯大學醫學講師 O'Malley 開發 SimPatient，讓醫學生在真實病人接觸前，透過 AI 虛擬病人反覆練習病史詢問、臨床推理與同理心，並獲得即時個別化回饋。布希內爾大學 Srader 採用 ChatGPT 語音模式模擬衝突對話，學生可在私密環境中嘗試去激化技巧、暫停重來，再由教師依據逐字稿評量表現。聖愛德華大學與帕洛阿爾托大學的 Castañeda 則建立客製化 GPT 扮演諮商來訪者，分級提供從大學適應到文化勝任等情境，學生完成文字與語音練習後獲得結構化回饋，最終判斷仍由教師把關。三者共同核心：在真實風險降臨前，提供安全、可重複、有回饋的練習機會。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/practice-before-the-stakes-are-real",
+    "publishedAt": "2026-08-21T15:03:14.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f4216e52711f9beb",
+    "sourceId": "khan-academy-blog",
+    "title": "Free Khan Academy Classroom Activities for Back to School",
+    "summaryOriginal": "Ready, Set, Explore: Free Khan Academy Classroom Activities The first few days with a new classroom tool can ... Read more The post Free Khan Academy Classroom Activities for Back to School appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出免費開學課堂活動套件 協助師生快速上手新介面",
+    "summaryZhTW": "Khan Academy 針對新版介面推出三項免費課堂活動：教師寶藏獵人、學生寶藏獵人與全班賓果挑戰，引導師生在實際操作中熟悉尋找作業、查看進度與獲得獎勵等核心功能。活動設計彈性分級，低年級可師生共同探索、中年級採夥伴合作、高年級則以獨立挑戰為主，並鼓勵同儕互助與真實作業情境結合，目標是讓學生在第一週內掌握「作業在哪裡、下一步做什麼、如何看進度」三大關鍵問題。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/free-khan-academy-classroom-activities-for-back-to-school",
+    "publishedAt": "2026-08-21T13:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "81677ccdfc95cab0",
+    "sourceId": "edsurge",
+    "title": "EdSurge Welcomes Top Journalists and Educators to Advisory Board",
+    "summaryOriginal": "Bringing together award-winning reporters and leading educators, the board will provide strategic guidance on newsroom priorities and emerging issues ...",
+    "titleZhTW": "EdSurge 邀六位資深記者與教育者加入諮詢委員會",
+    "summaryZhTW": "EdSurge 宣布 Todd Frankel、Patrick Harris II、Nneka McGee、Ramona Schindelheim、Avery Thrush 及 Manoush Zomorodi 等六人加入諮詢委員會，成員涵蓋普立茲得獎記者、前線教師、AI 政策研究者與勞動力轉型專家。委員會將為編輯室提供策略建議，協助因應 AI 政策、幼教與 K-12 報導等議題，但不具編輯否決權。此舉旨在結合國家視野與課堂經驗，強化報導的實務相關性。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/edsurge-welcomes-top-journalists-and-educators-to-advisory-board",
+    "publishedAt": "2026-08-21T00:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "8d4702d6940d06c7",
+    "sourceId": "edweek",
+    "title": "Schools Spend Billions on AI, But Struggle to Figure Out What’s Worth Buying",
+    "summaryOriginal": "Some school district officials feel overwhelmed by the array of choices of AI learning tools.",
+    "titleZhTW": "美學區採購 AI 工具困境：市場龐雜缺指引，自行驗證負擔沉重",
+    "summaryZhTW": "美國學區在採購 AI 教育工具時面臨選項過多、缺乏統一驗證標準的困境，須自行承擔資安、隱私與教學成效評估。田納西州與賓州學區嘗試以小規模試用、雙階段審核等方式篩選工具，專家建議優先讓教師先行測試、確認符合認知科學原則，並呼籲州、聯邦層級提供更完善採購指引以減輕一線負擔。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/technology/schools-spend-billions-on-ai-but-struggle-to-figure-out-whats-worth-buying/2026/08",
+    "publishedAt": "2026-08-20T20:56:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "tools",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "a025f6dc062209d3",
+    "sourceId": "khan-academy-blog",
+    "title": "Smart Screens, Healthy Kids: A Framework for Edtech in Early Elementary",
+    "summaryOriginal": "By the second week of school, you’ve probably fielded the screen time question more than once. “Why is ... Read more The post Smart Screens, Healthy Kids: A Framework for Edtech in Early Elementary appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推早期教育科技框架：重質不重量、三問檢核取代計時",
+    "summaryZhTW": "Khan Academy 針對幼兒至低年級提出「智慧螢幕、健康孩子」框架，強調螢幕品質勝過時長，提供「三問螢幕檢核」（內容、情境、擠出效應）與「螢幕營養標籤」評分表，協助教師篩選無廣告、有明確結束點、支援主動學習的工具。文中並列出綠紅燈訊號與 AAP 5C 原則，建議教師在螢幕活動後安排一分鐘對話，將被動觀看轉為人際互動，並提供家庭溝通工具包，促進師生家共識。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/screen-time-in-schools-prek-2-framework",
+    "publishedAt": "2026-08-20T13:30:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4c25758333c63315",
+    "sourceId": "edsurge",
+    "title": "Department of Education Issues Long-Awaited Edtech Guidance for States and Districts",
+    "summaryOriginal": "The letter emphasizes outcomes and evidence but stops short of issuing federal regulations.",
+    "titleZhTW": "美教育部發布教育科技指導原則 強調教學價值重於螢幕時間",
+    "summaryZhTW": "美國教育部發布親同事信，呼籲各州與學區在採購與使用教育科技時，以「教學價值」與「可衡量的學生成效」為核心判準，而非單純計算螢幕時間或登入次數。指導原則要求區分「娛樂性」與「教學性」科技、納入獨立評估與隨機對照實驗證據、建立實施成效檢視機制，並肯定阿肯色、印第安納等五州嘗試以績效導向採購模式取代單純採購量指標。同時敦促業者設計支援高品質教學的產品、公開獨立評估報告、提供實施資源與持續改進機制。專家指出，聯邦層面未訂定強制規範而下放執行權，可能導致各州在學生隱私、無障礙與資料保護等基準上出現落差，擴大公平鴻溝。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/department-of-education-issues-long-awaited-edtech-guidance-for-states-and-districts",
+    "publishedAt": "2026-08-20T00:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "d96b4129d44ca7f6",
+    "sourceId": "google-education",
+    "title": "5 new ways to level up your learning with Search",
+    "summaryOriginal": "Here’s how you can use Google Search tools to study for classes and standardized tests.",
+    "titleZhTW": "Google 搜尋推出 5 項 AI 學習新功能，涵蓋互動視覺、練習測驗與筆記整理",
+    "summaryZhTW": "Google 在搜尋與 AI 模式中新增五項學習工具：互動視覺化模擬抽象概念、支援 SAT、AP 等標準化考試的練習測驗、Lens 拍照逐步解析題目、將 NotebookLM 整合為 AI 筆記本以整理課程資料、以及依上傳檔案自動產生學習文件。功能以英文優先全球推出，旨在協助學生自主學習與備考。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/search/back-to-school-study-tools",
+    "publishedAt": "2026-08-19T19:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5602e916cb003a46",
+    "sourceId": "google-education",
+    "title": "Start the semester with one year of Gemini, on us",
+    "summaryOriginal": "College students around the world can claim 12 months of a Google AI plan, free of charge.",
+    "titleZhTW": "Google 推出大學生免費一年 Gemini AI 方案與學習新工具",
+    "summaryZhTW": "Google 面向全球合資格大學生，提供 Google AI Pro 或 Plus 方案免費一年，包含更高使用額度、Gemini Spark、5 TB 或 400 GB 雲端空間等權益。同步上線學生專屬中心、學習筆記本、互動式 3D 視覺化與 Gemini Live 深度研究功能，協助學生整理教材、自動排程、語音對話式研讀，打造個人化 AI 學習夥伴。",
+    "summarySource": "machine",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai",
+    "publishedAt": "2026-08-19T19:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5862c00fecb4ea64",
+    "sourceId": "google-education",
+    "title": "Back to School 2026",
+    "summaryOriginal": "How Google tools can help students and educators this back-to-school season.",
+    "titleZhTW": "Google 推出 2026 開學季 AI 新功能，學生免費用 Gemini、教師獲課堂管控工具",
+    "summaryZhTW": "Google 為 2026 學年推出多項 AI 更新：美國大學生可免費使用一年 Google AI Pro（含 Gemini Spark 及 5 TB 儲存），國際生則享 Google AI Plus 400 GB 空間與優惠。Gemini 新增學生專屬中樞、診斷式測驗生成的個人化學習計畫，以及可語音互動的 Deep Research 報告。Google Search 引入互動視覺化、練習測驗與 Lens 逐步解題，並支援筆記本整理專案。教師端則在 Google Classroom 獲得可依課綱調整學生 AI 體驗、即時追蹤進度的新工具，Gemini 連動應用程式亦協助安全草擬教案。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/back-to-school-2026",
+    "publishedAt": "2026-08-19T19:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "08e050d4b9f257e8",
+    "sourceId": "microsoft-education",
+    "title": "Built for the complexity of education: AI that understands your institution",
+    "summaryOriginal": "See how connected context, governance, and AI agents can help institutions support educators, students, and staff. The post Built for the complexity of education: AI that understands your institution appeared first on Microsoft Education Blog.",
+    "titleZhTW": "微軟推教育專用 AI：整合情境、治理與信任，助校園從實驗走向制度化應用",
+    "summaryZhTW": "微軟 2026 年報告顯示，超過 9 成師生已在校務使用 AI，但多為個人實驗。微軟 365 Education 透過 Microsoft IQ 情境智慧、既有治理權限與資料保護，將 AI 嵌入教學、輔導、行政等既有流程，推出課堂代理人協助備課分層、學生服務整合脈絡，並提供 Copilot Chat 到完整 Copilot 的漸進式授權，讓學校依成熟度逐步擴展，實現受管控、可信任的校級 AI 應用。",
+    "summarySource": "machine",
+    "url": "https://www.microsoft.com/en-us/education/blog/2026/08/built-for-the-complexity-of-education-ai-that-understands-your-institution",
+    "publishedAt": "2026-08-19T15:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a304a05186596d88",
+    "sourceId": "openai-education-newsletter",
+    "title": "Dr. Renah Wolzinger Built a Course Website for Nearly 200 Adult Learners. Here’s How.",
+    "summaryOriginal": "She started with a syllabus, a plainspoken prompt, and a clear sense of what her students needed.",
+    "titleZhTW": "加州社區大學教授以 ChatGPT 建置 AI 專案網站，服務近 200 位成人學習者",
+    "summaryZhTW": "Saddleback College 退休學院 Renah Wolzinger 博士面對近 200 名報名或候補的成人學生，利用 ChatGPT Work 開發「AI Project Studio」課程網站。網站提供六大類微型專案（如行程規劃、家庭故事、週程安排），每項皆附入門提示、三步驟操作與 SAFE 負責任 AI 檢核清單，並依教學大綱調整視覺風格與無障礙設計。Wolzinger 強調以學生為中心迭代修改，保留教師判斷權，讓零基礎長者也能在單次操作中完成可用成果，並內建隱私與事實查核提醒。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/wolzinger-course-site",
+    "publishedAt": "2026-08-19T14:01:21.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "583af4576f45b024",
+    "sourceId": "khan-academy-blog",
+    "title": "Teach AP Physics C: Mechanics with a New, Free Course",
+    "summaryOriginal": "Physics teachers, this one has been a long time coming! Khan Academy’s free AP Physics C: Mechanics course ... Read more The post Teach AP Physics C: Mechanics with a New, Free Course appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出免費 AP 物理 C：力學完整課程",
+    "summaryZhTW": "Khan Academy 上線免費的 AP 物理 C：力學課程，涵蓋七大單元並對齊 College Board 大綱，提供教學影片、互動文章、PhET 模擬與考題練習。教師可依進度指派資源作為預習、複習、分層教學或模擬考準備，學生亦能自主按節奏學習微積分基礎物理。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/ap-physics-c-mechanics-course",
+    "publishedAt": "2026-08-19T13:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "69ef2e68614e242d",
     "sourceId": "arxiv-cs-cy",
     "title": "Advancing Health Equity through Multi-Level Fairness in Health Informatics",
@@ -151,6 +399,46 @@
       "teaching"
     ],
     "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "8e9bde3f29a459fd",
+    "sourceId": "edsurge",
+    "title": "The Case Against the Classroom Cellphone Crackdown",
+    "summaryOriginal": "Instead of banning the technology, schools have an opportunity to promote digital citizenship and student engagement.",
+    "titleZhTW": "密蘇里州全面禁手機 法案阻礙公民教育實踐",
+    "summaryZhTW": "密蘇里州 2025 年通過法案全天候禁止學生攜帶手機，作者身為公民課教師發現，禁令讓學生在社區行動專案中無法善用社群媒體蒐集意見、發聲，反而降低學習真實性。他建議以數位公民素養教學、彈性管制工具取代一刀切禁令，引導學生善用科技而非單純封鎖。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/the-case-against-the-classroom-cellphone-crackdown",
+    "publishedAt": "2026-08-19T00:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "policy",
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "545ad09af90dd8ed",
+    "sourceId": "edsurge",
+    "title": "Assignments, Invoices, and the AI Fix",
+    "summaryOriginal": "On This Week with EdSurge, searching to see where artificial intelligence quietly adds up.",
+    "titleZhTW": "EdSurge 探討 AI 在教育隱形成本：從作業設計到電力帳單",
+    "summaryZhTW": "節目邀請兩位嘉賓從不同角度剖析 AI 對學校的真實代價。Michael Hernandez 分享如何以「氛圍編程」讓 AI 協助設計抗 AI 作業，反思優質作業應具備的特質；Mi Aniefuna 則追溯資料中心能耗與發票成本，提醒學區在推廣 AI 時必須納入長期預算規劃。兩者共同揭示學校邁向 AI 優先未來時，鮮少完整盤點的財務與教學雙重負擔。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/what-is-ai-actually-costing-schools",
+    "publishedAt": "2026-08-19T00:00:00.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "teaching",
+      "tools",
+      "integrity"
+    ],
+    "region": "US",
     "language": "en"
   },
   {
@@ -728,6 +1016,26 @@
     "topics": [
       "higher-ed",
       "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "de59075f8ee78dfc",
+    "sourceId": "khan-academy-blog",
+    "title": "Ready for the Hardest SAT Questions? Try the New Challenge Unit",
+    "summaryOriginal": "The SAT Reading and Writing Challenge unit gives students free, focused practice with some of the most difficult ... Read more The post Ready for the Hardest SAT Questions? Try the New Challenge Unit appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出 SAT 閱讀寫作挑戰單元 提供最高難度免費練習",
+    "summaryZhTW": "Khan Academy 新增 SAT 閱讀寫作挑戰單元，針對已完成進階練習的學生，提供六組掌握度導向的最高難度題組，涵蓋資訊與觀點、結構與技巧、觀點表達及標準英語慣例四大技能領域。教師可直接指派此單元作為進階學生的差異化教材，學生可自主練習並追蹤掌握度，所有教材免費開放使用。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/sat-reading-writing-challenge-unit",
+    "publishedAt": "2026-08-17T14:24:37.000Z",
+    "fetchedAt": "2026-08-24T01:31:01.677Z",
+    "issue": "2026-W34",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
     ],
     "region": "GLOBAL",
     "language": "en"
