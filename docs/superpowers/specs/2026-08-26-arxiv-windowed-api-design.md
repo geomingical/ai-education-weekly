@@ -1,94 +1,201 @@
-# Windowed arXiv API Collection Design
+# Complete Weekly arXiv Collection Design
 
 ## Goal
 
-Ensure the weekly digest can discover every arXiv submission returned for the
-configured `cs.CY` and `cs.HC` categories during its collection window, even
-though arXiv's category RSS feeds expose only one announcement batch at a time.
+Inspect the complete weekly announcement lists for the configured `cs.CY` and
+`cs.HC` categories without violating arXiv's current robots policy, then retain
+the existing relevance judgment and editorial caps when selecting stories for
+the weekly digest.
 
 ## Evidence and root cause
 
-The weekly workflow runs once on Monday with an eight-day window. That window
-currently filters only the items present in each fetched feed; it cannot recover
-items the feed no longer returns. On 2026-08-26, both category RSS feeds carried
-items from only that date. In the 2026-08-24 scheduled run, both feeds returned
-zero items and the separate AI-and-education API query returned HTTP 429, so the
-run published no arXiv coverage while otherwise succeeding.
+The workflow runs once on Monday with an eight-day ingest window. That window
+filters only items returned by a source; it cannot recover entries that a feed
+no longer exposes. On 2026-08-26, both category RSS feeds carried items from
+only that date. In the 2026-08-24 scheduled run, both feeds returned zero items,
+so the weekly schedule and single-announcement RSS feeds are structurally
+mismatched.
 
-The root cause is therefore a mismatch between a weekly collector and
-single-announcement category feeds. The date filter is working as implemented,
-but it operates after source retrieval and cannot expand the source's history.
+The first design proposed paged arXiv API category queries. Review exposed a
+second, decisive constraint. On 2026-08-26:
+
+- the official API manual documented `start`/`max_results` paging,
+  `lastUpdatedDate`, OpenSearch result counts, and a three-second delay;
+- `https://export.arxiv.org/robots.txt` returned `Disallow: /`; and
+- `https://arxiv.org/robots.txt` explicitly disallowed `/api` while allowing
+  `/list` and `/abs` with `Crawl-delay: 15`.
+
+The project rules forbid activating a source whose robots policy forbids the
+automated request. API paging is therefore not an acceptable implementation,
+regardless of retry quality. The existing active
+`arxiv-ai-education-query` source also uses the now-disallowed API and must not
+continue automated collection until arXiv permits that endpoint again.
 
 ## Chosen approach
 
-Replace the two category RSS URLs with arXiv API category queries sorted by
-`submittedDate` descending. Keep the existing AI-and-education API query as a
-separate discovery path because it can find relevant papers outside `cs.CY` and
-`cs.HC`.
+Use arXiv's allowed weekly listing pages:
 
-The pipeline will recognize arXiv API sources and collect them page by page.
-Each page is parsed through the existing Atom parser. Paging stops when a page
-contains no entries, when the oldest submitted date is before the collection
-window, or when a bounded safety limit is reached. Items from all fetched pages
-then pass through the existing date gate, relevance classifier, duplicate gate,
-and per-source publication cap.
+- `https://arxiv.org/list/cs.CY/pastweek?show=2000`
+- `https://arxiv.org/list/cs.HC/pastweek?show=2000`
 
-This keeps retrieval coverage separate from editorial volume: the pipeline may
-inspect a full week of category results while still publishing at most the
-configured `maxPerRun` number of relevant stories.
+These pages group entries under announcement-date headings and expose the arXiv
+ID, title, comments, and subjects. A live check on 2026-08-26 returned all five
+announcement days shown by each page in one response. The collector parses
+every entry, assigns its enclosing announcement date, and sends the combined
+weekly pool through the existing date gate and relevance classifier.
 
-## Request pacing and failure handling
+The listing does not contain abstracts. The initial relevance decision will use
+the title, comments, and subjects. Relevant candidates are ordered newest first,
+then their allowed `/abs/{id}` pages are fetched one at a time until the source
+cap is filled. A failed or malformed abstract page records an
+`enrichment-failed` rejection and the next relevant candidate is tried; listing
+metadata is never published as if it were the source abstract. A targeted arXiv
+abstract parser replaces the temporary listing excerpt before summarization and
+persistence. The full abstract is transient model input; the existing summary
+truncation rule remains the only source text stored and displayed.
 
-All arXiv API requests in a run share a pacer so consecutive requests are at
-least three seconds apart. HTTP 429 and transient 5xx responses receive a small,
-bounded number of retries using the server's `Retry-After` value when usable,
-otherwise a deterministic increasing delay. Permanent errors are not retried.
+The current `arxiv-ai-education-query` source will be set inactive and its note
+and verification date will record the robots restriction. This reduces
+discovery outside `cs.CY` and `cs.HC`; the run report and documentation must not
+imply otherwise.
 
-If the first page cannot be fetched, the source remains a failed source outcome
-as it is today. If a later page fails, the source keeps the earlier pages but
-records a warning that collection was partial. Empty and failed outcomes remain
-visible rather than being converted into successful-looking results.
+## Editorial selection
 
-Retries and sleeps will be dependency-injected in tests so the test suite makes
-no real network calls and does not wait in real time.
+Retrieval coverage and publication volume remain separate:
+
+1. parse the complete weekly category listing;
+2. apply the existing date, URL, and duplicate gates;
+3. classify relevance from title, comments, and subjects;
+4. order relevant candidates deterministically by announcement date descending;
+5. enrich candidates from `/abs` in that order, skipping and recording failures;
+   and
+6. stop when `maxPerRun` successfully enriched candidates are available.
+
+The source caps remain `1` for each category. This means the pipeline inspects
+the whole weekly pool but publishes at most one relevant story per category.
+Over-cap candidates stay visible in rejection counts and are not presented as
+published coverage.
+
+## Completeness and failure handling
+
+The listing page states a total entry count and how many entries are shown. The
+collector compares those values with the parsed entry count. Outcomes are
+defined as follows:
+
+- a declared total of zero with a valid empty article container is complete and
+  empty;
+- a missing article container, invalid declared count, or zero usable entries
+  when the declared total is positive fails the source and publishes nothing;
+- individual malformed headings, IDs, or entry structures are omitted, and a
+  count mismatch with at least one usable entry is partial; and
+- a declared total above the requested `show=2000` bound is partial because the
+  single response cannot prove complete coverage.
+
+Partial results may continue through the normal gates, but the warning and
+coverage fields must make the incomplete source visible.
+
+If the weekly listing fails, the collector may make one best-effort request to
+the official `rss.arxiv.org` category feed. Because that feed normally contains
+only one announcement batch, fallback output is always marked partial. It is a
+degraded source of some current metadata, not evidence of full weekly coverage.
+If the fallback is also unavailable or malformed, the source fails normally.
+
+The report will add optional collection details to each source outcome:
+
+- `coverage`: `complete`, `partial`, or `failed`;
+- `collectionMethod`: `feed`, `sitemap`, `arxiv-list`, or `arxiv-rss-fallback`;
+- `expectedItems` and `parsedItems` when the source declares a count; and
+- `truncatedReason` when coverage is partial.
+
+Existing `itemsSeen`, `itemsInWindow`, accepted/rejected counts, and rejection
+histograms remain unchanged. Optional fields avoid changing historical report
+consumers while making empty, incomplete, and complete collection distinguishable.
+
+## Request pacing
+
+All `arxiv.org` listing and abstract requests share a serialized per-host pacer
+that enforces at least the published 15-second crawl delay. The current source
+loop is sequential, so a concurrency race does not exist today; serialization
+keeps the constraint explicit if collection becomes concurrent later.
+
+The RSS fallback uses `rss.arxiv.org`, whose robots path returned 404 rather
+than a restriction on 2026-08-26. It receives at most one request per affected
+category. No request is made to either disallowed API path.
+
+Network failures continue to use the existing bounded `safeFetch` behavior.
+This design adds no long `Retry-After` sleep and cannot stall the rest of the run
+behind an unbounded server-supplied delay.
 
 ## Components and boundaries
 
-- `pipeline/src/arxiv.ts` owns arXiv API URL paging, request pacing, retry
-  decisions, and the bounded stop conditions. It returns parsed raw feed items
-  plus explicit failure or partial-collection information.
-- `pipeline/src/run.ts` selects that collector for arXiv API sources and leaves
-  non-arXiv RSS, Atom, JSON Feed, and sitemap behavior unchanged.
-- `src/data/sources.json` changes only the two category source URLs and formats;
-  source IDs, editorial caps, relevance modes, and active states remain intact.
-- The existing `safeFetch`, Atom parser, ingest gate, classifier, story schema,
-  and merge behavior remain the source of truth for their current concerns.
+- `pipeline/src/arxiv-list.ts` parses weekly list HTML and accepted-paper
+  abstract pages into existing `RawFeedItem` data. It uses the already-installed
+  `linkedom` package and does not execute page scripts.
+- `pipeline/src/run.ts` routes the two configured category sources through the
+  weekly-list collector, shares the arXiv pacer, enriches only accepted arXiv
+  candidates, and records explicit coverage metadata.
+- `pipeline/src/contracts.ts` adds only optional source-outcome diagnostics; it
+  does not change story or source records.
+- `src/domain/source.ts` adds one explicit `arxiv-list` feed format rather than
+  pretending HTML is RSS.
+- `src/data/sources.json` switches `arxiv-cs-cy` and `arxiv-cs-hc` to the
+  allowed weekly listing URLs, preserves their IDs and caps, and deactivates the
+  forbidden API query with an evidence-based note.
+- `docs/HANDOFF.md` records the coverage model, robots decision, 15-second pace,
+  title-first relevance limitation, and reduced out-of-category discovery.
 
-No dependency, story/source schema, workflow trigger, secret, or public display
+No dependency, story schema, workflow trigger, secret, schedule, or public UI
 behavior changes.
 
 ## Testing strategy
 
-Automated tests will prove that:
+Tests will be written and observed failing before implementation. They will
+prove that:
 
-1. multiple API pages are combined when the first page does not cover the full
-   date window;
-2. paging stops after crossing the window boundary;
-3. duplicate entries across pages remain harmless to the existing ingest gate;
-4. HTTP 429 and transient 5xx responses retry with injected waits;
-5. permanent failures do not retry;
-6. a later-page failure is reported as partial rather than silently complete;
-7. non-arXiv feed collection behavior is unchanged; and
-8. the registry contains API category queries rather than category RSS URLs.
+1. all entries across multiple date headings are parsed with the correct
+   announcement date;
+2. the parsed count must match the listing's declared total;
+3. malformed dates, IDs, or article structure produce an explicit incomplete
+   outcome rather than zero successful items;
+4. the combined weekly pool reaches screening once, without entries being
+   dropped or duplicated at the collector boundary;
+5. relevance is applied before the deterministic newest-first cap;
+6. only relevant category candidates fetch `/abs` pages, a failed enrichment
+   advances to the next ranked candidate, and every stored source excerpt comes
+   from a parsed abstract rather than listing metadata;
+7. two arXiv requests started together remain at least 15 virtual seconds apart;
+8. weekly-list failure followed by usable RSS produces items with partial
+   coverage and `arxiv-rss-fallback` as the method;
+9. weekly-list and fallback failure remain a failed source outcome;
+10. constructed list, abstract, and fallback URLs pass the existing allowlist
+    checks without widening `officialDomains`;
+11. the two active category sources use `/list/.../pastweek` with
+    `feedFormat: arxiv-list`; and
+12. the disallowed API source is inactive and no active source requests an
+    `/api` path.
 
-Tests for each new behavior will be written and observed failing before the
-minimal implementation is added. Final verification is `npm run verify`, which
-runs unit tests, the production build, and browser tests.
+Final verification is `npm run verify`, which runs unit tests, the production
+build, and browser tests. A separate read-only smoke check may fetch the two
+weekly listings and confirm declared and parsed counts; it must not call the
+disallowed API.
+
+## Human checkpoints
+
+Implementation requires explicit approval for two project-controlled changes:
+
+1. changing the source schema to add `arxiv-list`; and
+2. changing registered sources, including deactivating
+   `arxiv-ai-education-query` because its endpoint is currently disallowed.
+
+The user's approval applies to a local test branch only. It does not authorize
+pushing, merging, deploying, changing secrets, or changing the schedule.
 
 ## Out of scope
 
-- Changing how many arXiv stories are published per week.
-- Broadening or changing AI-education relevance judgment.
+- Using either arXiv API endpoint while its robots policy forbids access.
+- Increasing the number of arXiv stories published per week.
+- Adding more arXiv categories to replace the disabled free-text query.
+- Changing AI-education relevance criteria.
 - Changing the weekly schedule or publishing cadence.
-- Backfilling already missed historical issues as part of this branch.
+- Backfilling already missed historical issues.
 - Pushing the branch, opening a pull request, merging, or deploying.
