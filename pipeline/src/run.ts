@@ -27,6 +27,7 @@ import { safeFetch, type FetchIO } from './fetcher';
 import {
   acceptCandidates,
   screenSourceItems,
+  storyId,
   type Candidate,
   type IngestedItem,
   type IngestSource,
@@ -94,6 +95,10 @@ async function readExistingStories(): Promise<Story[]> {
     // First run: no file yet.
     return [];
   }
+}
+
+export function existingStoryIds(stories: readonly Story[]): Set<string> {
+  return new Set(stories.flatMap((story) => [story.id, storyId(story.url)]));
 }
 
 function toIngestSource(source: Source): IngestSource {
@@ -223,7 +228,7 @@ async function main(): Promise<void> {
 
   const sources = loadSources(await readJson(SOURCES_PATH));
   const existing = await readExistingStories();
-  const seenIds = new Set(existing.map((story) => story.id));
+  const seenIds = existingStoryIds(existing);
 
   const { candidates, outcomes } = await collect(sources, window, windowDays, seenIds);
   const warnings: string[] = outcomes
