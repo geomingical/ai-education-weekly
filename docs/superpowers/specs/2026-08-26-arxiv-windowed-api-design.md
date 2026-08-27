@@ -52,10 +52,12 @@ eight-day window is wider than the five announcement days on `pastweek`; a
 boundary test fixes this conversion so local runner time zones cannot change it.
 
 The listing does not contain abstracts. The initial relevance decision will use
-the title, comments, and subjects. Relevant candidates are ordered newest first,
-then their allowed `/abs/{id}` pages are fetched one at a time until the source
-cap is filled or that source has made `maxPerRun + 4` enrichment attempts in the
-current run. The budget is independent for `cs.CY` and `cs.HC`. A failed or
+the title, comments, and subjects. The existing code first derives
+`runCap = effectiveCap(maxPerRun, windowDays)` so longer backfills can contribute
+proportionally more stories. Relevant candidates are ordered newest first, then
+their allowed `/abs/{id}` pages are fetched one at a time until `runCap` is
+filled or that source has made `runCap + 4` enrichment attempts in the current
+run. The budget is independent for `cs.CY` and `cs.HC`. A failed or
 malformed abstract page records an `enrichment-failed` rejection and the next
 relevant candidate is tried. If the cap is filled, later relevant candidates
 retain the existing `over-cap` outcome. If the attempt budget is exhausted
@@ -81,13 +83,15 @@ Retrieval coverage and publication volume remain separate:
 4. order relevant candidates deterministically by announcement date descending;
 5. enrich candidates from `/abs` in that order, skipping and recording failures;
    and
-6. stop when `maxPerRun` candidates have been enriched or after that source has
-   made `maxPerRun + 4` attempts in the current run.
+6. stop when `runCap` candidates have been enriched or after that source has
+   made `runCap + 4` attempts in the current run.
 
-The source caps remain `1` for each category. This means the pipeline inspects
-the whole weekly pool but publishes at most one relevant story per category.
-Over-cap candidates stay visible in rejection counts and are not presented as
-published coverage.
+The registry's base caps remain `1` for each category, and the existing
+`effectiveCap` scaling remains unchanged. With the normal eight-day window,
+that function currently produces `runCap: 2`; a longer explicit backfill scales
+further. This design does not silently change that established publication
+behavior. Over-cap candidates stay visible in rejection counts and are not
+presented as published coverage.
 
 ## Completeness and failure handling
 
@@ -135,11 +139,12 @@ All `arxiv.org` listing and abstract requests share a serialized per-host pacer
 that enforces at least the published 15-second crawl delay. The current source
 loop is sequential, so a concurrency race does not exist today; serialization
 keeps the constraint explicit if collection becomes concurrent later. The
-enrichment-attempt budget bounds the worst case to `maxPerRun + 4` abstract
-requests per source. With the current two category sources and `maxPerRun: 1`,
-the network maximum is two list requests plus ten abstract requests. At the
-required 15-second shared-host pace, that is roughly three minutes of serialized
-waiting rather than an unbounded walk through every relevant paper.
+enrichment-attempt budget bounds the worst case to `runCap + 4` abstract
+requests per source. With the current two category sources and normal eight-day
+window, `runCap` is 2, so the network maximum is two list requests plus twelve
+abstract requests. At the required 15-second shared-host pace, that is roughly
+three and a half minutes of serialized waiting rather than an unbounded walk
+through every relevant paper.
 
 No request is made to `rss.arxiv.org` or either disallowed API path.
 
@@ -190,7 +195,7 @@ prove that:
    dropped or duplicated at the collector boundary;
 5. relevance is applied before the deterministic newest-first cap;
 6. only relevant category candidates fetch `/abs` pages, a failed enrichment
-   advances to the next ranked candidate, no more than `maxPerRun + 4` pages are
+   advances to the next ranked candidate, no more than `runCap + 4` pages are
    fetched per source, the two source budgets are independent, and every stored
    source excerpt comes from a parsed abstract rather than listing metadata;
 7. two arXiv requests started together remain at least 15 virtual seconds apart;
