@@ -16,7 +16,7 @@ export const SOURCE_CATEGORIES = [
   'taiwan-local',     // Taiwanese / Chinese-language sources
 ] as const;
 
-export const FEED_FORMATS = ['rss', 'atom', 'json', 'sitemap', 'none'] as const;
+export const FEED_FORMATS = ['rss', 'atom', 'json', 'sitemap', 'arxiv-list', 'none'] as const;
 
 // A label is 1-63 chars of [a-z0-9-], not starting or ending with '-'.
 const DOMAIN_LABEL_RE = /^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$/;

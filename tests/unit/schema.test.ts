@@ -97,6 +97,19 @@ describe('source schema', () => {
     ).toBeTruthy();
   });
 
+  it('accepts the dedicated arXiv weekly-list format', () => {
+    expect(
+      sourceSchema.parse(
+        makeSource({
+          homepage: 'https://arxiv.org/list/cs.CY/recent',
+          feedUrl: 'https://arxiv.org/list/cs.CY/pastweek?show=2000',
+          feedFormat: 'arxiv-list' as never,
+          officialDomains: ['arxiv.org'],
+        }),
+      ).feedFormat,
+    ).toBe('arxiv-list');
+  });
+
   it('refuses to mark a feedless source active', () => {
     expect(() =>
       sourceSchema.parse(makeSource({ feedUrl: null, feedFormat: 'none', active: true })),

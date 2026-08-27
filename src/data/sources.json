@@ -174,8 +174,8 @@
     "id": "arxiv-cs-cy",
     "name": "arXiv — Computers and Society (cs.CY)",
     "homepage": "https://arxiv.org/list/cs.CY/recent",
-    "feedUrl": "https://export.arxiv.org/rss/cs.CY",
-    "feedFormat": "rss",
+    "feedUrl": "https://arxiv.org/list/cs.CY/pastweek?show=2000",
+    "feedFormat": "arxiv-list",
     "category": "research",
     "language": "en",
     "region": "GLOBAL",
@@ -190,16 +190,16 @@
     "maxPerRun": 1,
     "active": true,
     "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
-    "lastVerified": "2026-08-18",
-    "notes": "Daily on submission days and mostly off-topic for this product, so keyword mode is mandatory.",
+    "lastVerified": "2026-08-26",
+    "notes": "The category RSS exposes one announcement batch, which is incomplete for a weekly collector. The robots-allowed pastweek listing exposes the full weekly announcement set; keyword mode remains mandatory.",
     "urlPattern": null
   },
   {
     "id": "arxiv-cs-hc",
     "name": "arXiv — Human-Computer Interaction (cs.HC)",
     "homepage": "https://arxiv.org/list/cs.HC/recent",
-    "feedUrl": "https://export.arxiv.org/rss/cs.HC",
-    "feedFormat": "rss",
+    "feedUrl": "https://arxiv.org/list/cs.HC/pastweek?show=2000",
+    "feedFormat": "arxiv-list",
     "category": "research",
     "language": "en",
     "region": "GLOBAL",
@@ -214,8 +214,8 @@
     "maxPerRun": 1,
     "active": true,
     "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
-    "lastVerified": "2026-08-18",
-    "notes": "Learner, teacher and accessibility research surfaces here before it reaches journals.",
+    "lastVerified": "2026-08-26",
+    "notes": "The category RSS exposes one announcement batch, which is incomplete for a weekly collector. The robots-allowed pastweek listing retains learner, teacher and accessibility announcements across the week.",
     "urlPattern": null
   },
   {
@@ -236,10 +236,10 @@
       "research"
     ],
     "maxPerRun": 3,
-    "active": true,
+    "active": false,
     "licenseNote": "Abstract and metadata discovery only. Each paper carries its own licence.",
-    "lastVerified": "2026-08-18",
-    "notes": "A pre-filtered arXiv API query. The research pass found it returns false positives, so keyword mode still applies on top of the query.",
+    "lastVerified": "2026-08-26",
+    "notes": "Inactive: export.arxiv.org/robots.txt currently disallows all paths and arxiv.org/robots.txt explicitly disallows /api. Keep for reference only until automated API access is permitted again.",
     "urlPattern": null
   },
   {
