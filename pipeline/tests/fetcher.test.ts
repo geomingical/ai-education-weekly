@@ -99,6 +99,51 @@ describe('safeFetch', () => {
     expect(result.redirectChain).toHaveLength(2);
   });
 
+  it('runs a request gate before every hop and does not fetch a denied redirect', async () => {
+    const fetched: string[] = [];
+    const gated: string[] = [];
+    const io = makeIo({
+      fetch: async (input) => {
+        const url = String(input);
+        fetched.push(url);
+        return new Response(null, { status: 302, headers: { location: '/api/query' } });
+      },
+    });
+
+    const result = await safeFetch('https://example.org/list', ['example.org'], io, {
+      beforeRequest: async (url) => {
+        gated.push(url);
+        return !new URL(url).pathname.startsWith('/api');
+      },
+    });
+
+    expect(result.error).toBe('blocked');
+    expect(gated).toEqual(['https://example.org/list', 'https://example.org/api/query']);
+    expect(fetched).toEqual(['https://example.org/list']);
+  });
+
+  it('does not charge request-gate pacing time against the network deadline', async () => {
+    let nowMs = Date.parse('2026-08-18T00:00:00Z');
+    let fetched = false;
+    const io = makeIo({
+      now: () => new Date(nowMs),
+      fetch: async () => {
+        fetched = true;
+        return new Response('ok', { status: 200 });
+      },
+    });
+
+    const result = await safeFetch('https://example.org/feed', ['example.org'], io, {
+      beforeRequest: async () => {
+        nowMs += 15_000;
+        return true;
+      },
+    });
+
+    expect(fetched).toBe(true);
+    expect(result).toMatchObject({ status: 200, body: 'ok', error: null });
+  });
+
   it('stops after the redirect hop limit', async () => {
     const io = makeIo({
       fetch: async () =>

@@ -3,6 +3,7 @@ import {
   enrichArxivItems,
   parseArxivAbstract,
   parseArxivList,
+  validateArxivAbstractUrl,
   validateArxivListFinalUrl,
 } from '../src/arxiv-list';
 import type { IngestedItem } from '../src/ingest';
@@ -139,6 +140,24 @@ describe('parseArxivAbstract', () => {
   });
 });
 
+describe('validateArxivAbstractUrl', () => {
+  const expected = 'https://arxiv.org/abs/2608.24778';
+
+  it('accepts only the exact canonical abstract URL', () => {
+    expect(validateArxivAbstractUrl(expected, expected)).toBeNull();
+  });
+
+  it.each([
+    'https://arxiv.org/api/query?id_list=2608.24778',
+    'https://export.arxiv.org/abs/2608.24778',
+    'https://arxiv.org/pdf/2608.24778.pdf',
+    'https://arxiv.org/abs/2608.24778?download=1',
+    'https://arxiv.org/abs/2608.24779',
+  ])('rejects non-canonical or changed target %s', (url) => {
+    expect(validateArxivAbstractUrl(url, expected)).not.toBeNull();
+  });
+});
+
 function ingested(id: string): IngestedItem {
   return {
     id,
@@ -160,6 +179,7 @@ describe('enrichArxivItems', () => {
     const result = await enrichArxivItems(
       [ingested('1'), ingested('2'), ingested('3'), ingested('4')],
       2,
+      new Set<string>(),
       async (item) => {
         seen.push(item.id);
         return item.id === '1' ? null : { summary: `abstract ${item.id}`, fullText: `full ${item.id}` };
@@ -176,6 +196,7 @@ describe('enrichArxivItems', () => {
     const result = await enrichArxivItems(
       Array.from({ length: 8 }, (_, index) => ingested(String(index + 1))),
       1,
+      new Set<string>(),
       async () => null,
     );
     expect(result).toMatchObject({
@@ -186,10 +207,27 @@ describe('enrichArxivItems', () => {
   it('gives each source call its own attempt budget', async () => {
     const pool = Array.from({ length: 6 }, (_, index) => ingested(String(index + 1)));
     const [cy, hc] = await Promise.all([
-      enrichArxivItems(pool, 1, async () => null),
-      enrichArxivItems(pool.map((item) => ({ ...item, sourceId: 'arxiv-cs-hc' })), 1, async () => null),
+      enrichArxivItems(pool, 1, new Set<string>(), async () => null),
+      enrichArxivItems(pool.map((item) => ({ ...item, sourceId: 'arxiv-cs-hc' })), 1, new Set<string>(), async () => null),
     ]);
     expect(cy.attempts).toBe(5);
     expect(hc.attempts).toBe(5);
+  });
+
+  it('deduplicates accepted papers across two arXiv sources in the same run', async () => {
+    const seenIds = new Set<string>();
+    const paper = ingested('1');
+    const fetchAbstract = async () => ({ summary: 'abstract', fullText: 'full abstract' });
+
+    const cy = await enrichArxivItems([paper], 1, seenIds, fetchAbstract);
+    const hc = await enrichArxivItems(
+      [{ ...paper, sourceId: 'arxiv-cs-hc' }],
+      1,
+      seenIds,
+      fetchAbstract,
+    );
+
+    expect(cy.accepted).toHaveLength(1);
+    expect(hc).toMatchObject({ accepted: [], attempts: 0, duplicates: 1 });
   });
 });

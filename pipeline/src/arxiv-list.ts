@@ -64,6 +64,32 @@ export function validateArxivListFinalUrl(rawUrl: string, category: string): str
   return null;
 }
 
+export function validateArxivAbstractUrl(rawUrl: string, expectedUrl: string): string | null {
+  let url: URL;
+  let expected: URL;
+  try {
+    url = new URL(rawUrl);
+    expected = new URL(expectedUrl);
+  } catch {
+    return 'abstract URL is invalid';
+  }
+  if (url.protocol !== 'https:' || url.hostname !== 'arxiv.org') {
+    return 'abstract URL left https://arxiv.org';
+  }
+  if (
+    expected.protocol !== 'https:' ||
+    expected.hostname !== 'arxiv.org' ||
+    !expected.pathname.startsWith('/abs/') ||
+    expected.search !== ''
+  ) {
+    return 'expected abstract URL is not canonical';
+  }
+  if (url.pathname !== expected.pathname || url.search !== '') {
+    return `abstract URL is not ${expected.pathname}`;
+  }
+  return null;
+}
+
 export function parseArxivList(html: string, _category: string): ArxivListResult {
   const { document } = parseHTML(html);
   const articleGroups = [...document.querySelectorAll('#articles')];
@@ -152,6 +178,7 @@ export interface ArxivEnrichmentResult {
   accepted: IngestedItem[];
   attempts: number;
   failed: number;
+  duplicates: number;
   overCap: number;
   skipped: number;
   exhausted: boolean;
@@ -160,6 +187,7 @@ export interface ArxivEnrichmentResult {
 export async function enrichArxivItems(
   relevant: readonly IngestedItem[],
   runCap: number,
+  seenIds: Set<string>,
   fetchAbstract: (
     item: IngestedItem,
   ) => Promise<{ summary: string; fullText: string } | null>,
@@ -168,9 +196,23 @@ export async function enrichArxivItems(
   const attemptLimit = runCap + 4;
   let attempts = 0;
   let failed = 0;
+  let duplicates = 0;
+  let overCap = 0;
+  let skipped = 0;
 
   for (const item of relevant) {
-    if (accepted.length >= runCap || attempts >= attemptLimit) break;
+    if (seenIds.has(item.id)) {
+      duplicates += 1;
+      continue;
+    }
+    if (accepted.length >= runCap) {
+      overCap += 1;
+      continue;
+    }
+    if (attempts >= attemptLimit) {
+      skipped += 1;
+      continue;
+    }
     attempts += 1;
     const abstract = await fetchAbstract(item);
     if (abstract === null) {
@@ -182,17 +224,17 @@ export async function enrichArxivItems(
       summaryOriginal: abstract.summary,
       fullText: abstract.fullText,
     });
+    seenIds.add(item.id);
   }
 
-  const remaining = Math.max(0, relevant.length - attempts);
-  const filled = accepted.length >= runCap;
-  const exhausted = !filled && attempts >= attemptLimit && remaining > 0;
+  const exhausted = accepted.length < runCap && attempts >= attemptLimit && skipped > 0;
   return {
     accepted,
     attempts,
     failed,
-    overCap: filled ? remaining : 0,
-    skipped: exhausted ? remaining : 0,
+    duplicates,
+    overCap,
+    skipped,
     exhausted,
   };
 }

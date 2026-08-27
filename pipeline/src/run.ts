@@ -25,6 +25,7 @@ import {
   enrichArxivItems,
   parseArxivAbstract,
   parseArxivList,
+  validateArxivAbstractUrl,
   validateArxivListFinalUrl,
 } from './arxiv-list';
 import { parseFeed } from './feed-parser';
@@ -139,12 +140,13 @@ export function effectiveCap(maxPerRun: number, windowDays: number): number {
   return maxPerRun * Math.max(1, Math.ceil(windowDays / 7));
 }
 
-async function collect(
+export async function collect(
   sources: readonly Source[],
   window: { start: Date; end: Date },
   windowDays: number,
   seenIds: Set<string>,
   arxivPacer: (url: string, now: () => number) => Promise<void>,
+  fetchIo: FetchIO = io,
 ): Promise<{ candidates: { source: Source; candidate: Candidate }[]; outcomes: SourceOutcome[] }> {
   // Sitemap sources read article pages during collection, so they need the same
   // per-host politeness the article stage uses.
@@ -156,10 +158,25 @@ async function collect(
     if (!source.active || source.feedUrl === null) continue;
 
     log(`fetching ${source.id} …`);
-    if (source.feedFormat === 'arxiv-list') {
-      await arxivPacer(source.feedUrl, () => Date.now());
-    }
-    const fetched = await safeFetch(source.feedUrl, source.officialDomains, io);
+    const arxivCategory = source.feedFormat === 'arxiv-list'
+      ? /^\/list\/(cs\.[A-Za-z]+)\/pastweek$/.exec(new URL(source.feedUrl).pathname)?.[1] ?? null
+      : null;
+    const fetched = await safeFetch(
+      source.feedUrl,
+      source.officialDomains,
+      fetchIo,
+      source.feedFormat === 'arxiv-list'
+        ? {
+            beforeRequest: async (url) => {
+              if (arxivCategory === null || validateArxivListFinalUrl(url, arxivCategory) !== null) {
+                return false;
+              }
+              await arxivPacer(url, () => Date.now());
+              return true;
+            },
+          }
+        : {},
+    );
 
     const outcome: SourceOutcome = {
       sourceId: source.id,
@@ -192,22 +209,19 @@ async function collect(
     // source already carries them. Both end up as the same RawFeedItem shape.
     let parsedItems: RawFeedItem[];
     if (source.feedFormat === 'arxiv-list') {
-      const category = /^\/list\/(cs\.[A-Za-z]+)\/pastweek$/.exec(
-        new URL(source.feedUrl).pathname,
-      )?.[1];
-      if (!category) {
+      if (arxivCategory === null) {
         outcome.parseError = 'configured arXiv list URL has no category';
         outcomes.push(outcome);
         continue;
       }
-      const finalUrlError = validateArxivListFinalUrl(fetched.finalUrl, category);
+      const finalUrlError = validateArxivListFinalUrl(fetched.finalUrl, arxivCategory);
       if (finalUrlError !== null) {
         outcome.parseError = finalUrlError;
         outcomes.push(outcome);
         log(`  ${source.id}: final URL rejected — ${finalUrlError}`);
         continue;
       }
-      const parsed = parseArxivList(fetched.body, category);
+      const parsed = parseArxivList(fetched.body, arxivCategory);
       outcome.parseError = parsed.error;
       outcome.itemsSeen = parsed.parsedItems;
       outcome.parsedItems = parsed.parsedItems;
@@ -242,7 +256,7 @@ async function collect(
       const read = await itemsFromSitemap(
         selected,
         source.officialDomains,
-        io,
+        fetchIo,
         (url) => sitemapPacer(url, () => Date.now()),
       );
       if (read.pagesFailed > 0) {
@@ -282,6 +296,35 @@ async function collect(
   return { candidates, outcomes };
 }
 
+export function sourceWarnings(outcomes: readonly SourceOutcome[]): string[] {
+  return outcomes.flatMap((outcome) => {
+    if (outcome.fetchError !== null || outcome.parseError !== null) {
+      return [
+        `${outcome.sourceId}: ${outcome.fetchError ?? outcome.parseError} (status ${outcome.status})`,
+      ];
+    }
+    if (outcome.coverage === 'failed') {
+      return [`${outcome.sourceId}: collection failed (status ${outcome.status})`];
+    }
+    if (outcome.coverage === 'partial') {
+      return [
+        `${outcome.sourceId}: partial collection (${outcome.truncatedReason ?? 'unknown reason'})`,
+      ];
+    }
+    return [];
+  });
+}
+
+export function runOutcomeFor(
+  outcomes: readonly SourceOutcome[],
+  warnings: readonly string[],
+): RunReport['outcome'] {
+  const anySourceSucceeded = outcomes.some(
+    (outcome) => outcome.coverage === 'complete' || outcome.coverage === 'partial',
+  );
+  return !anySourceSucceeded ? 'failed' : warnings.length > 0 ? 'completed-with-warnings' : 'completed';
+}
+
 async function main(): Promise<void> {
   const dryRun = process.argv.includes('--dry-run');
   const windowDays = parseWindowDays(process.argv);
@@ -304,20 +347,7 @@ async function main(): Promise<void> {
     seenIds,
     arxivPacer,
   );
-  const warnings: string[] = outcomes
-    .filter((outcome) => outcome.fetchError !== null || outcome.parseError !== null)
-    .map(
-      (outcome) =>
-        `${outcome.sourceId}: ${outcome.fetchError ?? outcome.parseError} (status ${outcome.status})`,
-    );
-  warnings.push(
-    ...outcomes
-      .filter((outcome) => outcome.coverage === 'partial')
-      .map(
-        (outcome) =>
-          `${outcome.sourceId}: partial collection (${outcome.truncatedReason ?? 'unknown reason'})`,
-      ),
-  );
+  const warnings: string[] = sourceWarnings(outcomes);
 
   // --- relevance: judged by model, keyword rules as the fallback ---
   //
@@ -422,33 +452,41 @@ async function main(): Promise<void> {
       const enriched = await enrichArxivItems(
         relevant.accepted,
         runCap,
+        seenIds,
         async (item) => {
-          await arxivPacer(item.url, () => Date.now());
-          const fetched = await safeFetch(item.url, source.officialDomains, io);
+          const fetched = await safeFetch(item.url, source.officialDomains, io, {
+            beforeRequest: async (url) => {
+              if (validateArxivAbstractUrl(url, item.url) !== null) return false;
+              await arxivPacer(url, () => Date.now());
+              return true;
+            },
+          });
           if (
             fetched.error !== null ||
             fetched.body === null ||
-            storyId(fetched.finalUrl) !== item.id
+            validateArxivAbstractUrl(fetched.finalUrl, item.url) !== null
           ) return null;
           return parseArxivAbstract(fetched.body);
         },
       );
 
-      for (const item of enriched.accepted) seenIds.add(item.id);
       items.push(...enriched.accepted);
       if (outcome) {
         outcome.itemsAccepted = enriched.accepted.length;
         outcome.itemsRejected +=
-          relevant.rejected.length + enriched.failed + enriched.overCap + enriched.skipped;
+          relevant.rejected.length + enriched.failed + enriched.duplicates + enriched.overCap + enriched.skipped;
         mergeRejectCounts(outcome.rejectCounts, relevant.rejectCounts);
         mergeRejectCounts(outcome.rejectCounts, {
           'enrichment-failed': enriched.failed,
           'enrichment-skipped': enriched.skipped,
+          duplicate: enriched.duplicates,
           'over-cap': enriched.overCap,
         });
         if (enriched.exhausted) {
           outcome.coverage = 'partial';
-          outcome.truncatedReason = 'enrichment-budget';
+          outcome.truncatedReason = [outcome.truncatedReason, 'enrichment-budget']
+            .filter((reason): reason is string => Boolean(reason))
+            .join(',');
           warnings.push(`${source.id}: partial collection (enrichment-budget)`);
         }
       }
@@ -605,15 +643,12 @@ async function main(): Promise<void> {
     (left, right) => Date.parse(right.publishedAt) - Date.parse(left.publishedAt),
   );
 
-  const anyFeedSucceeded = outcomes.some(
-    (outcome) => outcome.fetchError === null && outcome.parseError === null,
-  );
   const report: RunReport = {
     runAt: fetchedAt,
     issue: issueLabelFromIso(fetchedAt),
     windowStart: window.start.toISOString(),
     windowEnd: window.end.toISOString(),
-    outcome: !anyFeedSucceeded ? 'failed' : warnings.length > 0 ? 'completed-with-warnings' : 'completed',
+    outcome: runOutcomeFor(outcomes, warnings),
     sources: outcomes,
     summaries,
     storiesAdded: newStories.length,
