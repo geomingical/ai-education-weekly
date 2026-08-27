@@ -54,7 +54,8 @@ boundary test fixes this conversion so local runner time zones cannot change it.
 The listing does not contain abstracts. The initial relevance decision will use
 the title, comments, and subjects. Relevant candidates are ordered newest first,
 then their allowed `/abs/{id}` pages are fetched one at a time until the source
-cap is filled or `maxPerRun + 4` enrichment attempts have been made. A failed or
+cap is filled or that source has made `maxPerRun + 4` enrichment attempts in the
+current run. The budget is independent for `cs.CY` and `cs.HC`. A failed or
 malformed abstract page records an `enrichment-failed` rejection and the next
 relevant candidate is tried. If the cap is filled, later relevant candidates
 retain the existing `over-cap` outcome. If the attempt budget is exhausted
@@ -80,8 +81,8 @@ Retrieval coverage and publication volume remain separate:
 4. order relevant candidates deterministically by announcement date descending;
 5. enrich candidates from `/abs` in that order, skipping and recording failures;
    and
-6. stop when `maxPerRun` candidates have been enriched or after
-   `maxPerRun + 4` attempts.
+6. stop when `maxPerRun` candidates have been enriched or after that source has
+   made `maxPerRun + 4` attempts in the current run.
 
 The source caps remain `1` for each category. This means the pipeline inspects
 the whole weekly pool but publishes at most one relevant story per category.
@@ -108,9 +109,10 @@ coverage fields must make the incomplete source visible.
 
 The collector also verifies the `safeFetch` result's `finalUrl`. Its origin must
 be `https://arxiv.org`, its path must remain `/list/{category}/pastweek`, and its
-`show` value must remain `2000`. Any redirect or normalization that changes
-those values fails the source even if the returned HTML happens to parse. The
-resolved URL is recorded for diagnosis.
+query must contain exactly one parameter, `show=2000`. A `skip` parameter,
+duplicate `show`, or any other query parameter fails the source. Any redirect or
+normalization that changes those values fails the source even if the returned
+HTML happens to parse. The resolved URL is recorded for diagnosis.
 
 There is no RSS fallback. A missing weekly list is reported as a failed source
 rather than presenting a single announcement batch as weekly coverage.
@@ -134,7 +136,10 @@ that enforces at least the published 15-second crawl delay. The current source
 loop is sequential, so a concurrency race does not exist today; serialization
 keeps the constraint explicit if collection becomes concurrent later. The
 enrichment-attempt budget bounds the worst case to `maxPerRun + 4` abstract
-requests per category.
+requests per source. With the current two category sources and `maxPerRun: 1`,
+the network maximum is two list requests plus ten abstract requests. At the
+required 15-second shared-host pace, that is roughly three minutes of serialized
+waiting rather than an unbounded walk through every relevant paper.
 
 No request is made to `rss.arxiv.org` or either disallowed API path.
 
@@ -153,9 +158,13 @@ behind an unbounded server-supplied delay.
 - `pipeline/src/contracts.ts` adds only optional source-outcome diagnostics; it
   does not change story or source records.
 - `pipeline/src/ingest.ts` canonicalizes arXiv abstract URLs to
-  `https://arxiv.org/abs/{id}` by removing a version suffix before hashing.
-  Startup duplicate state includes both stored IDs and IDs recomputed from
-  stored URLs, so historical versioned records prevent republication.
+  `https://arxiv.org/abs/{id}`. For recognized arXiv IDs it treats
+  `arxiv.org` and `export.arxiv.org`, `/abs/{id}` and `/pdf/{id}`, HTTP and
+  HTTPS, a trailing slash, a version suffix such as `v2`, and letter case in a
+  legacy ID as the same paper. Query strings and fragments remain covered by
+  the general URL normalizer. Startup duplicate state includes both stored IDs
+  and IDs recomputed from stored URLs, so historical variants prevent
+  republication. Non-arXiv URL behavior is unchanged.
 - `src/domain/source.ts` adds one explicit `arxiv-list` feed format rather than
   pretending HTML is RSS.
 - `src/data/sources.json` switches `arxiv-cs-cy` and `arxiv-cs-hc` to the
@@ -182,16 +191,18 @@ prove that:
 5. relevance is applied before the deterministic newest-first cap;
 6. only relevant category candidates fetch `/abs` pages, a failed enrichment
    advances to the next ranked candidate, no more than `maxPerRun + 4` pages are
-   fetched, and every stored source excerpt comes from a parsed abstract rather
-   than listing metadata;
+   fetched per source, the two source budgets are independent, and every stored
+   source excerpt comes from a parsed abstract rather than listing metadata;
 7. two arXiv requests started together remain at least 15 virtual seconds apart;
-8. a changed final origin, category path, `pastweek` path, or `show` value fails
-   the source even when the response body is parseable;
+8. a changed final origin, category path, `pastweek` path, `show` value, added
+   `skip`, duplicate `show`, or any extra query parameter fails the source even
+   when the response body is parseable;
 9. weekly-list failure remains a failed source outcome without RSS fallback;
 10. constructed list and abstract URLs pass the existing allowlist checks
     without widening `officialDomains`;
-11. versioned, unversioned, HTTP, and HTTPS forms of the same arXiv abstract
-    produce the same canonical ID, including against historical stored URLs;
+11. versioned, unversioned, HTTP, HTTPS, `export` host, `/abs`, `/pdf`, trailing
+    slash, and case variants of the same arXiv ID produce one canonical ID,
+    including against historical stored URLs;
 12. date headings always become midnight UTC and behave deterministically at
     the ingest-window boundary;
 13. the two active category sources use `/list/.../pastweek` with
