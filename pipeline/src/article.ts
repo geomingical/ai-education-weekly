@@ -48,6 +48,7 @@ export const MAX_ARTICLE_CHARS = 12_000;
  */
 export function createHostPacer(delayMs: number, sleep: (ms: number) => Promise<void>) {
   const lastRequestAt = new Map<string, number>();
+  const tails = new Map<string, Promise<void>>();
   return async (url: string, now: () => number): Promise<void> => {
     let host: string;
     try {
@@ -55,12 +56,23 @@ export function createHostPacer(delayMs: number, sleep: (ms: number) => Promise<
     } catch {
       return;
     }
-    const previous = lastRequestAt.get(host);
-    if (previous !== undefined) {
-      const wait = delayMs - (now() - previous);
-      if (wait > 0) await sleep(wait);
+    const previousTail = tails.get(host) ?? Promise.resolve();
+    const queued = previousTail
+      .catch(() => undefined)
+      .then(async () => {
+        const previous = lastRequestAt.get(host);
+        if (previous !== undefined) {
+          const wait = delayMs - (now() - previous);
+          if (wait > 0) await sleep(wait);
+        }
+        lastRequestAt.set(host, now());
+      });
+    tails.set(host, queued);
+    try {
+      await queued;
+    } finally {
+      if (tails.get(host) === queued) tails.delete(host);
     }
-    lastRequestAt.set(host, now());
   };
 }
 

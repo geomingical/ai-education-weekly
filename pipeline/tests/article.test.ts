@@ -162,6 +162,18 @@ describe('createHostPacer', () => {
     expect(p.slept).toEqual([10_000]);
   });
 
+  it('serializes concurrent requests already queued behind the same host', async () => {
+    const p = pacer(15_000);
+    await p.pace('https://arxiv.org/list/cs.CY/pastweek?show=2000', p.now);
+
+    await Promise.all([
+      p.pace('https://arxiv.org/abs/2608.24778', p.now),
+      p.pace('https://arxiv.org/abs/2608.24779', p.now),
+    ]);
+
+    expect(p.slept).toEqual([15_000, 15_000]);
+  });
+
   // Time already spent fetching counts toward the delay.
   it('waits only the remainder when work already took time', async () => {
     const p = pacer(10_000);
