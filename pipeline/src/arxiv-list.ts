@@ -2,6 +2,7 @@ import { parseHTML } from 'linkedom';
 import { MAX_ARTICLE_CHARS } from './article';
 import type { RawFeedItem } from './contracts';
 import { toPlainText, truncateSummary } from './feed-parser';
+import type { IngestedItem } from './ingest';
 
 export interface ArxivListResult {
   items: RawFeedItem[];
@@ -65,12 +66,12 @@ export function validateArxivListFinalUrl(rawUrl: string, category: string): str
 
 export function parseArxivList(html: string, _category: string): ArxivListResult {
   const { document } = parseHTML(html);
-  const articles = document.querySelector('#articles');
+  const articleGroups = [...document.querySelectorAll('#articles')];
   const countText = document.querySelector('.paging')?.textContent ?? '';
   const countMatch = /Total of\s+([\d,]+)\s+entr(?:y|ies)/i.exec(countText);
   const expectedItems = countMatch ? Number((countMatch[1] ?? '').replaceAll(',', '')) : null;
 
-  if (!articles) {
+  if (articleGroups.length === 0) {
     return {
       items: [], expectedItems, parsedItems: 0, truncatedReason: null,
       error: 'arXiv list has no article container',
@@ -84,33 +85,35 @@ export function parseArxivList(html: string, _category: string): ArxivListResult
   }
 
   const items: RawFeedItem[] = [];
-  let currentDate: string | null = null;
-  for (const child of [...articles.children]) {
-    if (child.tagName.toLowerCase() === 'h3') {
-      currentDate = announcementDate(child.textContent ?? '');
-      continue;
+  for (const articles of articleGroups) {
+    let currentDate: string | null = null;
+    for (const child of [...articles.children]) {
+      if (child.tagName.toLowerCase() === 'h3') {
+        currentDate = announcementDate(child.textContent ?? '');
+        continue;
+      }
+      if (child.tagName.toLowerCase() !== 'dt' || currentDate === null) continue;
+
+      const abstractLink = child.querySelector('a[title="Abstract"]');
+      const href = abstractLink?.getAttribute('href')?.trim() ?? '';
+      const id = href.startsWith('/abs/') ? href.slice('/abs/'.length).replace(/\/$/, '') : '';
+      const details = child.nextElementSibling;
+      if (!ARXIV_ID.test(id) || details?.tagName.toLowerCase() !== 'dd') continue;
+
+      const title = textWithoutDescriptor(details.querySelector('.list-title'));
+      if (!title) continue;
+      const comments = textWithoutDescriptor(details.querySelector('.list-comments'));
+      const subjects = textWithoutDescriptor(details.querySelector('.list-subjects'));
+      const summary = [comments, subjects].filter(Boolean).join(' · ');
+      items.push({
+        title,
+        link: `https://arxiv.org/abs/${id}`,
+        summary: truncateSummary(summary),
+        fullText: '',
+        publishedAt: currentDate,
+        guid: id,
+      });
     }
-    if (child.tagName.toLowerCase() !== 'dt' || currentDate === null) continue;
-
-    const abstractLink = child.querySelector('a[title="Abstract"]');
-    const href = abstractLink?.getAttribute('href')?.trim() ?? '';
-    const id = href.startsWith('/abs/') ? href.slice('/abs/'.length).replace(/\/$/, '') : '';
-    const details = child.nextElementSibling;
-    if (!ARXIV_ID.test(id) || details?.tagName.toLowerCase() !== 'dd') continue;
-
-    const title = textWithoutDescriptor(details.querySelector('.list-title'));
-    if (!title) continue;
-    const comments = textWithoutDescriptor(details.querySelector('.list-comments'));
-    const subjects = textWithoutDescriptor(details.querySelector('.list-subjects'));
-    const summary = [comments, subjects].filter(Boolean).join(' · ');
-    items.push({
-      title,
-      link: `https://arxiv.org/abs/${id}`,
-      summary: truncateSummary(summary),
-      fullText: '',
-      publishedAt: currentDate,
-      guid: id,
-    });
   }
 
   if (expectedItems > 0 && items.length === 0) {
@@ -142,5 +145,54 @@ export function parseArxivAbstract(
   return {
     summary: truncateSummary(text),
     fullText: text.slice(0, MAX_ARTICLE_CHARS),
+  };
+}
+
+export interface ArxivEnrichmentResult {
+  accepted: IngestedItem[];
+  attempts: number;
+  failed: number;
+  overCap: number;
+  skipped: number;
+  exhausted: boolean;
+}
+
+export async function enrichArxivItems(
+  relevant: readonly IngestedItem[],
+  runCap: number,
+  fetchAbstract: (
+    item: IngestedItem,
+  ) => Promise<{ summary: string; fullText: string } | null>,
+): Promise<ArxivEnrichmentResult> {
+  const accepted: IngestedItem[] = [];
+  const attemptLimit = runCap + 4;
+  let attempts = 0;
+  let failed = 0;
+
+  for (const item of relevant) {
+    if (accepted.length >= runCap || attempts >= attemptLimit) break;
+    attempts += 1;
+    const abstract = await fetchAbstract(item);
+    if (abstract === null) {
+      failed += 1;
+      continue;
+    }
+    accepted.push({
+      ...item,
+      summaryOriginal: abstract.summary,
+      fullText: abstract.fullText,
+    });
+  }
+
+  const remaining = Math.max(0, relevant.length - attempts);
+  const filled = accepted.length >= runCap;
+  const exhausted = !filled && attempts >= attemptLimit && remaining > 0;
+  return {
+    accepted,
+    attempts,
+    failed,
+    overCap: filled ? remaining : 0,
+    skipped: exhausted ? remaining : 0,
+    exhausted,
   };
 }

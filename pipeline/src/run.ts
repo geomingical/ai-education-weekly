@@ -21,6 +21,12 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { lookup } from 'node:dns/promises';
 import { createHostPacer, fetchArticleText } from './article';
+import {
+  enrichArxivItems,
+  parseArxivAbstract,
+  parseArxivList,
+  validateArxivListFinalUrl,
+} from './arxiv-list';
 import { parseFeed } from './feed-parser';
 import { itemsFromSitemap, parseSitemap, selectSitemapEntries } from './sitemap';
 import { safeFetch, type FetchIO } from './fetcher';
@@ -63,6 +69,7 @@ export function parseWindowDays(argv: readonly string[]): number {
 /** Between article-page requests. Several registry sources publish a
  *  Crawl-delay of 10 seconds; this stays on the polite side of all of them. */
 const ARTICLE_FETCH_DELAY_MS = 10_000;
+const ARXIV_FETCH_DELAY_MS = 15_000;
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -81,6 +88,15 @@ function log(message: string): void {
   // stdout carries exactly one JSON document (the report), so every human-
   // readable line goes to stderr.
   process.stderr.write(`${message}\n`);
+}
+
+function mergeRejectCounts(
+  target: Record<string, number>,
+  additions: Readonly<Record<string, number | undefined>>,
+): void {
+  for (const [reason, count] of Object.entries(additions)) {
+    if (count !== undefined && count > 0) target[reason] = (target[reason] ?? 0) + count;
+  }
 }
 
 async function readJson(path: string): Promise<unknown> {
@@ -128,6 +144,7 @@ async function collect(
   window: { start: Date; end: Date },
   windowDays: number,
   seenIds: Set<string>,
+  arxivPacer: (url: string, now: () => number) => Promise<void>,
 ): Promise<{ candidates: { source: Source; candidate: Candidate }[]; outcomes: SourceOutcome[] }> {
   // Sitemap sources read article pages during collection, so they need the same
   // per-host politeness the article stage uses.
@@ -139,6 +156,9 @@ async function collect(
     if (!source.active || source.feedUrl === null) continue;
 
     log(`fetching ${source.id} …`);
+    if (source.feedFormat === 'arxiv-list') {
+      await arxivPacer(source.feedUrl, () => Date.now());
+    }
     const fetched = await safeFetch(source.feedUrl, source.officialDomains, io);
 
     const outcome: SourceOutcome = {
@@ -152,6 +172,14 @@ async function collect(
       itemsAccepted: 0,
       itemsRejected: 0,
       rejectCounts: {},
+      coverage: 'failed',
+      collectionMethod:
+        source.feedFormat === 'sitemap'
+          ? 'sitemap'
+          : source.feedFormat === 'arxiv-list'
+            ? 'arxiv-list'
+            : 'feed',
+      resolvedUrl: fetched.finalUrl,
     };
 
     if (fetched.error !== null || fetched.body === null) {
@@ -163,7 +191,40 @@ async function collect(
     // A sitemap source needs its pages read before it has items at all; a feed
     // source already carries them. Both end up as the same RawFeedItem shape.
     let parsedItems: RawFeedItem[];
-    if (source.feedFormat === 'sitemap') {
+    if (source.feedFormat === 'arxiv-list') {
+      const category = /^\/list\/(cs\.[A-Za-z]+)\/pastweek$/.exec(
+        new URL(source.feedUrl).pathname,
+      )?.[1];
+      if (!category) {
+        outcome.parseError = 'configured arXiv list URL has no category';
+        outcomes.push(outcome);
+        continue;
+      }
+      const finalUrlError = validateArxivListFinalUrl(fetched.finalUrl, category);
+      if (finalUrlError !== null) {
+        outcome.parseError = finalUrlError;
+        outcomes.push(outcome);
+        log(`  ${source.id}: final URL rejected — ${finalUrlError}`);
+        continue;
+      }
+      const parsed = parseArxivList(fetched.body, category);
+      outcome.parseError = parsed.error;
+      outcome.itemsSeen = parsed.parsedItems;
+      outcome.parsedItems = parsed.parsedItems;
+      if (parsed.expectedItems !== null) outcome.expectedItems = parsed.expectedItems;
+      if (parsed.error !== null) {
+        outcomes.push(outcome);
+        log(`  ${source.id}: parse failed — ${parsed.error}`);
+        continue;
+      }
+      if (parsed.truncatedReason !== null) {
+        outcome.coverage = 'partial';
+        outcome.truncatedReason = parsed.truncatedReason;
+      } else {
+        outcome.coverage = 'complete';
+      }
+      parsedItems = parsed.items;
+    } else if (source.feedFormat === 'sitemap') {
       const sitemap = parseSitemap(fetched.body);
       outcome.parseError = sitemap.error;
       if (sitemap.error !== null) {
@@ -186,6 +247,10 @@ async function collect(
       );
       if (read.pagesFailed > 0) {
         log(`  ${source.id}: ${read.pagesFailed} of ${read.pagesFetched} pages unreadable`);
+        outcome.coverage = 'partial';
+        outcome.truncatedReason = 'page-error';
+      } else {
+        outcome.coverage = 'complete';
       }
       parsedItems = read.items;
       outcome.itemsSeen = read.pagesFetched;
@@ -199,6 +264,7 @@ async function collect(
         log(`  ${source.id}: parse failed — ${parsed.error}`);
         continue;
       }
+      outcome.coverage = 'complete';
       parsedItems = parsed.items;
     }
 
@@ -229,14 +295,29 @@ async function main(): Promise<void> {
   const sources = loadSources(await readJson(SOURCES_PATH));
   const existing = await readExistingStories();
   const seenIds = existingStoryIds(existing);
+  const arxivPacer = createHostPacer(ARXIV_FETCH_DELAY_MS, delay);
 
-  const { candidates, outcomes } = await collect(sources, window, windowDays, seenIds);
+  const { candidates, outcomes } = await collect(
+    sources,
+    window,
+    windowDays,
+    seenIds,
+    arxivPacer,
+  );
   const warnings: string[] = outcomes
     .filter((outcome) => outcome.fetchError !== null || outcome.parseError !== null)
     .map(
       (outcome) =>
         `${outcome.sourceId}: ${outcome.fetchError ?? outcome.parseError} (status ${outcome.status})`,
     );
+  warnings.push(
+    ...outcomes
+      .filter((outcome) => outcome.coverage === 'partial')
+      .map(
+        (outcome) =>
+          `${outcome.sourceId}: partial collection (${outcome.truncatedReason ?? 'unknown reason'})`,
+      ),
+  );
 
   // --- relevance: judged by model, keyword rules as the fallback ---
   //
@@ -306,37 +387,86 @@ async function main(): Promise<void> {
     const mine = candidates.filter((entry) => entry.source.id === source.id).map((e) => e.candidate);
     if (mine.length === 0) continue;
 
-    const accepted = acceptCandidates(
-      mine,
-      (candidate) => {
-        if (source.relevanceMode === 'always') {
-          return { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) };
+    const verdictFor = (candidate: Candidate) => {
+      if (source.relevanceMode === 'always') {
+        return { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) };
+      }
+      const verdict = classified.get(candidate.item.id);
+      if (verdict && !undecided.has(candidate.item.id)) {
+        return {
+          relevant: verdict.relevant,
+          topics: (verdict.topics.length > 0
+            ? verdict.topics
+            : source.defaultTopics) as readonly Topic[],
+        };
+      }
+      // Fallback: the deterministic rules, so a model outage degrades
+      // judgement rather than stopping the week.
+      return isEducationRelevant(candidate.raw)
+        ? { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) }
+        : { relevant: false, topics: [] };
+    };
+
+    const outcome = byOutcome.get(source.id);
+    const runCap = effectiveCap(source.maxPerRun, windowDays);
+
+    if (source.feedFormat === 'arxiv-list') {
+      // First judge the whole weekly pool without consuming the real seen set.
+      // Only successfully enriched papers become published/seen.
+      const relevant = acceptCandidates(
+        mine,
+        verdictFor,
+        Number.MAX_SAFE_INTEGER,
+        new Set<string>(),
+      );
+      const enriched = await enrichArxivItems(
+        relevant.accepted,
+        runCap,
+        async (item) => {
+          await arxivPacer(item.url, () => Date.now());
+          const fetched = await safeFetch(item.url, source.officialDomains, io);
+          if (
+            fetched.error !== null ||
+            fetched.body === null ||
+            storyId(fetched.finalUrl) !== item.id
+          ) return null;
+          return parseArxivAbstract(fetched.body);
+        },
+      );
+
+      for (const item of enriched.accepted) seenIds.add(item.id);
+      items.push(...enriched.accepted);
+      if (outcome) {
+        outcome.itemsAccepted = enriched.accepted.length;
+        outcome.itemsRejected +=
+          relevant.rejected.length + enriched.failed + enriched.overCap + enriched.skipped;
+        mergeRejectCounts(outcome.rejectCounts, relevant.rejectCounts);
+        mergeRejectCounts(outcome.rejectCounts, {
+          'enrichment-failed': enriched.failed,
+          'enrichment-skipped': enriched.skipped,
+          'over-cap': enriched.overCap,
+        });
+        if (enriched.exhausted) {
+          outcome.coverage = 'partial';
+          outcome.truncatedReason = 'enrichment-budget';
+          warnings.push(`${source.id}: partial collection (enrichment-budget)`);
         }
-        const verdict = classified.get(candidate.item.id);
-        if (verdict && !undecided.has(candidate.item.id)) {
-          return {
-            relevant: verdict.relevant,
-            topics: (verdict.topics.length > 0
-              ? verdict.topics
-              : source.defaultTopics) as readonly Topic[],
-          };
-        }
-        // Fallback: the deterministic rules, so a model outage degrades
-        // judgement rather than stopping the week.
-        return isEducationRelevant(candidate.raw)
-          ? { relevant: true, topics: resolveTopics(candidate.raw, source.defaultTopics) }
-          : { relevant: false, topics: [] };
-      },
-      effectiveCap(source.maxPerRun, windowDays),
-      seenIds,
-    );
+      }
+      if (enriched.failed > 0) {
+        warnings.push(
+          `${source.id}: ${enriched.failed} of ${enriched.attempts} abstract pages could not be read`,
+        );
+      }
+      continue;
+    }
+
+    const accepted = acceptCandidates(mine, verdictFor, runCap, seenIds);
 
     items.push(...accepted.accepted);
-    const outcome = byOutcome.get(source.id);
     if (outcome) {
       outcome.itemsAccepted = accepted.accepted.length;
       outcome.itemsRejected += accepted.rejected.length;
-      outcome.rejectCounts = { ...outcome.rejectCounts, ...(accepted.rejectCounts as Record<string, number>) };
+      mergeRejectCounts(outcome.rejectCounts, accepted.rejectCounts);
     }
   }
   log(`accepted ${items.length} of ${candidates.length} candidates`);

@@ -54,8 +54,9 @@ Load the key first: `set -a; . ./.env; set +a`.
    allowlisted hosts, every redirect hop re-validated, private/internal IPs
    blocked, size and time capped. Copied from `AI_free_source`, where it was
    written for the same job.
-3. **Parse** RSS, RSS 1.0/RDF, Atom, or JSON Feed. A broken feed is an outcome
-   in the report, never an exception that ends the run. Each item yields **two**
+3. **Parse** RSS, RSS 1.0/RDF, Atom, JSON Feed, or the two registered arXiv
+   weekly lists. A broken source is an outcome in the report, never an exception
+   that ends the run. Each feed item yields **two**
    pieces of text: a short excerpt (`description`) and, when the publisher
    shipped one, the whole post body (`content:encoded`). They have completely
    different fates — see step 5.
@@ -85,6 +86,38 @@ Load the key first: `set -a; . ./.env; set +a`.
    rewritten, so a re-run cannot change what a reader already saw.
 8. **Report** one JSON document on stdout — per-source status, accepted counts,
    and a rejection-reason histogram.
+
+### Why arXiv categories use weekly lists, not RSS or the API
+
+The `cs.CY` and `cs.HC` category RSS feeds expose one announcement batch. A
+Monday-only collector therefore cannot recover the other announcement days by
+setting `--since 8`; the date window can only filter items the source returned.
+The scheduled 2026-08-24 run demonstrated the failure directly: both category
+feeds returned zero items.
+
+The obvious alternative, the arXiv API, is not automated here. Verified on
+2026-08-26, `export.arxiv.org/robots.txt` disallowed every path and
+`arxiv.org/robots.txt` explicitly disallowed `/api`. The old
+`arxiv-ai-education-query` registry entry is inactive for that reason.
+
+The active category sources use the robots-allowed
+`/list/{category}/pastweek?show=2000` pages. The parser checks the page's declared
+total against every repeated date-group container; a mismatch is partial rather
+than silently complete. A live smoke check on 2026-08-27 parsed **114/114**
+`cs.CY` entries and **150/150** `cs.HC` entries.
+
+Weekly lists carry titles, comments, and subjects but not abstracts. Relevance
+is judged from that metadata first. Relevant candidates then fetch `/abs` in
+newest-first order until the effective run cap is filled, with at most
+`runCap + 4` attempts per source. All `arxiv.org` list and abstract requests
+share a serialized 15-second pacer. A failed enrichment never publishes listing
+metadata as though it were an abstract, and an exhausted budget is reported as
+partial. There is no RSS fallback and no automatic historical backfill.
+
+Coverage fields in the run report distinguish `complete`, `partial`, and
+`failed`, record the collection method and resolved URL, and preserve declared
+versus parsed counts. Historical versioned, PDF-form, and `export`-host arXiv
+URLs are normalized to the same paper ID before duplicate checking.
 
 ### Relevance is now judged by model, with the keyword rules behind it
 
@@ -430,9 +463,10 @@ One backfill run over 45 days: **66 stories across 7 issues (2026-W28 … W34)**
 
 Two things worth knowing about that mix:
 
-- **Research dominates.** arXiv is over half the volume even after the per-source
-  caps were tightened. Lower `maxPerRun` on the three arXiv entries if a week
-  reads too much like a paper dump.
+- **Research dominated this historical backfill.** arXiv was over half the
+  volume even after the per-source caps were tightened. The free-text API source
+  is now inactive under arXiv's robots policy; the two category sources retain
+  their existing base caps.
 - **The news feeds are genuinely quiet.** Over 45 days, Khan Academy, Digital
   Promise, EdWeek, and PanSci contributed nothing — not because the filter is
   broken, but because none of them published an AI-and-education story in that

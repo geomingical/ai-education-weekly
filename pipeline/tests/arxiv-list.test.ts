@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+  enrichArxivItems,
   parseArxivAbstract,
   parseArxivList,
   validateArxivListFinalUrl,
 } from '../src/arxiv-list';
+import type { IngestedItem } from '../src/ingest';
 
 function listing(
   groups: string,
@@ -45,6 +47,18 @@ describe('parseArxivList', () => {
     expect(result.parsedItems).toBe(2);
     expect(result.truncatedReason).toBeNull();
     expect(result.error).toBeNull();
+  });
+
+  it('combines the repeated article containers used for each real date group', () => {
+    const html = `<!doctype html><html><body>
+      <div class="paging">Total of 2 entries</div>
+      <dl id="articles">${group('Wed, 26 Aug 2026', entry('2608.24778', 'First'))}</dl>
+      <dl id="articles">${group('Tue, 25 Aug 2026', entry('2608.24001', 'Second'))}</dl>
+    </body></html>`;
+    const result = parseArxivList(html, 'cs.CY');
+    expect(result.parsedItems).toBe(2);
+    expect(result.items.map((item) => item.guid)).toEqual(['2608.24778', '2608.24001']);
+    expect(result.truncatedReason).toBeNull();
   });
 
   it('accepts a declared empty list only when the article container exists', () => {
@@ -122,5 +136,60 @@ describe('parseArxivAbstract', () => {
 
   it('returns null for a page without an abstract', () => {
     expect(parseArxivAbstract('<html><body><h1>Not a paper</h1></body></html>')).toBeNull();
+  });
+});
+
+function ingested(id: string): IngestedItem {
+  return {
+    id,
+    sourceId: 'arxiv-cs-cy',
+    title: `Paper ${id}`,
+    summaryOriginal: 'listing metadata',
+    fullText: '',
+    url: `https://arxiv.org/abs/2608.${id.padStart(5, '0')}`,
+    publishedAt: '2026-08-26T00:00:00.000Z',
+    topics: ['research'],
+    region: 'GLOBAL',
+    language: 'en',
+  };
+}
+
+describe('enrichArxivItems', () => {
+  it('advances after a failure and stops when the run cap is filled', async () => {
+    const seen: string[] = [];
+    const result = await enrichArxivItems(
+      [ingested('1'), ingested('2'), ingested('3'), ingested('4')],
+      2,
+      async (item) => {
+        seen.push(item.id);
+        return item.id === '1' ? null : { summary: `abstract ${item.id}`, fullText: `full ${item.id}` };
+      },
+    );
+
+    expect(seen).toEqual(['1', '2', '3']);
+    expect(result.accepted.map((item) => item.id)).toEqual(['2', '3']);
+    expect(result).toMatchObject({ attempts: 3, failed: 1, overCap: 1, skipped: 0, exhausted: false });
+    expect(result.accepted[0]?.summaryOriginal).toBe('abstract 2');
+  });
+
+  it('stops at runCap + 4 attempts and marks the rest skipped', async () => {
+    const result = await enrichArxivItems(
+      Array.from({ length: 8 }, (_, index) => ingested(String(index + 1))),
+      1,
+      async () => null,
+    );
+    expect(result).toMatchObject({
+      accepted: [], attempts: 5, failed: 5, overCap: 0, skipped: 3, exhausted: true,
+    });
+  });
+
+  it('gives each source call its own attempt budget', async () => {
+    const pool = Array.from({ length: 6 }, (_, index) => ingested(String(index + 1)));
+    const [cy, hc] = await Promise.all([
+      enrichArxivItems(pool, 1, async () => null),
+      enrichArxivItems(pool.map((item) => ({ ...item, sourceId: 'arxiv-cs-hc' })), 1, async () => null),
+    ]);
+    expect(cy.attempts).toBe(5);
+    expect(hc.attempts).toBe(5);
   });
 });
