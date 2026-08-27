@@ -44,11 +44,22 @@ announcement days shown by each page in one response. The collector parses
 every entry, assigns its enclosing announcement date, and sends the combined
 weekly pool through the existing date gate and relevance classifier.
 
+Each heading is a calendar date without a time or offset. The collector stores
+it as `00:00:00Z` on that displayed date. This is an explicit calendar-date
+surrogate, not a claim about the paper's submission time. UTC preserves the
+displayed date and matches the observed announcement rollover. The default
+eight-day window is wider than the five announcement days on `pastweek`; a
+boundary test fixes this conversion so local runner time zones cannot change it.
+
 The listing does not contain abstracts. The initial relevance decision will use
 the title, comments, and subjects. Relevant candidates are ordered newest first,
 then their allowed `/abs/{id}` pages are fetched one at a time until the source
-cap is filled. A failed or malformed abstract page records an
-`enrichment-failed` rejection and the next relevant candidate is tried; listing
+cap is filled or `maxPerRun + 4` enrichment attempts have been made. A failed or
+malformed abstract page records an `enrichment-failed` rejection and the next
+relevant candidate is tried. If the cap is filled, later relevant candidates
+retain the existing `over-cap` outcome. If the attempt budget is exhausted
+before the cap is filled, remaining candidates record `enrichment-skipped`, and
+the source is marked partial with `truncatedReason: enrichment-budget`. Listing
 metadata is never published as if it were the source abstract. A targeted arXiv
 abstract parser replaces the temporary listing excerpt before summarization and
 persistence. The full abstract is transient model input; the existing summary
@@ -69,7 +80,8 @@ Retrieval coverage and publication volume remain separate:
 4. order relevant candidates deterministically by announcement date descending;
 5. enrich candidates from `/abs` in that order, skipping and recording failures;
    and
-6. stop when `maxPerRun` successfully enriched candidates are available.
+6. stop when `maxPerRun` candidates have been enriched or after
+   `maxPerRun + 4` attempts.
 
 The source caps remain `1` for each category. This means the pipeline inspects
 the whole weekly pool but publishes at most one relevant story per category.
@@ -94,16 +106,20 @@ defined as follows:
 Partial results may continue through the normal gates, but the warning and
 coverage fields must make the incomplete source visible.
 
-If the weekly listing fails, the collector may make one best-effort request to
-the official `rss.arxiv.org` category feed. Because that feed normally contains
-only one announcement batch, fallback output is always marked partial. It is a
-degraded source of some current metadata, not evidence of full weekly coverage.
-If the fallback is also unavailable or malformed, the source fails normally.
+The collector also verifies the `safeFetch` result's `finalUrl`. Its origin must
+be `https://arxiv.org`, its path must remain `/list/{category}/pastweek`, and its
+`show` value must remain `2000`. Any redirect or normalization that changes
+those values fails the source even if the returned HTML happens to parse. The
+resolved URL is recorded for diagnosis.
+
+There is no RSS fallback. A missing weekly list is reported as a failed source
+rather than presenting a single announcement batch as weekly coverage.
 
 The report will add optional collection details to each source outcome:
 
 - `coverage`: `complete`, `partial`, or `failed`;
-- `collectionMethod`: `feed`, `sitemap`, `arxiv-list`, or `arxiv-rss-fallback`;
+- `collectionMethod`: `feed`, `sitemap`, or `arxiv-list`;
+- `resolvedUrl` for the final validated collection response;
 - `expectedItems` and `parsedItems` when the source declares a count; and
 - `truncatedReason` when coverage is partial.
 
@@ -116,11 +132,11 @@ consumers while making empty, incomplete, and complete collection distinguishabl
 All `arxiv.org` listing and abstract requests share a serialized per-host pacer
 that enforces at least the published 15-second crawl delay. The current source
 loop is sequential, so a concurrency race does not exist today; serialization
-keeps the constraint explicit if collection becomes concurrent later.
+keeps the constraint explicit if collection becomes concurrent later. The
+enrichment-attempt budget bounds the worst case to `maxPerRun + 4` abstract
+requests per category.
 
-The RSS fallback uses `rss.arxiv.org`, whose robots path returned 404 rather
-than a restriction on 2026-08-26. It receives at most one request per affected
-category. No request is made to either disallowed API path.
+No request is made to `rss.arxiv.org` or either disallowed API path.
 
 Network failures continue to use the existing bounded `safeFetch` behavior.
 This design adds no long `Retry-After` sleep and cannot stall the rest of the run
@@ -136,6 +152,10 @@ behind an unbounded server-supplied delay.
   candidates, and records explicit coverage metadata.
 - `pipeline/src/contracts.ts` adds only optional source-outcome diagnostics; it
   does not change story or source records.
+- `pipeline/src/ingest.ts` canonicalizes arXiv abstract URLs to
+  `https://arxiv.org/abs/{id}` by removing a version suffix before hashing.
+  Startup duplicate state includes both stored IDs and IDs recomputed from
+  stored URLs, so historical versioned records prevent republication.
 - `src/domain/source.ts` adds one explicit `arxiv-list` feed format rather than
   pretending HTML is RSS.
 - `src/data/sources.json` switches `arxiv-cs-cy` and `arxiv-cs-hc` to the
@@ -161,17 +181,22 @@ prove that:
    dropped or duplicated at the collector boundary;
 5. relevance is applied before the deterministic newest-first cap;
 6. only relevant category candidates fetch `/abs` pages, a failed enrichment
-   advances to the next ranked candidate, and every stored source excerpt comes
-   from a parsed abstract rather than listing metadata;
+   advances to the next ranked candidate, no more than `maxPerRun + 4` pages are
+   fetched, and every stored source excerpt comes from a parsed abstract rather
+   than listing metadata;
 7. two arXiv requests started together remain at least 15 virtual seconds apart;
-8. weekly-list failure followed by usable RSS produces items with partial
-   coverage and `arxiv-rss-fallback` as the method;
-9. weekly-list and fallback failure remain a failed source outcome;
-10. constructed list, abstract, and fallback URLs pass the existing allowlist
-    checks without widening `officialDomains`;
-11. the two active category sources use `/list/.../pastweek` with
+8. a changed final origin, category path, `pastweek` path, or `show` value fails
+   the source even when the response body is parseable;
+9. weekly-list failure remains a failed source outcome without RSS fallback;
+10. constructed list and abstract URLs pass the existing allowlist checks
+    without widening `officialDomains`;
+11. versioned, unversioned, HTTP, and HTTPS forms of the same arXiv abstract
+    produce the same canonical ID, including against historical stored URLs;
+12. date headings always become midnight UTC and behave deterministically at
+    the ingest-window boundary;
+13. the two active category sources use `/list/.../pastweek` with
     `feedFormat: arxiv-list`; and
-12. the disallowed API source is inactive and no active source requests an
+14. the disallowed API source is inactive and no active source requests an
     `/api` path.
 
 Final verification is `npm run verify`, which runs unit tests, the production
