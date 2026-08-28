@@ -383,25 +383,6 @@
     "language": "en"
   },
   {
-    "id": "646b74d2dd707921",
-    "sourceId": "arxiv-cs-hc",
-    "title": "Experiential Learning of Runtime Monitoring Using Pachinko",
-    "summaryOriginal": "arXiv:2608.16898v1 Announce Type: cross Abstract: We present documentation of a classroom assignment that teaches runtime monitoring through a creative embedded systems build: an interactive Pachinko game. The assignment centers on a dual-core ESP32 workflow in which students write RTLola specifications for monitors, compile these monitors to C, and deploy them alongside sensor and actuator…",
-    "titleZhTW": "以彈珠台遊戲體驗式教學執行期監控與形式化方法",
-    "summaryZhTW": "巴納德學院課程引導學生在雙核 ESP32 上撰寫 RTLola 規範、編譯為 C 程式並部署於互動彈珠台，即時記錄遊戲事件以觸發聲音、動畫與馬達，依時間邏輯驗證系統行為。教材、硬體架構、程式碼與評量方式皆完整文件化，供其他嵌入式系統、創意運算或創客課程直接複刻。",
-    "summarySource": "machine",
-    "url": "https://arxiv.org/abs/2608.16898",
-    "publishedAt": "2026-08-19T04:00:00.000Z",
-    "fetchedAt": "2026-08-19T05:47:09.632Z",
-    "issue": "2026-W34",
-    "topics": [
-      "higher-ed",
-      "teaching"
-    ],
-    "region": "GLOBAL",
-    "language": "en"
-  },
-  {
     "id": "8e9bde3f29a459fd",
     "sourceId": "edsurge",
     "title": "The Case Against the Classroom Cellphone Crackdown",
