@@ -49,6 +49,12 @@ export interface SourceOutcome {
   itemsRejected: number;
   /** Why items were dropped, so a silent source is diagnosable from the report. */
   rejectCounts: Record<string, number>;
+  coverage?: 'complete' | 'partial' | 'failed';
+  collectionMethod?: 'feed' | 'sitemap' | 'arxiv-list';
+  resolvedUrl?: string;
+  expectedItems?: number;
+  parsedItems?: number;
+  truncatedReason?: string;
 }
 
 export interface SummaryOutcome {

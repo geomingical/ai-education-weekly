@@ -1,5 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const e2ePort = process.env.PLAYWRIGHT_PORT ?? '4322';
+
+if (!/^\d+$/.test(e2ePort)) {
+  throw new Error('PLAYWRIGHT_PORT must be a numeric TCP port');
+}
+
 // Runs against the PRODUCTION build, not the dev server: that is what validates
 // prerendering, asset paths, and any production-only failure the dev server
 // would conceal.
@@ -9,7 +15,7 @@ export default defineConfig({
   reporter: 'list',
   use: {
     // Includes the deployment sub-path, so tests exercise the real URLs.
-    baseURL: 'http://localhost:4322/ai-education-weekly/',
+    baseURL: `http://localhost:${e2ePort}/ai-education-weekly/`,
     trace: 'off',
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
@@ -22,9 +28,9 @@ export default defineConfig({
     // same URLs production will. Copied rather than symlinked — sirv does not
     // follow a symlinked root.
     command:
-      'npx astro build && rm -rf .preview && mkdir -p .preview && cp -R dist .preview/ai-education-weekly && npx sirv .preview --port 4322 --quiet',
+      `npx astro build && rm -rf .preview && mkdir -p .preview && cp -R dist .preview/ai-education-weekly && npx sirv .preview --port ${e2ePort} --quiet`,
     // The health check has to hit the sub-path; the server root is empty now.
-    url: 'http://localhost:4322/ai-education-weekly/',
+    url: `http://localhost:${e2ePort}/ai-education-weekly/`,
     reuseExistingServer: false,
     timeout: 120_000,
   },

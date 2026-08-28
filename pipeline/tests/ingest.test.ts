@@ -141,4 +141,18 @@ describe('canonicalUrl and storyId', () => {
   it('returns the input rather than throwing on an unparseable URL', () => {
     expect(canonicalUrl('not a url')).toBe('not a url');
   });
+
+  it.each([
+    'http://arxiv.org/abs/2608.17522v1',
+    'https://export.arxiv.org/abs/2608.17522V2/',
+    'https://arxiv.org/pdf/2608.17522.pdf',
+  ])('normalizes arXiv variant %s', (url) => {
+    expect(canonicalUrl(url)).toBe('https://arxiv.org/abs/2608.17522');
+  });
+
+  it('normalizes case and versions in old-style arXiv identifiers', () => {
+    expect(canonicalUrl('https://export.arxiv.org/pdf/Math.GT/0309136v2.pdf')).toBe(
+      'https://arxiv.org/abs/math.gt/0309136',
+    );
+  });
 });

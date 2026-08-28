@@ -88,6 +88,26 @@ describe('source registry', () => {
       expect(source.maxPerRun).toBeLessThanOrEqual(20);
     }
   });
+
+  it('collects arXiv categories from complete weekly lists and disables forbidden APIs', () => {
+    const byId = new Map(sources.map((source) => [source.id, source]));
+    for (const [id, category] of [
+      ['arxiv-cs-cy', 'cs.CY'],
+      ['arxiv-cs-hc', 'cs.HC'],
+    ] as const) {
+      const source = byId.get(id);
+      expect(source?.active).toBe(true);
+      expect(source?.feedFormat).toBe('arxiv-list');
+      expect(source?.feedUrl).toBe(`https://arxiv.org/list/${category}/pastweek?show=2000`);
+    }
+
+    const query = byId.get('arxiv-ai-education-query');
+    expect(query?.active).toBe(false);
+    expect(query?.notes).toMatch(/robots/i);
+    for (const source of sources.filter((entry) => entry.active)) {
+      expect(new URL(source.feedUrl!).pathname).not.toMatch(/^\/api(?:\/|$)/);
+    }
+  });
 });
 
 // Ming's rule, made mechanical: the full article text never reaches the web.

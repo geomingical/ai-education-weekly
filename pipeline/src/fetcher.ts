@@ -29,6 +29,11 @@ export interface FetchIO {
   now: () => Date;
 }
 
+export interface SafeFetchOptions {
+  /** Runs after host/DNS validation and before every network request, including redirects. */
+  beforeRequest?: (url: string) => boolean | Promise<boolean>;
+}
+
 export const FETCH_LIMITS = {
   maxRedirects: 3,
   timeoutMs: 15_000,
@@ -394,6 +399,7 @@ export async function safeFetch(
   url: string,
   allowedDomains: readonly string[],
   io: FetchIO,
+  options: SafeFetchOptions = {},
 ): Promise<FetchResult> {
   const redirectChain: string[] = [];
   let currentUrl = url;
@@ -402,7 +408,7 @@ export async function safeFetch(
   // One absolute deadline for the entire call — DNS resolution, every
   // redirect hop's fetch, and every body read all draw down the same
   // budget, rather than each hop getting a fresh full timeout.
-  const deadline = io.now().getTime() + FETCH_LIMITS.timeoutMs;
+  let deadline = io.now().getTime() + FETCH_LIMITS.timeoutMs;
   const remainingMs = () => deadline - io.now().getTime();
 
   const finalize = (
@@ -430,6 +436,21 @@ export async function safeFetch(
     const validation = await validateHop(currentUrl, allowedDomains, io, remainingMs);
     if (validation !== 'ok') {
       return finalize(lastStatus, null, validation);
+    }
+
+    if (options.beforeRequest) {
+      const gateStartedAt = io.now().getTime();
+      try {
+        if (!(await options.beforeRequest(currentUrl))) {
+          return finalize(lastStatus, null, 'blocked');
+        }
+      } catch {
+        return finalize(lastStatus, null, 'blocked');
+      }
+      // Politeness queues are scheduling time, not a slow network operation.
+      // Preserve the absolute network budget while still applying it across
+      // DNS, every redirect fetch, and body reads.
+      deadline += Math.max(0, io.now().getTime() - gateStartedAt);
     }
 
     const fetchBudget = remainingMs();

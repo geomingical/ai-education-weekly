@@ -82,9 +82,23 @@ export function canonicalUrl(rawUrl: string): string {
   } catch {
     return rawUrl.trim();
   }
+  const hostname = parsed.hostname.toLowerCase();
+  if (hostname === 'arxiv.org' || hostname === 'export.arxiv.org') {
+    const pathMatch = /^\/(?:abs|pdf)\/(.+?)\/?$/i.exec(parsed.pathname);
+    if (pathMatch) {
+      const id = (pathMatch[1] ?? '')
+        .replace(/\.pdf$/i, '')
+        .replace(/v\d+$/i, '')
+        .toLowerCase();
+      if (/^(?:\d{4}\.\d{4,5}|[a-z][a-z0-9.-]*\/\d{7})$/.test(id)) {
+        return `https://arxiv.org/abs/${id}`;
+      }
+    }
+  }
+
   for (const param of TRACKING_PARAMS) parsed.searchParams.delete(param);
   parsed.hash = '';
-  parsed.hostname = parsed.hostname.toLowerCase();
+  parsed.hostname = hostname;
   // A trailing slash is not a different article.
   if (parsed.pathname.length > 1 && parsed.pathname.endsWith('/')) {
     parsed.pathname = parsed.pathname.slice(0, -1);
