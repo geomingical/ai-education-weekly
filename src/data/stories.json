@@ -1,5 +1,436 @@
 [
   {
+    "id": "ad504bbdb221cc44",
+    "sourceId": "anthropic-education",
+    "title": "Introducing Claude for Teachers",
+    "summaryOriginal": "We're introducing Claude for Teachers, providing verified K-12 educators in the US free access to premium Claude capabilities, a library of teaching skills, and a direct connection to evidence-based curricula, mapped to academic standards in all 50 states.Why we’re building for teachersDecades of research show that practices like differentiation, mastery-based learning, and small group…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://www.anthropic.com/news/claude-for-teachers",
+    "publishedAt": "2026-08-28T15:01:10.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "bc7c527df0fe5132",
+    "sourceId": "inside-higher-ed",
+    "title": "MIT AI Report Calls for Alternative Grading, More Social Learning",
+    "summaryOriginal": "MIT AI Report Calls for Alternative Grading, More Social Learning Emma Whitford Fri, 08/28/2026 - 03:00 AM Artificial intelligence is upending the MIT education, a committee has found. Students, instructors and administrators will need to revisit nearly every part of that experience to respond to it. Byline(s) Emma Whitford",
+    "titleZhTW": "MIT報告：AI顛覆教學，籲改採替代評分與社交學習",
+    "summaryZhTW": "麻省理工學院師生委員會發布AI報告，指出AI已能對幾乎所有書面作業給出合理答案，導致學生評量困難、師生孤立與相互猜疑，侵蝕課堂的信任基礎。報告建議捨棄分數配額，探索英國式百分比或能力本位等替代評分制度，同時強化實體社交學習、安排無科技時段，以維護大學教育的轉化力量。此報告對教育現場的評量與教學變革具有啟發意義。",
+    "summarySource": "machine",
+    "url": "https://www.insidehighered.com/news/tech-innovation/artificial-intelligence/2026/08/28/mit-ai-report-calls-alternative-grading",
+    "publishedAt": "2026-08-28T07:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "6c54bf25a094b911",
+    "sourceId": "inside-higher-ed",
+    "title": "Readers Respond on AI Literacy",
+    "summaryOriginal": "Readers Respond on AI Literacy Sara Brady Fri, 08/28/2026 - 03:00 AM Toward a working definition. Byline(s) Matt Reed",
+    "titleZhTW": "讀者回應 AI 素養定義：從微波爐隱喻到批判性判斷力",
+    "summaryZhTW": "Inside Higher Ed 刊出讀者對「AI 素養」的多元定義，俄亥俄大學提出四大面向：有效實踐、倫理考量、學科知識與修辭覺察。讀者以微波爐比喻 AI，強調學生應懂得將 AI 視為輔助工具而非唯一依賴，並提出可觀察的評估指標：學生能說明質疑、驗證、拒絕哪些輸出，以及離開工具仍能完成什麼。文章指出批判性判斷仍仰賴廣泛學科背景，而這正是 AI 可能削弱的基礎。",
+    "summarySource": "machine",
+    "url": "https://www.insidehighered.com/opinion/columns/confessions-community-college-dean/2026/08/28/readers-respond-ai-literacy",
+    "publishedAt": "2026-08-28T07:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "workforce"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "cb1db0d5c74b6e9e",
+    "sourceId": "openai-news",
+    "title": "Supporting Thailand’s next generation of AI startups",
+    "summaryOriginal": "OpenAI and Thailand’s MHESI launch an eight-week accelerator helping 10 health, wellness, and education startups turn AI prototypes into trusted products.",
+    "titleZhTW": "OpenAI 攜泰國高教部啟動 AI 新創加速器",
+    "summaryZhTW": "OpenAI 與泰國高等教育、科學、研究與創新部（MHESI）合作推出為期八週的加速計畫，協助 10 家專注於健康、健康促進與教育領域的新創團隊，將 AI 原型轉化為可信賴的產品。此舉將直接支援教育科技新創發展，有望為泰國教學現場帶來更成熟的 AI 應用工具。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
+    "publishedAt": "2026-08-28T02:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "workforce",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "ccef886bb5008dd8",
+    "sourceId": "edsurge",
+    "title": "AI Can Help One of K-12’s Biggest Challenges: Middle School Reading",
+    "summaryOriginal": "Artificial intelligence can bridge the middle grades literacy gap by providing individualized student reading instruction at scale.",
+    "titleZhTW": "中學生閱讀「理解高牆」難解 美國八年級讀寫能力創30年新低 AI工具能否提供解方？",
+    "summaryZhTW": "美國長年將閱讀危機視為低年級問題，但許多學生在升上中學後才撞上理解高牆：能解讀文字，卻無法掌握複雜句型、詞彙與背景知識，導致各科學習與自信受挫。2024年八年級生閱讀精熟度僅30%，為30年來最低。本文主張，若AI工具以強化教學而非取代教學為目標，可協助教師精準診斷、即時回饋與差異化支持，並援引德州、田納西學區的初步成效，強調採用前須審慎評估工具是否促使學生回到文本、思考與修訂，而非淪為捷徑。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/ai-can-help-one-of-k-12s-biggest-challenges-middle-school-reading",
+    "publishedAt": "2026-08-28T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "7cc946aa303f9595",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Reclaiming Epistemic Agency: A Critical Framework for Human-Generative AI Co-Agency in Education",
+    "summaryOriginal": "Generative artificial intelligence (GenAI) has been primarily framed as an impartial educational tool. However, this framing overlooks an even larger shift: the reassignment of epistemological authority from teachers to students to machines. This paper presents a conceptual evaluation of the extent to which GenAI redistributes students' and teachers' ability to act in classrooms to produce…",
+    "titleZhTW": "學者提出「生態共同能動性框架」 重構師生與生成式 AI 的認知權力關係",
+    "summaryZhTW": "研究指出生成式 AI 正悄悄將認知權威從師生轉移至機器，現有理論皆未解決權力分配、數據所有權與問責的不對等。作者提出以關係性、調節性與教學過程定義能動性的新框架，強調人類必須對知識主張負最終責任，以確保教育場域的認知主體性不被技術架空。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.26937",
+    "publishedAt": "2026-08-28T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "research",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b7d936f7491bad70",
+    "sourceId": "arxiv-cs-cy",
+    "title": "ClassVision: AI-Powered Classroom Attendance System",
+    "summaryOriginal": "Students and working professionals have to go through the attendance process every day. Traditional methods of marking attendance using pen and paper or online platforms are human-intensive and time-consuming. To address the challenges in manual attendance processes, this research explores the use of face detection (FD) and face recognition (FR) technology to automate the attendance process,…",
+    "titleZhTW": "ClassVision：AI 自動點名系統結合人臉辨識提升教室效率",
+    "summaryZhTW": "研究團隊開發 ClassVision 系統，採用 RetinaFace 偵測人臉並搭配人臉辨識模組，透過即時影像處理自動完成課堂點名。系統提供友善網頁介面，旨在取代傳統紙本或線上手動點名，減少師生耗時與人力成本。實驗顯示 50x50 像素裁切嵌入即可達到較佳辨識效果。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.26173",
+    "publishedAt": "2026-08-28T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "k12",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f8f475b6b3c37d67",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Processing/p5 Defined through Practice and Learning",
+    "summaryOriginal": "Processing/p5 libraries across different programming languages enact consistent priorities for creative coding as a designed experience. While different programming language ecosystems, like Java and JavaScript, are each associated with their own affordances, community norms, and patterns of use, Processing/p5 sketches across these languages share similarities. Based on case studies of building…",
+    "titleZhTW": "Processing/p5 跨語言實作揭示創意編程核心設計原則",
+    "summaryZhTW": "研究比較 JavaScript 與 Lua 兩種語言實作 Processing/p5 的過程，歸納出不因宿主語言而異的核心設計決策框架。這份框架釐清創意編程工具的共通優先序，為教學者設計跨平台課程、研究者分析工具特性、以及藝術家選擇開發環境提供理據依據。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.26614",
+    "publishedAt": "2026-08-28T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a831278e24cf9d85",
+    "sourceId": "arxiv-cs-hc",
+    "title": "TutorTrace: A Dataset and Taxonomy for Classifying Learner Behavioral States during AI-Assisted Programming Education",
+    "summaryOriginal": "AI programming tutors provide scalable support, yet lack the behavioral context human tutors rely on to adapt support to learners' needs. We present TutorTrace, a dataset and behavioral abstraction pipeline that makes learners' behavioral context visible and computable in real time from low-level IDE telemetry. Across four deployments in two introductory Python courses (N=480), TutorTrace…",
+    "titleZhTW": "TutorTrace 資料集發布：即時解析程式學習者行為狀態",
+    "summaryZhTW": "研究團隊發布 TutorTrace 資料集與分類體系，從 IDE 遙測資料即時擷取 27 項行為指標，將學習者在 AI 輔助程式設計課程中的提問前、提問間及全程行動歸類。課堂初步評估顯示，行為感知提示將連續無獨立嘗試的提問比例從 50% 降至 20.7%，並能預測 60 秒內是否提問（AUROC .726）及提問屬導引式或依賴式求助（AUROC .717），展現行為脈絡對大規模自適應 AI 導師的關鍵價值。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2608.26184",
+    "publishedAt": "2026-08-28T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "779f022812883917",
+    "sourceId": "microsoft-education",
+    "title": "Make security value visible before risk makes it obvious",
+    "summaryOriginal": "Discover how education IT teams can improve cybersecurity by activating Microsoft 365 security tools they already own and use. The post Make security value visible before risk makes it obvious appeared first on Microsoft Education Blog.",
+    "titleZhTW": "微軟建議教育機構先盤點既有授權的安全功能再決定下一步",
+    "summaryZhTW": "文章指出許多學校已擁有 M365 Education 授權內含的身分、端點、資料防護等功能，卻未完整啟用或設定。建議先透過「零信任成熟度評估」與「安全價值優化自評」盤點現況，找出最缺口的支柱並優先改善，再配合 Microsoft Education Security Toolkit 落實最佳實務，避免盲目採購新工具。",
+    "summarySource": "machine",
+    "url": "https://www.microsoft.com/en-us/education/blog/2026/08/make-security-value-visible-before-risk-makes-it-obvious",
+    "publishedAt": "2026-08-27T16:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "d8694ba4633fad5f",
+    "sourceId": "khan-academy-blog",
+    "title": "New AI Tools Bring Interactive Diagrams and Targeted Practice Thanks to Khan Academy’s Partnership with Google.org",
+    "summaryOriginal": "New Khanmigo features help students visualize challenging concepts and give teachers more ways to create targeted practice Khan ... Read more The post New AI Tools Bring Interactive Diagrams and Targeted Practice Thanks to Khan Academy’s Partnership with Google.org appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 與 Google.org 擴大合作 推出互動圖表與教師練習工具",
+    "summaryZhTW": "Khan Academy 的 AI 導師 Khanmigo 新增互動圖表功能，能在數理課程中即時生成可拖曳操作的視覺化圖表，協助學生直觀理解抽象概念；早期數據顯示學生參與度與次題答對率均有提升。教師端則整合 Gemini 模型至 Practice My Knowledge 工具，可在秒內生成高品質選擇題，並保留審核、編輯與指派權限，支援計分與非計分練習及結構化報表，協助教師精準掌握學習狀況。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/new-ai-tools-bring-interactive-diagrams-and-targeted-practice-thanks-to-khan-academys-partnership-with-google-org",
+    "publishedAt": "2026-08-27T16:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "tools",
+      "teaching",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "305d0f9d44e0feeb",
+    "sourceId": "google-education",
+    "title": "Partnering with Khan Academy on building AI tools for classrooms",
+    "summaryOriginal": "Interactive visual aids and teacher-controlled practice materials — both built with Gemini — are launching for the new school year.",
+    "titleZhTW": "Google 與 Khan Academy 合作將 Gemini 模型導入課堂 AI 工具",
+    "summaryZhTW": "Google 與 Khan Academy 合作，將 Gemini 模型整合至 Khanmigo，新增互動式圖表與教師可控的練習工具，協助學生即時理解數理概念，並讓教師保有題目審核權。六位 Google 工程師投入半年協作，工具已於 2026 年開學季實際進入教室。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/khan-academy-back-to-school",
+    "publishedAt": "2026-08-27T16:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "89df73f468616e60",
+    "sourceId": "anthropic-education",
+    "title": "Advancing Claude for Education",
+    "summaryOriginal": "Today, we’re sharing a first look at upcoming integrations with Canvas, Panopto, and Wiley that bring Claude to Canvas and rich educational context to student conversations in Claude for Education.Additionally, we’ve expanded our student ambassador and builder programs, launched our first free AI Fluency course, and welcomed several new institutions—including the University of San Francisco…",
+    "titleZhTW": "Anthropic 推出 Claude for Education 新整合與校園計畫",
+    "summaryZhTW": "Anthropic 宣佈 Claude for Education 即將與 Canvas、Panopto、Wiley 整合，學生可在對話中直接引用課程教材、講座逐字稿與同儕審閱內容，並支援 Canvas LTI 單點登入。同時擴大學生大使計畫十倍、啟動 Builder Clubs 駭客松社群，並推出免費 AI 素養課程。美國舊金山大學法學院與英國諾森比亞大學等新夥伴機構已加入，強調負責任 AI 採用、隱私保護與數位公平。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/advancing-claude-for-education",
+    "publishedAt": "2026-08-27T15:13:58.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "48d3aa1168f3b7b2",
+    "sourceId": "anthropic-education",
+    "title": "Anthropic and Iceland announce one of the world’s first national AI education pilots",
+    "summaryOriginal": "Today, Anthropic and Iceland's Ministry of Education and Children are announcing a partnership to bring Claude to teachers across the nation, launching one of the world's first comprehensive national AI education pilots. This initiative will give teachers from every region of Iceland—from Reykjavik to the most remote villages—access to advanced AI tools as the country explores how artificial…",
+    "titleZhTW": "Anthropic 與冰島啟動全國 AI 教育試點 讓全境教師使用 Claude",
+    "summaryZhTW": "Anthropic 與冰島教育暨兒童部合作，向全國各地教師提供 Claude 使用權限，並配套教學資源、訓練教材與專屬支援網絡。試點旨在探索 AI 如何協助教案準備、因材施教與學生學習，同時保護冰島語言文化。部長強調以教師需求為導向，負責任地引入 AI；Anthropic 則指出此舉可減輕行政負擔、讓教師專注教學，並將經驗推廣至更多國家。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots",
+    "publishedAt": "2026-08-27T15:13:17.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "policy",
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "8905509e5a3e200b",
+    "sourceId": "anthropic-education",
+    "title": "Anthropic and Teach For All launch global AI training initiative for educators",
+    "summaryOriginal": "Anthropic is partnering with Teach For All to bring AI tools and training to educators in 63 countries. Through the AI Literacy & Creator Collective (LCC), more than 100,000 teachers and alumni across Teach For All's network—which serves more than 1.5 million students—will have the opportunity to develop AI fluency and adapt Claude to serve real classroom needs.Building on the approach pioneered…",
+    "titleZhTW": "Anthropic 攜手 Teach For All 推全球 AI 教師培訓，覆蓋 63 國 10 萬師資",
+    "summaryZhTW": "Anthropic 與 Teach For All 合作啟動「AI 素養與創作者群」，向 63 國超過 10 萬名教師及校友開放 Claude 工具與六堂直播課程，並建立跨國社群與創新實驗室，讓一線教師直接參與產品回饋與教學工具共創。計畫強調教師非被動使用者，而是 AI 發展的共同設計者，已有賴比瑞亞教師打造互動氣候課程、孟加拉教師開發遊戲化數學 App、阿根廷教師設計數位學習工作區等實例。夥伴關係亦延伸至學校領導層，協助奈及利亞等地非營利組織建立負責任 AI 導入經驗，目標是讓資源較少地區的教育工作者同樣能主導並受惠於 AI 轉型。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/anthropic-teach-for-all",
+    "publishedAt": "2026-08-27T15:12:05.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "bf7945e53d0d2f53",
+    "sourceId": "anthropic-education",
+    "title": "Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa",
+    "summaryOriginal": "Anthropic is announcing a new partnership with the Government of Rwanda and African tech training provider ALX to bring Chidi—a learning companion built on Claude—to hundreds of thousands of learners across Africa. Rwanda's ICT & Innovation and Education ministries are deploying Chidi within their national education system, while ALX will bring the tool to students across the continent through…",
+    "titleZhTW": "Anthropic 攜手盧安達政府與 ALX 推廣 AI 學習夥伴 Chidi",
+    "summaryZhTW": "Anthropic 與盧安達政府、非洲科技培訓機構 ALX 合作，將以 Claude 為基礎的學習夥伴 Chidi 引入盧安達國家教育體系，並向全非洲超過 20 萬學生開放。盧安達將培訓 2,000 位教師與公務員運用 AI 輔助教學與行政，畢業學員可獲一年 Claude 專業工具使用權。ALX 則讓學生透過蘇格拉底式提問培養獨立解題能力，早期數據顯示九成用戶體驗正向。此計畫被視為非洲最大規模 AI 教育部署之一，呼應盧安達 2050 願景，並延續 Anthropic 在冰島、倫敦政經學院等地的教育合作。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/rwandan-government-partnership-ai-education",
+    "publishedAt": "2026-08-27T15:11:25.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "policy",
+      "higher-ed",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5c8d75ef9c12c059",
+    "sourceId": "openai-news",
+    "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-thinking training",
+    "summaryOriginal": "A randomized study of more than 1,000 students examines ChatGPT, critical thinking, originality, and student performance on a real-world university assignment.",
+    "titleZhTW": "隨機研究揭示：ChatGPT 搭配批判性思維訓練提升大學生作業表現",
+    "summaryZhTW": "一項涉及超過 1,000 名學生的隨機研究探討 ChatGPT 與批判性思維訓練對大學真實作業的影響。研究發現，結合 AI 工具與思維訓練能改善學生答案品質、拓寬思考廣度，並提升整體學習表現與獨創性。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training",
+    "publishedAt": "2026-08-27T09:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "higher-ed",
+      "research",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "58bafef639539b85",
+    "sourceId": "edsurge",
+    "title": "Student Artists Wrestle with AI’s Promise and Peril",
+    "summaryOriginal": "Four student artists map out what artificial intelligence means for their communities today — and 50 years from now.",
+    "titleZhTW": "美高中生藝術展探討 AI 承諾與風險，學生作品反思創作倫理",
+    "summaryZhTW": "麻省理工學院 RAISE 計畫與多方合辦「Me, Myself, and AI」藝術比賽，邀請全美高中生以繪畫表達生成式 AI 對生活與創作的影響。得獎學生作品呈現對 AI 便利性的期待與對藝術家版權、環境成本的憂慮，評審發現學生並非盲目使用 AI，而是審慎決定何時引入、何時保留純人工創作。主辦單位強調，課程目標在於培養學生批判性思考與倫理決策，而非單純推廣或禁止 AI 使用。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/student-artists-wrestle-with-ais-promise-and-peril",
+    "publishedAt": "2026-08-27T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "832a12c8f33a104e",
+    "sourceId": "openai-news",
+    "title": "Learning never stops: How AI makes learning continuous",
+    "summaryOriginal": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
+    "titleZhTW": "OpenAI 報告：AI 讓學習突破課堂時空限制",
+    "summaryZhTW": "OpenAI 最新報告探討學生與教師如何運用 ChatGPT，使學習支援延伸至課堂之外，實現更持續的學習體驗。報告指出 AI 工具能在課後、假期或非上課時間提供即時回饋與陪伴式練習，幫助學習者維持動力並彌補傳統教學的時空斷點。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/learning-never-stops",
+    "publishedAt": "2026-08-26T10:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "fa2791fbc9af008f",
+    "sourceId": "openai-news",
+    "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+    "summaryOriginal": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
+    "titleZhTW": "OpenAI 擴大 ChatGPT for Teachers 服務至 55 個美國學區",
+    "summaryZhTW": "OpenAI 宣布將 ChatGPT for Teachers 服務擴展至 55 個美國學區，提供安全的 AI 工具、培訓與支援，預計將惠及超過 10 萬名教育工作者與行政人員。此舉旨在協助教師減輕行政負擔、優化教學準備，並在校園環境中安全地引入生成式 AI 技術。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+    "publishedAt": "2026-08-26T10:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "k12",
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "6ab074fd39b37297",
+    "sourceId": "edsurge",
+    "title": "Protecting Student Cognition in the Age of AI",
+    "summaryOriginal": "Educators must shift their focus from preventing cognitive offloading to preserving the critical thinking skills AI threatens to replace.",
+    "titleZhTW": "教師警示：AI 正悄悄取代學生獨立思考的認知歷程",
+    "summaryZhTW": "資深教師觀察到學生習慣直接用 ChatGPT 完成作業，導致課堂討論與獨立寫作能力明顯退步，甚至分不清誰在思考。研究指出認知卸載會削弱批判性評估，教師因此調整教法：先要求手寫腦力激盪、註釋文本、同儕討論，建立自主思考後，再引入 AI 當思維夥伴輔助反駁與補充，並恢復無科技時段以重建認知耐力。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/protecting-the-student-mind-in-the-age-of-ai",
+    "publishedAt": "2026-08-26T00:00:00.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "teaching",
+      "integrity",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "7b2a5903720dfbe6",
+    "sourceId": "khan-academy-blog",
+    "title": "What I found compelling in a new randomized trial of Khan Academy in math intervention",
+    "summaryOriginal": "By Sal Khan, Founder and CEO of Khan Academy Last week, our efficacy and research team flagged a ... Read more The post What I found compelling in a new randomized trial of Khan Academy in math intervention appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 獨立 RCT 研究：Khanmigo 協助低成就學生數學進步 0.14 SD",
+    "summaryZhTW": "美國田納西州 18 所中學進行兩年隨機對照試驗，針對低於年級水準的學生（含超過四分之一特教生），比較使用 Khan Academy 與 Khanmigo 的實驗組，對照組則持續使用 Waggle、IXL 等既有教學軟體。意圖治療分析顯示兩年合併效果僅 0.06 SD，但完整參與第二年的學生，數學成績較對照組提升 0.14 SD，達數學練習軟體實證效果的上限範圍。研究指出 Khanmigo 使用率低，歸因於學生求助行為障礙與非主動介面，Khan Academy 已重新設計將 AI 融入練習流程。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/what-i-found-compelling-in-a-new-randomized-trial-of-khan-academy-in-math-intervention",
+    "publishedAt": "2026-08-24T20:52:53.000Z",
+    "fetchedAt": "2026-08-31T01:23:55.649Z",
+    "issue": "2026-W35",
+    "topics": [
+      "research",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "0685a773ffbd1721",
     "sourceId": "edweek",
     "title": "Facing 'Techlash,' How Should Schools Talk to Parents About Tech Use?",
