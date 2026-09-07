@@ -129,6 +129,14 @@ describe('published data carries excerpts, not articles', () => {
     expect(stories.length).toBeGreaterThan(0);
   });
 
+  it('gives every story a unique collection id', () => {
+    const counts = new Map<string, number>();
+    for (const story of stories) counts.set(story.id, (counts.get(story.id) ?? 0) + 1);
+    expect(
+      [...counts.entries()].filter(([, count]) => count > 1),
+    ).toEqual([]);
+  });
+
   // The parser caps excerpts at 400 characters. A record holding thousands
   // would mean an article body leaked into the published JSON.
   it.each(stories.map((story) => [story.id, story] as const))(
