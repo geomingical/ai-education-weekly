@@ -1,5 +1,271 @@
 [
   {
+    "id": "6d4a47f03b660e0e",
+    "sourceId": "khan-academy-blog",
+    "title": "Explore Career Options With Khan Academy’s Free Career Exploration Course",
+    "summaryOriginal": "Hear from real professionals, compare different paths, and find a practical next step. Khan Academy’s free Career Exploration ... Read more The post Explore Career Options With Khan Academy’s Free Career Exploration Course appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推免費職涯探索課程 讓學生聽真人經驗比較職業路徑",
+    "summaryZhTW": "Khan Academy 聯手 Advize 推出免費職涯探索課程，透過短訪談讓學生、家長與教師直接聽取各領域專業人士的真實工作內容、入行經驗與建議。課程設計統一訪談框架，方便比較不同職業，並可融入輔導課、職涯教育或家庭對話，幫助學習者將校園學科與未來工作技能連結，無需立即決定人生規劃，即可從單一訪談啟動探索。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/career-exploration-course",
+    "publishedAt": "2026-09-04T14:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b1060c5d4ec3670b",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Decreasing Digital Distraction in College Students: Associated Online Learning Strategies Identified by Unsupervised Data Mining Approaches",
+    "summaryOriginal": "The proliferation of digital tools in education offers numerous benefits but also introduces significant challenges, notably digital distractions that hinder academic performance, especially in online learning contexts. This study employed unsupervised data mining techniques, specifically association rule mining and clustering analysis, to identify effective learning strategies associated with…",
+    "titleZhTW": "研究揭示大學生線上學習減少數位干擾的關鍵策略",
+    "summaryZhTW": "研究運用無監督資料探勘分析 530 位大學生資料，發現自我調節學習策略（目標設定、環境結構化、時間管理）與較低的數位干擾最為相關。師生互動、學習內容投入與技術能力也屬低干擾群特徵，但同儕求助與學生互動策略在低干擾群中較少出現。結果為教師設計線上專注學習介入提供實證依據。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.04125",
+    "publishedAt": "2026-09-04T00:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "higher-ed",
+      "research",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "31a28f64678d2a42",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Making Gender-Inclusive Practices Actionable: Evaluating a Research-Informed Computing Education Toolkit",
+    "summaryOriginal": "The persistent gender imbalance in computing remains a global concern, and universities offer a key part of the pipeline to address it. Although research has identified practices that support under-represented student groups, translating this evidence into actionable guidance remains challenging. This paper first presents a novel web- based toolkit (TechMate) designed to address this gap by…",
+    "titleZhTW": "新網路工具包 TechMate 助教師落實性別友善程式教學",
+    "summaryZhTW": "愛爾蘭八所大學的 18 位計算教育者測試了 TechMate 工具包，該工具提供超過 25 項具體行動指引與案例研究，協助教師將性別包容研究轉化為教學實踐。評測顯示超過 60% 參與者對實用性、可信度等九項指標給予正面評價，但也凸顯女學生孤立、體制抗拒變革、女性榜樣稀缺等結構性障礙，並建議善用學生大使與營造支持性環境作為解方。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.03936",
+    "publishedAt": "2026-09-04T00:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3dc615f974224cf5",
+    "sourceId": "google-education",
+    "title": "Start the year AI-ready with the Google AI Educator Series",
+    "summaryOriginal": "An overview of upcoming training sessions from the Google AI Educator Series (GES), and how teachers are putting these tools to work.",
+    "titleZhTW": "Google 推出 AI 教育者系列新模組與全國徽章馬拉松",
+    "summaryZhTW": "Google 為 K-12 與高等教育教師推出免費、隨選的 AI 教育者系列（GES）新模組，包含引導式學習、AI 任務與深度研究等實作功能，協助教師自動化行政工作、提供個別化輔導並設計互動式遊戲教學。9 月 19 日將舉辦線上徽章馬拉松，教師可在 10 小時內靈活參與閃電講座、實作練習並獲得 ISTE 認證的數位徽章，回應教師對實務應用與社群交流的需求。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/new-ai-educator-trainings-september-2026",
+    "publishedAt": "2026-09-03T17:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2c11368707d2e68e",
+    "sourceId": "khan-academy-blog",
+    "title": "Two AP Math Courses, Zero Adaptation Work",
+    "summaryOriginal": "Meet Khan Academy’s new AP Precalculus course and revised AP Calculus AB course—free, CED-aligned support built for the ... Read more The post Two AP Math Courses, Zero Adaptation Work appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出免費 AP 微積分預備與微積分 AB 課程，完整對齊大學理事會 CED 大綱",
+    "summaryZhTW": "Khan Academy 新增 AP 微積分預備課程並修訂 AP 微積分 AB 課程，兩者皆免費且依 College Board 現行 CED 單元與主題逐項對齊，教師無需重新調整進度表即可直接指派影片、文章、練習與自由回應題範例。新課程著重函數推理與寫作溝通，提供多步驟提示、先修複習與評分邏輯解析，協助學生在獨立練習時獲得即時支援，並讓教師能將資源彈性融入既有教案。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/ap-math-courses-precalculus-calculus-ab",
+    "publishedAt": "2026-09-03T14:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b0beab28664f5991",
+    "sourceId": "openai-education-newsletter",
+    "title": "Strengthening the evidence base for AI in Education research: Launching the Learning Lab",
+    "summaryOriginal": "Leading experts from multiple disciplines convene at OpenAI HQ to tackle the field's biggest challenges",
+    "titleZhTW": "OpenAI 成立 Learning Lab 強化 AI 教育實證研究",
+    "summaryZhTW": "OpenAI 宣佈成立 Learning Lab，串聯獨立研究者、教育工作者與學生，建立跨領域同儕網絡，制定共同研究議程與衡量指標，探討 AI 在不同情境下對學習成效的實際影響。首場會議已邀請愛沙尼亞、史丹佛、牛津、康乃爾等機構分享國家級推廣經驗與認知研究，並開發開源測量工具。OpenAI 承諾長期投入因果研究與快速驗證，並將工具、方法與發現開放給教育現場，期能為課堂決策提供可靠證據。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/learning-lab-launch",
+    "publishedAt": "2026-09-02T20:01:07.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "beeb32f03696c3bb",
+    "sourceId": "khan-academy-blog",
+    "title": "Why Translating an Assessment Isn’t the Same as Building a Bilingual Assessment",
+    "summaryOriginal": "By Isabel Andrade, Principal Product Manager, Khan Academy Kids For publicly funded PreK programs serving dual language learners, ... Read more The post Why Translating an Assessment Isn’t the Same as Building a Bilingual Assessment appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy Kids 推雙語評量：翻譯版與雙語版差異大，影響學前雙語兒童鑑定準確度",
+    "summaryZhTW": "Khan Academy Kids 指出，單純將英文評量翻譯成西班牙文，無法確保題目難度與文化語境等效，易導致雙語學童被誤判為發展遲緩或掩蓋真實需求。真正的雙語評量需同步編寫、心理測驗驗證、納入多方言審查，並採概念計分。Khan Academy Kids 學前評量即採雙語同步設計，並獲補助讓公立學前計畫免費試用兩學年。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/bilingual-assessment-prek",
+    "publishedAt": "2026-09-02T16:44:57.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5ff6d47314295fbe",
+    "sourceId": "edsurge",
+    "title": "How AI Taught Me to Embrace Vulnerability in the Classroom",
+    "summaryOriginal": "True innovation isn’t found in mastering every platform, but in being willing to ask deeper questions and take risks.",
+    "titleZhTW": "AI 讓教師從守門人轉為合作者，重拾課堂脆弱與實驗精神",
+    "summaryZhTW": "作者分享參加 GenerationAI 計畫後，如何利用 Class Companion 等工具為英語學習者提供即時寫作回饋，並用 ChatGPT 協助設計文化回應教材。AI 沒有取代教師角色，反而騰出時間讓教師專注深度陪伴，也讓教師敢於在資源不足、網路不穩的現場公開試錯，將教學視為即時實驗的藝術。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/how-ai-taught-me-to-embrace-vulnerability-in-the-classroom",
+    "publishedAt": "2026-09-02T00:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "0c4fd8e5c52e8291",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Designing Proactive Thought Partners for Writing",
+    "summaryOriginal": "Writing involves diverse cognitive activities, from ideation to revision, and writers' needs vary across individuals and moments. Proactive AI promises to provide the right support at the right time, yet existing proactive tools largely focus on generic textual assistance, such as autocomplete. This paper studies the design space of proactive thought partners: AI agents that proactively offer…",
+    "titleZhTW": "主動式思考夥伴：為寫作提供客製化高階認知支援的設計探索",
+    "summaryZhTW": "本研究探討主動式AI在寫作中的設計空間，提出「主動思考夥伴」概念：能依使用者配置的角色與主動性，在適當時機主動提供高階認知建議的AI代理。作者以技術探針進行一週的16人部署測試，發現參與者會透過前瞻規劃來設定主動支援，並將建議用於點子生成與自我監控；輕量視覺呈現與非指示性修辭框架有助於降低干擾感。研究結果為設計主動式寫作助手提供了關於客製化、時機、參與和呈現方式的建議。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.01588",
+    "publishedAt": "2026-09-02T00:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e0b0a21ef561fa64",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Socrates went Nuclear: Comparing Interaction Strategies for AI systems in a Learning Context using Brain Sensing",
+    "summaryOriginal": "Does unrestricted AI access bypass the cognitive effort required for learning, or does it streamline knowledge acquisition? This paper reports on a study where we compare three designs for user-AI interaction in a learning context: (1) an unrestricted conversational bot like ChatGPT, (2) a pedagogically constrained bot that guides through hints without giving final answers, which we refer to as…",
+    "titleZhTW": "腦波研究比較三種 AI 互動模式：無限制聊天機器人短期學習增益最高，但可能只是檢索答案",
+    "summaryZhTW": "研究招募 50 位參與者學習核能安全規範，分別使用無限制聊天機器人、蘇格拉底式提示機器人、腦波自適應導師系統三種模式。結果顯示無限制模式即時後測增益顯著較高（p < 0.05），腦波參與度則以自適應系統最高（p = .018）。聊天紀錄分析發現無限制組多採直接檢索答案策略，蘇格拉底組則嘗試推理後逐漸脫離，提示短期測驗優勢不等於深度學習。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.00584",
+    "publishedAt": "2026-09-02T00:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "teaching",
+      "research",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "ecdd4aede61e9d2b",
+    "sourceId": "openai-education-newsletter",
+    "title": "The Edu Prompt: Teachers, Students, and Back-to-School AI",
+    "summaryOriginal": "ChatGPT for Teachers expansion, interactive quizzes, Lynwood’s AI roadmap, classroom prompts, student offers, Forum replay, and new Academy courses.",
+    "titleZhTW": "OpenAI 擴大 K-12 師生免費使用 ChatGPT 範圍，推出互動測驗與新課程",
+    "summaryZhTW": "OpenAI 將「ChatGPT for Teachers」免費服務擴展至美國 20 個州的 55 學區，累計超過 30 萬教育工作者受惠，並簽署 16 州學生資料隱私協議。新功能「互動測驗」讓學生在對話中即時練習並獲回饋，教師可用於課前複習或檢核理解度。Lynwood 學區示範以信任、公平為基礎的三年 AI 路線圖，並開發免費工具包 DistrictKit.AI 協助行政與教學。OpenAI Academy 9 月 9 日上線兩門新課程，分別面向教師與大學生，教授教案設計、評量調適與課務規劃等實務技能。另提供大學生免費 4 個月 ChatGPT Plus 申請，截止 10 月 31 日。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/the-edu-prompt-issue-5",
+    "publishedAt": "2026-09-01T14:15:38.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "7a8ed3f67825acfa",
+    "sourceId": "edsurge",
+    "title": "A Principal and a Student Reviewed the New ChatGPT for Teens. They Had Plenty to Say",
+    "summaryOriginal": "The new offering is promising, but there are some real-world reservations.",
+    "titleZhTW": "OpenAI 推出青少年專用 ChatGPT，校長與學生評測優缺點",
+    "summaryZhTW": "OpenAI 於 8 月 18 日推出面向 13 至 17 歲的 ChatGPT for Teens，內建學習模式、作業提醒、測驗視覺化與學習時段等功能，並強調安全機制與家長監督。奧克拉荷馬小學校長 Laura Yeager 肯定其能為缺乏家庭輔導資源的學生提供階梯式練習與批判思考引導，但擔心教師與家長難以跟上工具更新、且無法取代教師的明確教學與腳手架示範。阿拉巴馬州高中生 Annie 則讚賞其系統化教學步驟與鼓勵語氣，特別適合無母語人士陪練的外語學習，但發現長對話中模型易忘記先前指定的教學風格。雙方共識：工具可填補資源缺口，但無法替代教師核心角色。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/a-principal-and-a-student-reviewed-the-new-chatgpt-for-teens-they-had-plenty-to-say",
+    "publishedAt": "2026-09-01T00:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "k12",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "ed14cbb2c65e4a54",
+    "sourceId": "khan-academy-blog",
+    "title": "Build Stronger Writers with New Grade-Level Grammar Courses",
+    "summaryOriginal": "Khan Academy’s new grade-level grammar courses give teachers free, standards-aligned practice for students in grades 5–10. Strong writing ... Read more The post Build Stronger Writers with New Grade-Level Grammar Courses appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出 5-10 年級免費文法課程，對齊全美標準",
+    "summaryZhTW": "Khan Academy 釋出分年級的文法課程，涵蓋 5 至 10 年級，提供超過 60 組針對性練習、混合練習、教學影片與常見錯誤解析文章，並內建進度追蹤。課程對齊全美 50 州語文標準，教師可依學生程度彈性指派，輔助寫作教學、小組補救或標準化考試準備，並整合於既有閱讀、詞彙課程中，支援多元化的語文技能建構。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/grade-level-grammar-courses",
+    "publishedAt": "2026-08-31T14:03:31.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4862f3d2c68fb1ad",
+    "sourceId": "openai-news",
+    "title": "OpenAI supports California’s bill to advance youth AI safety",
+    "summaryOriginal": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
+    "titleZhTW": "OpenAI 支持加州 SB 1119 法案 推動青少年 AI 安全防護",
+    "summaryZhTW": "OpenAI 公開支持加州 SB 1119 法案，該法案旨在建立適合年齡的 AI 保護機制，保障青少年在使用 AI 時的安全。OpenAI 強調在實施防護措施的同時，仍會保留青少年學習、創作與探索 AI 的機會。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+    "publishedAt": "2026-08-31T07:00:00.000Z",
+    "fetchedAt": "2026-09-07T01:22:57.685Z",
+    "issue": "2026-W36",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "ad504bbdb221cc44",
     "sourceId": "anthropic-education",
     "title": "Introducing Claude for Teachers",
