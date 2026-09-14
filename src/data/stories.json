@@ -1,5 +1,354 @@
 [
   {
+    "id": "5b1b402141b8ef6e",
+    "sourceId": "inside-higher-ed",
+    "title": "Can AI Help Colleges Reach Struggling Students Earlier?",
+    "summaryOriginal": "Can AI Help Colleges Reach Struggling Students Earlier? Joshua.Bay Fri, 09/11/2026 - 03:00 AM Austin Community College is using artificial intelligence and real-time data to identify students who need help and connect them with support before problems escalate. Byline(s) Joshua Bay",
+    "titleZhTW": "美國社區大學試用 AI 整合學生資料 提早介入防輟學",
+    "summaryZhTW": "奧斯汀社區學院推出「數位雙生計畫」，獲 87.5 萬美元補助，利用 AI 串聯學務、輔導、財援等分散資料，建立學生全貌儀表板。系統可在成績登錄瞬間推送補習預約選項，縮短從預警到介入的時間。校方強調 AI 不取代諮商師，而是協助每位負責 500-600 名學生的導師優先關注高風險個案，並承諾遵循 FERPA 等隱私規範，資料所有權留在學校。",
+    "summarySource": "machine",
+    "url": "https://www.insidehighered.com/news/student-success/academic-life/2026/09/11/can-ai-help-colleges-reach-struggling-students",
+    "publishedAt": "2026-09-11T07:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "72c805579f21b6e8",
+    "sourceId": "anthropic-education",
+    "title": "Introducing Claude Corps",
+    "summaryOriginal": "We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.We’ll teach 1,000 fellows how to use Claude well, match them with nonprofits across America, and pay them to spend a year—full-time, in-person—helping host organizations to advance their missions. Our goals are twofold:…",
+    "titleZhTW": "Anthropic 推出 Claude Corps 計畫 投入 1.5 億美元培育 AI 人才服務非營利組織",
+    "summaryZhTW": "Anthropic 與 CodePath、Social Finance 合作啟動 Claude Corps 獎學金計畫，首期投入 1.5 億美元，招募 1,000 名職涯初期青年，提供每年 8.5 萬美元薪資與福利，安排其全職駐點於全美至少 400 家非營利組織一年。計畫著重雙軌目標：協助非營利單位導入 AI 工具推進任務，同時讓青年累積實戰 AI 技能。首梯 100 名學員將於 2026 年 10 月啟程，申請截止 7 月 17 日，後續另有兩梯次。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/claude-corps",
+    "publishedAt": "2026-09-11T02:45:01.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "07ffddb2018b2654",
+    "sourceId": "edsurge",
+    "title": "Parents Are Bringing AI to the IEP Meeting. How Should Teachers Respond?",
+    "summaryOriginal": "Using AI in IEP meetings can benefit parents and teachers – if done correctly.",
+    "titleZhTW": "家長將 AI 帶入 IEP 會議，教師如何因應？",
+    "summaryZhTW": "越來越多家長使用 AI 工具解讀 IEP 文件、翻譯專業術語、草擬家庭目標與問題清單，以便在會議中更有效參與。專家肯定這能促進資訊對稱，但也提醒 AI 可能產生錯誤資訊、文件過長拖慢流程，且輸入兒童敏感資料恐違反 FERPA 與 IDEA 隱私法規。學者建議雙方保持透明、互信，教師可主動示範揭露 AI 使用態度，共同審視 AI 產出內容，確保合作聚焦於學生最佳利益。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/parents-are-bringing-ai-to-the-iep-meeting-heres-how-teachers-should-respond",
+    "publishedAt": "2026-09-11T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "4716221be37cf00b",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Alternative AI Philosophy: Daoism as Method for AI in Education",
+    "summaryOriginal": "As artificial intelligence (AI) rapidly iterates and transforms teaching, learning, and knowledge production, philosophical reflection has become increasingly indispensable to educational debates that remain predominantly shaped by Western intellectual traditions. This article proposes Daoism as an alternative philosophical framework for reimagining AI in education. Through philosophical analysis…",
+    "titleZhTW": "道家哲學作為 AI 教育的替代框架：重思道性、修身與真人觀",
+    "summaryZhTW": "該研究指出當前 AI 教育討論多建立於西方哲學傳統，提出以道家經典概念——「道性」、「修身」與「真人」——作為替代性哲學框架。透過經典詮釋與當代文獻對話，探討這三概念如何回應 AI 時代的實在觀、教育認知目標與倫理行為，旨在豐富 AI 教育哲學的多元聲音，為比較教育哲學提供多元基礎。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.10842",
+    "publishedAt": "2026-09-11T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "research",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "6397c622efaf5830",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Ethics Training Agents: Facilitating Group-Based Ethics Education with Role-Playing and Discussion for Ethical Reflection and Exploration",
+    "summaryOriginal": "Group-based ethics training for Science, Technology, Engineering and Mathematics (STEM) students is a complex challenge, requiring substantial resources and expertise. While activity-based teaching methods, such as role-playing and discussions, are commonly employed to simulate real-world scenarios, current practices are often manual and lack integration with effective online platforms for…",
+    "titleZhTW": "多 LLM 代理輔助 STEM 學生分組倫理討論",
+    "summaryZhTW": "研究團隊開發「Ethics Training Agents」系統，讓多個具備不同倫理取向的 LLM 代理與真人學生同桌討論，並由主持人代理引導結構化對話。實驗招募 45 位 STEM 大學生，結果顯示系統能提升參與度、協調與換位思考，並正向影響倫理敏感度。研究並提出將多代理整合進真人分組教學的具體設計策略。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.11529",
+    "publishedAt": "2026-09-11T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "00fb5bbc4b0df4a4",
+    "sourceId": "arxiv-cs-hc",
+    "title": "\"Coder first, advocate second, college student third\": The Liminality of Going to College as a Blind Computing Student",
+    "summaryOriginal": "Blind or low vision (BLV) students are less likely to graduate from college, particularly in computing. Prior work documents accessibility challenges in high school and college, but we lack understanding of the transition process that produces this \"leaky pipeline.\" To address this, we interviewed ten BLV college students about going to college to study computing. We analyzed our data through the…",
+    "titleZhTW": "盲視力受損學生攻讀計算機科系：被迫兼任倡導者的雙重負擔",
+    "summaryZhTW": "研究訪談十位盲視力受損大學生，發現他們在升學轉型期面臨嚴重的數位無障礙與適應障礙。為了持續編程學習，許多人被迫額外承擔「盲人倡導者」的角色，否則只能轉系輟學。這顯示大學轉型期是關鍵干預點，亟需技術與制度支援以避免人才流失。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.10942",
+    "publishedAt": "2026-09-11T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3ac21b56f945c964",
+    "sourceId": "anthropic-education",
+    "title": "Higher education advisory board and AI Fluency courses",
+    "summaryOriginal": "The choices made in the next few years about how AI enters the classroom will shape a generation's relationship with both technology and learning. Today, we're announcing two initiatives for AI in education to help navigate these critical decisions: a Higher Education Advisory Board to guide Claude's development for education, and three AI Fluency courses co-created with educators that can help…",
+    "titleZhTW": "Anthropic 成立高等教育諮詢委員會並推出三門 AI 素養課程",
+    "summaryZhTW": "Anthropic 宣佈成立由前耶魯大學校長 Rick Levin 領銜的高等教育諮詢委員會，成員包含多位資深大學行政主管，將協助指導 Claude 在教學、學習與研究上的發展，確保 AI 強化而非削弱批判性思維。同步釋出三門採 Creative Commons 授權的課程——面向教師、學生與授課者的 AI 素養，提供實作框架協助校園負責任地整合 AI，現已開放各機構自由改編使用。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/anthropic-higher-education-initiatives",
+    "publishedAt": "2026-09-10T20:10:33.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a00847af92fd67bd",
+    "sourceId": "anthropic-education",
+    "title": "Anthropic joins White House AI education pledge",
+    "summaryOriginal": "Following our August signing of the White House's 'Pledge to America's Youth: Investing in AI Education', today we joined companies across the country at the White House's AI Education Taskforce event, deepening our commitment to helping America's students build essential skills to excel and lead with AI.Anthropic has made three concrete commitments that will expand AI education access…",
+    "titleZhTW": "Anthropic 參與白宮 AI 教育承諾 投入 100 萬美元推動網安與 AI 素養課程",
+    "summaryZhTW": "Anthropic 在白宮 AI 教育工作小組會議上宣佈三項具體承諾：三年內投入 100 萬美元資助卡內基美隆大學 PicoCTF 面向中高中生的網安教育、支援白宮新啟動的「總統 AI 挑戰賽」、以及開發採 Creative Commons 授權、可跨平台使用的 K-12 至高等教育 AI 素養課程。這些舉措旨在擴大弱勢學生接觸 AI 與網安技能的機會，並協助教師將 AI 思維融入教學。公司同時揭露旗下模型已透過 MagicSchool、Amira Learning 等平台服務數百萬師生，並依據超過百萬筆對話研究設計「學習模式」以強化批判性思考。",
+    "summarySource": "machine",
+    "url": "https://www.anthropic.com/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education",
+    "publishedAt": "2026-09-10T18:56:38.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "policy",
+      "k12",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "d6f1591eea5d173d",
+    "sourceId": "digital-promise",
+    "title": "What Children’s Creative Writing Taught Us About Responsible AI Use",
+    "summaryOriginal": "Story Sprout is a student-run creative writing program for children that leverages AI The post What Children’s Creative Writing Taught Us About Responsible AI Use appeared first on Digital Promise.",
+    "titleZhTW": "學生主導寫作計畫展現 AI 負責任應用",
+    "summaryZhTW": "Story Sprout 是由學生主導的兒童創意寫作計畫，善用 AI 輔助創作流程。實踐經驗顯示，在真實教學情境中讓學生親自操作生成式工具，能具體示範如何負責任地引導技術輔助表達，而非取代人類想像力。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/09/10/what-childrens-creative-writing-taught-us-about-responsible-ai-use",
+    "publishedAt": "2026-09-10T17:27:02.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "d4048d6383823e35",
+    "sourceId": "arxiv-cs-cy",
+    "title": "With a Thermomix You Lose the Ability to Cook: A Kitchen Machine Analogy for Applications of Generative AI in Education",
+    "summaryOriginal": "The rapid adoption of generative AI tools such as ChatGPT has sparked intense debate about their risks and opportunities for education, as well as the ways researchers should investigate them. In this paper, we approach these discussions through an analogy with the Thermomix, a smart kitchen appliance that has similarly provoked both enthusiasm and critique. By mapping Thermomix use cases onto…",
+    "titleZhTW": "生成式 AI 擬作 Thermomix：工具使用模式決定學習成效",
+    "summaryZhTW": "研究以智慧廚具 Thermomix 為隱喻，對照 ICAP 與 SAMR 兩大教學框架，說明生成式 AI 在教育中的不同使用模式。關鍵不在於學生是否使用 AI，而在於使用方式是促進深度參與、還是取代思考過程。此概念透鏡可協助教師與研究者批判性檢視並引導 AI 整合，避免學生喪失核心能力。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.09856",
+    "publishedAt": "2026-09-10T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "teaching",
+      "tools",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5a44a55390429460",
+    "sourceId": "mit-news-education",
+    "title": "MIT Schwarzman College of Computing launches pilot to help educators teach AI across disciplines",
+    "summaryOriginal": "A weeklong summer workshop brought higher education faculty to campus to explore how AI and machine learning materials can be adapted for their classrooms.",
+    "titleZhTW": "MIT 史瓦茲曼計算學院舉辦 AI 教育者試點工作坊，推動跨學科教學",
+    "summaryZhTW": "MIT 史瓦茲曼計算學院於夏季舉辦首屆 AI 教育者試點工作坊，邀請來自大波士頓、南卡羅來納、西維吉尼亞及德州等地 19 位大學教師參與為期一週的研習。工作坊以 MIT 課程「機器學習建模」為藍本，協助教師將核心 AI 概念與教材改編至各自學科課程，目標是培養學生成為具批判思維的 AI 使用者，而非單純的技術操作者。參與教師透過示範、練習與跨領域對話，探討如何將機器學習從「黑盒子」轉化為解決領域問題的工具，並建立持續交流的教育者網絡以擴大 AI 教育影響力。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/mit-schwarzman-college-computing-launches-pilot-help-educators-teach-ai-across-disciplines-0909",
+    "publishedAt": "2026-09-09T20:40:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "738365f36fefa289",
+    "sourceId": "openai-education-newsletter",
+    "title": "Responsible deployment in K12.",
+    "summaryOriginal": "How Lynwood Unified School District and Township High School District 211 pair privacy protections, professional learning, and a clear purpose to prepare faculty and staff to use AI responsibly.",
+    "titleZhTW": "美國兩學區推行 ChatGPT 策略：從教職員著手建立負責任 AI 應用基礎",
+    "summaryZhTW": "加州 Lynwood 統一學區與伊利諾州 211 區均先為教職員部署 ChatGPT，建立隱私防護、共同提示語言（CGPT 框架）與技能矩陣，避免工具碎片化。Lynwood 組成 AI 工作小組訂定三年路線圖，211 區則透過技能矩陣追蹤教師從認知到實踐的成長，兩年內「AI 積極應用」比例從 22% 升至 66%。兩區皆強調人類判斷不可取代，並將節省下的時間回歸師生關係與課程核心。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/ai-in-k12-lynwood-d211",
+    "publishedAt": "2026-09-09T14:30:58.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "k12",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2c2ff5157836a670",
+    "sourceId": "digital-promise",
+    "title": "Implementing AI in Schools: What Teachers Need to Make it Work",
+    "summaryOriginal": "AI implementation works when schools invest in teachers, not tools The post Implementing AI in Schools: What Teachers Need to Make it Work appeared first on Digital Promise.",
+    "titleZhTW": "Digital Promise：學校導入 AI 應投資教師而非工具",
+    "summaryZhTW": "文章指出 AI 在學校落地的關鍵在於支持教師專業發展，而非單純採購工具。只有當教師獲得足夠資源、時間與自主權，AI 才能真正融入教學並發揮效益。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/09/09/implementing-ai-in-schools-what-teachers-need-to-make-it-work",
+    "publishedAt": "2026-09-09T13:20:12.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "44b8062d4582d07f",
+    "sourceId": "edsurge",
+    "title": "Two Students, Two Questions They Wouldn’t Let Go",
+    "summaryOriginal": "Students asking why learning matters in the age of AI forces two teachers to respond.",
+    "titleZhTW": "兩位學生的堅持提問：教師如何面對 AI 時代的學習困境",
+    "summaryZhTW": "一位教師發現學生坦承使用 ChatGPT 並非作弊，而是為了跳過思考掙扎的過程，這讓她更關注如何保護學生的認知發展。另一位教師帶著八年級生「學習的意義為何」的提問參加程式設計峰會，從業界視角重新審視公平與身分認同，思考學生在 AI 未來真正需要什麼能力。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/two-students-two-questions-that-wouldnt-let-go",
+    "publishedAt": "2026-09-09T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "k12",
+      "teaching",
+      "integrity"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "20a6a3ca3c87af05",
+    "sourceId": "google-education",
+    "title": "Missouri and Google partner on AI and career training",
+    "summaryOriginal": "Google is partnering with Missouri to provide 1.1 million students free access to Gemini for Education and career certificates. See how to get started.",
+    "titleZhTW": "密蘇里州與 Google 合作推廣 AI 教育與職涯培訓",
+    "summaryZhTW": "密蘇里州教育部門與 Google 達成全州合作，為近 10 萬名教師與 110 萬名學生提供免費企業級 AI 工具、課程與產業認證。教師可使用 Gemini for Education 節省行政時間，學生則能修習 AI、網安、資料分析等職業證照課程。資料隱私由學校自主掌控，採用與否由各校區自行決定。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/missouri-state-education-partnership",
+    "publishedAt": "2026-09-08T15:05:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "teaching",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "7948c39493cbd65e",
+    "sourceId": "openai-news",
+    "title": "Funding grants for new research into AI and teen development",
+    "summaryOriginal": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
+    "titleZhTW": "OpenAI 提供 500 萬美元資助 研究生成式 AI 對青少年發展影響",
+    "summaryZhTW": "OpenAI 開放申請總額 500 萬美元的研究補助，支持獨立研究生成式 AI 如何影響青少年的發展、福祉與安全。此計畫將資助學者深入探討 AI 技術對青少年群體的具體衝擊，為教育現場與政策制定提供實證依據。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/teen-development-research-grants",
+    "publishedAt": "2026-09-08T09:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4a36ea7ba6bb268a",
+    "sourceId": "openai-news",
+    "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
+    "summaryOriginal": "OpenAI is expanding support for journalism with tools, training, and partnerships for students, educators, journalists, and news organizations.",
+    "titleZhTW": "OpenAI 擴大新聞業支援計畫 涵蓋教室至新聞室",
+    "summaryZhTW": "OpenAI 宣布擴大對新聞業的支援，提供工具、訓練與合作夥伴關係，服務對象包含學生、教育工作者、記者及新聞機構。此舉旨在從學校教育階段著手，強化新聞專業人才培育與現場採編能力。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
+    "publishedAt": "2026-09-08T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "cbc0196581d6efd1",
+    "sourceId": "edsurge",
+    "title": "AI Videos Are Warping Early Learning, Teachers Say",
+    "summaryOriginal": "The rise of so-called “baby slop” is turning early childhood educators into media critics.",
+    "titleZhTW": "AI 生成影片氾濫幼教平台 專家憂影響兒童認知發展",
+    "summaryZhTW": "大量低品質 AI 影片（被稱為「baby slop」）充斥 YouTube 等平台，內容錯誤、畫面怪異且缺乏教育價值，專家警告可能干擾幼兒分辨真偽、縮短專注力並造成認知超載。教師建議預覽影片、查證創作者背景、善用 Common Sense Media 等可信資源，並引導幼兒進行批判性觀看與對話。學校亦開始舉辦家長講座，協助家庭建立數位素養，共同守護幼兒學習環境。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/ai-videos-are-warping-early-learning-teachers-say-heres-how-theyre-responding",
+    "publishedAt": "2026-09-08T00:00:00.000Z",
+    "fetchedAt": "2026-09-14T01:25:01.440Z",
+    "issue": "2026-W37",
+    "topics": [
+      "k12",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "6d4a47f03b660e0e",
     "sourceId": "khan-academy-blog",
     "title": "Explore Career Options With Khan Academy’s Free Career Exploration Course",
