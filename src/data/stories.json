@@ -1,5 +1,375 @@
 [
   {
+    "id": "03e1662e64ba626b",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "Official Statistics: Destinations of key stage 4 (KS4) and 16 to 19 (KS5) students: 2025",
+    "summaryOriginal": "Data on key stage 4 (KS4) and 16 to 19 (KS5) students going into apprenticeship, education and employment destinations and, separately, on 16 to 19 (KS5) students progressing to higher education or training.",
+    "titleZhTW": "英國教育部預告 2025 學生畢業去向統計將於 2026 年 10 月發布",
+    "summaryZhTW": "英國教育部宣布將於 2026 年 10 月 15 日發布 2025 年關鍵階段 4（KS4）與 16 至 19 歲（KS5）學生的畢業去向官方統計，涵蓋升學、就業與學徒制等路徑。此數據將供學校、學院與政策制定者參考，了解學生離校後的實際轉銜情況。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/government/statistics/announcements/destinations-of-key-stage-4-ks4-and-16-to-18-ks5-students-2025",
+    "publishedAt": "2026-09-18T17:43:32.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "k12",
+      "policy",
+      "workforce"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
+    "id": "ada63585cb0755c6",
+    "sourceId": "gov-uk-dfe-ai",
+    "title": "Official Statistics: Destinations of key stage 4 (KS4) and 16 to 19 (KS5) students: 2026",
+    "summaryOriginal": "Data on key stage 4 (KS4) and 16 to 19 (KS5) students going into apprenticeship, education and employment destinations and, separately, on 16 to 19 (KS5) students progressing to higher education or training.",
+    "titleZhTW": "英國教育部預告 2026 學生畢業去向統計將於 2027 年 10 月發布",
+    "summaryZhTW": "英國教育部宣布將於 2027 年 10 月發布 2026 學年度關鍵階段 4（KS4）與 16 至 19 歲（KS5）學生的畢業去向官方統計。數據將涵蓋學生升學、就業、學徒制及高等教育進路情況，供教育現場參考規劃輔導與課程設計。",
+    "summarySource": "machine",
+    "url": "https://www.gov.uk/government/statistics/announcements/destinations-of-key-stage-4-ks4-and-16-to-18-ks5-students-2026",
+    "publishedAt": "2026-09-18T17:41:57.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "k12",
+      "policy",
+      "workforce"
+    ],
+    "region": "UK",
+    "language": "en"
+  },
+  {
+    "id": "a2f038ddf6ba57e0",
+    "sourceId": "mit-news-education",
+    "title": "A new chapter for MIT Reads",
+    "summaryOriginal": "A new focus on fiction and memoir aims to help the MIT community celebrate the power of storytelling and strengthen social connection.",
+    "titleZhTW": "MIT Reads 十週年轉型：聚焦小說回憶錄，以閱讀連結人與 AI 時代的共同人性",
+    "summaryZhTW": "MIT 圖書館的 MIT Reads 計畫邁入十週年，宣布將選書重心轉向小說與回憶錄，強調故事在 AI 時代促進社交連結與反思的價值。校長 Kornbluth 選定 2026 秋季讀本為 Ted Chiang 的《呼氣》，內容探討人機關係、自由意志等議題，並納入大一研討課程，邀請校內外讀者共同討論科技對人性的影響。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/new-chapter-mit-reads-0918",
+    "publishedAt": "2026-09-18T16:30:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "higher-ed",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "d59c3ad7d7b52e52",
+    "sourceId": "google-education",
+    "title": "Earn continuing education and college credits for AI educator training.",
+    "summaryOriginal": "Earn college or continuing education credits by taking the Google AI Educator Series courses.",
+    "titleZhTW": "Google AI 教育者系列開放換取大學學分與繼續教育時數",
+    "summaryZhTW": "Google AI 教育者系列推出新機制，完成 15 分鐘微課程的教師可免費換取 College Unbound 的大學部學分、透過 ISTE 與 Dominican University 取得研究所學分，伊利諾州教師更可折抵執照更新時數。9 月 19 日將舉辦 12 小時線上 Badge-a-thon 活動，參加即可同步獲得 ISTE 對齊數位徽章。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/college-credit-ai-educator-series",
+    "publishedAt": "2026-09-18T16:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a00923bf4ddda715",
+    "sourceId": "openai-news",
+    "title": "Introducing the Australian Youth Safety Blueprint",
+    "summaryOriginal": "OpenAI introduces the Australian Youth Safety Blueprint, a six-pillar roadmap for safer AI experiences that protect and empower young people.",
+    "titleZhTW": "OpenAI 推出澳洲青年安全藍圖 打造六大支柱守護青少年 AI 體驗",
+    "summaryZhTW": "OpenAI 發布「澳洲青年安全藍圖」，提出六大支柱路線圖，旨在建立更安全的 AI 體驗以保護並賦能年輕族群。此舉將直接影響教育現場對生成式 AI 的使用規範，教師與學校管理者可依循藍圖制定校園 AI 政策，確保學生在探索新技術時獲得適當防護與引導。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/australian-youth-safety-blueprint",
+    "publishedAt": "2026-09-18T12:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "386bb2fcf4cd1bed",
+    "sourceId": "ec-digital-education",
+    "title": "European Day of Languages 2026",
+    "summaryOriginal": "European Day of Languages 2026 hubacve Fri, 09/18/2026 - 13:39 Language and cultural institutes, associations, universities and schools will take part in a wide range of events across the EU and promote Europe’s multilingual heritage. Inclusion through language diversityThis year’s motto is “languages unite” - highlighting the importance of language learning and the need to safeguard linguistic…",
+    "titleZhTW": "歐盟語言日 2026 聚焦「語言團結」 推動多語包容教育",
+    "summaryZhTW": "歐盟委員會宣布 2026 年歐洲語言日主題為「語言團結」，強調語言多樣性對包容、民主與社會凝聚力的重要性。活動包含線上會議、圓桌論壇及展覽，邀請專家探討如何將語言差異轉化為優勢、教師如何支持多語學習者，以及翻譯與溝通如何保障參與權。同時發布《動機宣言》，呼籲決策者、學校與家庭建立平等重視所有語言的「動機生態」，鼓勵終身語言學習。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/whats-new/news/european-day-of-languages-2026",
+    "publishedAt": "2026-09-18T11:39:01.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "higher-ed",
+      "policy"
+    ],
+    "region": "EU",
+    "language": "en"
+  },
+  {
+    "id": "deac9b27af303783",
+    "sourceId": "inside-higher-ed",
+    "title": "Report: Student Protections Haven’t Kept Up With Higher Ed’s Adoption of AI",
+    "summaryOriginal": "",
+    "titleZhTW": "報告：高教採用 AI 速度過快，學生保護機制嚴重滯後",
+    "summaryZhTW": "Student Defense 最新報告指出，AI 已滲透招生、輔導、教學等高教核心環節，但偏見、隱私、透明度與學習社群流失等風險缺乏對應防護。報告呼籲校方在導入前先建立治理架構，確保技術為學生創造價值而非降低教育品質。",
+    "summarySource": "machine",
+    "url": "https://www.insidehighered.com/news/quick-takes/2026/09/18/report-higher-eds-adoption-ai-outpaces-student-guards",
+    "publishedAt": "2026-09-18T07:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "higher-ed",
+      "policy",
+      "integrity"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "b2ec39310b139349",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Harnessing Generative UI for Education: Tailored Learning Interactives",
+    "summaryOriginal": "It is well established that students learn best through active engagement, particularly via interactive experiences tied to real-world concepts. Creating such experiences, however, typically requires labor-intensive design, costly development, and continuous teacher guidance to achieve measurably effective outcomes. Recent advances in generative UI open the door for a future of practice where the…",
+    "titleZhTW": "利用生成式 UI 建構客製化教學互動模擬",
+    "summaryZhTW": "研究團隊提出「學習互動件」框架，運用 Gemini 的生成式 UI 能力自動產出客製化互動模擬，降低教師開發教材的門檻。專家教師評測顯示，此架構能改善現成模型在教學精確度與學習原則上的不足，有望讓主動學習體驗更易於大規模落地。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.20738",
+    "publishedAt": "2026-09-18T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "tools",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e858fea05ea1cbdb",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Who Decides? Agency and Legitimacy in Digital Educational Systems",
+    "summaryOriginal": "Digital Educational Systems (DES) enable millions of individuals to learn or to acquire new skills. Their promises vary from one platform to another: some grant genuine degrees, others pledge rapid progress, drawing for this purpose on a range of techniques, from the recommendation of learning resources through complex models to a plain course textbook uploaded onto a learning management system.…",
+    "titleZhTW": "數位教育系統的能動性與合法性：誰來決定學習權力？",
+    "summaryZhTW": "研究提出以「能動性」與「合法性」兩大維度分析數位教育系統，指出平台設計決定學習者擁有多少決策權，同時制度認證賦予學習合法性。作者將常見平台對應至這兩維度平面，發現部分區域平台稀少，並建議未來可透過演算法動態調節兩者平衡，以促進學習成效。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.19939",
+    "publishedAt": "2026-09-18T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "policy",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b398f064ae3ac094",
+    "sourceId": "arxiv-cs-hc",
+    "title": "What Parents Can See: Divergent Accounts of Youth AI Companion Use in Parenting and Teenager Subreddits",
+    "summaryOriginal": "Youth increasingly use AI companions, and parents are the primary mediators of that use. How effective that mediation can be depends on whether parents are aware of how adolescents actually use these systems and what risks and benefits such use carries; nevertheless, prior work has only studied these demographic groups in isolation, and existing taxonomies attend almost entirely to risk. We…",
+    "titleZhTW": "家長與青少年對 AI 陪伴機器人使用認知差距大，情感支持最易被忽視",
+    "summaryZhTW": "研究分析 Reddit 上 1,628 篇討論，發現青少年最常提及從 AI 獲得情感支持（31%），家長卻最關注戀愛與性互動（36%）。雙方對依賴風險關注度相近，但家長鮮少察覺情感支持等正向效益。研究指出，長時間聊天會留下依賴痕跡，性內容易被發現，單純傾訴卻難被察覺，建議家長引導與系統設計應重視這類「隱形使用場景」。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.20720",
+    "publishedAt": "2026-09-18T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "7e3d4cf9c53697e2",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Designing Against Deskilling: Metacognitive Feedback Reduces Cognitive Offloading to LLM Assistants",
+    "summaryOriginal": "Cognitive offloading to AI can reduce opportunities to practice skills, creating risks of deskilling. However, it remains unclear how to prevent deskilling without restricting access to AI. Here, we design two interventions to reduce offloading decisions: (1) metacognitive feedback that makes the implications of offloading for users explicit, and (2) an effort-based reward that incentivizes less…",
+    "titleZhTW": "元認知回饋降低學生對 LLM 的認知卸載並提升測驗表現",
+    "summaryZhTW": "研究設計元認知回饋與獎勵機制兩種介入，測試能否減少學生在練習分數運算時向 LLM 尋求答案。實驗發現，讓學生明確意識到卸載思考的後果，能顯著降低尋求答案比例並提升後測表現；單純獎勵機制則無顯著效果。這顯示在教育場景中，透過提升學生元認知覺察，比外在誘因更能避免技能退化。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.20143",
+    "publishedAt": "2026-09-18T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "teaching",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f5c525a2639cb655",
+    "sourceId": "openai-education-newsletter",
+    "title": "Moving Higher Education into the Agentic Era: What Faculty Built at Codex Summer Studio",
+    "summaryOriginal": "This summer, OpenAI launched the Codex Summer Studio for Faculty and Researchers—a four-week virtual working series designed to unlock a fundamental shift in how higher education uses AI.",
+    "titleZhTW": "OpenAI Codex 夏季工作坊：教師打造 AI 代理工具解決教學痛點",
+    "summaryZhTW": "OpenAI 舉辦 Codex 夏季工作坊，引導教師從單純問答轉向委託 AI 執行複雜任務。牛津大學教師開發互動式蛋白質結構視覺化工具，三視圖同步更新，學生反饋將顯著深化理解。舊金山州立大學設計 MBA 非技術生專案，評核重點從答案轉向學習過程；聖荷西州立大學打造分組助手 TeamWeaver，優先強化弱勢小組並保留教師決策權。研究端建立可驗證的金融數據管線與質性研究審計框架，核心原則為聚焦真實問題、小步迭代、人機協作驗證。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/codex-summer-studio",
+    "publishedAt": "2026-09-17T16:07:38.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "c2fee2e45c77e459",
+    "sourceId": "mit-news-education",
+    "title": "“Technology is the equalizer”",
+    "summaryOriginal": "Using knowledge gained from MIT’s free learning materials, an educator in rural India builds apps to reach students who can’t make it to school.",
+    "titleZhTW": "印度鄉村教師善用 MIT 開放課程開發 App 改善缺課問題",
+    "summaryZhTW": "印度拉賈斯坦邦鄉村教師 Mewati 利用 MIT OpenCourseWare 的免費程式設計課程自學開發手機 App，透過 WhatsApp 群組將教材發送給缺課學生，並建立電腦教室與熱點上網環境。他開發的數學遊戲、考試複習與母語健康教學 App，讓缺乏電腦設備的學生仍能透過智慧型手機持續學習，並與全印度超過千名教師分享開放資源經驗。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/technology-is-the-equalizer-0916",
+    "publishedAt": "2026-09-16T20:40:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "k12",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "ca154bd8b413214d",
+    "sourceId": "edsurge",
+    "title": "The Missing Middle: Why Kids Still Struggle to Read After Third Grade",
+    "summaryOriginal": "What happens when middle school students hit the reading comprehension wall.",
+    "titleZhTW": "中學閱讀困境：早期補救措施無法觸及落後學生",
+    "summaryZhTW": "研究顯示疫後閱讀分數雖整體回升，但表現最差的中學生反持續落後。專家指出，早期年級有效的識字改革未延伸至中學階段，導致補救斷層。另一位實踐者觀察到，學生雖能流暢朗讀，卻因文本難度驟增與背景知識需求專業化，而在六年級時無法理解內容。兩位專家皆強調，需區分單純給答案的 AI 工具與引導學生回到文本獨立思考的工具，並認為縮減差距需長期系統性投入，非單一修補可解。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/the-missing-middle-why-kids-still-struggle-to-read-after-third-grade",
+    "publishedAt": "2026-09-16T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "a142e6ce1018f975",
+    "sourceId": "edsurge",
+    "title": "What Yellowstone, Rwanda and AI Taught Me About Change",
+    "summaryOriginal": "By viewing our classrooms as interconnected ecosystems, we can move beyond the surface-level debate over technology to focus on cultivating judgment, ...",
+    "titleZhTW": "AI 改變的是師生與思考的關係，而非單純引入工具",
+    "summaryZhTW": "作者從盧安達背水經驗與黃石公園狼群重建生態系的案例發現，真正的變革源於系統內部關係的重組，而非單一課程或工具的優化。AI 進入校園同樣改變了學生與思考、努力與成就、教師與專業權威的關係，教育現場應聚焦於保留判斷力、好奇心、同理心等人類核心思考，而非只追求效率。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/what-yellowstone-rwanda-and-ai-taught-me-about-change",
+    "publishedAt": "2026-09-16T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "aefa3c28522aa482",
+    "sourceId": "digital-promise",
+    "title": "Cultivating Radical Empathy and Responsibility in the AI Generation",
+    "summaryOriginal": "How students in Turkey use AI for social good The post Cultivating Radical Empathy and Responsibility in the AI Generation appeared first on Digital Promise.",
+    "titleZhTW": "土耳其學生善用 AI 實踐社會公益",
+    "summaryZhTW": "Digital Promise 報告土耳其學生如何運用 AI 技術推動社會公益專案。文章著重於培養新世代對科技的同理心與責任感，展現學生將 AI 應用於解決真實社會問題的實踐案例。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/09/15/cultivating-radical-empathy-and-responsibility-in-the-ai-generation",
+    "publishedAt": "2026-09-15T18:06:47.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "31ea83404e5ef099",
+    "sourceId": "openai-education-newsletter",
+    "title": "The AI Retrofit: One Way Chico State Is Leveraging AI for Teaching and Learning",
+    "summaryOriginal": "An interview with Zach Justus on making faculty development practical, honest, and grounded in real classrooms",
+    "titleZhTW": "加州州立大學奇科分校推「AI 改造」計畫 協助近 200 位教師調整課程因應生成式 AI",
+    "summaryZhTW": "奇科分校推出「AI Retrofit」教師發展計畫，不要求教師重建課程，而是引導他們評估生成式 AI 對既有作業的衝擊，再調整評量方式。計畫以一週密集工作坊搭配津貼，已觸及近 15% 教學人員，並將擴展至全 CSU 系統。教師先親自測試 AI 完成自家作業，再訪問畢業生與業界，最後從無科技考試、多模態評量、歷程導向設計等選項中自行決定改造方向。多位教師已實踐成果：以影片回應取代書面討論、設計「與 AI 辯論」行銷策略作業、開發客製化 GPT 輔助程式檢核與課程問答，並建立講影片即時問答伴讀工具。核心在於讓學生看見學習歷程與職涯連結，重拾學習動機。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/the-ai-retrofit-chico-state",
+    "publishedAt": "2026-09-15T13:02:50.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "70c9104aa823b061",
+    "sourceId": "digital-promise",
+    "title": "Powerful Learning Takes Root at Coretta Scott King Young Women’s Leadership Academy",
+    "summaryOriginal": "One student's question grew into a movement of curiosity and connection The post Powerful Learning Takes Root at Coretta Scott King Young Women’s Leadership Academy appeared first on Digital Promise.",
+    "titleZhTW": "學生提問激發好奇連結 亞特蘭大女子學院展現深度學習",
+    "summaryZhTW": "文章描述亞特蘭大 Coretta Scott King Young Women's Leadership Academy 一名學生的提問，如何引發全校師生共同探究，形成以好奇心驅動、跨領域連結的深度學習文化。此案例顯示當學生問題成為課程核心，能有效促進學習動機與社群連結。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/09/14/powerful-learning-takes-root-at-coretta-scott-king-young-womens-leadership-academy",
+    "publishedAt": "2026-09-14T20:46:14.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "4c25e83c5a3e61ab",
+    "sourceId": "edsurge",
+    "title": "New York and Los Angeles Ban Student-Facing AI (For Now). Should Other Schools Follow?",
+    "summaryOriginal": "The bans, coupled with a new APA report, signal a shift from rapid AI adoption toward more deliberate evaluation.",
+    "titleZhTW": "紐約與洛杉磯暫停學生使用生成式 AI，心理學會建議嚴審教學工具效度",
+    "summaryZhTW": "紐約市與洛杉磯聯合學區分別宣布暫停公立中小學生使用面向學生的生成式 AI 工具，美國心理學會同步發布報告，指出許多教科技應用以使用率當學習成效，並呼籲在採購前要求實證。專家認為這是「暫停」而非永久禁止，提醒學校不必跟著市場腳步，應先釐清工具保護何種學習、可能帶來何種風險。一線教師表示，限制反而能引發師生對 AI 優缺點的批判性對話，若缺乏討論的全面禁令恐成權宜之計，真正的工作在於攜手學生一起審視技術。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/new-york-and-los-angeles-ban-student-facing-ai-for-now-should-other-schools-follow",
+    "publishedAt": "2026-09-14T00:00:00.000Z",
+    "fetchedAt": "2026-09-21T01:25:02.868Z",
+    "issue": "2026-W38",
+    "topics": [
+      "policy",
+      "k12",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "5b1b402141b8ef6e",
     "sourceId": "inside-higher-ed",
     "title": "Can AI Help Colleges Reach Struggling Students Earlier?",
