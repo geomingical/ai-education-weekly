@@ -1,5 +1,372 @@
 [
   {
+    "id": "6cc5d5162fbca7de",
+    "sourceId": "oecd-ai-education",
+    "title": "Which student outcomes matter for the future and how do we measure them?",
+    "summaryOriginal": "By Yuri Belfali, Head of Early Childhood and Schools, OECD, Robbie Dean, Senior Director, Monitoring, Evaluation, Research and Learning at … More",
+    "titleZhTW": "OECD 探討 AI 時代學生關鍵成果與衡量方式",
+    "summaryZhTW": "OECD 與多國教育組織指出，PISA 2025 顯示學生適應力、毅力等關鍵能力持續下降，呼籲教育體系除學術表現外，同步發展與衡量目標感、幸福感、能動性等多維成果。文章引述多國研究與實踐，強調透過整體性評量與學生回饋，能幫助教師掌握學生需求並加速學習，台灣學習檔案制度亦被列為替代評量範例。",
+    "summarySource": "machine",
+    "url": "https://oecdedutoday.com/which-student-outcomes-matter-for-the-future-and-how-do-we-measure-them",
+    "publishedAt": "2026-09-25T14:30:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "policy",
+      "research",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "9ed826d15583b7b9",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Mapping the Authorized Boundary: A Comparative Policy-Vignette Study of Generative AI Governance in Australian Higher Education",
+    "summaryOriginal": "Australian universities regulate students' use of generative artificial intelligence (GenAI) through overlapping policies, procedures, guidance, and assessment instructions, but these environments may classify identical conduct differently. We applied 15 standardized student-use vignettes to the public policy environments of 20 Australian universities and produced 300 university-case…",
+    "titleZhTW": "澳洲大學生成式 AI 政策差異大 同一行為判定不一",
+    "summaryZhTW": "研究以 15 個學生使用情境測試 20 所澳洲大學的公開政策，發現同一行為在不同校園被判定為「明確禁止」到「不確定」不等，僅明確禁止考試作弊達共識。綁定性文書有 100 項對生成式 AI 沉默，指引文件才澄清 88 項，顯示校園治理更側重保留 AI 文字而非過程輔助，現行書面規範難支撐一致且可辯護的判定。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.29689",
+    "publishedAt": "2026-09-25T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "policy",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "fb0216e38074430a",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Make it SewSimple: Navigating UK Curriculum and Classroom Practice in Secondary Computing Education with E-textiles",
+    "summaryOriginal": "This paper explores the potential of integrating e-textiles as part of the approach to delivering computing in UK secondary schools. As one of the few UK-based exploratory studies of teachers experiences, it investigates how e-textile platforms such as the SewSimple maker kit and the BBC micro:bit can be incorporated into Key Stage 3 computing education (ages 11-14), taking into account both…",
+    "titleZhTW": "英國中學嘗試以電子紡織教學 結合 micro:bit 落實程式課綱",
+    "summaryZhTW": "研究透過參與式設計工作坊，讓教師實地操作 SewSimple 教具與 BBC micro:bit，探討如何在 Key Stage 3（11-14 歲）計算課程中引入電子紡織。教師回饋顯示，跨領域教材能增加學生動機，但也面臨課表排程、課綱對應與教具採購三大現實阻力。論文建議學校在現有體制下，先從小規模試教與跨科合作著手，逐步建立教師信心與資源庫，以擴大創客科技在正規課程的滲透率。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.28485",
+    "publishedAt": "2026-09-25T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "k12",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f7e336dc3717fa89",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Guardrails or Roadblocks? Effects of Pedagogical Style and Context Awareness in AI Teaching Assistants for Programming",
+    "summaryOriginal": "AI teaching assistants (AI TAs) backed by large language models (LLMs) and pedagogical guardrails are increasingly being integrated into programming courses, providing students with scalable access to hints, conceptual explanations, and code-level feedback. However, guardrails may also create friction. If students feel that the support provided is overly restrictive or poorly contextualized to…",
+    "titleZhTW": "AI 教學助理的教學風格與情境感知對學生學習體驗的影響",
+    "summaryZhTW": "研究針對 132 位入門程式設計學生進行隨機對照實驗，比較蘇格拉底式與直接教學風格、以及是否具備完整情境感知的四種 AI 教學助理組合。結果顯示，具備完整情境的蘇格拉底式 AI 助理獲得學生最低評價，感知支援度最低、互動壓力最高、轉用外部 LLM 比例最高，且任務後完整理解比例最低。研究指出，教學防護機制若未平衡教學引導與情境感知，反而可能阻礙學習，關鍵在於學生是否體驗為有用且願持續使用。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.29995",
+    "publishedAt": "2026-09-25T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "teaching",
+      "tools",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3f4a7ae99d2d9ec2",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Will It Teach as Intended? How Teachers Configure Educational AI Chatbots",
+    "summaryOriginal": "Teachers are increasingly using generative AI to support instruction, yet it remains unclear how pedagogical intentions are translated into chatbot configurations and reflected in chatbot behavior. We studied a teacher-facing chatbot authoring tool in professional development workshops with 27 middle school teachers, analyzing focus-group interviews alongside configuration and interaction logs.…",
+    "titleZhTW": "教師如何設定教育 AI 聊天機器人：意圖與實際行為的落差",
+    "summaryZhTW": "研究觀察 27 位中學教師使用撰寫工具設定教學聊天機器人，發現教師期望機器人提供差異化支援並保留學生思考，但日誌分析顯示「目的」與「規則」兩項設定與實際行為的符合度分別僅 59.3% 與 70.4%，遠低於人設與回應性。結果指出單靠可設定參數無法保證教學忠實度，工具需協助教師表達、測試並修正預期行為。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2609.29993",
+    "publishedAt": "2026-09-25T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "11967ab80de70ba5",
+    "sourceId": "openai-education-newsletter",
+    "title": "Flashcards, quizzes, and a project students can build",
+    "summaryOriginal": "The Edu Prompt, Issue 6: Practical ways to help college students study, build, and explain what they know.",
+    "titleZhTW": "OpenAI 教育通訊：閃卡、測驗與 45 分鐘專案建構",
+    "summaryZhTW": "OpenAI 推出 ChatGPT 閃卡與互動測驗功能，學生可上傳筆記自動生成複習教材，並透過 Handshake AI Skills Studio 在 45 分鐘內完成多人遊戲專案，無需程式背景即可發布分享。日本學生黑客松展示 AI 協作家具設計、無障礙溝通工具等創意成果，獲勝團隊將赴矽谷 DevDay。美國大學生現可申請四個月免費 ChatGPT Plus，OpenAI Academy 同步推出教師與大學生課程，協助教案規劃、專案管理與履歷準備。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/the-edu-prompt-issue-6",
+    "publishedAt": "2026-09-24T18:41:30.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "917d624ede4abc58",
+    "sourceId": "openai-education-newsletter",
+    "title": "Extraordinary. Stefano Puntoni and the Effort Worth Keeping.",
+    "summaryOriginal": "Listen now (36 mins) | A conversation with Wharton’s Stefano Puntoni about making the most of AI while preserving and strengthening the skills we need for the future.",
+    "titleZhTW": "沃頓學院教授談 AI 教學：區分「好摩擦」與「壞摩擦」守護深度學習",
+    "summaryZhTW": "沃頓學院市場行銷教授 Stefano Puntoni 指出，AI 應移除如查找課程大綱死線等「壞摩擦」，卻必須保留解題、構思等能建構理解的「好摩擦」。他建議教師先自行完成核心構想，再用 AI 試跑作業或模擬學生提問，以免過早外包思考而削弱專業判斷力。Puntoni 並強調，教育者需引導學生反思哪些能力屬於不可替代的人類肌肉，如領導力、同理心與說服力，並在 AI 時代持續修練這些核心技能。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/extraordinary-stefano-puntoni",
+    "publishedAt": "2026-09-23T17:38:08.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "52e46e8371e1f699",
+    "sourceId": "openai-news",
+    "title": "Two years of OpenAI Academy",
+    "summaryOriginal": "Marking two years of OpenAI Academy and bringing AI skills to even more communities.",
+    "titleZhTW": "OpenAI Academy 邁入第二年 擴大 AI 技能推廣範圍",
+    "summaryZhTW": "OpenAI Academy 成立兩週年，宣布將把 AI 技能培訓帶給更多社群。此舉旨在降低技術門檻，讓更多教育工作者與學習者能夠接觸並善用生成式 AI 工具。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/two-years-of-openai-academy",
+    "publishedAt": "2026-09-23T16:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "017727465a1f4c6f",
+    "sourceId": "e-estonia",
+    "title": "From memorisation to reasoning: What makes us smart in the age of AI?",
+    "summaryOriginal": "Throughout history, access to knowledge has been limited. Education was largely reserved for those with access to scarce learning materials, and this shaped our understanding of what it means to be a smart person. Technology has changed this reality. Today, all of the world’s information is available in our pockets, and AI has proven toread more The post From memorisation to reasoning: What makes…",
+    "titleZhTW": "愛沙尼亞推動 AI Leap 計畫：從記憶轉向推理，重新定義 AI 時代的智慧",
+    "summaryZhTW": "愛沙尼亞觀察到 AI 普及使記憶知識價值下降，未來智慧將以推理、提問、辨識資訊真偽與連結資訊為核心指標。PISA 數據顯示愛沙尼亞學生使用 AI 聊天機器人比例（58%）高於 OECD 平均（46%），且有 73% 學生在校學習驗證 AI 資訊。AI Leap 試辦年度顯示 64.9% 教師從管控轉為引導 AI 使用，44% 認為角色轉為關鍵媒介者，教師協作與 AI 學習圈參與度顯著提升，作業設計與評量制度亦開始調整，課堂層級逐漸轉向師生夥伴關係。",
+    "summarySource": "machine",
+    "url": "https://e-estonia.com/what-makes-us-smart-in-the-age-of-ai",
+    "publishedAt": "2026-09-23T11:23:57.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "teaching",
+      "policy",
+      "k12"
+    ],
+    "region": "EE",
+    "language": "en"
+  },
+  {
+    "id": "5ab590850491008e",
+    "sourceId": "openai-news",
+    "title": "Grab and OpenAI bring practical AI skills to Southeast Asia",
+    "summaryOriginal": "OpenAI and Grab launch GO Forward with AI, a regional programme helping 30,000 partners build practical AI skills across Southeast Asia.",
+    "titleZhTW": "OpenAI 攜手 Grab 推動東南亞 3 萬夥伴學習實用 AI 技能",
+    "summaryZhTW": "OpenAI 與 Grab 合作啟動「GO Forward with AI」區域計畫，目標協助東南亞 3 萬名合作夥伴建立實用 AI 技能。此舉將生成式 AI 應用延伸至車隊、外送與商家等一線場域，讓基層工作者能直接掌握提升效率的工具。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/grab-openai-ai-skills-southeast-asia",
+    "publishedAt": "2026-09-23T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a8e9c48ab5c6bb8c",
+    "sourceId": "edsurge",
+    "title": "Why AI Made Me a Better Principal",
+    "summaryOriginal": "The true metric of AI in school leadership is not time saved, but the presence and clarity restored to daily decision-making.",
+    "titleZhTW": "校長實測：AI 非只為省時，更能釋放注意力回歸教學領導",
+    "summaryZhTW": "一位維吉尼亞州校長分享如何將生成式 AI 當作「低風險思維夥伴」，在通勤時以語音對話梳理當天優先事項、預演困難對話、事後複盤盲點，並利用自訂工作流將每週通訊轉為音訊摘要、從校務文件中萃取決策線索。他強調 AI 不取代人類教練與專業判斷，而是降低認知負荷，讓他能更專注走進教室、傾聽師生、在關鍵時刻做更好的決策，將稀缺資源從「時間」轉向「完整的注意力」。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/why-ai-made-me-a-better-principal",
+    "publishedAt": "2026-09-23T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "b1fbb2a9a53ae920",
+    "sourceId": "edsurge",
+    "title": "The Cost of Unchecked Assumptions: Fewer Male Teachers, More Baby Slop",
+    "summaryOriginal": "In this episode of This Week with EdSurge, two reporters explain why it is so important to trust but verify teacher motivations and educational videos.",
+    "titleZhTW": "男性教師流失與 AI 幼兒影片氾濫：雙重教育隱憂",
+    "summaryZhTW": "EdSurge 專訪指出，刻板印象讓男性教師常被誤認、邊緣化，導致留任率下降；同時大量 AI 生成的「嬰兒爛片」充斥平台，內容違背常理，恐干擾幼兒辨識真實世界的能力。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/the-cost-of-unchecked-assumptions-fewer-male-teachers-more-baby-slop",
+    "publishedAt": "2026-09-23T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "k12",
+      "tools",
+      "integrity"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "74306f66506c6716",
+    "sourceId": "microsoft-education",
+    "title": "Microsoft’s commitment for AI in education: Protecting students, strengthening learning",
+    "summaryOriginal": "Education is built on a meaningful partnership among educators, students and families that helps unlock human potential and shape brighter futures. The post Microsoft’s commitment for AI in education: Protecting students, strengthening learning appeared first on Microsoft Education Blog.",
+    "titleZhTW": "微軟發布教育 AI 五大原則：保護學生隱私、教師主導、避免認知卸載、強化系統效能、普及 AI 技能",
+    "summaryZhTW": "微軟宣示教育 AI 需遵循五大原則：以設計確保安全、隱私與透明；教師保持核心決策角色；AI 輔助而非取代學生思考；協助學校整合資料提升行政與研究效能；並讓所有學生具備 AI 素養與就業競爭力。微軟已與美國教師聯盟簽署協議、推出隱私安全標準，並在多地學校驗證 Copilot 可降低輟課率、節省經費。",
+    "summarySource": "machine",
+    "url": "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education",
+    "publishedAt": "2026-09-22T00:20:57.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a532895bc61b2153",
+    "sourceId": "edsurge",
+    "title": "Learning Commons Launches Open Platform for K-12 Edtech",
+    "summaryOriginal": "The CZI-backed initiative helps educators and developers use state standards, curricula, and datasets to create and evaluate classroom AI, but critics ...",
+    "titleZhTW": "非營利組織 Learning Commons 推開放平台 整合全美 K-12 標準與教材",
+    "summaryZhTW": "獲 Chan Zuckerberg Initiative 支持的非營利組織 Learning Commons 正式推出開放平台，免費提供全美 50 州學術標準、學習進階圖譜、課程教材及 AI 評估工具，並與 Canva Education、MagicSchool 等六大合作夥伴整合。平台核心包含知識圖譜與評估器，旨在解決開發者與學校將證據型資源對齊州標準耗時、昂貴且易出錯的難題。伊利諾州 Lisle 學區已利用測試版開發數學形成性評估應用，教師可更精準掌握學生先備知識缺口。不過現場教育者指出，缺乏資訊團隊的學區難以自行部署，仍需外部技術支援；學者並關切單一矽谷背景機構壟斷 AI 基礎建設，可能影響教學自主權與資料權威定義。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/learning-commons-launches-open-ai-platform-for-k-12-edtech",
+    "publishedAt": "2026-09-22T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "k12",
+      "tools",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "a860ba9540ca8a47",
+    "sourceId": "khan-academy-blog",
+    "title": "Five Things School Leaders Do That Make SAT Practice Actually Work",
+    "summaryOriginal": "This is the second of two guest blog posts written by Danielle Sullivan, Senior Partnerships Manager of the ... Read more The post Five Things School Leaders Do That Make SAT Practice Actually Work appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 分享校長推動 SAT 練習成效的五大關鍵做法",
+    "summaryZhTW": "Khan Academy 合作夥伴經理訪談三位高中校長，發現提升 SAT 練習成效不在工具本身，而在校園文化建設。關鍵在於：校長持續將 SAT 列為優先事項、直接與學生溝通激發動機、避免將備考塞進諮商時段改由各科教師融入課堂、讓師生共同掌握並理解個人數據、以低成本活動如聯誼日、舞會門票等給予學生認同感。這五項做法強調領導力、學生主體性與全校參與，比單一平台更能決定成敗。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/five-things-school-leaders-do-that-make-sat-practice-actually-work",
+    "publishedAt": "2026-09-21T17:44:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "9e313ce8d542e122",
+    "sourceId": "google-education",
+    "title": "Expanding free AI training for educators",
+    "summaryOriginal": "At the United Nations General Assembly in New York City, Google.org is committing $4 million to Digital Promise to help equip teachers and faculty with free, practical A…",
+    "titleZhTW": "Google.org 捐 400 萬美元助教師免費學 AI",
+    "summaryZhTW": "Google.org 在聯合國大會宣布捐贈 400 萬美元給 Digital Promise，擴大「Google AI Educator Series」免費訓練，目標覆蓋美國 600 萬 K-12 與高教教師。課程由 ISTE 合作設計，採「教師教教師」自學模組，完成可獲數位徽章。Digital Promise 將協助州教育廳、學區與社區大學建立長期 AI 專業發展網絡，並發布開放研究指南供全球高教機構參考。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/digital-promise",
+    "publishedAt": "2026-09-21T16:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4948bad67829621d",
+    "sourceId": "digital-promise",
+    "title": "New Grantees Awarded by the K-12 AI Infrastructure Program",
+    "summaryOriginal": "The K-12 AI Infrastructure Programs Awards New Cohort of Grantees The post New Grantees Awarded by the K-12 AI Infrastructure Program appeared first on Digital Promise.",
+    "titleZhTW": "Digital Promise K-12 AI 基礎建設計畫公布新一批獲補助單位",
+    "summaryZhTW": "Digital Promise 的 K-12 AI 基礎建設計畫宣布新一期獲補助名單，將資源投入學校層級的 AI 基礎設施建置。此舉旨在協助教育現場完善技術環境，讓師生能更穩定地使用 AI 工具進行教學與學習。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/09/21/new-grantees-awarded-by-the-k-12-ai-infrastructure-program",
+    "publishedAt": "2026-09-21T13:18:45.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "k12",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "2f8d9b98fc157bb3",
+    "sourceId": "openai-news",
+    "title": "Expanding OpenAI Academy with new learning paths",
+    "summaryOriginal": "Explore new OpenAI Academy learning paths for employees, developers, leaders, educators, and students to build and demonstrate practical AI skills.",
+    "titleZhTW": "OpenAI Academy 擴充學習路徑 面向員工開發者與教育者",
+    "summaryZhTW": "OpenAI Academy 新增針對員工、開發者、領導者、教育者與學生的學習路徑，提供實作導向的 AI 技能課程。這些路徑旨在幫助不同角色建立並展示實用的 AI 能力，支援教育現場與職場的 AI 應用發展。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths",
+    "publishedAt": "2026-09-21T07:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "tools",
+      "workforce",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2dbcbf92cf3f0045",
+    "sourceId": "edsurge",
+    "title": "Navigating the Future of Work: A Conversation with JFF’s Maria Flynn",
+    "summaryOriginal": "From baseline AI literacy to early career exposure, Jobs for the Future president Maria Flynn shares how education systems can prepare young people for ...",
+    "titleZhTW": "JFF 執行長 Maria Flynn：學校與職場脫節，AI 基礎素養應成畢業門檻",
+    "summaryZhTW": "Maria Flynn 指出蓋洛普民調顯示，家長對 K-12 學校讓學生勝任當前職場、批判性思考與 AI 應用的信心極低，反映教育優先順序與勞動市場需求嚴重脫節。她主張高中畢業生應具備如打字般基礎的 AI 素養，並建議將職涯探索下延至國中階段、擴大教師實習與輔導資源，讓學生更早接觸多元升學就業路徑。雇主端則正重新檢視入門職學歷門檻，推廣「邊做邊學」學徒制，以免 AI 取代初階職位切斷青年就業階梯。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/navigating-the-future-of-work-a-conversation-with-jffs-maria-flynn",
+    "publishedAt": "2026-09-21T00:00:00.000Z",
+    "fetchedAt": "2026-09-28T01:29:29.680Z",
+    "issue": "2026-W39",
+    "topics": [
+      "workforce",
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "03e1662e64ba626b",
     "sourceId": "gov-uk-dfe-ai",
     "title": "Official Statistics: Destinations of key stage 4 (KS4) and 16 to 19 (KS5) students: 2025",
