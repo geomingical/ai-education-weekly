@@ -1,5 +1,255 @@
 [
   {
+    "id": "bfc4355d370530a8",
+    "sourceId": "anthropic-education",
+    "title": "Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap",
+    "summaryOriginal": "The first-of-its-kind Academy trains Frontier Deployed Engineers using the same standard of skills as Anthropic’s own engineers, starting with cohorts from Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley, Novo Nordisk and others.Today we are launching Claude Frontier Academy to solve one of the most pressing issues in AI implementation: talent.…",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://www.anthropic.com/news/claude-frontier-academy",
+    "publishedAt": "2026-10-02T17:12:50.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "dfa8b8e2c493bc59",
+    "sourceId": "khan-academy-blog",
+    "title": "Five Ways Khan Academy Is Making Student Practice More Motivating",
+    "summaryOriginal": "Practice is one of the most powerful ways students build real understanding. But every teacher knows that getting ... Read more The post Five Ways Khan Academy Is Making Student Practice More Motivating appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出 Gem Challenges 以集體目標激發學生練習動機",
+    "summaryZhTW": "Khan Academy 重新設計學生體驗，引入「Missions」引導下一步練習、以「Gems」具體化學習進度並可解鎖 Khanmigo 配件，並推出班級共同目標「Gem Challenges」。教師可自訂獎勵，系統自動統計全班 Gems 進度，達成目標後可列印證書共同慶祝，旨在將 LearnStorm 的集體激勵精神融入日常教學，降低教師額外負擔。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/five-ways-khan-academy-is-making-student-practice-more-motivating",
+    "publishedAt": "2026-10-02T13:43:28.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "59d88ee0fd4c3ec0",
+    "sourceId": "mit-news-education",
+    "title": "3 Questions: A new resource to empower young entrepreneurs",
+    "summaryOriginal": "Martin Trust Center Managing Director Bill Aulet introduces Dear Dreamer, a free platform for middle and high school students who want to learn about entrepreneurship.",
+    "titleZhTW": "MIT 推免費 AI 創業平台 Dear Dreamer 面向中小學生",
+    "summaryZhTW": "MIT 馬丁信託創業中心將成熟的「紀律創業」24 步驟框架，透過生成式 AI 工具改寫為自學式數位平台 Dear Dreamer，免費開放給國高中生使用。平台結合短影片、互動練習與個人化回饋，目標在 2030 年前啟發 5 萬名年輕創業家。創辦人 Aulet 指出，創業思維不僅用於創業，更能幫助學生在快速變遷的世界中，從尋職者轉為創造機會的主動者。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/3-questions-new-resource-empower-young-entrepreneurs-1002",
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "tools",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "e5f14c5759451f63",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Designing for Interpretation Uncertainty: Architecture and Principles for Topological Learning Analytics Dashboards",
+    "summaryOriginal": "Topological Data Analysis (TDA) offers novel methods for understanding temporal dynamics in complex systems, yet its application in information systems design faces a fundamental challenge: how should systems present analytical outputs when interpretation frameworks are still developing? This paper reports on the development of TopoLA, a dashboard system applying Zigzag Persistent Homology to…",
+    "titleZhTW": "拓樸學習分析儀表板設計：分離測量與詮釋、漸進揭露、明確標示不確定性",
+    "summaryZhTW": "研究團隊開發 TopoLA 儀表板，將 Zigzag Persistent Homology 應用於學習管理系統資料，並提出三項早期設計原則：將客觀測量與情境詮釋分離、從指標到模式再到反思提示漸進揭露、以及明確標示方法論不確定性。此模組化三階段管線（特徵萃取、拓樸計算、詮釋支援）可擴充其他分析方法，為新興計算技術進入教育場域時、缺乏既定詮釋規範的溝通挑戰提供初步設計知識。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.01749",
+    "publishedAt": "2026-10-02T00:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "cd1e35483a8f5dea",
+    "sourceId": "arxiv-cs-cy",
+    "title": "WIP: DBWorkout: A Gamified SQL Practice Platform to Support Formative Learning in Database Courses",
+    "summaryOriginal": "This research WIP paper presents DBWorkout, a web-based platform that supports formative SQL learning through sandbox-based execution, automated result-based feedback, and session-based gamification. Learning Structured Query Language (SQL) remains challenging for undergraduate students due to limited opportunities for interactive practice and immediate feedback. Students iteratively practice SQL…",
+    "titleZhTW": "DBWorkout：結合遊戲化與 LLM 的 SQL 練習平台",
+    "summaryZhTW": "DBWorkout 提供沙箱環境讓學生即時練習 SQL，並以 LLM 協助教師生成題目與結構。試用顯示 90% 學生認為有學習價值、87% 感到愉悅，但僅 42% 認為自動回饋具可執行性，開放式回應亦印證回饋品質有待加強。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.01174",
+    "publishedAt": "2026-10-02T00:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "338c84469fd6d92f",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Who Thinks First? Designing Productive Friction with Engage-to-Unlock GenAI",
+    "summaryOriginal": "Generative AI can support writing, but frictionless access may cause cognitive offloading before users develop their own ideas. We introduce Engage-to-Unlock, a productive-friction mechanism that unlocks generative capabilities after users meaningfully engage with the task. In a controlled experiment (N = 398), participants completed a writing task under one of four conditions: Human-Only,…",
+    "titleZhTW": "研究設計「先投入再解鎖」機制，減少寫作時過度依賴生成式 AI",
+    "summaryZhTW": "實驗比較四種寫作輔助模式，發現必須先自行投入寫作才能啟用 AI 的「Engage-to-Unlock」組別，參與者花更多時間撰寫、較少時間評估，整體耗時未增加，且評估準確率與效率最高。結果顯示，在生成式 AI 介入前加入適度摩擦，能引導學生先建立自身思路，再善用 AI 協助，兼顧主動學習與工具效益。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.01518",
+    "publishedAt": "2026-10-02T00:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "teaching",
+      "tools",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2d484f9acaa31e20",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Scaling Peer Assessments: An Integrity Report from a Large Engineering Internship",
+    "summaryOriginal": "Assessing learning in large classrooms presents a significant challenge for individual instructors, who may have limited capacity to evaluate the understanding, participation, and assessment behaviour of every student. Peer assessments have been a way of distributing this responsibility among learners, allowing them to evaluate and provide feedback to one another while reducing dependence on…",
+    "titleZhTW": "大規模工程實習引入同儕驗證模式 近三成學生承認曾降低標準",
+    "summaryZhTW": "研究在跨機構大型工程實習中實施同儕驗證，由教師先核准少數學生再逐步授權擴展。問卷顯示 79.8% 受訓者認為解決了先前無法解決的問題，但 29% 承認曾減少投入或互相放水，88.7% 認為有人未實質審查即通過驗證。受訓者建議以「驗證後討論解法」強化機制，而非單靠稽核或導師把關。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.01020",
+    "publishedAt": "2026-10-02T00:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "higher-ed",
+      "integrity",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "d0ea6e16df857936",
+    "sourceId": "google-education",
+    "title": "1,400 educators joined our Badge-a-thon: Day of AI Learning.",
+    "summaryOriginal": "1,400 educators earned 4,000+ digital badges at the Google Badge-a-thon. Watch the on-demand sessions on YouTube and claim your first badge today.",
+    "titleZhTW": "Google 舉辦 AI 教育徽章馬拉松 1,400 位教師參與獲 4,000 枚徽章",
+    "summaryZhTW": "Google AI 教育者系列首次舉辦為期 10 小時的「Badge-a-thon」線上活動，超過 1,400 位教師參與並獲得超過 4,000 枚數位徽章。活動採即時直播方式，引導教師從猶豫轉為實際操作 AI 工具，涵蓋設計評量規準、閱讀理解等教學情境，並提供將徽章轉換為繼續教育學分或研究所學分的途徑。錯過直播的教師可在 YouTube 觀看 20 場點播課程，並下載「Badge-a-thon in a Box」工具包在校內自行舉辦活動。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/ai-educator-series-badge-a-thon",
+    "publishedAt": "2026-10-01T16:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "0ddc64278ee29d26",
+    "sourceId": "digital-promise",
+    "title": "What AIMS EduData Cohort 1 Learned About Teachers and Students",
+    "summaryOriginal": "The AIMS EduData grantee cohort shared research findings at a summer convening The post What AIMS EduData Cohort 1 Learned About Teachers and Students appeared first on Digital Promise.",
+    "titleZhTW": "AIMS EduData 首期受助團隊分享教師與學生研究發現",
+    "summaryZhTW": "Digital Promise 舉辦夏季會議，AIMS EduData 首期受助團隊發表研究成果，探討教師與學生在教育數據應用上的表現與需求。研究旨在透過實證數據改善教學決策，並強調教師專業發展與學生學習支援的關鍵角色。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/10/01/what-aims-edudata-cohort-1-learned-about-teachers-and-students",
+    "publishedAt": "2026-10-01T15:39:42.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "research",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "dee3ecc2a0bf95a8",
+    "sourceId": "google-education",
+    "title": "Supporting AI readiness in higher education",
+    "summaryOriginal": "At the EDUCAUSE annual conference, Google.org announced its support of three higher education initiatives to scale ethical AI readiness, modernize institutional planning…",
+    "titleZhTW": "Google.org 支援高等教育 AI 就緒計畫，聚焦成人學習與職涯連結",
+    "summaryZhTW": "Google.org 透過兩項計畫協助高等教育機構提升 AI 就緒度：一是與都市服務大學聯盟合作，將 Grow with Google 資源與 AI 課程納入專業發展認證，協助 30 所大學的教師與顧問改善成人學習者的職涯輔導與留校率；二是推動以 AI 強化的社區基礎職涯學習模式，未來 15 個月將蒐集 10 種模式並發布案例研究，建立可擴展的職場學習路徑。此外，教育設計實驗室將於 2027 年啟動全國競賽，協助社區大學系統進行為期兩年的技術導向策略重設計。",
+    "summarySource": "machine",
+    "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/educause-2026",
+    "publishedAt": "2026-09-30T16:43:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "d384fa3122898fb2",
+    "sourceId": "edsurge",
+    "title": "Can Schools Trust AI Features in Edtech Products?",
+    "summaryOriginal": "In this episode of This Week with EdSurge, two former educators join to discuss EdReport's recent brief and explain why it is so important to verify ...",
+    "titleZhTW": "EdReports調查發現教材商AI功能缺乏效度證據 學區採購面臨難題",
+    "summaryZhTW": "獨立審核機構EdReports發現，許多教育科技廠商宣稱其AI新功能具教學效果，卻缺乏實證研究支撐，讓學區採購決策陷入困境。專家指出核心與補充教材界線模糊，且AI導致每位學生獲得不同課程內容，教師審核機制參差不齊。前華盛頓特區校長現任EdReports執行長建議，學區應要求廠商提供透明驗證機制，並釐清驗證成本由誰負擔。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/can-schools-trust-ai-features-in-edtech-products",
+    "publishedAt": "2026-09-30T00:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "k12",
+      "tools",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "27d0731b487e4e86",
+    "sourceId": "microsoft-education",
+    "title": "Higher education’s AI advantage is the intelligence institutions already hold",
+    "summaryOriginal": "The institutions that lead the next phase of AI will connect the intelligence they hold to AI in ways that are secure, governed, and actionable. The post Higher education’s AI advantage is the intelligence institutions already hold appeared first on Microsoft Education Blog.",
+    "titleZhTW": "微軟：高等教育的 AI 優勢在於連結既有機構智慧",
+    "summaryZhTW": "微軟教育部門指出，高等教育機構不缺知識與創新，關鍵在於將分散的資料、研究與流程透過 AI 串聯，轉化為可落地的機構智慧。文章引用加州州立大學聖馬可斯分校、邁阿密戴德學院與肯塔基大學案例，證明連結資料與治理後，能縮短回應時間、提升通過率並建立全校 AI 素養。微軟新推出的 Microsoft IQ 智慧層，協助學校在既有安全合規架構下，將 AI 與代理程式接入現行工作流，實現大規模、受信任的應用。",
+    "summarySource": "machine",
+    "url": "https://www.microsoft.com/en-us/education/blog/2026/09/higher-educations-ai-advantage-is-the-intelligence-institutions-already-hold",
+    "publishedAt": "2026-09-29T15:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a0d6021f2d8fd3bf",
+    "sourceId": "edsurge",
+    "title": "Study: EdTech Is Rushing AI Integration Before Proving It Works",
+    "summaryOriginal": "As AI features flood K-12 curricula, educators are left to filter proven quality from marketing hype.",
+    "titleZhTW": "EdReports研究：教材商急推AI功能 缺乏第三方實證改善學習",
+    "summaryZhTW": "EdReports審視10家K-12教材與EdTech供應商，發現僅1家提供第三方證據證明嵌入式AI功能能提升學習成效。專家指出，AI更新常在學校不知情下悄悄推出，導致採購時的品質把關失效，現有評估框架又偏重隱私安全，缺乏衡量教學成效的一致標準。學區被建議主動詢問供應商實證細節、樣本量與研究參數，並要求供應商提供選擇是否啟用AI更新的機制，避免「亮眼新工具」卻無實質教學改善。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/study-edtech-is-rushing-ai-integration-before-proving-it-works",
+    "publishedAt": "2026-09-29T00:00:00.000Z",
+    "fetchedAt": "2026-10-05T01:32:33.471Z",
+    "issue": "2026-W40",
+    "topics": [
+      "k12",
+      "tools",
+      "research"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "6cc5d5162fbca7de",
     "sourceId": "oecd-ai-education",
     "title": "Which student outcomes matter for the future and how do we measure them?",
