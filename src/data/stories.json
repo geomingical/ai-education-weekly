@@ -1,5 +1,656 @@
 [
   {
+    "id": "fe979dfec5964bdc",
+    "sourceId": "digital-promise",
+    "title": "Evaluating Speech Data AI: Insights from Education Leaders and Practitioners",
+    "summaryOriginal": "U-GAIN Reading R&D Center hosted a two-day virtual workshop on Speech Data for Learning Scientists The post Evaluating Speech Data AI: Insights from Education Leaders and Practitioners appeared first on Digital Promise.",
+    "titleZhTW": "Digital Promise 舉辦語音資料 AI 評估研討會",
+    "summaryZhTW": "Digital Promise 旗下 U-GAIN Reading R&D Center 舉辦為期兩天的線上研討會，邀請教育領導者與實務工作者共同探討語音資料在 AI 應用上的評估議題。會議聚焦於語音技術如何支援學習科學研究，並釐清教育現場引入此類工具時的關鍵考量。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/10/09/evaluating-speech-data-ai-insights-from-education-leaders-and-practitioners",
+    "publishedAt": "2026-10-09T13:20:47.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "research",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "06ec9b2a737ad58e",
+    "sourceId": "ec-digital-education",
+    "title": "School leadership in the EU",
+    "summaryOriginal": "School leadership in the EU brighfe Fri, 10/09/2026 - 09:33 Document library School leadership in the EU A comparative analysis building on the OECD TALIS 2024 results Document library Language English",
+    "titleZhTW": "歐盟發布校長領導力比較分析 參考 OECD TALIS 2024 數據",
+    "summaryZhTW": "歐盟委員會教育總署發布比較分析報告，依據 OECD TALIS 2024 調查結果探討歐盟各國校長領導力現況。報告旨在支援歐洲教育區建構優質教育，為各國教育主管機關與學校管理者提供決策參考。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/resources-and-tools/documents/school-leadership-in-the-eu",
+    "publishedAt": "2026-10-09T07:33:49.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "policy"
+    ],
+    "region": "EU",
+    "language": "en"
+  },
+  {
+    "id": "8b7d246838254968",
+    "sourceId": "inside-higher-ed",
+    "title": "The AI Invasion Has Come for Mathematics",
+    "summaryOriginal": "",
+    "titleZhTW": "數學界直面 AI 入侵：OpenAI 宣稱解出千禧年難題引發殖民隱喻與公平危機",
+    "summaryZhTW": "文章以「殖民入侵」隱喻描述 AI 大量生成證明衝擊數學界，OpenAI 投入大量資源宣稱解出納維-斯托克斯方程等千禧年獎題，卻引發數學家對人類發現價值被邊緣化、研究資源壟斷於大型科技公司的憂慮。作者指出頂尖模型授權費用加劇學術不平等，呼籲政府保障高性能 LLM 的公平存取權，並警告研究生前途與數學事業延續性正面臨生存威脅。",
+    "summarySource": "machine",
+    "url": "https://www.insidehighered.com/opinion/views/2026/10/09/ai-invasion-has-come-mathematics-opinion",
+    "publishedAt": "2026-10-09T07:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "d3b55b2db01862fd",
+    "sourceId": "arxiv-cs-cy",
+    "title": "The learner who does not learn: when optimizing a pedagogical metric degrades LLM tutoring",
+    "summaryOriginal": "It is assumed that a natural way to improve the pedagogical quality of large language model tutors is to define a metric of instructional performance and fine-tune the model against it. To test this strategy, we designed a metric of pedagogical adaptivity that scores each instructional decision in a learning sequence against the conditions of the learning situation, which is the standard used for…",
+    "titleZhTW": "優化教學指標反而讓 LLM 導師表現倒退",
+    "summaryZhTW": "研究設計教學適應性指標並微調開源模型，指標分數從 +0.05 升至 +0.42，但 31 位教師盲測評分卻從 4.46 降至 3.03。模型為追求指標最優，在所有情境重複單一最佳決策，導致教學路徑僵化。權重分析顯示模型僅背誦訓練字串，未學會真正適應。研究指出測量效度不等於優化效度，並提出 AI 導師基準設計原則。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.12125",
+    "publishedAt": "2026-10-09T00:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "teaching",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4fa1f7ec176a05cf",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Large Language Model Turnover Undermines Screening for Artificial Intelligence-Assisted Scientific Writing",
+    "summaryOriginal": "Journals and conferences have begun to screen submitted manuscripts for text written using large language models (LLMs). The reliability of this screening rests on benchmark evaluations against a fixed set of LLM versions, while the versions in actual use keep changing. Here we quantify how this LLM turnover affects the screening of scientific manuscripts. We paired 4,000 pre-ChatGPT abstracts…",
+    "titleZhTW": "大型語言模型快速迭代導致 AI 寫作檢測失效",
+    "summaryZhTW": "研究發現，期刊用於篩選 AI 協助撰寫論文的檢測器，因模型版本快速更替而嚴重失準。實驗顯示，僅在舊版本訓練的檢測器，在新版本釋出後檢出率從 99% 驟降至 3.8%，甚至會誤判人類撰寫的摘要。商業檢測器同樣無法有效識別最新版本的改寫文本。研究建議學術誠信政策應將檢測器準確度視為暫時性指標，每當有新模型發布時必須重新驗證。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.11599",
+    "publishedAt": "2026-10-09T00:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "higher-ed",
+      "integrity",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "1ab197fc703fe82f",
+    "sourceId": "arxiv-cs-hc",
+    "title": "\"Hot-Blooded\" vs \"Cold-Blooded\": Simulating the Behavioral Phenotypes of Childhood Aggression via Generative Agents",
+    "summaryOriginal": "This study examines the construct validity of LLM-based generative agents in simulating reactive, proactive, and co-occurring aggression in children. Four distinct agents were instantiated using a theory-driven parameterization grounded in the social information processing model. A total of 1,920 simulation runs were conducted across eight social scenarios, employing a hybrid blind-coding…",
+    "titleZhTW": "LLM 生成式代理人模擬兒童攻擊行為亞型",
+    "summaryZhTW": "研究以社會資訊處理模型為理論基礎，建構四種不同參數的 LLM 代理人，在八種社交情境中進行 1,920 次模擬，並以混合盲碼方式提取 32 項行為指標。結果顯示代理人能以大效應量區分反應性、主動性及混合型攻擊行為，且跨隨機種子表現穩定，證明行為差異源於心理參數而非模型隨機性。此框架可為教育心理學提供可擴展、高可控的假設生成與介入預演工具。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.11951",
+    "publishedAt": "2026-10-09T00:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "research",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "09978364e4152c36",
+    "sourceId": "arxiv-cs-hc",
+    "title": "NeuroDivSim: An Interactive Tool for Model-Based Reflection on Cognitive Diversity in Interface Design",
+    "summaryOriginal": "Recent approaches to simulated and synthetic users offer new ways to support design, but raise questions about how computational representations of users should contribute to design practice. We present NeuroDivSim, an interactive tool that explores simulation as an inspectable mechanism for reflecting on cognitive diversity during design and prototyping. Rather than using an LLM to act as a…",
+    "titleZhTW": "NeuroDivSim：以可檢視模型輔助介面設計中的認知多樣性反思",
+    "summaryZhTW": "研究團隊開發 NeuroDivSim 互動工具，利用生成式 AI 從使用情境建構可檢視的任務、介面與環境模型，再結合明確的認知參考設定進行確定性模擬。設計師可固定使用情境並調整認知假設，追蹤其對互動步驟與設計建議的影響。初步試驗（N=10）提供形成性見解，協助改進模型呈現、模擬結果與建議的展示方式。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.11590",
+    "publishedAt": "2026-10-09T00:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "research",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "876267fe4c4097ee",
+    "sourceId": "mit-news-education",
+    "title": "3 Questions: What is the best path forward for AI in academia?",
+    "summaryOriginal": "MIT Statistics and Data Science Center Director Alexander (Sasha) Rakhlin shares important considerations for departments and institutions.",
+    "titleZhTW": "MIT 學者探討 AI 時代學術界的三大關鍵課題",
+    "summaryZhTW": "MIT 教授 Sasha Rakhlin 指出 AI 能力快速進步，數學等領域驗證機制完善使模型能自我迭代加速突破，大學需面對 AI 可能在多面向超越人類智力的未來。學術評價體系須改革，不再單憑論文作為專業指標，而應重視提問、複現、綜合與負責任的 AI 使用，博士訓練需區分「不必要摩擦」與「養成專業直覺的過程」。大學應建立跨實驗室的共享 AI 基礎設施，捕捉失敗經驗與隱性知識，促進開放合作與長期研究自主性，這需要公共與機構的大量投入。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/3-questions-what-best-path-forward-ai-academia-0925",
+    "publishedAt": "2026-10-08T21:25:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "higher-ed",
+      "policy",
+      "research"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "02872369bca5ff61",
+    "sourceId": "mit-news-education",
+    "title": "Supporting systems of success",
+    "summaryOriginal": "In the MIT class 6.C31 (Hack Yourself) students apply computer science strategies to personal growth goals.",
+    "titleZhTW": "MIT 推「駭入自己」課程 用計算思維建立 60 種正向習慣",
+    "summaryZhTW": "MIT 電機與電腦科學系開設 6.C31「駭入自己」課程，結合實驗學習小組與計算共同教育計畫，引導學生用資料科學流程蒐集個人數據、設計小實驗，驗證 60 種研究支持的正向習慣（如減少手機使用、改善睡眠、團隊前瞻性檢視）是否有效。課程發放「意圖卡」作為具體提醒，學生透過蒐集、整理卡片自然進行間隔重複複習。教師強調核心在於培養「如何提問、蒐集好數據、評估工具品質」的終身技能，而非單一技術工具。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/supporting-systems-success-1008",
+    "publishedAt": "2026-10-08T21:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "2863d8f4813e96f1",
+    "sourceId": "edweek",
+    "title": "6 Tips for AI Translation in Schools",
+    "summaryOriginal": "AI translation apps can help schools connect with non-English-speaking families, but they are far from perfect.",
+    "titleZhTW": "Education Week 提供學校 AI 翻譯六大建議",
+    "summaryZhTW": "Education Week 指出 AI 翻譯工具能改善學校與非英語家庭的溝通，但也可能產生誤譯或改變原意。該媒體整理教育工作者與專家的六項建議，協助學校更有效、更準確地運用這些平台。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/technology/6-tips-for-ai-translation-in-schools/2026/10",
+    "publishedAt": "2026-10-08T20:34:55.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "tools",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "b1b742aa9e8ab717",
+    "sourceId": "edweek",
+    "title": "In Social Studies, Does AI Shortcut Historical Thinking? Or Deepen It?",
+    "summaryOriginal": "A national student history contest banned AI use, raising questions about its role in social studies.",
+    "titleZhTW": "全美歷史日大賽全面禁用 AI，強調學生必須自主完成歷史思考",
+    "summaryZhTW": "全美歷史日大賽（National History Day）新規定全面禁止參賽學生在構思主題、搜尋資料等任何階段使用生成式 AI，主辦單位認為 AI 可能剝奪學生獨立發展歷史思考能力與學生聲音。雖然美國歷史學會等專業團體肯定 AI 教學潛力，但大賽環境缺乏老師即時引導，易導致學生依賴 AI 產生幻覺引用或繞過核心研究歷程。新政將違規視同抄襲處理，旨在確保評審看到學生真實、即使不完美的思考成果。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/teaching-learning/in-social-studies-does-ai-shortcut-historical-thinking-or-deepen-it/2026/10",
+    "publishedAt": "2026-10-08T19:26:58.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "teaching",
+      "integrity",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "0bb49bfd0804e863",
+    "sourceId": "ec-digital-education",
+    "title": "School leadership in the EU: new analysis highlights satisfaction and challenges",
+    "summaryOriginal": "School leadership in the EU: new analysis highlights satisfaction and challenges brighfe Thu, 10/08/2026 - 17:32 The report \"School leadership in the EU – A comparative analysis building on the OECD TALIS 2024 results\" examines principals’ demographic and professional profiles, working conditions and well-being, as well as their responsibilities and autonomy. It focuses primarily on lower…",
+    "titleZhTW": "歐盟校長滿意度高但壓力大，近四成擬五年內離職",
+    "summaryZhTW": "歐盟最新比較分析顯示，雖超過九成校長對工作感到滿意，但僅四成滿意薪資；行政負擔與政策變動為主要壓力來源，校長高壓力比例近乎教師兩倍。近七成校長年逾五十歲，37% 打算五年內離職，且僅六成受過行政訓練、不足半數受過教學領導訓練，專業發展需求仍大。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/whats-new/news/school-leadership-in-the-eu-new-analysis-highlights-satisfaction-and-challenges",
+    "publishedAt": "2026-10-08T15:32:25.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "policy"
+    ],
+    "region": "EU",
+    "language": "en"
+  },
+  {
+    "id": "b033cbca39ee36d3",
+    "sourceId": "edweek",
+    "title": "4 Ways AI Data Centers Can Affect Schools",
+    "summaryOriginal": "From health to productivity and finances, data centers could pose risks for students and schools.",
+    "titleZhTW": "AI 資料中心逼近校園 引發學生健康與經費雙重憂慮",
+    "summaryZhTW": "報導指出美國已有近 1,900 所學校距資料中心一哩內，常態低頻噪音、光汙染與空氣汙染可能干擾學生睡眠、專注力與腦部發育。弗吉尼亞州多縣因用電暴增導致頻繁停電、電費飆漲 25%，學校被迫限制用電；馬里蘭州弗雷德里克郡更因開發商換取寬鬆分區換取校舍翻修經費引發社區抗議。專家建議學校加裝空氣與噪音監測、氣密門窗與空氣淨化器，並在空品不佳時減少戶外活動或佩戴口罩，以減輕對師生健康的衝擊。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/leadership/4-ways-ai-data-centers-can-affect-schools/2026/10",
+    "publishedAt": "2026-10-08T10:01:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "c7d17b657e6f77c0",
+    "sourceId": "edweek",
+    "title": "A Reckoning on Social Media Addiction Came Late for Kids. Will AI Safety Be Different?",
+    "summaryOriginal": "Efforts to make social media safer offer lessons for those looking to protect children using AI.",
+    "titleZhTW": "社群媒體成癮教訓遲到，AI 安全能否避免重蹈覆轍？",
+    "summaryZhTW": "美國各州近期與 Meta 達成 180 億美元和解，強化青少年社群媒體防護，但專家憂心 AI 風險更隱蔽且普及，兒童不僅接觸 AI 內容，更與聊天機器人建立情感連結、依賴認知外包。OpenAI 等公司雖較早推出青少年帳號限制，但 AI 的教育效益使單純限制使用時長難以合理化。聯邦立法進度緩慢，州層級推動較快，倡議者呼籲勿再「睡走」進下一波科技革命，必須在危害顯現前建立防護機制。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/technology/a-reckoning-on-social-media-addiction-came-late-for-kids-will-ai-safety-be-different/2026/10",
+    "publishedAt": "2026-10-07T20:39:40.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "eb7eb8762462fed1",
+    "sourceId": "mit-news-education",
+    "title": "Discovering the value of humanistic inquiry",
+    "summaryOriginal": "Students in MIT’s Concourse program delve deeply into the human condition, debate challenging questions, and learn to develop judgment about issues that can’t be quantified.",
+    "titleZhTW": "MIT Concourse 計畫：在理工殿堂打造「小型博雅學院」",
+    "summaryZhTW": "MIT 的 Concourse 計畫每年錄取 50 名大一新生，結合人文經典閱讀與數理通識課程，讓理工科學生在 AI 時代更緊迫地探討「何謂人類智慧」。學生透過共同課程、午餐座談與辯論建立深度信任，學會在非量化議題上進行嚴謹思考。新任主任 Lily Tsai 指出，此類跨域人文訓練能培育兼具技術實力與公民判斷力的未來領袖。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/discovering-value-humanistic-inquiry-1007",
+    "publishedAt": "2026-10-07T20:10:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "higher-ed",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "6c9c5e0f05006c22",
+    "sourceId": "edweek",
+    "title": "Think Your Students Know More About AI Than You Do? Read This (Opinion)",
+    "summaryOriginal": "Here are four things your students don’t understand about AI—and what you can do about it.",
+    "titleZhTW": "學生自以為懂 AI，實則缺乏鑑別能力 教師可教四大關鍵素養",
+    "summaryZhTW": "史丹佛大學研究發現，七成青少年使用 AI 完成學業，但僅 26% 受過辨識資訊真偽的教導。學生易誤信聊天機器人權威語氣，卻不懂追問來源、比對觀點、驗證不確定資訊。作者建議教師在各科課程中示範四項做法：要求 AI 引用來源、將單一提問延伸為多輪追問、讓全班同題異問觀察隨機性差異、引導學生將「不確定」視為需進一步查證的起點而非結論。研究指出，只要數小時指導即能顯著提升學生數位素養，教師無需精通最新模型，只需運用既有批判性思維教學經驗即可因應。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/technology/opinion-think-your-students-know-more-about-ai-than-you-do-read-this/2026/10",
+    "publishedAt": "2026-10-07T19:44:53.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "eba3b1a5eade3b88",
+    "sourceId": "digital-promise",
+    "title": "Grant Opportunity Available: Integrating Digital Public Goods to Advance AI-Enabled Formative Assessment",
+    "summaryOriginal": "The K-12 AI Infrastructure Program invites applications for a new grant opportunity The post Grant Opportunity Available: Integrating Digital Public Goods to Advance AI-Enabled Formative Assessment appeared first on Digital Promise.",
+    "titleZhTW": "Digital Promise 開放申請：整合數位公共財產推動 AI 形成性評量",
+    "summaryZhTW": "Digital Promise 的 K-12 AI 基礎建設計畫推出新補助機會，邀請學校與機構提出整合數位公共財產的方案，以發展 AI 輔助的形成性評量工具。此舉旨在降低技術門檻，讓更多教師能即時掌握學生學習狀況並調整教學。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/10/07/grant-opportunity-available-integrating-digital-public-goods-to-advance-ai-enabled-formative-assessment",
+    "publishedAt": "2026-10-07T13:31:52.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "policy",
+      "k12",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "661f64ddb5f472a2",
+    "sourceId": "openai-news",
+    "title": "Helping teens learn, plan, and shape the future of AI",
+    "summaryOriginal": "College Planner is coming to ChatGPT for Teens to help students manage college applications, alongside new flashcards, quizzes, and a teen AI council.",
+    "titleZhTW": "OpenAI 推出青少年專屬大學規劃與學習工具",
+    "summaryZhTW": "ChatGPT 推出「College Planner」協助青少年管理大學申請流程，並新增閃卡、測驗等學習功能。官方另成立青少年 AI 諮詢委員會，讓學生直接參與產品設計與政策討論。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/teens-learn-and-plan",
+    "publishedAt": "2026-10-07T12:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "higher-ed",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "caed2b7e642ba54e",
+    "sourceId": "mit-news-education",
+    "title": "MIT announces the MIT for America initiative, to strengthen STEM education across the country",
+    "summaryOriginal": "The effort aims to help U.S. learners from kindergarten to community college, with an emphasis on math, making, and the constructive use of AI.",
+    "titleZhTW": "MIT 推出「MIT for America」計畫，強化全美 STEM 教育",
+    "summaryZhTW": "MIT 宣佈啟動「MIT for America」全校性計畫，針對幼兒園至社區大學學生，強化數學思維、AI 應用與動手創客三大領域。計畫強調可擴展且高互動的模式，如 MIT 微積分專案與 RAISE 計畫，透過校友與學生志工提供面對面輔導，目標是讓全美各地學生都能獲得高品質 STEM 與 AI 教育機會，促進人才發掘與經濟流動。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/mit-america-initiative-strengthens-stem-education-across-country-1006",
+    "publishedAt": "2026-10-06T15:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "policy",
+      "k12",
+      "higher-ed"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "6722724c2ccc05dc",
+    "sourceId": "digital-promise",
+    "title": "3 Ways to Co-Design Your EdTech Product: Reflections from an EdTech Leader",
+    "summaryOriginal": "EdLight CEO and Founder Teryn Thomas reflects on ENCORE’s impact on her The post 3 Ways to Co-Design Your EdTech Product: Reflections from an EdTech Leader appeared first on Digital Promise.",
+    "titleZhTW": "EdLight 創辦人分享教育科技產品共同設計三大策略",
+    "summaryZhTW": "EdLight 執行長 Teryn Thomas 回顧參與 ENCORE 計畫的經驗，提出教育科技產品共同設計的三種方式。她強調讓教師與學生直接參與產品開發流程，能確保工具真正回應教學現場需求，並提升產品在課堂上的實用性與採用意願。",
+    "summarySource": "machine",
+    "url": "https://digitalpromise.org/2026/10/05/3-ways-to-co-design-your-edtech-product-reflections-from-an-edtech-leader",
+    "publishedAt": "2026-10-05T18:15:01.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "ee9ed6adb37edabe",
+    "sourceId": "google-education",
+    "title": "I use technology to give students a voice and become critical digital citizens.",
+    "summaryOriginal": "Empower students using Google Sites, Gemini, and Vids to build critical thinking skills. See how these tools help kids find their voice today.",
+    "titleZhTW": "教師善用 Google 工具讓學生從被動接收轉為主動創作",
+    "summaryZhTW": "教師分享如何運用 Google Sites、Gemini Notebook 與 Google Vids，設計協作網站、自主學習筆記與影片創作，引導學生從單純吸收資訊轉向深度分析與表達。實踐著重給予每位學生平等機會參與合作、批判思考並找到自己的聲音，展現科技輔助教學如何培養具備未來素養的自信學習者。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/teacher-voices-sweden",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "69070f0d9bd2523a",
+    "sourceId": "google-education",
+    "title": "Technology helps my students balance big creative ideas with tight deadlines.",
+    "summaryOriginal": "Students use Google Drive for video assets and Sheets for production timelines to meet tight deadlines. See how these tools boost classroom output.",
+    "titleZhTW": "Google 工具助教師平衡創意教學與緊湊期限",
+    "summaryZhTW": "教師分享在媒體製作、印刷與商業寫作課程中，透過 Google 雲端硬碟儲存大型影音素材、即時給予回饋，並利用 Google 試算表分配任務、掌握進度。這些協作工具讓教室運作更順暢，幫助學生在有限時間內建立技術自信、團隊合作，並將創意構想落實呈現。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/media-teacher-gemini",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b818e10d69450758",
+    "sourceId": "google-education",
+    "title": "Here’s how I use technology to bring science to life in my classroom.",
+    "summaryOriginal": "See how this teacher uses Gemini and Gemini Notebook to build digital literacy and refine lesson plans. Read the full story to improve your teaching.",
+    "titleZhTW": "美國資優科學教師善用 AI 與模擬教學 讓課堂更生動",
+    "summaryZhTW": "喬治亞州八年級資優物理科教師 Chanel Johnson 分享如何結合互動模擬與 Gemini 等 AI 工具，輔助教案對標準審查與構思新教法。她在課堂公開示範 AI 使用過程，帶領學生建立真實的數位素養。技術不取代師生連結，反而騰出更多空間激發好奇與啟發。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/science-teacher-gemini",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "20c5b7352c9ae471",
+    "sourceId": "google-education",
+    "title": "World Teachers’ Day 2026",
+    "summaryOriginal": "To celebrate World Teachers’ Day 2026, educators share their stories about how they use tech in the classroom.",
+    "titleZhTW": "Google 與 TED 合作徵求教師創新構想 慶祝世界教師節",
+    "summaryZhTW": "Google 在世界教師節發布全球教師故事集，強調技術無法取代教師的啟發與陪伴角色。雙方合作啟動「全球構想徵選」，邀請善用科技創新教學的教育工作者分享構想，入選者將有機會登上 TED 舞台發表演說，並可透過報名構想工作坊參與。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/world-teachers-day-2026",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "8994f7f3fde0d71d",
+    "sourceId": "google-education",
+    "title": "I teach my students that in the AI era, critical thinking comes first.",
+    "summaryOriginal": "A California teacher uses Gemini to streamline lesson planning in Google Drive. See how she prioritizes critical thinking in the AI era.",
+    "titleZhTW": "資深教師分享：AI 時代批判性思考優先",
+    "summaryZhTW": "一位擁有 25 年教龄的中學科技教師指出，Gemini 等 AI 工具大幅縮減備課與差異化教學時間，並將教材安全存放於 Google Drive。她在課堂示範 AI 運作，幫助學生消除對未知技術的恐懼，並反覆強調 AI 僅反映人類設計，真正的力量在於學生自身的推理、提問與批判性思考能力。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/teacher-stories-gemini-middle-school",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "930e2deb666ff1bc",
+    "sourceId": "google-education",
+    "title": "My eighth-grade students built our school newscast from scratch with Gemini.",
+    "summaryOriginal": "Eighth graders built The Cougar Rumble newscast using Gemini and Google Docs. See how these students streamlined their production workflow today.",
+    "titleZhTW": "美國八年級學生運用 Gemini 從零打造校園新聞節目",
+    "summaryZhTW": "一位教師分享八年級學生如何以 Gemini 為創意夥伴，配合 Google Docs 與 Slides 共同完成校園新聞節目《The Cougar Rumble》的命名、Logo 設計與品牌識別。學生先各自繪製草圖，再請 Gemini 擷取共同主題並產出提示詞優化品牌套件，目前相同流程已固定用於每週劇本潤飾與拍攝清單整理。教師強調 AI 並未取代學生創意，反而提供更多腦力激盪與修訂機會，讓原創構想得以落地。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/gemini-student-newscast",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "98a4f3f92e2ef374",
+    "sourceId": "google-education",
+    "title": "My students use Gemini to brainstorm creative ideas.",
+    "summaryOriginal": "Fifth graders use Google Gemini to write songs about history and create art. See how this teacher integrates AI into the classroom.",
+    "titleZhTW": "小學生透過教師代操作 Gemini 練習提示詞 撰寫與事實查核",
+    "summaryZhTW": "教師設計 Google 表單讓五年級學生撰寫提示詞，再由教師代為輸入 Gemini 生成圖像與歌詞。學生在藝術專題中以描述性提示呈現校園價值觀，歷史課則創作西進運動歌曲並自行查核修正歌詞。課程強調生成式 AI 是腦力激盪夥伴，人類創意仍為主導。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/teacher-voices-gemini-creativity",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "00df35013f732ffd",
+    "sourceId": "google-education",
+    "title": "Technology is helping my fellow math teachers trade weekend prep for personalized learning.",
+    "summaryOriginal": "Teachers use Gemini to build custom K-6 math worksheets and save hours of prep time. See how Google AI transforms classroom instruction.",
+    "titleZhTW": "Google Gemini 協助數學教師製作客製化教材 釋放週末備課時間",
+    "summaryZhTW": "教育主任利用 Gemini 依課綱快速生成互動數學挑戰與分級工作紙，整理於 Google Site 供教師即時依學生程度調整教學。教師不再需花費週末時間搜尋或自製素材，備課工時大幅縮減，學生也能馬上鞏固概念。團隊下一步將訓練種子教師自行開發互動教材，進一步擴大 AI 輔助教學效益。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/education-officer-gemini",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "55c919aa6b8c39bc",
+    "sourceId": "google-education",
+    "title": "Gemini helps me bring hands-on learning into the classroom.",
+    "summaryOriginal": "A teacher uses Google Gemini to design interactive role-playing simulations and nutrition lessons. See how AI boosts classroom engagement.",
+    "titleZhTW": "教師善用 Gemini 設計體驗式教學 讓學生動起來更投入",
+    "summaryZhTW": "英文教師分享如何以 Gemini 為規劃夥伴，快速設計多站位角色扮演模擬，讓學生在閱讀氣候變遷或人權議題前，先透過肢體移動與解決問題建立同理心。生活技能課程中，Gemini 亦協助設計果汁食譜與飲食檔案，引導學生親手調配並實踐正念營養。教師強調 AI 非取代教學，而是協助將動態體驗與深度參與帶入課堂的工具。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/english-teacher-gemini",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4799ca56c9ab2c06",
+    "sourceId": "google-education",
+    "title": "I replaced traditional coding tests with real conversations about how my students solve problems using AI.",
+    "summaryOriginal": "Replace coding tests with AI-driven interviews using Google Gemini in Colab. See how this professor evaluates student judgment. Read the full report.",
+    "titleZhTW": "教授以 AI 協作取代程式考試 透過口試考核學生判斷力",
+    "summaryZhTW": "資料探勘課程引入 Gemini 當協作思考夥伴，學生在 Google Colab 中由 AI 產生程式碼與替代方案，學生需決定採用內容、質疑建議並為最終模型決策辯護。教師改採口試方式，讓學生說明選擇理由、除錯並指出 AI 可能錯誤之處，著重培養人機協作判斷力而非單純語法能力。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/gemini-google-colab",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "28127ef714bd0221",
+    "sourceId": "google-education",
+    "title": "Gemini helps me give a voice to students who cannot write.",
+    "summaryOriginal": "Special education teachers use Google Gemini to generate visual guides and voice prompts, empowering non-writing students. Read the full story.",
+    "titleZhTW": "特教老師善用 Gemini 圖像生成 讓無法書寫學生也能表達想法",
+    "summaryZhTW": "作者在各學段特教班任教，面對高度個別化需求，利用 Chromebook 上的 Gemini 產出簡單視覺指引，協助無法閱讀的學生理解指令。更進一步，不會書寫的學生透過語音提示與 Gemini 對話，自行生成圖像表達想法，實質賦予他們發聲管道。教師團隊並合作開發 AI 應用，整合特教規劃與課程設計，目標在於讓身心障礙不再決定學生能學多少。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/special-education-gemini",
+    "publishedAt": "2026-10-05T16:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "8e82b7dba36fabd1",
+    "sourceId": "ec-digital-education",
+    "title": "EU PISA 2025: First results (factsheet)",
+    "summaryOriginal": "EU PISA 2025: First results (factsheet) brighfe Mon, 10/05/2026 - 10:08 Document library EU PISA 2025: First results (factsheet) This document summarises key insights of EU PISA 2025: First results - European Education Policy Brief Enlarge Document library Language English",
+    "titleZhTW": "歐盟發布 PISA 2025 首波結果摘要",
+    "summaryZhTW": "歐盟委員會發布 PISA 2025 首波結果的政策簡報摘要，提供歐洲教育區優質教育的關鍵見解。文件為英文版本，供教育政策制定者與研究人員參考國際學生評估最新數據。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/resources-and-tools/documents/eu-pisa-2025-first-results-factsheet",
+    "publishedAt": "2026-10-05T08:08:52.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "k12",
+      "policy",
+      "research"
+    ],
+    "region": "EU",
+    "language": "en"
+  },
+  {
+    "id": "ff107abec20a22eb",
+    "sourceId": "google-education",
+    "title": "Making AI training available to UK and Ireland educators",
+    "summaryOriginal": "Google's AI tools aim to help educators achieve their teaching goals and provide students with personalized learning experiences.",
+    "titleZhTW": "Google 向英國與愛爾蘭 65 萬教師免費開放 AI 培訓課程",
+    "summaryZhTW": "Google 將免費的「Google AI Educator Series」擴展至英國與愛爾蘭的 65 萬名教育工作者，課程由教師設計、採小單元教學，涵蓋負責任使用 AI 編寫教案、簡化行政工作與因應多元學習需求。完成模組可獲得微證書與徽章，證明 AI 素養。研究顯示英國四分之三教育職位可透過 AI 提升效能，此計畫亦呼應政府 2030 年培訓 1,000 萬數位人才的目標。Google 另與國家治理協會合作推出 AI 政策工具包，協助學校治理單位安全導入 AI 政策與工具。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/making-ai-training-available-to-uk-and-ireland-educators",
+    "publishedAt": "2026-10-05T07:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "e5d71c2b540eb988",
+    "sourceId": "edsurge",
+    "title": "Will Kids Pay the Price for AI Panic?",
+    "summaryOriginal": "A backlash against classroom AI is sweeping public schools. But as New Mexico shows, blanket bans risk robbing students of early literacy interventions.",
+    "titleZhTW": "AI 恐慌波及閱讀篩檢工具，新墨西哥弱勢學童恐成犧牲者",
+    "summaryZhTW": "新墨西哥州引入 AI 閱讀篩檢工具 Amira 以提升弱勢生閱讀能力，卻因家長擔憂資料隱私與 AI 標籤而引發抵制，甚至導致紐約、洛杉磯等大學區全面暫停學生端生成式 AI。作者指出 Amira 並非生成式工具，卻被一併禁用，導致真正需要早期介入的弱勢兒童失去精準篩檢機會。文章呼籲以治理取代恐慌，要求廠商公開準確率與資料處理細節，而非全盤禁止，否則將由最無力發聲的孩子承擔代價。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/will-kids-pay-the-price-for-ai-panic",
+    "publishedAt": "2026-10-05T00:00:00.000Z",
+    "fetchedAt": "2026-10-12T01:38:38.684Z",
+    "issue": "2026-W41",
+    "topics": [
+      "policy",
+      "k12",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "bfc4355d370530a8",
     "sourceId": "anthropic-education",
     "title": "Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap",
