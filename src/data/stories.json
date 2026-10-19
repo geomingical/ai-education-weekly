@@ -1,5 +1,280 @@
 [
   {
+    "id": "ce6966bfdf61bf4f",
+    "sourceId": "khan-academy-blog",
+    "title": "Four Things to Look for in Edtech, and How Khan Academy Measures Up",
+    "summaryOriginal": "District leaders have more edtech choices than ever, and every product comes with claims about what it can ... Read more The post Four Things to Look for in Edtech, and How Khan Academy Measures Up appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 列出選購教育科技四大指標並自評表現",
+    "summaryZhTW": "Khan Academy 建議學區採購教育科技時，應優先考量四項指標：經獨立第三方嚴謹評估、提供實際課堂實施指引、清楚說明產品能與不能做到的事、並根據師生證據持續改進。文章引用四項隨機對照試驗，顯示在具備完善實施支援（如固定練習時間、教師專業發展）的學區，學生數學成績顯著提升；反之若缺乏支援則效果不明顯。Khan Academy 同時公開 AI 工具 Khanmigo 的局限與改進歷程，強調透明度與實證導向的產品迭代。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/four-things-to-look-for-in-edtech-and-how-khan-academy-measures-up",
+    "publishedAt": "2026-10-16T20:15:01.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "50755f15f10558e1",
+    "sourceId": "arxiv-cs-cy",
+    "title": "MARS: A Momentum-Aware Adaptive Rating System for Personalized Assessment",
+    "summaryOriginal": "Adaptive assessment systems personalize learning by estimating learner proficiency and recommending suitable questions. However, many existing approaches rely on fixed difficulty labels, static rating updates, or black-box prediction models that provide limited control over rating stability, interpretability, and time-constrained routing. This paper proposes MARS, a Momentum-Aware Adaptive Rating…",
+    "titleZhTW": "MARS：動量感知自適應評分系統，提升個人化測驗穩定度與分數",
+    "summaryZhTW": "研究提出 MARS 系統，將題庫建構為知識圖譜，結合動態評分敏感度、作答品質與學習動量，即時更新學習者能力值。實驗顯示 MARS 評分更新較 Fixed Elo 平穩，且在限時扣分情境下總分提升 8.09 分、超時違規率從 50% 降至 5.6%，適合即時、可解釋的自適應測驗部署。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.21685",
+    "publishedAt": "2026-10-16T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "tools",
+      "research",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "cc4ac1cb3a1d7519",
+    "sourceId": "arxiv-cs-hc",
+    "title": "\"Do You Trust It... or Check It?\": Exploring Children's Verification Behaviors in Game-Based Human-AI Collaboration",
+    "summaryOriginal": "Children are increasingly interacting with AI agents in learning and problem-solving contexts, where AI suggestions may appear fluent, helpful, and socially engaging. However, children may not always be able to judge whether such suggestions are accurate, incomplete, or misleading. This paper presents a game-based human-AI collaboration probe designed to examine how children verify AI suggestions…",
+    "titleZhTW": "研究探討兒童在遊戲中如何驗證 AI 建議",
+    "summaryZhTW": "研究設計生物知識推理遊戲，觀察 8 至 10 歲兒童面對夥伴型、工具型與雙狀態三種 AI 互動風格時的驗證行為。結果顯示夥伴型較易引發直接提問，工具型則誘發尋找證據；兒童普遍認為 AI 有用但會犯錯，提問推理深度不一。此發現可協助設計支援兒童批判性、反思性與循證使用 AI 的協作學習環境。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.21233",
+    "publishedAt": "2026-10-16T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "k12",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "32165ee6af8945a5",
+    "sourceId": "openai-news",
+    "title": "Bringing GPT-Rosalind to academic research labs",
+    "summaryOriginal": "Introducing the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools to advance life sciences research.",
+    "titleZhTW": "OpenAI 推出 Rosalind 學術計畫 提供 GPT-Rosalind 贊助存取",
+    "summaryZhTW": "OpenAI 宣布推出 Rosalind 學術計畫，為符合資格的學術實驗室提供 GPT-Rosalind 的贊助存取權限。此計畫旨在透過先進 AI 工具支援生命科學研究，加速學術界在相關領域的發現與創新。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+    "publishedAt": "2026-10-15T19:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "83c5f649476d5556",
+    "sourceId": "khan-academy-blog",
+    "title": "A First Look at Khan Academy Interim Assessments",
+    "summaryOriginal": "Move from measuring progress to accelerating it. An interim assessment can tell a teacher where a student stands. ... Read more The post A First Look at Khan Academy Interim Assessments appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 推出中期評量工具 2027-28 學年上線",
+    "summaryZhTW": "Khan Academy 將於 2027-28 學年推出「中期評量」，每年三次、單堂課完成，採自適性題目並加入「解釋你的思考」語音回饋，讓教師掌握學生誤解與思維盲點。評量結果直接連結平台建議學習路徑，教師可先審核再派發，優先銜接年級核心內容並補足基礎。學生、教師與行政層級皆可即時看見表現、成長與資源需求，形成評量-教學-練習-監控的閉環。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/introducing-khan-academy-interim-assessments",
+    "publishedAt": "2026-10-15T15:15:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "tools",
+      "k12",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a60f4a701f887ae8",
+    "sourceId": "openai-news",
+    "title": "Teaching students to think and learn through questions",
+    "summaryOriginal": "Celebrate Teachers’ Day with AI for Educators in Brazilian Portuguese and see how Study Mode can help teachers support active, step-by-step learning.",
+    "titleZhTW": "OpenAI 推出教師節專案：以提問引導學生主動學習",
+    "summaryZhTW": "OpenAI 慶祝教師節，針對巴西葡語教育者推出 AI 教學資源，展示 Study Mode 如何協助教師支援學生進行主動、循序漸進的學習。此功能透過提問方式引導學生思考，而非直接給予答案，旨在強化學生的批判性思維與自主學習能力。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
+    "publishedAt": "2026-10-15T13:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "867fb56b338a6d0a",
+    "sourceId": "edsurge",
+    "title": "Can High-Impact Tutoring Survive Post-Pandemic Funding Loss?",
+    "summaryOriginal": "Some districts have reduced or paused “high-dosage” tutoring, while others are finding ways to save the most effective aspects of their programs.",
+    "titleZhTW": "美國高強度輔導面臨經費斷層 學區嘗試納入核心課表求生存",
+    "summaryZhTW": "聯邦疫情紓困基金（ESSER）於 2024 年前後到期，導致許多學區的高強度輔導計畫面臨縮減或暫停。研究顯示此類輔導每生每年成本 1,200 至 2,500 美元，但能帶來 3 至 15 個月的額外學習增量。為求永續，部分學區將輔導時段內嵌至正課表（如 WIN 時段），並要求輔導內容與課堂教學對齊、教師與輔導員共享學生數據。馬里蘭大學研究警告，經費不足時最易犧牲的是「劑量」與小班制等關鍵品質指標。路易斯安那州 West Feliciana 學區透過州補助與主課表重組，將受輔導學生從 96 人增至 430 多人，並使四、五年級英語與數學熟練度顯著提升，展示「聰明運用既有資源」可延續成效。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/can-high-impact-tutoring-survive-post-pandemic-funding-loss",
+    "publishedAt": "2026-10-15T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "k12",
+      "policy",
+      "workforce"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "c0061e66927a2950",
+    "sourceId": "arxiv-cs-cy",
+    "title": "From Efficiency to Sufficiency: The Cost-Aware Measurement Design Framework for Automated Essay Scoring",
+    "summaryOriginal": "Compute cost in automated essay scoring (AES) is usually treated as a technical efficiency issue rather than a measurement design concern. Yet deployment decisions require more than reporting latency, model size, or inference expense. In high-stakes settings, total burden includes validation, monitoring, adjudication, compliance, and governance; in instructional settings, pricing, licensing, and…",
+    "titleZhTW": "自動評分引入成本感知設計框架，將計算與人力成本納入測量決策",
+    "summaryZhTW": "研究指出自動作文評分（AES）常只關注技術效率，忽略驗證、監管、授權等完整成本。論文提出「成本感知測量設計（CAMD）框架」，以計量、分配、單位經濟、決策四層結構，將計算資源與工作流程記錄轉為決策相關的成本建構，並定義「每一可辯護分數成本（CPDS）」，主張在滿足測量要求前提下，以品質成本充足性比較系統，且視成本為規模函數而非單一數值，供不同部署情境參考。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.19287",
+    "publishedAt": "2026-10-15T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "tools",
+      "research",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "4b4881e45440353d",
+    "sourceId": "openai-education-newsletter",
+    "title": "Extraordinary. Joshua Achiam, former Chief Futurist at OpenAI, on Curiosity, Craft, and Finding Your Own Voice.",
+    "summaryOriginal": "A conversation about developing expertise, asking more of AI, and keeping your own voice.",
+    "titleZhTW": "OpenAI 前首席未來學家 Joshua Achiam：好奇心、工匠精神與尋找自我聲音",
+    "summaryZhTW": "Joshua Achiam 回顧從不專心小學生到 AI 研究者的成長，強調老師看見學生潛能、同儕共學、以及在真實專案中鍛鍊「做中學」紀律的重要性。他指出學校常缺乏端到端產出實體成果的訓練，這項能力須在研究所或職場透過重現既有專案、嚴謹實驗來補足。使用 AI 時，他主張先釐清目標與限制、追溯原始來源，並堅持最終輸出的文字必須是自己的聲音，以保持判斷深度與持續成長的廣度。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/extraordinary-joshua-achiam",
+    "publishedAt": "2026-10-14T22:48:39.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "d5f8cf2b945e0198",
+    "sourceId": "edsurge",
+    "title": "Tech Addiction Was a Problem for My Student — and Myself",
+    "summaryOriginal": "Educators need to recognize the warning signs, then have honest conversations in our classrooms and at home.",
+    "titleZhTW": "教師親歷學生與自身科技成癮：從比莉個案看預警信號與支援策略",
+    "summaryZhTW": "作者以七年級學生比莉為例，描述其離開 Chromebook 即出現劇烈情緒崩潰、躲藏裝置、社交退縮等行為，經輔導師與家長合作確認為科技成癮並透過治療改善。作者並自述成年後同樣陷入手機依賴，影響家庭關係與心理健康，最終以計時器、追蹤 App 等方式自我管理。文章列舉「斷網引發極端情緒、隱瞞使用、社交隔離」三大預警信號，呼籲教育者與家長正視汙名化、建立無螢幕時段、以開放對話與陪伴替代單純禁令，協助學生重掌控權。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/tech-addiction-was-a-problem-for-my-student-and-myself",
+    "publishedAt": "2026-10-14T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "k12",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "3de6d2599eba209b",
+    "sourceId": "edsurge",
+    "title": "Who Is Building the AI Foundation for K-12 Classrooms?",
+    "summaryOriginal": "How Learning Commons’ new open platform could help edtech companies and schools implement technology.",
+    "titleZhTW": "非營利組織推開放平台 解決K-12 AI教材對齊州標準難題",
+    "summaryZhTW": "Chan Zuckerberg Initiative 支持的非營利組織 Learning Commons 推出開放平台，提供開放知識圖譜與 AI 評估工具，協助教師驗證生成式 AI 教材是否符合州標準與學習科學研究。超過 70 家合作夥伴（含 OpenAI、Anthropic）參與，部分學區已開始在此基礎上自建工具，而非等待商業廠商。文章並列出學區採購 AI 工具時應詢問的關鍵問題，包括資料來源、更新頻率及州標準是否為核心基礎。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/who-is-building-the-ai-foundation-for-k-12-classrooms",
+    "publishedAt": "2026-10-14T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "tools",
+      "k12",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "3f812e96f02f53a1",
+    "sourceId": "arxiv-cs-hc",
+    "title": "STEPwise: Supporting Teachers in Diagnosing Students' Mathematical Problem-Solving Skills through LLM-Generated Questions and Rubric",
+    "summaryOriginal": "Problem-solving is central to mathematics education. However, diagnosing where students' reasoning breaks down requires individualized probing and consistent criteria that teachers cannot sustain at classroom scale. We introduce STEP (STage-based Evaluation of Problem-solving skills), co-designed with six mathematics education experts, which operationalizes problem-solving as four stages and…",
+    "titleZhTW": "STEPwise 系統輔助教師診斷學生數學解題能力",
+    "summaryZhTW": "研究團隊與數學教育專家共同設計 STEP 框架，將解題歷程拆解為四階段八項子技能，並建立 STEPwise 師機協作系統，利用大型語言模型自動生成分階段診斷題目與評分準則。課堂實驗顯示，該系統協助 5 位教師與 64 位學生精準定位推理斷點，並支持學生反思解題過程，實現班級規模下的細緻診斷。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.16344",
+    "publishedAt": "2026-10-14T00:00:00.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "teaching",
+      "tools",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "7aedf8f107ea0ab3",
+    "sourceId": "khan-academy-blog",
+    "title": "October 2026 Kristen’s Corner",
+    "summaryOriginal": "By Dr. Kristen DiCerbo, Chief Learning Officer, Khan Academy Last quarter’s piece urged school leaders to name the ... Read more The post October 2026 Kristen’s Corner appeared first on Khan Academy Blog.",
+    "titleZhTW": "Khan Academy 學習長：學生缺乏高品質個別練習，AI 可協助解決",
+    "summaryZhTW": "Khan Academy 首席學習官 Kristen DiCerbo 指出，學習持久化需靠反覆練習與回饋，而非單靠教學設計或參與度。研究顯示每增加一次練習機會，學生答對下一題的機率就穩定提升，但現行課堂練習量不足、回饋稀薄，且常在未達精熟前就換單元。她強調批判思考、溝通、協作、創意等「4C 能力」同樣需要明確教學、真實情境練習與即時回饋，而非假設分組即能習得。由於單一教師難以對每位學生提供適時個別化支援，教育科技與 AI 可在這環節發揮關鍵作用。",
+    "summarySource": "machine",
+    "url": "https://blog.khanacademy.org/october-2026-kristens-corner",
+    "publishedAt": "2026-10-13T17:29:52.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "k12",
+      "policy"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2b8abb8014be787a",
+    "sourceId": "oecd-ai-education",
+    "title": "Generative AI and student learning: What the PISA data reveal",
+    "summaryOriginal": "By OECD Director for Education and Skills Andreas Schleicher The arrival of generative artificial intelligence in classrooms has been swift … More",
+    "titleZhTW": "OECD PISA 數據揭示：生成式 AI 使用與學生科學表現呈現複雜關係",
+    "summaryZhTW": "PISA 2025 數據顯示，超過 40% 的學生在多國常態化使用 AI 完成寫作作業，但整體而言，使用 AI 聊天機器人的學生科學分數平均較低約 20 分，相當於落後一年學業進度。不過泰國、澳門等地出現反向現象，每日使用 AI 寫作的學生表現反而較好。OECD 指出關係非因果，可能因學習困難學生更依賴 AI，且使用目的、頻率、教師引導與數位素養教育皆為關鍵變數。報告呼籲政府制定明確準則、加強教師培訓，避免 AI 成為認知捷徑並擴大不平等。",
+    "summarySource": "machine",
+    "url": "https://oecdedutoday.com/generative-ai-and-student-learning-what-the-pisa-data-reveal",
+    "publishedAt": "2026-10-13T12:00:37.000Z",
+    "fetchedAt": "2026-10-19T01:23:09.256Z",
+    "issue": "2026-W42",
+    "topics": [
+      "research",
+      "k12",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "fe979dfec5964bdc",
     "sourceId": "digital-promise",
     "title": "Evaluating Speech Data AI: Insights from Education Leaders and Practitioners",
