@@ -1,5 +1,221 @@
 [
   {
+    "id": "303db39c14fcfc30",
+    "sourceId": "mit-news-education",
+    "title": "At MIT, Martha Minow speaks on sustaining democracy, both by using and overcoming AI",
+    "summaryOriginal": "In Compton Lecture, the distinguished legal scholar warns of potential “loss of the Enlightenment” while suggesting ways innovations can meet our civic and cultural needs.",
+    "titleZhTW": "哈佛法學者 Minow 在 MIT 演講：AI 威脅批判思考，教育現場須開發輔助深度學習工具",
+    "summaryZhTW": "Minow 指出 AI 可能削弱學生獨立思考與批判能力，加劇既有教育資源不均與種族隔離現象。她呼籲學術界開發如導師般引導提問、而非取代學生作業的 AI 工具，並建立可信資訊共享平台，以強化公民素養與民主根基。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/martha-minow-speaks-on-sustaining-democracy-using-overcoming-ai-1023",
+    "publishedAt": "2026-10-23T21:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "policy",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "6b7380afc5963ae9",
+    "sourceId": "mit-news-education",
+    "title": "Reinforcing the value of human understanding at MIT",
+    "summaryOriginal": "During the School of Humanities, Arts, and Social Sciences’ 75th Anniversary Symposium, President Sally Kornbluth said “MIT has never needed your particular insight and guidance more than we do now.”",
+    "titleZhTW": "MIT 人文藝術與社會科學學院 75 週年研討會：在 AI 時代重申人文價值",
+    "summaryZhTW": "MIT SHASS 學院舉辦 75 週年研討會，校長 Kornbluth 與教務長 Chandrakasan 強調 AI 時代更需人文、藝術與社科的洞見，以審視技術對人類的影響。與會學者討論教學創新、原住民語言保存、AI 與藝術創作關係等議題，並呼籲教育不僅傳授技術，更應引導學生思考什麼是值得追求的生活。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/reinforcing-value-of-human-understanding-at-mit-1023",
+    "publishedAt": "2026-10-23T19:35:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "5d794c3788a3a4be",
+    "sourceId": "huggingface-blog",
+    "title": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
+    "summaryOriginal": "",
+    "titleZhTW": "Hugging Face 推出 LitPivot：協助研究者動態調整文獻脈絡以發展創新構想",
+    "summaryZhTW": "LitPivot 將研究構想拆解為問題、貢獻、評估三大面向，並依各面向自動分群相關文獻、提供具體修改建議與引文支撐。實驗顯示，17 位研究者使用後，專家評分的文獻紮根度顯著優於傳統編輯器與 AI 聊天工具，參與者也自覺構想更具新穎性與實用性。系統已支援多階段研究專案，並將於 UIST 2026 發表。",
+    "summarySource": "machine",
+    "url": "https://huggingface.co/blog/allenai/litpivot",
+    "publishedAt": "2026-10-23T16:15:50.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "research",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "45c1020f01d751e4",
+    "sourceId": "arxiv-cs-cy",
+    "title": "AI-Native Academia Should Build a Community Verification Layer",
+    "summaryOriginal": "This paper argues that AI-native academia should build a Community Verification Layer: interoperable, policy-governed infrastructure that converts researchers' routine reading and checking into persistent, claim- and version-linked evidence, while routing scarce deeper verification toward uncertain, consequential, and neglected research. AI is lowering the cost of producing plausible research…",
+    "titleZhTW": "學者提倡建立「社群驗證層」應對 AI 生成研究激增",
+    "summaryZhTW": "論文指出 AI 降低生成似是而非研究成果的成本，遠快於負責任評估的速度，現有評估勞動多未被重複利用。作者提出分層驗證架構，從閱讀筆記到重現實驗，將常規檢查轉為可引用、版本連結的持久證據，並依專長導向不確定、高影響力研究，使驗證勞動可被引用與記錄信用。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.30549",
+    "publishedAt": "2026-10-23T00:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "research",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "a00b39b04e04bc3f",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Would an LLM Match into a Residency? Uncertainty, Reasoning and Image Use of Open Language Models on the Spanish MIR Examination",
+    "summaryOriginal": "Accuracy on medical examinations is common evidence offered for the clinical use of language models, yet a health system that intends to run an open model on its own hardware needs to know considerably more: whether the model recognizes when it is likely to be wrong, whether medical fine-tuning improves this ability, whether its correct answers rest on sound clinical reasoning, or whether it…",
+    "titleZhTW": "開源大語言模型挑戰西班牙醫師住院醫師考試：表現優異但缺乏可靠不確定性判斷與圖像理解",
+    "summaryZhTW": "研究測試四個 8 到 27 億參數的開源模型於西班牙 MIR 住院醫師考試，三個較大模型得分可排進前 600 至 3,000 名，仍有 41 至 43 個專科可選。然而模型拒答機制失效：即使最不自信的答案正確率仍超過 25% 隨機基準，醫療微調雖降低過度自信但犧牲準確率，且無法改善信心度與正確性的區分度。13% 至 38% 正確答案的推理存在臨床邏輯缺失，且移除或替換圖像不影響準確率，顯示模型未真正利用影像資訊。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.31586",
+    "publishedAt": "2026-10-23T00:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "44245ece9086a612",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
+    "summaryOriginal": "We studied 153 students in an undergraduate proof-based mathematics course with staggered-access to an AI support system. Students were randomly assigned to receive an AI chatbot and a homework-feedback interface earlier or later in the course. During the period when only the early-access group had access, their homework scores were 2.56 points higher, but exam performance did not differ…",
+    "titleZhTW": "AI 聊天機器人助學生寫作業分數較高，但考試表現未見提升，甚至因認知卸載導致成績下滑",
+    "summaryZhTW": "研究發現，提早使用 AI 聊天機器人的大學生作業分數雖高出 2.56 分，但期中考表現與對照組無顯著差異；全員開放使用後，每多發送 100 則訊息，考試分數就下降 3.02 分。自我效能感較低的學生更傾向依賴聊天機器人，進而間接導致考試成績下滑。反之，需先繳交證明嘗試才給回饋的介面，未對考試造成負面影響。研究建議避免直接使用聊天機器人輔導，改採嵌入課程活動的導師模式。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.31481",
+    "publishedAt": "2026-10-23T00:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5a5676e2d5f77f26",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Impacts of generative AI skill development on academic adaptation and learning outcomes among university students",
+    "summaryOriginal": "Understanding how university students perceive the development of their generative artificial intelligence (GenAI) skills over time can clarify how GenAI use relates to learning and academic outcomes. This study examined perceived skill-development trajectories, changes in learning practices, and associated academic gains using a retrospective questionnaire with 313 analyzed responses and…",
+    "titleZhTW": "大學生生成式 AI 技能發展軌跡不一 影響學習適應與課業表現",
+    "summaryZhTW": "研究調查 313 位大學生，發現生成式 AI 技能成長呈現快速趨緩、穩步上升、延遲加速三種軌跡，且評估輸出品質最難精進。學生主要透過作業練習提升技能，並逐漸發展特定提示、驗證與委派策略。結構方程模型顯示，技能成長透過改變作業流程間接帶來課業收益，但考試表現改善不明顯。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.30599",
+    "publishedAt": "2026-10-23T00:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "7f3bd39b000a5e90",
+    "sourceId": "openai-education-newsletter",
+    "title": "The Edu Prompt, Issue 7. The effort worth keeping",
+    "summaryOriginal": "Stefano Puntoni on learning with AI, new ways to work, and an interactive idea to try.",
+    "titleZhTW": "OpenAI 教育通訊第 7 期：保留有助學習的努力、新模型與學生優惠",
+    "summaryZhTW": "沃頓商學院教授 Stefano Puntoni 指出，AI 應移除繁瑣摩擦，保留能建構理解的認知努力，並示範教學大綱機器人與預演作業等應用。OpenAI 推出 GPT-6.1 以強化文件理解與多步驟任務，並針對生命科學推出 GPT-Rosalind；新介面讓學生可互動調整樣本數觀察統計變化。另提供美國大學生四個月免費 ChatGPT Plus 及 45 分鐘遊戲構建任務，並舉辦系列網路研討會協助教師引導學生善用 AI。",
+    "summarySource": "machine",
+    "url": "https://edunewsletter.openai.com/p/the-edu-prompt-issue-7-the-effort",
+    "publishedAt": "2026-10-22T20:01:18.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "ff79c5bfc4de09f2",
+    "sourceId": "edsurge",
+    "title": "How AI Is Breaking the Way We Reward High-Achieving Students",
+    "summaryOriginal": "When AI can create polished products in seconds, we must redefine high achievement and reward students for genuine intellectual curiosity, not ...",
+    "titleZhTW": "AI 重塑高成就學生定義：從完美產品轉向思維歷程",
+    "summaryZhTW": "作者以自身經歷指出，AI 能輕易產出過去僅屬高成就學生的完美作業，導致這類學生面臨身分認同危機，開始質疑自身價值並出現依賴 AI 確認答案、不敢獨立思考的現象。調查顯示超過三成青少年承認使用 AI 後減少自主構想、錯失學習機會。文章呼籲教育者不再單憑拋光產品評分，而應觀察提問歷程、修正軌跡與判斷理由，將好奇心、智性韌性與道德判斷納入成就指標，並建立跨校一致的 AI 使用規範，保護學生的思維所有權。",
+    "summarySource": "machine",
+    "url": "https://edsurge.com/news/how-ai-is-breaking-the-way-we-reward-high-achieving-students",
+    "publishedAt": "2026-10-21T00:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "teaching",
+      "integrity",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "debd1864861f2b08",
+    "sourceId": "khan-academy-blog",
+    "title": "EdTech Can Work. Decision Makers Have to Check the Evidence First.",
+    "summaryOriginal": "By Sal Khan, Founder and CEO of Khan Academy Almost every ed tech vendor says its research shows ... Read more The post EdTech Can Work. Decision Makers Have to Check the Evidence First. appeared first on Khan Academy Blog.",
+    "titleZhTW": null,
+    "summaryZhTW": null,
+    "summarySource": "source-verbatim",
+    "url": "https://blog.khanacademy.org/edtech-can-work-decision-makers-have-to-check-the-evidence-first",
+    "publishedAt": "2026-10-20T15:08:39.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "teaching",
+      "tools",
+      "policy"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2ca1fc8bd2dbd634",
+    "sourceId": "microsoft-education",
+    "title": "Meet the educators shaping the future of learning",
+    "summaryOriginal": "Celebrate the 2026 Microsoft Elevate for Educators community and discover how educators and schools are building AI skills, sharing innovation, and helping students thrive. The post Meet the educators shaping the future of learning appeared first on Microsoft Education Blog.",
+    "titleZhTW": "微軟表揚全球超過 5 萬名創新教師與展示學校",
+    "summaryZhTW": "微軟公布 2026–2027 年度 Elevate 專家教師、資深教師及展示、燈塔學校名單，全球逾 54,000 位教師、1,100 所展示學校與 20 所燈塔學校獲肯定。報告顯示 88% 教師已使用 AI，但 53% 未受機構培訓，66% 渴望定期進修。微軟透過 Elevate 社群提供同儕交流、專業學習與實務資源，協助教師將 AI 負責任地融入教學，增強學生好奇心而非取代思考。澳洲 Canterbury College 案例顯示，全校投入教師學習與 Copilot 應用後，教師信心大增，帶動教學創新。",
+    "summarySource": "machine",
+    "url": "https://www.microsoft.com/en-us/education/blog/2026/10/meet-the-educators-shaping-the-future-of-learning",
+    "publishedAt": "2026-10-20T15:00:00.000Z",
+    "fetchedAt": "2026-10-26T01:23:50.686Z",
+    "issue": "2026-W43",
+    "topics": [
+      "k12",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
     "id": "ce6966bfdf61bf4f",
     "sourceId": "khan-academy-blog",
     "title": "Four Things to Look for in Edtech, and How Khan Academy Measures Up",
