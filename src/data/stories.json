@@ -1,5 +1,297 @@
 [
   {
+    "id": "3e5b3f0eefda2a13",
+    "sourceId": "oecd-ai-education",
+    "title": "When AI does the work, who does the learning?",
+    "summaryOriginal": "By Guillermo Fossati, PhD, psychologist and education researcher Artificial intelligence can help students write better essays, solve problems and produce … More",
+    "titleZhTW": "OECD探討：AI代勞時，誰在學習？",
+    "summaryZhTW": "文章指出AI能快速產出優質作業，卻不等於學生真正學會。以三位分析文本的學生為例，僅複製AI結果者失去練習推理的機會。作者建議教師在引入AI前先問四個問題：活動要培養什麼能力、學生應先嘗試什麼、AI能否挑戰而非取代思考、如何確認學習真發生。教育目標應是讓學生變得更有能力，而非更依賴AI。",
+    "summarySource": "machine",
+    "url": "https://oecdedutoday.com/when-ai-does-the-work-who-does-the-learning",
+    "publishedAt": "2026-10-30T09:13:12.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "teaching",
+      "tools",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "76bcc8a8b1668fe1",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Data Provenance and Ethics in the Curricula of U.S. Health AI Education Programs",
+    "summaryOriginal": "Failures of deployed clinical artificial intelligence (AI) systems have often originated in how their training data were generated. Whether the programs that train the health AI workforce teach practitioners to examine data provenance is unknown. We conducted a cross-sectional analysis of the publicly advertised curricula of health AI education programs at U.S. universities, identified through a…",
+    "titleZhTW": "美國醫療 AI 教育課程普遍缺乏資料溯源教學",
+    "summaryZhTW": "研究檢視 36 項美國大學醫療 AI 教育課程，發現 80% 涵蓋倫理，但僅 22% 教導資料溯源，且無碩士課程達標。教師多來自計算領域，跨領域團隊合作與永續議題均嚴重不足，顯示培訓未充分準備學生面對臨床資料產生過程的風險。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.39606",
+    "publishedAt": "2026-10-30T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "fb631bcb0379cf97",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Student-LLM Interactions During Math Learning: Limited Epistemic Proactivity Overall, but Within-chat Change Predicts Performance Without AI",
+    "summaryOriginal": "Large language models (LLMs) are increasingly used for learning, raising a key question: can learners remain epistemically proactive, retaining responsibility for the cognitive and regulatory activities through which learning is produced while working with AI? Because this responsibility may change as interactions unfold, we examine epistemic proactivity as a developing process. We conceptualize…",
+    "titleZhTW": "學生與 LLM 互動研究：整體主動性不足，但歷程變化能預測離線表現",
+    "summaryZhTW": "研究分析 112 位中學生與 LLM 進行數學建模練習的 880 輪對話，發現學生整體呈現「請求主導」模式，規劃、監控與評估等自我調節行為較少見。隨著對話推進，雖然明確的自我調節動作略增，但求助策略卻轉向較不以理解為導向。關鍵在於：求助策略隨時間變得更理解導向的學生，在移除 AI 後的後測表現顯著較佳，顯示互動歷程的發展軌跡比單一提問類型更能預測真實學習成效。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.38950",
+    "publishedAt": "2026-10-30T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "research",
+      "tools",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "85f559399c4e0fe2",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Generative artificial intelligence prompting strategies among Chinese university students across academic tasks",
+    "summaryOriginal": "Generative artificial intelligence (GenAI) is increasingly embedded in university learning, yet effective human-GenAI interaction depends not only on access to these tools but also on students' ability to formulate, evaluate, and refine prompts for academic tasks. This study examined university students' perceived GenAI prompting capability and reported prompting strategies. Questionnaire data…",
+    "titleZhTW": "中國大學生使用生成式 AI 提示策略研究：任務類型影響有限",
+    "summaryZhTW": "研究調查 234 位中國大學生，發現學生普遍對自己的提示能力有信心，擅長提供脈絡與修飾提示，但策略不隨學術任務類型顯著調整。認知感知與提示能力關聯最強，開放式回應顯示「提示與意圖對齊」為常見挑戰，固定模板較不受青睞。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.39571",
+    "publishedAt": "2026-10-30T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b537b44d75b64c00",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Lookover: Scaffolding Student Participation in Social Annotation",
+    "summaryOriginal": "Social annotation platforms such as Perusall and Hypothesis are widely used to support student engagement with course readings, often through required commenting. Yet visible participation does not necessarily produce sustained or substantive peer exchange. Analyzing six weeks of Perusall activity from a graduate course (2,873 comments), we found that participation was often fragmented: 53.5% of…",
+    "titleZhTW": "Lookover：AI 輔助社群標註系統，引導學生深度參與討論",
+    "summaryZhTW": "研究發現研究生課程中超過半數的社群標註留言無回覆、多在截止前湧現且內容淺薄。Lookover 系統提供「討論概覽」幫助學生找到活躍主題與相關串聯，並以「激發思考」提出引導性問題，推動學生從單純回應轉向提問、延伸與實質回饋。初步測試顯示，概覽功能對發現它的學生有幫助，而引導問題的效用則視學生先備知識而定。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2610.39363",
+    "publishedAt": "2026-10-30T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "teaching",
+      "tools",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "3454fea505b4cd51",
+    "sourceId": "google-education",
+    "title": "How Gemini is helping students and teachers in the classroom",
+    "summaryOriginal": "New studies from the UK and Italy show how Gemini can boost student learning and help teachers facilitate more active learning in the classroom.",
+    "titleZhTW": "Google Gemini 研究：AI 輔導數學效果媲美真人、義大利課堂合作學習近三倍",
+    "summaryZhTW": "Google 在英國進行為期 10 週、逾 1,100 名學生的隨機對照試驗，發現結合 Gemini 的 AI 數學輔導在平台作業與階段測驗上的表現與真人輔導相當，且 99% 對話能引導學生自行思考而非直接給答案。專家審核通過率從 76% 升至 95%，但因逐步引導耗時較長，學生解題總量減少，標準化測驗成績短期內未顯著提升。另一項橫跨義大利 31 所學校、1,600 位教師的年度研究顯示，教師以 Gemini 共同設計課程後，創意感從 30% 升至 79%，傳統講授減少 38%，學生主導合作學習近三倍，教師靠個人精力維持課堂專注的依賴度降低 66%，整體教學互動與教師身心狀態均顯著改善。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/impact-studies-uk-italy",
+    "publishedAt": "2026-10-29T09:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "k12",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f1b1625f67db9cc8",
+    "sourceId": "google-education",
+    "title": "Dive into new topics with immersive explorations in the Gemini app.",
+    "summaryOriginal": "Today, we are rolling out immersive explorations in the new Gemini student hub.",
+    "titleZhTW": "Gemini App 推出沉浸式探索功能 讓學生互動式學習多元主題",
+    "summaryZhTW": "Gemini App 新增沉浸式探索資料庫，提供從微觀系統到深空等主題的互動式視覺體驗，學生可透過點擊標籤逐層深入探索，如追溯絲路貿易路線、觀察噴射引擎內部或研究閃電物理。此功能支援繁體中文等多國語言，未來將加入語音導覽，為教育現場帶來更直觀、多感官的學習方式。",
+    "summarySource": "machine",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub",
+    "publishedAt": "2026-10-28T18:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f0897d782f0d4346",
+    "sourceId": "edsurge",
+    "title": "What Playgrounds Can Teach Us About AI in Schools",
+    "summaryOriginal": "Deciding whether students should use AI requires balancing safety with the developmental need to learn about managing risk.",
+    "titleZhTW": "校園創新總監：AI 引入如遊樂場，須分清「危害」與「風險」",
+    "summaryZhTW": "作者以童年遊樂場經驗為喻，指出學校面對 AI 應區分「危害」（學生無法自行判斷的風險）與「風險」（需學生自行評估的挑戰）。紐約與洛杉磯大學區選擇禁用生成式 AI，馬薩諸塞州則推動 AI 素養課程，兩種截然不同的策略反映教育界對保護學生的不同考量。作者認為，學校既要避免過早讓 AI 取代寫作、思考等核心學習歷程，也不能完全隔絕技術，關鍵在於在教師仍能引導時，讓學生學會判斷與管理風險。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/what-playgrounds-can-teach-us-about-ai-in-schools",
+    "publishedAt": "2026-10-28T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "k12",
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "d03699dbc4200634",
+    "sourceId": "edsurge",
+    "title": "Does an AI Pause Protect Students, or Leave Some Behind?",
+    "summaryOriginal": "Artificial intelligence in the classroom comes with risk, but students must learn AI literacy.",
+    "titleZhTW": "紐約與洛杉磯學區暫停 AI 教學，專家辯論禁令是否保護或邊緣化學生",
+    "summaryZhTW": "紐約市與洛杉磯聯校區以學生安全為由暫停課室 AI 使用，但 Common Sense Media 調查發現超過半數被封鎖的青少年改用個人裝置繼續接觸 AI，專家將此比作「禁慾式性教育」，質疑單純暫停無法解決根本問題。前 Google 教育布道者 Jaime Casap 則主張不應將所有 AI 工具一概而論，強調應以實證判斷工具價值，並關注弱勢學生是否因恐慌性政策而失去受益機會。雙方共識在於學校需並行推動 AI 素養教育，而非單純禁止。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/does-an-ai-pause-protect-students-or-leave-some-behind",
+    "publishedAt": "2026-10-28T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "k12",
+      "policy",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "f6bcb634209c36de",
+    "sourceId": "mit-news-education",
+    "title": "Learner collaborates with MIT peers to develop book of AI insights",
+    "summaryOriginal": "Prabha Jha used her experience with MIT Open Learning’s program for senior executives to develop AI solutions for her employer, Verizon, and to write a book.",
+    "titleZhTW": "MIT 高階主管 AI 課程學員合著《AI 選集》分享跨領域洞見",
+    "summaryZhTW": "Verizon 高階主管 Prabha Jha 完成 MIT xPRO「AI for Senior Executives」課程後，與 20 位同儕合著《AI 選集》，蒐集各行業領袖對 AI 的個人體悟。她強調課程 70% 的價值來自跨背景同儕的面對面交流，並呼籲領導者跳脫營收與成本的傳統指標，思考 AI 如何提升生活品質與社會價值。",
+    "summarySource": "machine",
+    "url": "https://news.mit.edu/2026/learner-prabha-jha-collaborates-with-mit-peers-to-develop-book-of-ai-insights-1027",
+    "publishedAt": "2026-10-27T20:55:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "higher-ed",
+      "workforce",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "1d6c5c59e46e52b9",
+    "sourceId": "huggingface-blog",
+    "title": "Can we trust LLMs to judge whether a research idea is novel?",
+    "summaryOriginal": "",
+    "titleZhTW": "Hugging Face 釋出研究發現：LLM 判斷創新性極不穩定，提示詞微調即大幅翻盤",
+    "summaryZhTW": "Hugging Face 發布「Old Ideas, Novel Problems」研究，測試六款主流 LLM 作為新穎性評審時的可靠度。實驗發現，僅改動提示詞幾個字，模型判斷同一組想法的準確率即暴跌超過 50 個百分點；檢索增強與增加推理預算並未穩定提升表現，專門建構的評估系統反而不如簡單提示的 Claude Opus 4.6 基準。研究強調：現有 LLM 評審在人類撰寫論文上看似可用，面對 AI 生成想法卻極度脆弱，呼籲建立更嚴謹、可演進的新穎性評測基準。",
+    "summarySource": "machine",
+    "url": "https://huggingface.co/blog/allenai/novelty-bench",
+    "publishedAt": "2026-10-27T16:12:42.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "research",
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "371f1f9c608195c4",
+    "sourceId": "edsurge",
+    "title": "AI, Elections and the Making of an Informed Electorate",
+    "summaryOriginal": "As AI chatbots answer voters’ questions in seconds, schools need to teach students to ask where those answers come from — and to reach their own ...",
+    "titleZhTW": "AI 與選舉：培養學生成為獨立思考的知情選民",
+    "summaryZhTW": "文章指出 AI 雖能快速提供候選人資料，卻無法取代學生自主判斷與權衡價值的過程。教育者應引導學生追問資訊來源、辨識事實與詮釋的差異，並練習與持不同意見者對話，以建立獨立思考與公民參與的習慣。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/ai-elections-and-the-making-of-an-informed-electorate",
+    "publishedAt": "2026-10-27T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "k12",
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "9a15b40232fdbf82",
+    "sourceId": "google-education",
+    "title": "Our newest AI Quest: Mapping the human brain",
+    "summaryOriginal": "Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”",
+    "titleZhTW": "Google 推出 AI Quests 第三關「極地之峰」 結合神經科學教導 AI 素養",
+    "summaryZhTW": "Google Research 與 Stanford Accelerator for Learning 合作推出「極地之峰」任務，讓 11 至 14 歲學生扮演研究員，透過掃描與繪製神經元來理解 AI 如何加速腦科學研究，並在過程中學習資料清洗、模型測試等關鍵 AI 素養技能。同步釋出教師訓練模組，協助教師將任務融入課程並強化 AI 素養教學。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
+    "publishedAt": "2026-10-26T16:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "81ff42b19b35676c",
+    "sourceId": "google-education",
+    "title": "15 college students share their favorite Gemini features",
+    "summaryOriginal": "We asked 15 college students about their favorite Gemini features for learning, studying, taking notes, and more.",
+    "titleZhTW": "15 位大學生分享最愛的 Gemini 功能：從學習筆記到深度研究",
+    "summaryZhTW": "Google 訪問 15 位學生大使，整理出十大 Gemini 實用功能，包含將課程資料轉為個人化筆記、語音互動練習口說、引導式學習避免直接給答案、自動產生測驗與學習指南、無限量上傳教材、語音摘要隨時收聽、圖像生成輔助設計、瀏覽器側邊欄即時查詢、深度研究自動蒐集百個網頁、以及串聯 Google Workspace 管理行程與郵件。學生表示這些功能能節省整理時間、強化考前複習、輔助專案製作並提升學習自主性。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/gemini/college-student-favorite-features",
+    "publishedAt": "2026-10-26T16:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "higher-ed"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "ca38cdf34ae61bf8",
+    "sourceId": "edsurge",
+    "title": "Pause AI in Schools. But Not Before You Do This First.",
+    "summaryOriginal": "Ban or no ban, students are going to use AI. Let’s make sure they have the skills to navigate it, says Common Sense Media’s chief program officer.",
+    "titleZhTW": "校園禁 AI 如禁慾性教育 無效仍須教 AI 素養",
+    "summaryZhTW": "作者以禁慾性教育失敗為喻，指出校園全面禁用 AI 只會把學生推向家用裝置，無法真正阻擋使用。Common Sense Media 青年 AI 安全研究所測試發現，主流聊天機器人常漏報自殺風險、提供錯誤飲食失調資訊，且照單全收完成作業，安全防護落後於技術迭代。紐約市與洛杉磯雙城雖暫停校內 AI，但僅規定高中每年兩節 45 分鐘課程，遠不足以涵蓋深偽辨識、偏見檢核、批判性思維等完整 AI 素養。結論呼籲：禁令只能爭取時間，真正保護學生的是系統性教導他們理解 AI 運作、識別風險並做出自主判斷。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/pause-ai-in-schools-but-not-before-you-do-this-first",
+    "publishedAt": "2026-10-26T00:00:00.000Z",
+    "fetchedAt": "2026-11-02T01:06:25.708Z",
+    "issue": "2026-W44",
+    "topics": [
+      "k12",
+      "policy",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "303db39c14fcfc30",
     "sourceId": "mit-news-education",
     "title": "At MIT, Martha Minow speaks on sustaining democracy, both by using and overcoming AI",
