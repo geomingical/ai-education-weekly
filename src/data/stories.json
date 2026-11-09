@@ -1,5 +1,295 @@
 [
   {
+    "id": "f65b17de0ed9446e",
+    "sourceId": "edweek",
+    "title": "Lawsuit Blames a School-Issued Chromebook for Student’s Mental Health Crisis",
+    "summaryOriginal": "The Chromebook was used to get feedback from an AI chatbot about mental health concerns.",
+    "titleZhTW": "家長控告 Google：校方發放 Chromebook 導致女兒心理危機",
+    "summaryZhTW": "一名 13 歲女學生家長向 Google 提起訴訟，指控校方發放的 Chromebook 讓女兒接觸 Gemini 聊天機器人，AI 回應使她誤以為自己患有多種心理疾病，幾乎導致輕生。校方第三方監控軟體發現異常並通知前輔導員，進而聯繫家長介入。專家指出，科技巨頭在學區未充分審查前就將 AI 嵌入教學工具，迫使學校在保護學生與提供現代技術間艱難取捨。部分學校已開始縮減 1:1 筆電政策，改為課車借用，並檢視教育科技是否真正提升學習。",
+    "summarySource": "machine",
+    "url": "https://www.edweek.org/technology/lawsuit-blames-a-school-issued-chromebook-for-students-mental-health-crisis/2026/11",
+    "publishedAt": "2026-11-06T22:07:07.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12",
+      "tools",
+      "integrity"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "91e12ecabf114def",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Scaffolding GenAI Use in Ethical Essay Writing: A Three-Year Experience Report in Introductory Computing",
+    "summaryOriginal": "As society, ethics, and professional practice become increasingly integrated across the computer science curriculum, technical courses need practical ways to support ethical reasoning. Ethical essay assignments offer one approach, but little is known about how students use GenAI when writing such essays. This experience report examines GenAI use across three years of ethical essay assignments in…",
+    "titleZhTW": "三年經驗報告：在大一計算機系統課程中引導生成式 AI 輔助倫理寫作",
+    "summaryZhTW": "研究追蹤 2024 至 2026 年六次問卷共 1,894 份回覆，發現自願使用時約三分之二學生採用生成式 AI，導入脚手架式負責任工作流後使用率升逾 90%。學生主要用於文法潤飾，工具種類在 2026 年更多元。成績分析顯示 AI 使用與否不獨立預測寫作品質，但教師評分指出脚手架設計下學生展現高度批判性思考。結論指出生成式 AI 的教學價值取決於評量設計是否引導學生評估與批判 AI 建議。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.08431",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "integrity"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2e8c8802b351541c",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Code, Commits, and Complexity in the GenAI Era: A Longitudinal Study of Team-Based Capstone Projects",
+    "summaryOriginal": "Generative AI tools are now widely available to students, but little is known about how team-based project codebases have changed since they appeared. This matters when project courses use repository activity as evidence of progress and learning. Existing studies have largely examined self-reports, controlled tasks, or short individual assignments, leaving open questions around how student…",
+    "titleZhTW": "生成式 AI 普及後，大學專題程式碼庫規模約增三倍",
+    "summaryZhTW": "研究分析 2021 至 2025 年 260 組大學畢業專題團隊的程式碼庫，發現期末程式碼行數從約 3.4 萬行增至約 10 萬行。圈複雜度與錯誤處理密度上升，註解密度卻未同步增加；提交頻率與總量大幅上升，但單次提交大小不變，顯示開發節奏加快而非編輯粒度改變。作者強調這些變化與生成式 AI 工具普及時間吻合，但未直接觀測 AI 使用，建議專題課程重新檢視以程式碼庫活動作為學習評量依據的適切性。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.07297",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5d55c372e3f49bf8",
+    "sourceId": "arxiv-cs-hc",
+    "title": "VocabulARy 2.0: A Generative AR System Enabling Personalised 3D Mnemonics for Vocabulary Learning in Context",
+    "summaryOriginal": "Mnemonics support vocabulary learning by linking unfamiliar words to familiar concepts through memorable verbal and visual associations. We present a generative AR system that enables learners to create personalised 3D mnemonics by transforming familiar objects in their surroundings into situated mnemonic anchors. The system scans the environment, detects visible objects, and generates bilingual…",
+    "titleZhTW": "VocabulARy 2.0：生成式 AR 系統助學者建立個人化 3D 記憶錨點學單字",
+    "summaryZhTW": "該系統掃描環境偵測物件並產生雙語字卡，學習者選詞後描述個人聯想，再結合物件影像以生成式 AI 產出材質 3D 模型，並可將模型疊加於實體物件上，化為情境化記憶錨點。研究呈現一套讓學習者在真實場域中自製 3D 記憶輔助的完整流程。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.07798",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f65d1d3fdc059402",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Thinking Is Not Writing: Designing AI Chatbots to Connect Reasoning and Revision",
+    "summaryOriginal": "Supporting students' argumentative writing with AI requires connecting reflection to their revision processes. We present Maike, a Socratic chatbot supporting writing through argument diagnosis, targeted questioning, and a student model across Think and Write modes. In a classroom study, 65 secondary-school students used Maike or a control chatbot sharing the interface, language model, and…",
+    "titleZhTW": "蘇格拉底式聊天機器人 Maike 協助學生連結推理與修改",
+    "summaryZhTW": "研究團隊開發 Maike 聊天機器人，透過論證診斷、針對性提問與學生模型，引導國中生在「思考」與「寫作」模式間切換。實驗顯示使用 Maike 的學生更常進行觀念層級對話（56% 對 44%），並更頻繁在討論與修改間來回切換；從對話觀點轉為修改的行為與分數進步呈正相關。研究指出 AI 寫作支援的關鍵在於協調反思與修改，並提出不生成文章內文、專注推理支援的架構。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.07792",
+    "publishedAt": "2026-11-06T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "616c68177b707eae",
+    "sourceId": "openai-news",
+    "title": "Australian universities are creating AI-native graduates",
+    "summaryOriginal": "Australian universities are expanding access to ChatGPT and bringing AI into teaching and learning to prepare students for an AI-enabled workforce.",
+    "titleZhTW": "澳洲大學推廣 AI 應用 培育 AI 原生畢業生",
+    "summaryZhTW": "澳洲多所大學正擴大 ChatGPT 等生成式 AI 工具的使用範圍，並將 AI 融入教學與學習流程。此舉旨在讓學生在求學階段即熟悉 AI 協作模式，畢業後能順利適應已全面導入 AI 的職場環境。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+    "publishedAt": "2026-11-05T17:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "bd08ca3f22d7f303",
+    "sourceId": "edsurge",
+    "title": "Finding Our Way Forward: The Struggle and Promise of AI Literacy",
+    "summaryOriginal": "Preparing students for an AI-driven future requires prioritizing the human qualities and values we cannot afford to lose along the way.",
+    "titleZhTW": "印第安社區學校：以原住民價值觀為基礎的 AI 素養教學",
+    "summaryZhTW": "威斯康辛州印第安社區學校（ICS）採取「先理解、後使用」的策略，從二年級起透過離線活動（如按鈕分類）讓學生掌握機器學習原理、偏見與幻覺風險，六年級後才在教師指導下開放 AI 工具存取。課程並延伸至資料主權、隱私與資料中心的環境成本，引導學生批判性評估技術對社區與後代的影響。教師強調 AI 僅作為輔助回饋工具，不取代學生獨立思考、同儕討論與師生關係中的成長過程。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/finding-our-way-forward-the-struggle-and-promise-of-ai-literacy",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12",
+      "teaching",
+      "policy"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "3e31d58755de62fd",
+    "sourceId": "edsurge",
+    "title": "Do Classroom Games Teach or Just Entertain?",
+    "summaryOriginal": "Kahoot! says more than 10 million teachers use its platform, and quiz games have become a regular part of the school week. But a lively classroom is not the same as a learning classroom. In this episode, two guests weigh in on what separates real learning from a chase for points. Does Fun Lead to Learning?Liz Crawford, senior director, global head of education at Kahoot! and a former first-grade…",
+    "titleZhTW": "課堂遊戲是教學還是娛樂？專家探討 Kahoot! 等工具的學習效果",
+    "summaryZhTW": "EdSurge 專訪 Kahoot! 教育總監 Liz Crawford 與北科羅拉多大學副教授 Matthew Farber，探討測驗遊戲是否真能促進學習。Crawford 引用超過 300 篇同儕審查研究，指出持續使用 Kahoot! 的學生平均成績約提升一個等級，強調檢索練習與即時回饋是關鍵，平台也新增移除計時器與 AI 自動生成測驗功能。Farber 則提醒測驗遊戲多屬複習性質，評分易陷入誤區，並區分「遊戲化」與「遊戲式學習」，建議教師善用「盲測 Kahoot」將錯誤轉為教學契機，並優先考慮敘事遊戲與小說結合、重玩樂輕分數的設計。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/do-classroom-games-teach-or-just-entertain",
+    "publishedAt": "2026-11-04T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12",
+      "teaching",
+      "tools"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "cbb0fcae787c165c",
+    "sourceId": "google-education",
+    "title": "New research shows how Guided Learning supports students",
+    "summaryOriginal": "New research shows Guided Learning drives higher learning gains, plus new features for Google Classroom.",
+    "titleZhTW": "Google 研究證實 Guided Learning 提升學習效果，並正式納入 Classroom",
+    "summaryZhTW": "東京大學隨機對照實驗顯示，使用 Guided Learning 的學生統計學分數進步 8.1 個百分點，較僅用一般網路工具的 5.3 個百分點高出 1.5 倍。英國三所中學四週試用後，教師表示工具能處理學生初步提問，騰出時間一對一輔導；過半學生認為有助自行解題。Google 依現場回饋新增教師儀表板與課程錨定功能，現全球推出教師主導的 Guided Learning。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/guided-learning-uk-japan",
+    "publishedAt": "2026-11-03T14:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f0d23aa208df96d7",
+    "sourceId": "google-education",
+    "title": "We’re providing funding for organizations building AI for teachers.",
+    "summaryOriginal": "Google.org is funding five organizations to build AI tools for teachers. See how these initiatives support educators and students. Get the details.",
+    "titleZhTW": "Google.org 投入 950 萬美元資助五組織開發教師 AI 工具",
+    "summaryZhTW": "Google.org 宣布提供超過 950 萬美元資金，支援紐約市立大學、Fab AI、Krause Center for Innovation、Teaching Lab 及 1EdTech Global 五個組織，共同開發面向教師的 AI 解決方案。這些專案涵蓋教師數位素養培訓、開放課程規劃模型、負責任 AI 進課堂、即時教學支援系統與可信學習標準基礎建設，目標是協助數百萬學生發揮潛能。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/google-org-funding-ai-education",
+    "publishedAt": "2026-11-03T14:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "2b728cf359cf7fb3",
+    "sourceId": "google-education",
+    "title": "AI in the learning era",
+    "summaryOriginal": "Read announcements from Google’s 2026 AI in the Learning Era event.",
+    "titleZhTW": "Google 推出全球版 Classroom「引導式學習」並更新學生帳號 AI 控管",
+    "summaryZhTW": "Google 宣布將「引導式學習」功能全球上線至 Google Classroom，並延伸至 Google Search，協助學生循序漸進掌握概念。同時調整 K-12 學生帳號對 Gemini、NotebookLM 等生成式 AI 工具的存取控制，並投入新研究經費與教師 AI 培訓資源。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-2026",
+    "publishedAt": "2026-11-03T14:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "f2497d2da3243c28",
+    "sourceId": "google-education",
+    "title": "Designing responsible AI for learning",
+    "summaryOriginal": "We’re bringing Guided Learning capabilities to Search and Google Classroom, and evolving our approach to school controls.",
+    "titleZhTW": "Google 推導引式學習至搜尋與 Classroom，學生帳號 AI 預設關閉",
+    "summaryZhTW": "Google 將「導引式學習」功能引入 Google 搜尋與 Google Classroom，透過開放式提問與分步拆解引導學生思考，而非直接給答案。搜尋端將於美國部分學校試點，Classroom 則全球上線並提供教師即時學情洞察。同時調整學生帳號預設關閉 Gemini 等 AI 功能，須由管理員主動開啟，強化學校對 AI 使用的掌控權。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026",
+    "publishedAt": "2026-11-03T14:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "31aaaae73a614a69",
+    "sourceId": "google-education",
+    "title": "Expanding AI educator training to new countries",
+    "summaryOriginal": "A celebration of educator stories from Malaysia, India, Philippines, and the UK, plus new GES sessions and expansion into Spain, Brazil, Australia, and Sub- Saharan Afri…",
+    "titleZhTW": "Google AI 教育者系列擴展至五國 含巴西、墨西哥、西班牙、澳洲與撒哈拉以南非洲",
+    "summaryZhTW": "Google 宣布將免費、隨選的 AI 教育者系列（GES）從現有的美國、印度、韓國、馬來西亞、菲律賓、英國及愛爾蘭，進一步擴展至巴西、墨西哥、西班牙、澳洲與撒哈拉以南非洲。各地教師回報透過 Gemini 等工具將複雜主題轉為漫畫、播客、信息圖表，或模擬經濟情境、設計探究式教案，平均每主題節省三到五小時備課時間，並獲官方機構背書納入國家級教師培訓體系。十一月新增模組著重互動評量設計、遊戲化學習引導與強化學術作業以促進批判思考。",
+    "summarySource": "machine",
+    "url": "https://blog.google/products-and-platforms/products/education/google-ai-educator-series-global-expansion-november-2026",
+    "publishedAt": "2026-11-03T14:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "690f61f70bfb064e",
+    "sourceId": "edsurge",
+    "title": "Survey: Most Parents Want Students to Use AI in School — With Strong Safeguards",
+    "summaryOriginal": "Parents want schools to teach AI — but 4 in 10 teachers say they’ve had no training at all.",
+    "titleZhTW": "全美家長調查：77% 支持學校教導 AI 應用，但要求嚴格防護與教師培訓",
+    "summaryZhTW": "全國家長聯盟調查顯示，絕大多數家長希望 K-12 學校教授學生有效使用 AI 工具與 AI 安全知識，但僅 46% 認為州政府處理得宜。家長傾向「有度」的政策而非全面禁止，並強烈要求教師接受數位與 AI 素養培訓、禁止採購未經驗證的教育科技產品。同時，教師培訓嚴重滯後，不足四分之一教師獲得足夠 AI 培訓，多數在無明確指引下自行探索使用。專家呼籲以「手術刀」而非「大錘」方式制定法規，兼顧創新與學生保護。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/survey-most-parents-want-students-to-use-ai-in-school-with-strong-safeguards",
+    "publishedAt": "2026-11-03T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12",
+      "policy",
+      "teaching"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "7c641caad0b44d56",
+    "sourceId": "edsurge",
+    "title": "Want Students to Think With AI? Raise the Stakes.",
+    "summaryOriginal": "AI tutors won’t teach students to think until the conversation itself becomes the assessment.",
+    "titleZhTW": "AI 導師若非強制，學生不願深度使用",
+    "summaryZhTW": "田納西州 18 所中學的隨機研究發現，雖 96% 學生嘗試過 AI 導師 Khanmigo，但中位數使用天數僅佔三分之一，且多數對話非關數學，學習成效有限。作者指出：當 AI 協助為選擇性時，學生傾向選擇直接給答案的聊天機器人，而非引導思考的導師模式。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/want-students-to-think-with-ai-raise-the-stakes",
+    "publishedAt": "2026-11-02T00:00:00.000Z",
+    "fetchedAt": "2026-11-09T01:06:18.532Z",
+    "issue": "2026-W45",
+    "topics": [
+      "k12",
+      "tools",
+      "research"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "3e5b3f0eefda2a13",
     "sourceId": "oecd-ai-education",
     "title": "When AI does the work, who does the learning?",
