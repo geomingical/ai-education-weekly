@@ -1,5 +1,262 @@
 [
   {
+    "id": "e73293e2c9073d0d",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Scalable Conversational Assessment: Chat-Based Exams with a Two-Agent LLM Pipeline",
+    "summaryOriginal": "Oral exams are compelling because (1) students can be asked to provide their reasoning for an answer and (2) their interactive nature permits follow-up questions to resolve ambiguous answers. But oral exams scale poorly. In this paper, we present scalable conversational assessment, an LLM-based system that conducts interactive text-based conversations with students to assess their ability to make…",
+    "titleZhTW": "雙代理 LLM 管線實現可擴展對話式評量：聊天型口試系統",
+    "summaryZhTW": "研究團隊開發雙代理 LLM 系統，將面試官與評分員分離，透過文字對話引導學生論證並即時追問，解決傳統口試難以大規模實施的問題。系統先以模擬學生人設測試抗作弊能力，再於 AI 素養選修課實測，發現需改進追問生成並確保評分僅採納學生自主貢獻的觀點。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.17220",
+    "publishedAt": "2026-11-13T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "higher-ed",
+      "tools",
+      "teaching"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "aa91c2d1ea441a3b",
+    "sourceId": "arxiv-cs-cy",
+    "title": "Who (or what) are they prompting? How CS students conceptualize and use LLMs",
+    "summaryOriginal": "Large language models (LLMs) are increasingly used by students in computing courses. Yet computing education research has not fully examined how teaching and inclusion of LLMs shape students' conceptualization and understanding of LLMs, and how these factors relate to their subsequent use. Although prior work has examined prompting strategies and AI literacy, the relationships among students'…",
+    "titleZhTW": "研究：CS 學生多視 LLM 為人類助手，提示風格偏好情境豐富",
+    "summaryZhTW": "研究針對 283 位修習後 CS1 課程的學生，分析他們對 LLM 的隱喻認知與提示行為。結果顯示，學生最常將 LLM 概念化為人類助手，並偏好使用情境豐富的提示風格。研究進一步發現，學生對 LLM 運作機制的理解層級（依 SOLO 分類法分級）與其隱喻認知、提示行為之間存在關聯，提示出理解深度會影響實際使用方式。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.14798",
+    "publishedAt": "2026-11-13T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "higher-ed",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "71b110f8db2b6aa5",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Language Learning through Immersive Multi-User Gamification",
+    "summaryOriginal": "We propose an immersive virtual-reality game designed to enable multi-user, multi-language learning during co-play. We hypothesize that our method will be more engaging, leading to better rhythm, pronunciation, memorization, and speaking confidence. We implement the experience as a fantasy role-playing game by introducing vocabulary and phrases to the user as spells to learn. Players then cast…",
+    "titleZhTW": "沉浸式 VR 多人遊戲助語言學習：以施法機制練習詞彙與發音",
+    "summaryZhTW": "研究團隊設計一款奇幻角色扮演 VR 遊戲，將單字與片語轉化為咒語，讓多位學習者合作施法，以此取代傳統單人非沉浸式教學。實驗比較兩組在短、長期詞彙保留率、節奏與發音評分，並蒐集投入度與心智負荷資料，驗證多人共玩是否能提升學習成效與說話自信。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.16594",
+    "publishedAt": "2026-11-13T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "47565ce358818562",
+    "sourceId": "arxiv-cs-hc",
+    "title": "Integrating Slides, Mathematics, and Simulation in One Page: GenAI-Assisted HTML Learning Objects for Engineering Courses",
+    "summaryOriginal": "Engineering courses spread their materials across slides (PPTX), typeset notes (LaTeX/PDF), and MATLAB, leaving students to connect them. We describe an instructor-in-the-loop workflow in which generative AI (GenAI) converts these assets into single-file HTML learning objects that combine presentation, mathematics, visualization, simulation, and assessment; a page is released only after its…",
+    "titleZhTW": "生成式 AI 整合投影片、數學與模擬為單一 HTML 教材",
+    "summaryZhTW": "研究提出教師介入的工作流程，利用生成式 AI 將投影片、LaTeX 筆記與 MATLAB 模擬轉為單一 HTML 學習物件，並經數值驗證確保正確性。六門工程課程的 18 項任務測試顯示，所有量化指標均在容許誤差內，並通過獨立 Python 與 MATLAB 重算驗證。學生問卷（19 份有效樣本）顯示 74% 偏好整合式頁面，但系統可用性量表僅 56.8 分；12 位講師認同實用性，但採用意願較低。研究驗證技術可行性與初步正向感知，惟未測量學習成效。",
+    "summarySource": "machine",
+    "url": "https://arxiv.org/abs/2611.15686",
+    "publishedAt": "2026-11-13T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "higher-ed",
+      "teaching",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "d7c1da8cb7dc41da",
+    "sourceId": "openai-news",
+    "title": "Supporting research on AI and children’s safety",
+    "summaryOriginal": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
+    "titleZhTW": "OpenAI 投入 200 萬美元 支援 AI 與兒童安全研究",
+    "summaryZhTW": "OpenAI 承諾撥款 200 萬美元，資助關於 AI 對兒童安全影響的研究。該計畫旨在開發共享工具，衡量 AI 對青少年帶來的風險與機會，為教育現場制定防護措施提供實證依據。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/children-first-declaration",
+    "publishedAt": "2026-11-12T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "policy",
+      "research",
+      "k12"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "5273a827cababea8",
+    "sourceId": "ec-digital-education",
+    "title": "Report: Community for educational innovation - Education for green and digital innovation",
+    "summaryOriginal": "Report: Community for educational innovation - Education for green and digital innovation holbobe Wed, 11/11/2026 - 16:45 Document library Report: Community for educational innovation - Education for green and digital innovation This report draws on the Community for Educational Innovation’s (CEI) thematic strand ‘Education for green and digital innovation’ to examine how education and training…",
+    "titleZhTW": "歐盟報告探討教育如何推動綠色與數位雙轉型",
+    "summaryZhTW": "歐盟委員會發布報告，依據教育創新社群的主題研究，分析教育與訓練如何促成歐洲的綠色與數位雙重轉型。報告旨在為歐洲教育區的品質教育提供參考依據。原文僅提供報告發布資訊與下載連結，未揭露具體發現或建議內容。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/resources-and-tools/documents/report-community-for-educational-innovation-education-for-green-and-digital-innovation",
+    "publishedAt": "2026-11-11T15:45:51.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "policy",
+      "higher-ed",
+      "workforce"
+    ],
+    "region": "EU",
+    "language": "en"
+  },
+  {
+    "id": "ac94b61a25ade5ed",
+    "sourceId": "openai-news",
+    "title": "ChatGPT Plus for veterans and servicemembers",
+    "summaryOriginal": "More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.",
+    "titleZhTW": "ChatGPT Plus 免費開放予退伍軍人與現役軍人",
+    "summaryZhTW": "已有超過 2 萬名退伍軍人及轉役軍人領取一年免費 ChatGPT Plus 訂閱。他們利用此工具協助準備轉型至平民職涯，例如撰寫履歷、練習面試與學習新技能。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+    "publishedAt": "2026-11-11T08:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "workforce",
+      "tools"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "b9ad3f3d5f258e20",
+    "sourceId": "ec-digital-education",
+    "title": "Essentials for successful education in green and digital – insights from Community for Educational Innovation",
+    "summaryOriginal": "Essentials for successful education in green and digital – insights from Community for Educational Innovation holbobe Wed, 11/11/2026 - 08:44 Reshaping economiesEurope requires more than learners who can navigate digital tools or understand sustainability. As the green and digital transitions reshape economies, education and training are essential investments to make Europe innovate, remain…",
+    "titleZhTW": "歐盟報告：綠色與數位教育成功關鍵在教師專業發展與產學合作",
+    "summaryZhTW": "歐盟委員會發布報告，整理歐洲各地綠色與數位轉型的教育優良實踐，強調教師是落實關鍵。報告重點介紹 Erasmus+ DigiSET 專案整合數位、綠色、生活與 AI 能力的教師培訓模式、芬蘭職業教育結合能力導向課程與職場評估的做法，以及馬德里理工大學利用數位孿生打造校園永續實驗室。這些案例展示如何將政策目標轉化為可複製的具體行動。",
+    "summarySource": "machine",
+    "url": "https://education.ec.europa.eu/whats-new/news/essentials-for-successful-education-in-green-and-digital-insights-from-community-for-educational-innovation",
+    "publishedAt": "2026-11-11T07:44:56.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "policy",
+      "higher-ed",
+      "workforce"
+    ],
+    "region": "EU",
+    "language": "en"
+  },
+  {
+    "id": "d6b7e7352276306d",
+    "sourceId": "edsurge",
+    "title": "The Day the Take-Home Essay Died: How I Stopped Grading AI and Started Designing Real Learning",
+    "summaryOriginal": "When generative AI exposed the flaws in my traditional assignments, I redesigned student learning experiences — turning AI from a cheating tool to a ...",
+    "titleZhTW": "教師放棄居家作文改設計真實學習，讓 AI 成認知對手而非捷徑",
+    "summaryZhTW": "作者發現學生大量用生成式 AI 完成作文，傳統居家作文已失去評量效力。她不選擇封鎖或偵測，而是重新設計評量：先讓 AI 產出帶偏見的摘要，要求學生批判分析；再導入專題式學習，讓學生以「鯊魚坦克」方式現場捍衛自創方案。評量重心從單一高風險作文轉為多階段、可見的認知歷程，促使學生展現真實推理與解決問題能力。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/the-day-the-take-home-essay-died-how-i-stopped-grading-ai-and-started-designing-real-learning",
+    "publishedAt": "2026-11-11T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "teaching",
+      "integrity",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "3c0ed24009c9de78",
+    "sourceId": "edsurge",
+    "title": "Can Schools Prepare Students to Vote Without Telling Them What to Think?",
+    "summaryOriginal": "Two conversations examine how schools help young people weigh the facts and make up their own minds.",
+    "titleZhTW": "學校如何引導學生獨立判斷投票，而非灌輸立場",
+    "summaryZhTW": "EdSurge 探討學校在選舉期間如何協助學生辨析事實、自主決定，而非告訴他們投給誰。Vote Smart 開發的聊天機器人 Civic Sage 僅提供經查證的候選人資料，拒絕評價誰「好」或「壞」，教師則在課堂引導學生討論此類價值判斷。報導並記錄多位教師將期中選舉作為公民教育實驗：紐約教師讓學生研究州外選情、愛荷華教師移除黨籍標籤讓學生聚焦政見、伊利諾州教師以重劃選區教導權力博弈。調查顯示 63% 年輕人覺得意見不受重視，但投票意願卻上升 15 個百分點，媒體素養因此成為公民課必修內容。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/can-schools-prepare-students-to-vote-without-telling-them-what-to-think",
+    "publishedAt": "2026-11-11T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "teaching",
+      "policy",
+      "k12"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
+    "id": "0f0020abcf733229",
+    "sourceId": "openai-news",
+    "title": "Helping caregivers use AI in everyday life",
+    "summaryOriginal": "OpenAI Academy is bringing free, hands-on ChatGPT workshops to caregivers in five U.S. cities, helping them build practical AI skills for everyday life.",
+    "titleZhTW": "OpenAI 學院免費舉辦照顧者 ChatGPT 實作工作坊",
+    "summaryZhTW": "OpenAI 學院將在五個美國城市提供免費實體工作坊，教導照顧者運用 ChatGPT 處理日常事務。課程著重實作技能，協助照顧者將生成式 AI 融入照護與生活行政，降低使用門檻。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
+    "publishedAt": "2026-11-10T12:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "teaching",
+      "tools",
+      "workforce"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "69d4d9d74efa0162",
+    "sourceId": "openai-news",
+    "title": "Closing the AI guidance gap in education",
+    "summaryOriginal": "New ThinkYoung research and lessons from OpenAI’s EMEA education partnerships on supporting teachers, AI literacy, and independent learning.",
+    "titleZhTW": "OpenAI 與 ThinkYoung 合作縮減教育 AI 指導落差",
+    "summaryZhTW": "OpenAI 分享與 ThinkYoung 合作研究及 EMEA 區教育夥伴經驗，聚焦支援教師、提升 AI 素養與培養學生自主學習能力。此舉旨在協助教育現場建立完善 AI 使用指引，減少師生在生成式 AI 應用上的指導缺口。",
+    "summarySource": "machine",
+    "url": "https://openai.com/index/closing-ai-guidance-gap-education",
+    "publishedAt": "2026-11-10T09:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "policy",
+      "teaching",
+      "research"
+    ],
+    "region": "GLOBAL",
+    "language": "en"
+  },
+  {
+    "id": "0ee515d17420fa2d",
+    "sourceId": "edsurge",
+    "title": "Can AI Tell How Well Teachers Notice? Researchers Are Testing It.",
+    "summaryOriginal": "The team will study whether AI can measure a key teaching skill and provide useful feedback faster than humans.",
+    "titleZhTW": "研究測試生成式 AI 能否評估教師「專業觀察」能力並提供即時回饋",
+    "summaryZhTW": "羅文大學與肯塔基大學研究團隊獲美國國家科學基金會補助，將測試 Claude、ChatGPT 等商用生成式 AI 工具，評估 150 位現職與學前數學教師的專業觀察能力。專業觀察指教師關注、解讀學生思維並據此做教學決策的能力，傳統人工評分耗時且難以及時回饋。研究將比較 AI 與專家評分一致性，並開發可在 24 小時內提供優缺點報告的工具，期望協助教師更快調整教學、支援學生學習。",
+    "summarySource": "machine",
+    "url": "https://www.edsurge.com/news/can-ai-tell-how-well-teachers-notice-researchers-are-testing-it",
+    "publishedAt": "2026-11-09T00:00:00.000Z",
+    "fetchedAt": "2026-11-16T01:07:46.646Z",
+    "issue": "2026-W46",
+    "topics": [
+      "teaching",
+      "tools",
+      "research"
+    ],
+    "region": "US",
+    "language": "en"
+  },
+  {
     "id": "f65b17de0ed9446e",
     "sourceId": "edweek",
     "title": "Lawsuit Blames a School-Issued Chromebook for Student’s Mental Health Crisis",
